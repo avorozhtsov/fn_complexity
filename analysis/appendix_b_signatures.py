@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Generate Appendix B's stabilized 99-signature order and exceptions.
+"""Generate Appendix B's stabilized 69-signature order and exceptions.
 
 The candidate exhaustion is
 
     S_B = {a : len(a) >= 2, a_1 > 1, a_1 + 2 len(a) <= B}.
 
 It contains every non-special signature for all sufficiently large ``B``.
-The deterministic condensation-DAG order has the same first 99 entries for
+The deterministic condensation-DAG order has the same first 69 entries for
 ``B=18`` and ``B=19`` (verified with the power-sum screening calculation).
 Displayed rates and exception relations are recomputed here with the
 high-accuracy persistent cache.
@@ -26,9 +26,9 @@ from exchange_matrix_extended import (  # noqa: E402
 from fn_complexity import ExchangeRateCache  # noqa: E402
 
 OUTPUT_PATH = PROJECT_ROOT / "paper" / "appendix_b_signatures.tex"
-TABLE_SIZE = 99
+TABLE_SIZE = 69
 STABILITY_BUDGETS = (18, 19)
-STABLE_FIRST_99 = (
+STABILIZED_ORDER_PREFIX = (
     (2, 1),
     (2, 2),
     (3, 1),
@@ -136,20 +136,24 @@ def tex_signature(signature: tuple[int, ...]) -> str:
 
 
 def render_order_table(ordered: list[tuple[int, ...]]) -> list[str]:
+    if len(ordered) % 3:
+        raise ValueError("the three-block table requires a multiple of three")
+    rows_per_block = len(ordered) // 3
     lines = [
         r"\begingroup",
         r"\footnotesize",
         r"\begin{longtable}{@{}r l@{\qquad}r l@{\qquad}r l@{}}",
-        r"  \caption{The stabilized first 99 non-special signatures in the",
+        rf"  \caption{{The stabilized first {len(ordered)} non-special "
+        r"signatures in the",
         r"  deterministic condensation-DAG order.}",
-        r"  \label{tab:first-99-signatures}\\",
+        rf"  \label{{tab:first-{len(ordered)}-signatures}}\\",
         r"    \toprule",
         r"    \(n\) & signature & \(n\) & signature & \(n\) & signature \\",
         r"    \midrule",
     ]
-    for row in range(33):
+    for row in range(rows_per_block):
         cells: list[str] = []
-        for offset in (0, 33, 66):
+        for offset in (0, rows_per_block, 2 * rows_per_block):
             index = row + offset
             cells.extend([str(index + 1), tex_signature(ordered[index])])
         lines.append("    " + " & ".join(cells) + r" \\")
@@ -210,9 +214,21 @@ def render_exception_table(
 
         rendered_exceptions = []
         for (forward_rate, reverse_rate), earlier_numbers in grouped.items():
-            numbers = ",".join(str(value) for value in earlier_numbers)
+            if len(earlier_numbers) == 1:
+                earlier_number = earlier_numbers[0]
+                earlier_signature = ",".join(
+                    map(str, ordered[earlier_number - 1])
+                )
+                reference = (
+                    rf"\(n_a={earlier_number},\ "
+                    rf"a=\sig{{{earlier_signature}}}\)"
+                )
+            else:
+                numbers = ",".join(str(value) for value in earlier_numbers)
+                reference = rf"\(n_a\in\{{{numbers}\}}\)"
             rendered_exceptions.append(
-                rf"\(n_a\in\{{{numbers}\}}\):\newline "
+                reference
+                + r":\newline "
                 rf"\(\quad C(x\!\mid\!a)={forward_rate},\ "
                 rf"C(a\!\mid\!x)={reverse_rate}\)"
             )
@@ -228,9 +244,11 @@ def render_exception_table(
 
 
 def main() -> int:
-    ordered = list(STABLE_FIRST_99)
+    ordered = list(STABILIZED_ORDER_PREFIX[:TABLE_SIZE])
     if len(ordered) != TABLE_SIZE or len(set(ordered)) != TABLE_SIZE:
-        raise AssertionError("the stabilized table must contain 99 signatures")
+        raise AssertionError(
+            f"the stabilized table must contain {TABLE_SIZE} signatures"
+        )
 
     cache = ExchangeRateCache()
     rates = {

@@ -40,7 +40,10 @@ Power sums compute this operationally defined limit, while Gibbs
 energy--entropy curves provide a geometric picture.  The comparison obtained
 by putting the two directed rates side by side is not transitive: the three
 signatures \(\sig{5,3}\), \(\sig{3,1,1}\), and \(\sig{6,1}\) form a strict
-cycle.
+cycle.  This is a concrete monoidal resource theory of finite deterministic
+computational tasks: its one-shot convertibility resembles strong Weihrauch
+reducibility, while its asymptotic exchange rate is a finite-map analogue of
+tensor relative exponents and Strassen's asymptotic spectrum.
 \end{abstract}
 
 \section{Signatures and implementation}
@@ -109,6 +112,35 @@ assigned fiber of \(g\).
 The Cartesian product \(a\otimes b\) has all products \(a_i b_j\) as its
 fiber sizes, with multiplicity.  We write \(a^{\otimes k}\) for the \(k\)-fold
 product.
+\[
+  a\otimes b
+  =\operatorname{sort}\{a_i b_j:1\leq i\leq r,\ 1\leq j\leq s\}.
+\]
+
+There is also a natural sum.  The disjoint union of maps
+\[
+  f\sqcup g:X_f\sqcup X_g\longrightarrow Y_f\sqcup Y_g
+\]
+has as its signature the sorted concatenation of the two signatures; we write
+this as
+\[
+  a+b=\operatorname{sort}(a_1,\ldots,a_r,b_1,\ldots,b_s).
+\]
+Both operations respect implementation, and Cartesian product distributes
+over this sum:
+\[
+  a\impl b,\ c\impl d
+  \quad\Longrightarrow\quad
+  a+c\impl b+d,\quad a\otimes c\impl b\otimes d,
+  \qquad
+  a\otimes(b+c)=(a\otimes b)+(a\otimes c).
+\]
+Thus signatures form the nonzero part of an ordered commutative semiring
+(adjoining the empty signature gives the additive zero), with multiplicative
+unit \(\{1\}\).  The sum represents a disjoint, classically labelled
+alternative, whereas \(\otimes\) represents independent parallel
+composition.  Only \(\otimes\) is needed in the exchange-rate definition
+below.
 
 \begin{definition}[Exchange rate]
 For signatures \(f\) and \(g\), set
@@ -129,6 +161,55 @@ The sequence \(k_{\max}\) is superadditive: implementations for \(n\) and
 Thus the limit is the definition; the infimum below is a computational
 characterization.
 
+\section{Related frameworks}
+
+The present construction is a concrete semiring resource theory: signatures
+are resources, implementation is free conversion, disjoint union supplies
+addition, and Cartesian product combines independent resources.  General
+resource theories formulate
+convertibility from freely available processes and explicitly ask for rates
+between many copies, while ordered commutative monoids and semirings provide
+an algebraic treatment of conversion, combination, and asymptotic rates
+(see, e.g., \cite{coecke-fritz-spekkens-2016,fritz-2017}).
+
+At the one-shot level, the factorization
+\[
+  f=h_{\mathrm{out}}\circ g\circ h_{\mathrm{in}}
+\]
+resembles strong Weihrauch reducibility of computational problems, in which a
+single use of \(g\) is surrounded by computable preprocessing and
+postprocessing (see \cite{brattka-gherardi-pauly-2021}).  Weihrauch theory
+also has a parallel product.  The important distinction is that our finite
+processors are injective or bijective on the used sets; arbitrary computable
+processors would forget the fiber capacities that this paper retains.
+
+An even closer asymptotic precedent comes from algebraic complexity.  Tensors
+encode bilinear computational tasks, restriction converts one tensor to
+another by linear maps, and tensor product combines independent copies.
+Strassen's asymptotic spectrum characterizes large tensor powers by
+multiplicative monotones (see \cite{strassen-1988}).  The relative exponent
+\[
+  \omega(t,s)
+  =\lim_{n\to\infty}\frac1n
+    \min\{m:t^{\otimes m}\text{ restricts to }s^{\otimes n}\}
+\]
+is the resource cost per target copy and has been used to quantify
+irreversibility in matrix-multiplication methods
+(see \cite{christandl-vrana-zuiddam-2021}).  With the direction reversed, it
+is the reciprocal convention to \(C(t\mid s)\).  In our setting the
+multiplicative quantities \(Z_a(\beta)\), or their additive logarithms, play
+the role of spectral monotones.  The resulting infimum over power sums is
+also close to the exact asymptotic-majorization rate, expressed as a minimum
+of ratios of R\'enyi entropies (see \cite{jensen-2019}).
+
+Finally, channel simulation surrounds repeated uses of a resource channel by
+an encoder and decoder in order to reproduce a target channel.  For
+point-to-point discrete memoryless channels with common-randomness assistance,
+the first-order interconversion rate is the ratio of channel capacities
+(see \cite{cao-et-al-2024}).  Appendix~A explains why its unrestricted
+finite-map variant has exactly the corresponding logarithmic
+output-cardinality form.
+
 \section{Power sums and Gibbs curves}
 
 For a signature \(a=(a_i)\), define its power-sum partition function
@@ -137,6 +218,13 @@ For a signature \(a=(a_i)\), define its power-sum partition function
 \]
 where \(\beta=1/T\) is inverse physical temperature.  Throughout this paper,
 \(T\) denotes temperature and never inverse temperature.
+The sum and product of signatures become the ordinary sum and product of
+partition functions:
+\[
+  Z_{a+b}(\beta)=Z_a(\beta)+Z_b(\beta),
+  \qquad
+  Z_{a\otimes b}(\beta)=Z_a(\beta)Z_b(\beta).
+\]
 The fibers of the \(k\)-fold Cartesian power \(a^{\otimes k}\) are indexed by
 \((i_1,\ldots,i_k)\) and have sizes \(a_{i_1}\cdots a_{i_k}\).  Consequently,
 \begin{align}
@@ -330,6 +418,7 @@ finite-temperature tangencies rather than endpoint contacts.
 \end{figure}
 
 \section{A cyclic strict comparison}
+\label{sec:strict-cycle}
 
 \begin{definition}
 For signatures \(a,b\), define
@@ -452,6 +541,66 @@ potentials.  This condition is not part of the definition of
 implementation.  Consequently, the rate inequalities should be called
 \emph{allowed conversion directions}, not spontaneous reaction directions.
 
+The strict three-cycle suggests a sharper, explicitly nonequilibrium analogy.
+For a strict comparison arrow
+\(a\overset{\mathrm{s}}{\longrightarrow}b\), define the dimensionless
+\emph{complexity affinity}
+\[
+  \alpha(a\to b)
+  =\log\frac{C(a\mid b)}{C(b\mid a)}>0.
+\]
+For the cycle in Section~\ref{sec:strict-cycle}, whose arrow orientation is
+\[
+  f_1\overset{\mathrm{s}}{\longrightarrow}f_3
+  \overset{\mathrm{s}}{\longrightarrow}f_2
+  \overset{\mathrm{s}}{\longrightarrow}f_1,
+\]
+the total complexity-cycle affinity is
+\[
+\begin{split}
+  \mathcal A_{\mathrm{cyc}}
+  ={}&\alpha(f_1\to f_3)+\alpha(f_3\to f_2)+\alpha(f_2\to f_1)\\
+  ={}&
+  \log\frac{0.898244402}{0.897931851}
+  +\log\frac{0.630929754}{0.613147193}
+  +\log\frac{0.670211928}{0.630929754}\\
+  ={}&0.089337,
+  \qquad e^{\mathcal A_{\mathrm{cyc}}}=1.09345.
+\end{split}
+\]
+If \(\alpha\) is formally read as a logarithmic forward--reverse reaction
+bias, this resembles a preferred cycle in a three-component reaction network,
+\[
+  A\rightleftharpoons B,\qquad
+  B\rightleftharpoons C,\qquad
+  C\rightleftharpoons A.
+\]
+
+Such a cycle cannot describe spontaneous circulation in a closed equilibrium
+gas.  Reaction affinity is the negative derivative of Gibbs energy with
+respect to reaction extent
+(see \cite{iupac-affinity});
+because Gibbs energy is a state function, the total affinity around a closed
+equilibrium cycle vanishes.  Equivalently, detailed balance imposes the
+Wegscheider cycle condition, so all three directions cannot simultaneously
+have strictly positive equilibrium affinity.  A nonzero cycle affinity instead
+belongs naturally to an open system driven by chemostats, fuel, radiation, or
+other reservoirs.  Open chemical reaction networks with emergent cycles and
+nonvanishing affinities are developed by Polettini and Esposito
+\cite{polettini-esposito-2014} and Rao and Esposito
+\cite{rao-esposito-2016}; Schmiedl and Seifert
+\cite{schmiedl-seifert-2007} give a stochastic-thermodynamic three-species
+cyclic example.
+
+This identification remains structural rather than physical.  The quantities
+\(C(a\mid b)\) are conversion capacities, not kinetic rate constants; the
+three pairwise infima may occur at different temperatures; and the signature
+model supplies neither reaction kinetics nor conservation laws, stoichiometric
+closure, or external work accounting.  Hence a strict comparison cycle is a
+\emph{candidate nonequilibrium reaction cycle}: it gives an orientation and a
+formal cycle affinity, but by itself predicts neither a sustained current nor
+chemical oscillations.
+
 A constant reaction-energy term can nevertheless be represented cleanly.
 For
 \[
@@ -495,9 +644,8 @@ is the largest factor \(c\) for which
 read as an all-temperature, or worst-temperature, conversion rate; an
 interior minimizing \(T_*\) is the bottleneck temperature.  The closest
 established framework is the resource theory without a fixed background
-temperature developed by
-\href{https://arxiv.org/abs/1607.01302}
-{Sparaciari, Oppenheim, and Fritz}.  There, asymptotically many
+temperature developed by Sparaciari, Oppenheim, and Fritz
+(see \cite{sparaciari-oppenheim-fritz-2017}).  There, asymptotically many
 noninteracting systems are classified by energy and entropy, and conversion
 rates are read from a two-dimensional energy--entropy diagram.  Our
 construction specializes this idea to complete Gibbs boundaries and requires
@@ -536,8 +684,7 @@ equilibrium in the relativistic regime; when the temperature fell below the
 electron mass, annihilation transferred entropy to the photon bath.  Detailed
 calculations confirm that most annihilation occurred near equilibrium and
 that the process affects big-bang nucleosynthesis and the effective
-relativistic degrees of freedom
-\href{https://doi.org/10.1103/PhysRevD.101.063507}{[Thomas et al., 2020]}.
+relativistic degrees of freedom (see \cite{thomas-et-al-2020}).
 
 For arbitrary Gibbs systems this should initially be viewed as a proposed
 complexity comparison: unlike finite-map signatures, its operational
@@ -555,6 +702,105 @@ single global ranking: pairwise exchange advantage can be cyclic.
 The thermodynamic analogy suggests using the same Gibbs-region comparison
 for broader systems while keeping conversion capacity distinct from physical
 reaction affinity.
+
+\begin{thebibliography}{99}
+\raggedright
+
+\bibitem{coecke-fritz-spekkens-2016}
+B.~Coecke, T.~Fritz, and R.~W.~Spekkens,
+``A mathematical theory of resources,''
+\emph{Information and Computation} \textbf{250}, 59--86 (2016).
+\href{https://doi.org/10.1016/j.ic.2016.02.008}
+{doi:10.1016/j.ic.2016.02.008}.
+
+\bibitem{fritz-2017}
+T.~Fritz,
+``Resource convertibility and ordered commutative monoids,''
+\emph{Math. Struct. Comput. Sci.} \textbf{27}, 850--938 (2017).
+\href{https://doi.org/10.1017/S0960129515000444}
+{doi:10.1017/S0960129515000444}.
+
+\bibitem{brattka-gherardi-pauly-2021}
+V.~Brattka, G.~Gherardi, and A.~Pauly,
+``Weihrauch complexity in computable analysis,''
+in \emph{Handbook of Computability and Complexity in Analysis},
+pp.~367--417 (Springer, Cham, 2021).
+\href{https://doi.org/10.1007/978-3-030-59234-9_11}
+{doi:10.1007/978-3-030-59234-9\_11}.
+
+\bibitem{strassen-1988}
+V.~Strassen,
+``The asymptotic spectrum of tensors,''
+\emph{J. Reine Angew. Math.} \textbf{384}, 102--152 (1988).
+\href{https://doi.org/10.1515/crll.1988.384.102}
+{doi:10.1515/crll.1988.384.102}.
+
+\bibitem{christandl-vrana-zuiddam-2021}
+M.~Christandl, P.~Vrana, and J.~Zuiddam,
+``Barriers for fast matrix multiplication from irreversibility,''
+\emph{Theory Comput.} \textbf{17}(2), 1--32 (2021).
+\href{https://doi.org/10.4086/toc.2021.v017a002}
+{doi:10.4086/toc.2021.v017a002}.
+
+\bibitem{jensen-2019}
+A.~Kj{\ae}rulff Jensen,
+``Asymptotic majorization of finite probability distributions,''
+\emph{IEEE Trans. Inf. Theory} \textbf{65}, 8131--8139 (2019).
+\href{https://doi.org/10.1109/TIT.2019.2922627}
+{doi:10.1109/TIT.2019.2922627}.
+
+\bibitem{cao-et-al-2024}
+M.~X.~Cao, N.~Ramakrishnan, M.~Berta, and M.~Tomamichel,
+``Channel simulation: finite blocklengths and broadcast channels,''
+\emph{IEEE Trans. Inf. Theory} \textbf{70}, 6780--6808 (2024).
+\href{https://doi.org/10.1109/TIT.2024.3445998}
+{doi:10.1109/TIT.2024.3445998};
+\href{https://arxiv.org/abs/2212.11666}{arXiv:2212.11666}.
+
+\bibitem{iupac-affinity}
+International Union of Pure and Applied Chemistry,
+``Affinity of reaction,''
+\emph{Compendium of Chemical Terminology (the Gold Book)}, 5th ed.,
+online version 5.0.0 (2025).
+\href{https://doi.org/10.1351/goldbook.A00178}
+{doi:10.1351/goldbook.A00178}.
+
+\bibitem{polettini-esposito-2014}
+M.~Polettini and M.~Esposito,
+``Irreversible thermodynamics of open chemical networks I:
+emergent cycles and broken conservation laws,''
+\emph{J. Chem. Phys.} \textbf{141}, 024117 (2014).
+\href{https://doi.org/10.1063/1.4886396}{doi:10.1063/1.4886396}.
+
+\bibitem{rao-esposito-2016}
+R.~Rao and M.~Esposito,
+``Nonequilibrium thermodynamics of chemical reaction networks:
+wisdom from stochastic thermodynamics,''
+\emph{Phys. Rev. X} \textbf{6}, 041064 (2016).
+\href{https://doi.org/10.1103/PhysRevX.6.041064}
+{doi:10.1103/PhysRevX.6.041064}.
+
+\bibitem{schmiedl-seifert-2007}
+T.~Schmiedl and U.~Seifert,
+``Stochastic thermodynamics of chemical reaction networks,''
+\emph{J. Chem. Phys.} \textbf{126}, 044101 (2007).
+\href{https://doi.org/10.1063/1.2428297}{doi:10.1063/1.2428297}.
+
+\bibitem{sparaciari-oppenheim-fritz-2017}
+C.~Sparaciari, J.~Oppenheim, and T.~Fritz,
+``A resource theory for work and heat,''
+\emph{Phys. Rev. A} \textbf{96}, 052112 (2017).
+\href{https://doi.org/10.1103/PhysRevA.96.052112}
+{doi:10.1103/PhysRevA.96.052112}.
+
+\bibitem{thomas-et-al-2020}
+L.~C.~Thomas, T.~Dezen, E.~B.~Grohs, and C.~T.~Kishimoto,
+``Electron-positron annihilation freeze-out in the early universe,''
+\emph{Phys. Rev. D} \textbf{101}, 063507 (2020).
+\href{https://doi.org/10.1103/PhysRevD.101.063507}
+{doi:10.1103/PhysRevD.101.063507}.
+
+\end{thebibliography}
 
 \appendix
 \section{Unrestricted input and output maps}
@@ -584,6 +830,13 @@ Consequently, when \(|Y_a|,|Y_b|>1\),
   \boxed{\displaystyle
   C(a\mid b)=\frac{\log|Y_a|}{\log|Y_b|}}.
 \]
+This is the same first-order form as assisted point-to-point channel
+interconversion \cite{cao-et-al-2024}: a surjective deterministic channel with
+output set \(Y\) has capacity \(\log|Y|\), so the displayed rate is the ratio
+of the two channel capacities.  The unrestricted variant therefore sees only
+ordinary communication capacity, whereas the injective and bijective
+processors in the main theory retain the individual fiber sizes.
+
 Thus \(C(a\mid b)C(b\mid a)=1\), and the comparison from
 Definition~3 reduces to
 \[
@@ -598,7 +851,7 @@ becomes a linear order after identifying signatures having the same
 no role.  If \(|Y_b|=1\), then \(C(a\mid b)=+\infty\); if
 \(|Y_a|=1<|Y_b|\), then \(C(a\mid b)=0\).
 
-\section{The first 99 non-special signatures}
+\section{The first 69 non-special signatures}
 
 Singleton signatures \(\sig{N}\) and all-ones signatures
 \(\sig{1,\ldots,1}\) form exceptional infinite families and are omitted from
@@ -612,8 +865,8 @@ Every non-special signature belongs to \(\mathcal S_B\) for all sufficiently
 large \(B\).  For each \(B\), we contract the strongly connected components
 of the strict comparison graph and use the deterministic topological order
 described in the analysis code.  At the stated numerical screening precision,
-the first 99 entries are identical for \(B=18\) and \(B=19\);
-Table~\ref{tab:first-99-signatures} records this stabilized cutoff.  Its
+the first 69 entries are identical for \(B=18\), \(B=19\), and \(B=20\);
+Table~\ref{tab:first-69-signatures} records this stabilized cutoff.  Its
 displayed rates are then recomputed with the high-accuracy persistent cache.
 
 Because \(\prec\) is not transitive, the resulting numbered list is not a
@@ -627,5 +880,175 @@ directed rates.  Thus each listed entry satisfies
 despite \(a\) appearing before \(x\).
 
 \input{appendix_b_signatures.tex}
+
+\subsection{The global comparison clusters}
+
+On the infinite family of non-special integer signatures, we distinguish a
+non-strict and a strict comparison arrow:
+\[
+  a\longrightarrow b
+  \quad\Longleftrightarrow\quad
+  C(a\mid b)\geq C(b\mid a),
+  \qquad
+  a\overset{\mathrm{s}}{\longrightarrow}b
+  \quad\Longleftrightarrow\quad
+  C(a\mid b)>C(b\mid a).
+\]
+Thus an arrow points from the greater element toward the smaller one, like
+the \(>\) symbol; equivalently,
+\(a\overset{\mathrm{s}}{\longrightarrow}b\) means \(b\prec a\).
+Equality produces two opposite non-strict arrows and no strict arrow.  Define
+the corresponding clusters as the strongly connected components
+\[
+  \operatorname{Cl}_{\geq}(a)
+  =\{b:a\longrightarrow^{*}b
+          \ \text{and}\ b\longrightarrow^{*}a\},
+\]
+and analogously define \(\operatorname{Cl}_{>}(a)\) using only
+\(\overset{\mathrm{s}}{\longrightarrow}\).  Reversing the orientation used
+for the arrows does not change either strongly connected component.
+
+This is an infinite-graph question: a strongly connected component of a
+finite induced subgraph need not equal the intersection of the global
+component with that subgraph, because paths may pass through signatures
+outside the truncation.  In particular, the 69-prefix give misleadingly small
+components.
+
+Calculations on the nested finite shells \(\mathcal S_B\) suggest the following
+non-strict global description, which we leave as a conjecture:
+\[
+  \operatorname{Cl}_{\geq}\bigl(\sig{3,1,1}\bigr)
+  =
+  \{a:|a|\geq2,\ a_1>1\}
+  \setminus\{\sig{2,1},\sig{2,2}\}.
+\]
+For example, the component contains 112 of the 129 signatures in
+\(\mathcal S_{12}\), and 2498 of the 2560 signatures in
+\(\mathcal S_{18}\).  Across the tested shells \(12\leq B\leq18\), these
+finite components do not stabilize: signatures near the boundary of a smaller
+shell join through paths appearing in larger shells.  Thus no finite list is
+asserted here.
+
+The strict cluster appears to have an equally simple description.  Put
+\[
+\begin{split}
+  \mathcal E_{\mathrm{s}}=\{&
+    \sig{2,1},\sig{2,2},
+    \sig{3,1},\sig{3,2},\sig{3,3},
+    \sig{4,1},\sig{4,2},\sig{4,3},\\
+    &\sig{2,1,1},\sig{2,2,1},\sig{2,2,2},
+    \sig{2,1,1,1}\}.
+\end{split}
+\]
+Our strict-cluster conjecture is
+\[
+  \operatorname{Cl}_{>}\bigl(\sig{3,1,1}\bigr)
+  =
+  \{a:|a|\geq2,\ a_1>1\}\setminus\mathcal E_{\mathrm{s}}.
+\]
+As finite-shell evidence, the strict component in \(\mathcal S_{20}\)
+contains 6719 of its 6738 signatures.  Its intersection with
+\(\mathcal S_{19}\) is exactly
+\(\mathcal S_{19}\setminus\mathcal E_{\mathrm{s}}\); the remaining seven
+excluded signatures are all new boundary points with
+\(a_1+2|a|=20\).  This pattern is evidence rather than a proof that later
+shells absorb every boundary exception and never absorb a member of
+\(\mathcal E_{\mathrm{s}}\).
+
+Here is one explicit strict cycle, computed inside \(\mathcal S_{14}\) with
+comparison tolerance \(2\cdot10^{-6}\).  The shortest strict path from
+\(\sig{9,1}\) to \(\sig{3,2,2,2}\), in the arrow orientation above, is
+\[
+  \sig{9,1}
+  \overset{\mathrm{s}}{\longrightarrow}\sig{3,3,3}
+  \overset{\mathrm{s}}{\longrightarrow}\sig{3,1,1,1}
+  \overset{\mathrm{s}}{\longrightarrow}\sig{8,4}
+  \overset{\mathrm{s}}{\longrightarrow}\sig{10,1}
+  \overset{\mathrm{s}}{\longrightarrow}\sig{3,2,2,2}.
+\]
+Every row of Table~\ref{tab:strict-path-forward} satisfies
+\(C(a\mid b)>C(b\mid a)\).
+
+\begin{table}[htbp]
+  \centering
+  \caption{Strict path from \(\sig{9,1}\) to \(\sig{3,2,2,2}\).}
+  \label{tab:strict-path-forward}
+  \begin{tabular}{@{}lrr@{}}
+    \toprule
+    Strict edge \(a\overset{\mathrm{s}}{\longrightarrow}b\)
+      & \(C(a\mid b)\) & \(C(b\mid a)\) \\
+    \midrule
+    \(\sig{9,1}\overset{\mathrm{s}}{\longrightarrow}\sig{3,3,3}\)
+      & 0.630929754 & 0.500000000 \\
+    \(\sig{3,3,3}\overset{\mathrm{s}}{\longrightarrow}\sig{3,1,1,1}\)
+      & 0.792481250 & 0.753940561 \\
+    \(\sig{3,1,1,1}\overset{\mathrm{s}}{\longrightarrow}\sig{8,4}\)
+      & 0.527921767 & 0.500000000 \\
+    \(\sig{8,4}\overset{\mathrm{s}}{\longrightarrow}\sig{10,1}\)
+      & 0.903089987 & 0.899142666 \\
+    \(\sig{10,1}\overset{\mathrm{s}}{\longrightarrow}\sig{3,2,2,2}\)
+      & 0.500000000 & 0.477121255 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The shortest strict return path has only two edges:
+\[
+  \sig{3,2,2,2}
+  \overset{\mathrm{s}}{\longrightarrow}\sig{7,5}
+  \overset{\mathrm{s}}{\longrightarrow}\sig{9,1}.
+\]
+
+\begin{table}[htbp]
+  \centering
+  \caption{Strict return path from \(\sig{3,2,2,2}\) to \(\sig{9,1}\).}
+  \label{tab:strict-path-return}
+  \begin{tabular}{@{}lrr@{}}
+    \toprule
+    Strict edge \(a\overset{\mathrm{s}}{\longrightarrow}b\)
+      & \(C(a\mid b)\) & \(C(b\mid a)\) \\
+    \midrule
+    \(\sig{3,2,2,2}\overset{\mathrm{s}}{\longrightarrow}\sig{7,5}\)
+      & 0.564574819 & 0.500000000 \\
+    \(\sig{7,5}\overset{\mathrm{s}}{\longrightarrow}\sig{9,1}\)
+      & 0.885621875 & 0.871797909 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\clearpage
+\subsection{A length-three strict cycle}
+
+Strict cyclicity is not caused by comparing signatures of different lengths.
+An exhaustive high-accuracy evaluation of the 55 non-special length-three
+signatures with entries at most \(6\) finds no strict three-cycle at comparison
+tolerance \(2\cdot10^{-6}\).  The first maximum entry for which the bounded
+search finds one is \(7\):
+\[
+  \sig{6,3,3}
+  \overset{\mathrm{s}}{\longrightarrow}\sig{7,2,1}
+  \overset{\mathrm{s}}{\longrightarrow}\sig{6,5,1}
+  \overset{\mathrm{s}}{\longrightarrow}\sig{6,3,3}.
+\]
+Table~\ref{tab:length-three-cycle} gives both directed rates on every edge.
+
+\begin{table}[htbp]
+  \centering
+  \caption{A strict three-cycle of length-three signatures.}
+  \label{tab:length-three-cycle}
+  \begin{tabular}{@{}lrrr@{}}
+    \toprule
+    Strict edge \(a\overset{\mathrm{s}}{\longrightarrow}b\)
+      & \(C(a\mid b)\) & \(C(b\mid a)\) & difference \\
+    \midrule
+    \(\sig{6,3,3}\overset{\mathrm{s}}{\longrightarrow}\sig{7,2,1}\)
+      & 0.920782221 & 0.910910734 & 0.009871488 \\
+    \(\sig{7,2,1}\overset{\mathrm{s}}{\longrightarrow}\sig{6,5,1}\)
+      & 0.924704131 & 0.920782221 & 0.003921910 \\
+    \(\sig{6,5,1}\overset{\mathrm{s}}{\longrightarrow}\sig{6,3,3}\)
+      & 0.975533650 & 0.959474358 & 0.016059292 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \end{document}

@@ -244,9 +244,9 @@ entries are computed, and the updated cache is saved atomically. Existing
 values from a previous matrix CSV are imported once before that CSV is
 replaced.
 
-## Appendix B: first 99 non-special signatures
+## Appendix B: first 69 non-special signatures
 
-Generate the paper's 99-signature table and its backward-comparison exception
+Generate the paper's 69-signature table and its backward-comparison exception
 table with:
 
 ```bash
@@ -262,7 +262,7 @@ S_B = {a : len(a) >= 2, a_1 > 1, a_1 + 2 len(a) <= B}.
 
 The strict comparison graph is contracted into strongly connected components
 and ordered through its condensation DAG. Power-sum screening gives the same
-first 99 signatures for `B=18` and `B=19`; the generator stores that stabilized
+first 69 signatures for `B=18` and `B=19`; the generator stores that stabilized
 cutoff and recomputes all displayed rates and exception relations with the
 high-accuracy persistent cache before writing
 `paper/appendix_b_signatures.tex`.
@@ -276,3 +276,9 @@ PYTHONPATH=src:analysis python analysis/stabilize_signature_order.py
 For a numbered signature `x`, an exception is an earlier signature `a` for
 which `x ≺ a`. Each exception prints both `C(x | a)` and `C(a | x)`. All
 comparisons use and extend the persistent exchange-rate cache.
+
+Appendix B also formulates the global strongly connected component problem for
+arrows `a -> b` when `C(a | b) >= C(b | a)`. Finite induced subgraphs do not
+determine this global cluster. Nested-shell screening currently supports, but
+does not prove, the conjecture that the cluster of `{3,1,1}` contains every
+non-special signature except `{2,1}` and `{2,2}`.

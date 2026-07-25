@@ -1,0 +1,145 @@
+#!/usr/bin/env python3
+"""Search a comparison cluster in the nested finite signature shells."""
+
+from __future__ import annotations
+
+import argparse
+from pathlib import Path
+import re
+import sys
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_ROOT / "src"))
+
+from fn_complexity import normalize_signature  # noqa: E402
+from fn_complexity.clusters import search_cluster  # noqa: E402
+
+
+def parse_signature(text: str) -> tuple[int, ...]:
+    """Parse ``3,1,1``, ``{3, 1, 1}``, and similar forms."""
+
+    cleaned = text.strip()
+    if len(cleaned) >= 2 and cleaned[0] in "{[(" and cleaned[-1] in "}])":
+        cleaned = cleaned[1:-1].strip()
+    tokens = [token for token in re.split(r"[\s,]+", cleaned) if token]
+    if not tokens or not all(re.fullmatch(r"[+]?\d+", token) for token in tokens):
+        raise argparse.ArgumentTypeError(
+            f"invalid signature {text!r}; use positive integers such as 3,1,1"
+        )
+    try:
+        return normalize_signature(int(token) for token in tokens)
+    except (TypeError, ValueError) as error:
+        raise argparse.ArgumentTypeError(str(error)) from error
+
+
+def positive_integer(text: str) -> int:
+    value = int(text)
+    if value < 1:
+        raise argparse.ArgumentTypeError("value must be a positive integer")
+    return value
+
+
+def label(signature: tuple[int, ...]) -> str:
+    return "{" + ",".join(map(str, signature)) + "}"
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Search the strongly connected comparison cluster Cl(a) in "
+            "S_B = {x: len(x)>=2, x_1>1, x_1+2len(x)<=B}."
+        )
+    )
+    parser.add_argument("a", type=parse_signature, help="target signature")
+    parser.add_argument(
+        "--n-max",
+        type=positive_integer,
+        help=(
+            "stop at the first shell yielding this many distinct members and "
+            "print at most this many"
+        ),
+    )
+    parser.add_argument(
+        "--max-b",
+        type=positive_integer,
+        default=18,
+        help="largest shell S_B to consider (default: 18)",
+    )
+    parser.add_argument(
+        "--grid-size",
+        type=positive_integer,
+        default=256,
+        help="number of inverse-temperature screening points (default: 256)",
+    )
+    parser.add_argument(
+        "--tolerance",
+        type=float,
+        default=2.0e-6,
+        help=(
+            "comparison tolerance; near ties get both arrows normally and "
+            "no arrows with --strict (default: 2e-6)"
+        ),
+    )
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help=(
+            "use a -> b iff C(a|b) > C(b|a); differences no larger "
+            "than --tolerance create no arrow"
+        ),
+    )
+    parser.add_argument(
+        "--quiet",
+        action="store_true",
+        help="do not print per-shell progress to stderr",
+    )
+    args = parser.parse_args()
+
+    def progress(budget: int, candidate_count: int) -> None:
+        if not args.quiet:
+            print(
+                f"screening S_{budget}: {candidate_count} signatures",
+                file=sys.stderr,
+                flush=True,
+            )
+
+    try:
+        result = search_cluster(
+            args.a,
+            n_max=args.n_max,
+            max_b=args.max_b,
+            grid_size=args.grid_size,
+            tolerance=args.tolerance,
+            strict=args.strict,
+            progress=progress,
+        )
+    except (RuntimeError, ValueError) as error:
+        parser.error(str(error))
+
+    print(f"target\t{label(result.target)}")
+    print(f"shell\tS_{result.shell_budget}")
+    print(f"candidates\t{result.candidate_count}")
+    print(f"cluster_size_in_shell\t{result.cluster_size}")
+    print(f"reported\t{len(result.members)}")
+    print(f"relation\t{'strict >' if args.strict else 'non-strict >='}")
+    if result.requested_maximum is not None:
+        status = (
+            "reached"
+            if result.reached_requested_maximum
+            else f"not reached before S_{args.max_b}"
+        )
+        print(f"n_max\t{result.requested_maximum} ({status})")
+    if result.truncated:
+        print(
+            "note\tcomponent exceeded --n-max in the stopping shell; "
+            "output is deterministically truncated"
+        )
+    print()
+    print("found_at_B\tsignature")
+    for budget, signature in zip(result.discovered_at, result.members):
+        print(f"{budget}\t{label(signature)}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

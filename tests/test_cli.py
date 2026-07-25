@@ -6,6 +6,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 CLI = PROJECT_ROOT / "cli" / "kmax_cli"
+CLUSTER_CLI = PROJECT_ROOT / "cli" / "cluster_cli"
 
 
 class KMaxCliTests(unittest.TestCase):
@@ -156,6 +157,61 @@ class KMaxCliTests(unittest.TestCase):
             self.assertIn("inverse limit gap Yₙ", svg)
             self.assertIn("Yₙ=−1/(1 − 1/n−C)", svg)
             self.assertNotIn('stroke="#f59e0b" stroke-width="3"', svg)
+
+
+class ClusterCliTests(unittest.TestCase):
+    def test_stops_after_requested_number_of_members(self):
+        result = subprocess.run(
+            [
+                str(CLUSTER_CLI),
+                "{3, 1, 1}",
+                "--n-max",
+                "3",
+                "--max-b",
+                "10",
+                "--grid-size",
+                "64",
+                "--quiet",
+            ],
+            cwd=PROJECT_ROOT,
+            text=True,
+            capture_output=True,
+            check=True,
+        )
+        self.assertIn("target\t{3,1,1}", result.stdout)
+        self.assertIn("reported\t3", result.stdout)
+        self.assertIn("n_max\t3 (reached)", result.stdout)
+
+    def test_rejects_shell_that_cannot_contain_target(self):
+        result = subprocess.run(
+            [str(CLUSTER_CLI), "3,1,1", "--max-b", "8", "--quiet"],
+            cwd=PROJECT_ROOT,
+            text=True,
+            capture_output=True,
+        )
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("beyond --max-b 8", result.stderr)
+
+    def test_strict_relation_is_reported(self):
+        result = subprocess.run(
+            [
+                str(CLUSTER_CLI),
+                "3,1",
+                "--n-max",
+                "2",
+                "--max-b",
+                "8",
+                "--grid-size",
+                "64",
+                "--strict",
+                "--quiet",
+            ],
+            cwd=PROJECT_ROOT,
+            text=True,
+            capture_output=True,
+            check=True,
+        )
+        self.assertIn("relation\tstrict >", result.stdout)
 
 
 if __name__ == "__main__":

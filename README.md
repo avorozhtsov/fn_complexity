@@ -114,11 +114,37 @@ Throughout the project, `T` always denotes physical temperature and
 matrix through `ExchangeRateCache`. Its 9,409 directed rates are stored in
 `src/fn_complexity/exchange_rates_cache.json` and are reused on later runs.
 The same cache also stores the additional comparisons used to construct the
-99-signature table in Appendix B, so the cache can contain more entries than
+69-signature table in Appendix B, so the cache can contain more entries than
 the matrix itself.
 The cache records the numerical algorithm and precision; a mismatch is
 rejected rather than silently mixing values computed under different
 settings.
+
+## Comparison-cluster CLI
+
+`cluster_cli` searches the strongly connected component of a non-special
+signature for arrows
+`a -> b` when `C(a | b) >= C(b | a)`, so arrows point toward the
+less-complex signature. It uses the exhaustive finite shells
+`S_B = {a : len(a) >= 2, a_1 > 1, a_1 + 2 len(a) <= B}` and the same
+vectorized power-sum screening used by the Appendix B analysis.
+
+```bash
+./cli/cluster_cli 3,1,1 --n-max 100 --max-b 18
+```
+
+With `--n-max`, shells are searched in increasing order and the command stops
+when that many distinct members have been found, or at `--max-b`. Without
+`--n-max`, it prints the complete component in `S_MAX_B`. Near-equal numerical
+comparisons receive arrows in both directions; tune this with `--tolerance`.
+Pass `--strict` to replace the default relation
+`C(a | b) >= C(b | a)` by `C(a | b) > C(b | a)`. In strict mode, differences
+no larger than `--tolerance` produce no arrow.
+The special CLI requires the analysis dependencies:
+
+```bash
+python -m pip install -e '.[analysis]'
+```
 
 ## Development
 

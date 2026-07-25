@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify stabilization of Appendix B's first 99 signatures.
+"""Verify stabilization of Appendix B's ordered signature prefix.
 
 This is the large screening calculation behind
 ``analysis/appendix_b_signatures.py``.  It requires NumPy and SciPy and uses a
@@ -22,7 +22,10 @@ from scipy.sparse.csgraph import connected_components
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
 
-from appendix_b_signatures import STABLE_FIRST_99  # noqa: E402
+from appendix_b_signatures import (  # noqa: E402
+    STABILIZED_ORDER_PREFIX,
+    TABLE_SIZE,
+)
 
 
 def candidate_signatures(budget: int) -> list[tuple[int, ...]]:
@@ -199,7 +202,7 @@ def first_signatures(
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--budgets", nargs="+", type=int, default=[18, 19])
-    parser.add_argument("--count", type=int, default=99)
+    parser.add_argument("--count", type=int, default=TABLE_SIZE)
     parser.add_argument("--grid-size", type=int, default=256)
     parser.add_argument("--tolerance", type=float, default=2.0e-6)
     args = parser.parse_args()
@@ -220,8 +223,8 @@ def main() -> int:
 
     if any(order != orders[0] for order in orders[1:]):
         raise AssertionError("the requested budget shells have not stabilized")
-    if args.count == len(STABLE_FIRST_99):
-        if tuple(orders[0]) != STABLE_FIRST_99:
+    if args.count <= len(STABILIZED_ORDER_PREFIX):
+        if tuple(orders[0]) != STABILIZED_ORDER_PREFIX[: args.count]:
             raise AssertionError(
                 "screened order differs from the stored Appendix B cutoff"
             )
