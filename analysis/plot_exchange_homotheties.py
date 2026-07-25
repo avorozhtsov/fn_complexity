@@ -18,6 +18,10 @@ from fn_complexity import ExchangeRateCache, gibbs_point  # noqa: E402
 SIGNATURES = ((5, 3), (3, 1, 1), (6, 1))
 COLORS = ("#0072B2", "#D55E00", "#7E57C2")
 OUTPUT_STEM = PROJECT_ROOT / "images" / "exchange-homotheties_cycle-5-3_3-1-1_6-1"
+FILL_ALPHA = 0.15  # 85% transparent.
+TARGET_LINEWIDTH = 4.2
+TARGET_CLOSURE_LINEWIDTH = 2.0
+SCALED_LINESTYLE = (0, (2, 3))
 
 
 def temperatures() -> tuple[float, ...]:
@@ -63,20 +67,8 @@ def main() -> int:
 
     for target_index, (axis, target) in enumerate(zip(axes, SIGNATURES)):
         axis.set_facecolor("white")
-        for source_index, (signature, color) in enumerate(
-            zip(SIGNATURES, COLORS)
-        ):
-            entropies, energies = curves[signature]
-            axis.plot(
-                entropies,
-                energies,
-                color=color,
-                linewidth=3.0 if source_index == target_index else 1.7,
-                alpha=1.0 if source_index == target_index else 0.48,
-                zorder=3 if source_index == target_index else 2,
-            )
 
-        dotted_handles: list[Line2D] = []
+        scaled_curves = []
         for source_index, (source, color) in enumerate(
             zip(SIGNATURES, COLORS)
         ):
@@ -84,12 +76,86 @@ def main() -> int:
                 continue
             scale = 1.0 / cache.get(source, target)
             entropies, energies = curves[source]
+            scaled_entropies = [scale * entropy for entropy in entropies]
+            scaled_energies = [scale * energy for energy in energies]
+            scaled_curves.append(
+                (
+                    source_index,
+                    source,
+                    color,
+                    scale,
+                    scaled_entropies,
+                    scaled_energies,
+                )
+            )
+            axis.fill_between(
+                scaled_entropies,
+                scaled_energies,
+                0.0,
+                color=color,
+                alpha=FILL_ALPHA,
+                linewidth=0.0,
+                zorder=0,
+            )
+
+        target_entropies, target_energies = curves[target]
+        axis.fill_between(
+            target_entropies,
+            target_energies,
+            0.0,
+            color=COLORS[target_index],
+            alpha=FILL_ALPHA,
+            linewidth=0.0,
+            zorder=1,
+        )
+
+        for source_index, (signature, color) in enumerate(
+            zip(SIGNATURES, COLORS)
+        ):
+            entropies, energies = curves[signature]
+            is_target = source_index == target_index
             axis.plot(
-                [scale * entropy for entropy in entropies],
-                [scale * energy for energy in energies],
+                entropies,
+                energies,
+                color=color,
+                linewidth=TARGET_LINEWIDTH if is_target else 1.7,
+                alpha=1.0 if is_target else 0.48,
+                zorder=4 if is_target else 3,
+            )
+            axis.vlines(
+                entropies[-1],
+                energies[-1],
+                0.0,
+                color=color,
+                linewidth=TARGET_CLOSURE_LINEWIDTH if is_target else 1.0,
+                alpha=1.0 if is_target else 0.48,
+                zorder=3,
+            )
+
+        dotted_handles: list[Line2D] = []
+        for (
+            source_index,
+            source,
+            color,
+            scale,
+            scaled_entropies,
+            scaled_energies,
+        ) in scaled_curves:
+            axis.plot(
+                scaled_entropies,
+                scaled_energies,
                 color=color,
                 linewidth=2.3,
-                linestyle=(0, (2, 3)),
+                linestyle=SCALED_LINESTYLE,
+                zorder=5,
+            )
+            axis.vlines(
+                scaled_entropies[-1],
+                scaled_energies[-1],
+                0.0,
+                color=color,
+                linewidth=1.2,
+                linestyle=SCALED_LINESTYLE,
                 zorder=4,
             )
             dotted_handles.append(
@@ -98,7 +164,7 @@ def main() -> int:
                     [0],
                     color=color,
                     linewidth=2.3,
-                    linestyle=(0, (2, 3)),
+                    linestyle=SCALED_LINESTYLE,
                     label=(
                         rf"${scale:.6f}\,f_{source_index + 1}$"
                         rf"$=f_{source_index + 1}/"
@@ -121,7 +187,7 @@ def main() -> int:
         axis.tick_params(colors="#374151")
         axis.legend(
             handles=dotted_handles,
-            title="tight dotted homotheties",
+            title="tight dotted homotheties\n(85% transparent fills)",
             loc="lower right",
             fontsize=9,
             title_fontsize=10,

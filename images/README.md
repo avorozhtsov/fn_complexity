@@ -49,7 +49,8 @@ PYTHONPATH=src python analysis/plot_exchange_homotheties.py
 
 The solid lines are original Gibbs regions. Dotted lines—including endpoint
 closures—belong to scaled homothetic regions; thin solid endpoint closures
-belong to the original regions.
+belong to the original regions. In the three-panel cyclic comparison, the
+target and scaled regions use 85%-transparent fills to display containment.
 
 Copy the three paper figures and rebuild the paper:
 
