@@ -32,6 +32,9 @@ computing the operationally defined limit, rather than a second definition.
 It is the supporting-line form of the Gibbs entropy-energy construction with
 energy levels `-log(n_i)`.
 
+The compiled paper is available as
+[exchange_rates_finite_map_signatures.pdf](paper/exchange_rates_finite_map_signatures.pdf).
+
 In map notation the direct product is
 `f^k : X_f^k -> Y_f^k`.  For the equation
 `f = h_out ◦ g ◦ h_in` to type-check, `h_out` maps the used subset of `Y_g`

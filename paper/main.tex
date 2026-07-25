@@ -602,10 +602,19 @@ no role.  If \(|Y_b|=1\), then \(C(a\mid b)=+\infty\); if
 
 Singleton signatures \(\sig{N}\) and all-ones signatures
 \(\sig{1,\ldots,1}\) form exceptional infinite families and are omitted from
-this finite list.  Starting from the catalog used for the exchange matrix, we
-adjoin all length-two signatures with largest entry \(7\) or \(8\), contract
-the strongly connected components of the strict comparison graph, and use
-the deterministic topological order described in the analysis code.
+this finite list.  To exhaust the remaining signatures without arbitrary
+length or entry caps, put
+\[
+  \mathcal S_B
+  =\{a:|a|\geq2,\ a_1>1,\ a_1+2|a|\leq B\}.
+\]
+Every non-special signature belongs to \(\mathcal S_B\) for all sufficiently
+large \(B\).  For each \(B\), we contract the strongly connected components
+of the strict comparison graph and use the deterministic topological order
+described in the analysis code.  At the stated numerical screening precision,
+the first 99 entries are identical for \(B=18\) and \(B=19\);
+Table~\ref{tab:first-99-signatures} records this stabilized cutoff.  Its
+displayed rates are then recomputed with the high-accuracy persistent cache.
 
 Because \(\prec\) is not transitive, the resulting numbered list is not a
 linear extension of every pairwise comparison.  In

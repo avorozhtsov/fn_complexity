@@ -1,9 +1,19 @@
 #!/usr/bin/env python3
-"""Generate Appendix B's 99-signature order and cycle exceptions."""
+"""Generate Appendix B's stabilized 99-signature order and exceptions.
+
+The candidate exhaustion is
+
+    S_B = {a : len(a) >= 2, a_1 > 1, a_1 + 2 len(a) <= B}.
+
+It contains every non-special signature for all sufficiently large ``B``.
+The deterministic condensation-DAG order has the same first 99 entries for
+``B=18`` and ``B=19`` (verified with the power-sum screening calculation).
+Displayed rates and exception relations are recomputed here with the
+high-accuracy persistent cache.
+"""
 
 from __future__ import annotations
 
-from itertools import combinations_with_replacement
 from pathlib import Path
 import sys
 
@@ -12,58 +22,117 @@ sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from exchange_matrix_extended import (  # noqa: E402
     comparison_graph,
-    condensation_layers,
-    signatures as original_signatures,
-    strongly_connected_components,
 )
 from fn_complexity import ExchangeRateCache  # noqa: E402
 
 OUTPUT_PATH = PROJECT_ROOT / "paper" / "appendix_b_signatures.tex"
 TABLE_SIZE = 99
-
-
-def extended_signatures() -> list[tuple[int, ...]]:
-    """Return the current catalog plus length-two signatures up to eight."""
-
-    result = original_signatures()
-    result.extend(
-        tuple(reversed(values))
-        for values in combinations_with_replacement(range(1, 9), 2)
-        if max(values) >= 7
-    )
-    # Singletons and all-ones signatures are exceptional infinite families and
-    # are deliberately excluded from the finite table.
-    return sorted(
-        {
-            signature
-            for signature in result
-            if len(signature) > 1 and signature[0] > 1
-        },
-        key=lambda signature: (len(signature), signature),
-    )
+STABILITY_BUDGETS = (18, 19)
+STABLE_FIRST_99 = (
+    (2, 1),
+    (2, 2),
+    (3, 1),
+    (2, 1, 1),
+    (3, 2),
+    (2, 2, 1),
+    (3, 3),
+    (2, 1, 1, 1),
+    (2, 2, 2),
+    (4, 1),
+    (4, 2),
+    (4, 3),
+    (4, 4),
+    (5, 1),
+    (5, 2),
+    (5, 3),
+    (5, 4),
+    (5, 5),
+    (6, 1),
+    (6, 2),
+    (6, 3),
+    (6, 4),
+    (6, 5),
+    (6, 6),
+    (7, 1),
+    (7, 2),
+    (7, 3),
+    (7, 4),
+    (7, 5),
+    (7, 6),
+    (7, 7),
+    (8, 1),
+    (8, 2),
+    (8, 3),
+    (8, 4),
+    (8, 5),
+    (8, 6),
+    (8, 7),
+    (8, 8),
+    (9, 1),
+    (9, 2),
+    (9, 3),
+    (9, 4),
+    (9, 5),
+    (9, 6),
+    (9, 7),
+    (9, 8),
+    (9, 9),
+    (10, 1),
+    (10, 2),
+    (10, 3),
+    (10, 4),
+    (10, 5),
+    (10, 6),
+    (10, 7),
+    (10, 8),
+    (10, 9),
+    (10, 10),
+    (11, 1),
+    (11, 2),
+    (11, 3),
+    (11, 4),
+    (11, 5),
+    (11, 6),
+    (11, 7),
+    (11, 8),
+    (11, 9),
+    (11, 10),
+    (11, 11),
+    (12, 1),
+    (12, 2),
+    (12, 3),
+    (12, 4),
+    (12, 5),
+    (12, 6),
+    (12, 7),
+    (12, 8),
+    (12, 9),
+    (12, 10),
+    (12, 11),
+    (12, 12),
+    (13, 1),
+    (13, 2),
+    (13, 3),
+    (13, 4),
+    (13, 5),
+    (13, 6),
+    (13, 7),
+    (13, 8),
+    (13, 9),
+    (13, 10),
+    (13, 11),
+    (13, 12),
+    (13, 13),
+    (14, 1),
+    (14, 2),
+    (14, 3),
+    (14, 4),
+    (14, 5),
+)
 
 
 def tex_signature(signature: tuple[int, ...]) -> str:
     return r"\(\sig{" + ",".join(map(str, signature)) + r"}\)"
-
-
-def ordered_signatures(
-    candidates: list[tuple[int, ...]],
-    rates: dict[tuple[tuple[int, ...], tuple[int, ...]], float],
-) -> tuple[
-    list[tuple[int, ...]],
-    dict[tuple[int, ...], set[tuple[int, ...]]],
-]:
-    outgoing, _ = comparison_graph(candidates, rates)
-    components = strongly_connected_components(candidates, outgoing)
-    layers = condensation_layers(components, outgoing)
-    ordered = [
-        signature
-        for layer in layers
-        for component_index in layer
-        for signature in components[component_index]
-    ]
-    return ordered[:TABLE_SIZE], outgoing
 
 
 def render_order_table(ordered: list[tuple[int, ...]]) -> list[str]:
@@ -71,8 +140,8 @@ def render_order_table(ordered: list[tuple[int, ...]]) -> list[str]:
         r"\begingroup",
         r"\footnotesize",
         r"\begin{longtable}{@{}r l@{\qquad}r l@{\qquad}r l@{}}",
-        r"  \caption{The first 99 non-special signatures in the deterministic",
-        r"  condensation-DAG order.}",
+        r"  \caption{The stabilized first 99 non-special signatures in the",
+        r"  deterministic condensation-DAG order.}",
         r"  \label{tab:first-99-signatures}\\",
         r"    \toprule",
         r"    \(n\) & signature & \(n\) & signature & \(n\) & signature \\",
@@ -159,17 +228,18 @@ def render_exception_table(
 
 
 def main() -> int:
-    candidates = extended_signatures()
+    ordered = list(STABLE_FIRST_99)
+    if len(ordered) != TABLE_SIZE or len(set(ordered)) != TABLE_SIZE:
+        raise AssertionError("the stabilized table must contain 99 signatures")
+
     cache = ExchangeRateCache()
     rates = {
         (implementer, implemented): cache.get(implementer, implemented)
-        for implementer in candidates
-        for implemented in candidates
+        for implementer in ordered
+        for implemented in ordered
     }
     cache.save()
-    ordered, outgoing = ordered_signatures(candidates, rates)
-    if len(ordered) != TABLE_SIZE:
-        raise AssertionError(f"expected {TABLE_SIZE} signatures")
+    outgoing, _ = comparison_graph(ordered, rates)
 
     exception_lines, exception_count = render_exception_table(
         ordered,
@@ -184,7 +254,7 @@ def main() -> int:
         "",
     ]
     OUTPUT_PATH.write_text("\n".join(content), encoding="utf-8")
-    print(f"candidates: {len(candidates)}")
+    print(f"stable budgets: {STABILITY_BUDGETS}")
     print(f"ordered signatures: {len(ordered)}")
     print(f"exception rows: {exception_count}")
     print(

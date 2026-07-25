@@ -22,4 +22,5 @@ htmlcov/
 /paper/*.log
 /paper/*.out
 /paper/*.pdf
+!/paper/exchange_rates_finite_map_signatures.pdf
 /paper/*.synctex.gz

@@ -253,11 +253,25 @@ table with:
 PYTHONPATH=src python analysis/appendix_b_signatures.py
 ```
 
-The candidate set starts with the extended 97-signature catalog, removes
-singletons and all-ones signatures, and adds every length-two signature with
-largest entry 7 or 8. The strict comparison graph is contracted into strongly
-connected components and ordered through its condensation DAG; the first 99
-signatures are written to `paper/appendix_b_signatures.tex`.
+Singletons and all-ones signatures are omitted. The remaining signatures are
+exhausted by the natural budgets
+
+```text
+S_B = {a : len(a) >= 2, a_1 > 1, a_1 + 2 len(a) <= B}.
+```
+
+The strict comparison graph is contracted into strongly connected components
+and ordered through its condensation DAG. Power-sum screening gives the same
+first 99 signatures for `B=18` and `B=19`; the generator stores that stabilized
+cutoff and recomputes all displayed rates and exception relations with the
+high-accuracy persistent cache before writing
+`paper/appendix_b_signatures.tex`.
+
+Re-run the large stabilization check (approximately 400 MB peak memory) with:
+
+```bash
+PYTHONPATH=src:analysis python analysis/stabilize_signature_order.py
+```
 
 For a numbered signature `x`, an exception is an earlier signature `a` for
 which `x ≺ a`. Each exception prints both `C(x | a)` and `C(a | x)`. All
