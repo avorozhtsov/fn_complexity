@@ -1,0 +1,441 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newcommand{\sig}[1]{\left\{#1\right\}}
+\newcommand{\impl}{\preccurlyeq_{\mathrm{impl}}}
+
+\title{Exchange Rates for Finite Map Signatures\\
+\large A Simplified Thermodynamic Complexity}
+\author{Artem Vorozhtsov}
+\date{July 2026}
+
+\hypersetup{
+  pdftitle={Exchange Rates for Finite Map Signatures},
+  pdfauthor={Artem Vorozhtsov}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We associate to a surjective map between finite sets the multiset of its
+fiber cardinalities.  Cartesian products turn these signatures into a simple
+asymptotic resource theory.  Its exchange rate \(C(g\mid f)\) is the largest
+asymptotic number of copies of \(f\) implementable per copy of \(g\).
+Power sums compute this operationally defined limit, while Gibbs
+energy--entropy curves provide a geometric picture.  The comparison obtained
+by putting the two directed rates side by side is not transitive: the three
+signatures \(\sig{5,3}\), \(\sig{3,1,1}\), and \(\sig{6,1}\) form a strict
+cycle.
+\end{abstract}
+
+\section{Signatures and implementation}
+
+Let \(f:X\to Y\) be onto and enumerate its output as
+\(Y=\{y_1,\ldots,y_r\}\).  The \emph{fiber} over \(y_i\) is the inverse image
+\[
+  f^{-1}(y_i)=\{x\in X:f(x)=y_i\},
+  \qquad n_i=\left|f^{-1}(y_i)\right|.
+\]
+Thus \(n_i\) is the number of inputs mapped by \(f\) to the output \(y_i\).
+After ordering these fiber sizes by decreasing value, the \emph{signature} of
+\(f\) is
+\[
+  \sigma(f)=(n_1,\ldots,n_r),\qquad
+  n_1\geq\cdots\geq n_r\geq 1,\qquad r=|Y|.
+\]
+Only the signature will matter below, so maps and their signatures are denoted
+by the same letters.
+
+\begin{definition}[Implemented by]
+Let \(a=(a_1,\ldots,a_r)\) and \(b=(b_1,\ldots,b_s)\) be decreasing
+signatures.  We say that \(a\) is \emph{implemented by} \(b\), and write
+\(a\impl b\), when \(r\leq s\) and
+\[
+  a_i\leq b_i\qquad(1\leq i\leq r).
+\]
+\end{definition}
+
+For maps, this means that there is an injective input relabeling
+\(h_{\mathrm{in}}\) and a bijection from the used output fibers to the output
+of \(f\) such that
+\[
+  f=h_{\mathrm{out}}\circ g\circ h_{\mathrm{in}}.
+\]
+More precisely, put
+\[
+  X'_g=h_{\mathrm{in}}(X_f),
+  \qquad
+  Y'_g=g(X'_g).
+\]
+The two inclusions on the right identify the parts of \(X_g\) and \(Y_g\)
+actually used by the implementation, and the following diagram commutes:
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+  X_f
+    \arrow[r,"h_{\mathrm{in}}","\cong"']
+    \arrow[d,"f"']
+  & X'_g
+    \arrow[r,hook]
+    \arrow[d,"g|_{X'_g}"]
+  & X_g
+    \arrow[d,"g"]
+  \\
+  Y_f
+  & Y'_g
+    \arrow[l,"h_{\mathrm{out}}"',"\cong"]
+    \arrow[r,hook]
+  & Y_g .
+\end{tikzcd}
+\]
+Unused fibers of \(g\) may be discarded.  The componentwise condition above
+is exactly the condition that every fiber of \(f\) can be injected into its
+assigned fiber of \(g\).
+
+The Cartesian product \(a\otimes b\) has all products \(a_i b_j\) as its
+fiber sizes, with multiplicity.  We write \(a^{\otimes k}\) for the \(k\)-fold
+product.
+
+\begin{definition}[Exchange rate]
+For signatures \(f\) and \(g\), set
+\[
+ k_{\max}^{g\leftarrow f}(n)
+ =\max\left\{k\geq0:f^{\otimes k}\impl g^{\otimes n}\right\}.
+\]
+The exchange rate, with the implementer written first, is
+\[
+  C(g\mid f)
+  =\lim_{n\to\infty}\frac{k_{\max}^{g\leftarrow f}(n)}{n}.
+\]
+\end{definition}
+
+The sequence \(k_{\max}\) is superadditive: implementations for \(n\) and
+\(m\) copies can be tensored.  Fekete's lemma therefore gives the limit
+(possibly \(+\infty\)) and identifies it with the corresponding supremum.
+Thus the limit is the definition; the infimum below is a computational
+characterization.
+
+\section{Power sums and Gibbs curves}
+
+For a signature \(a=(a_i)\), define its power-sum partition function
+\[
+  Z_a(\beta)=\sum_i a_i^\beta,\qquad \beta\geq0,
+\]
+where \(\beta=1/T\) is inverse physical temperature.  Throughout this paper,
+\(T\) denotes temperature and never inverse temperature.
+The fibers of the \(k\)-fold Cartesian power \(a^{\otimes k}\) are indexed by
+\((i_1,\ldots,i_k)\) and have sizes \(a_{i_1}\cdots a_{i_k}\).  Consequently,
+\begin{align}
+  Z_{a^{\otimes k}}(\beta)
+  &=\sum_{i_1,\ldots,i_k}
+    (a_{i_1}\cdots a_{i_k})^\beta \notag\\
+  &=\left(\sum_i a_i^\beta\right)^k
+   =Z_a(\beta)^k,
+  \qquad
+  \log Z_{a^{\otimes k}}(\beta)=k\log Z_a(\beta).
+  \label{eq:tensor-partition}
+\end{align}
+If \(f^{\otimes k}\impl g^{\otimes n}\), applying the power sum at every
+\(\beta\geq0\) gives
+\[
+  Z_f(\beta)^k\leq Z_g(\beta)^n,
+  \qquad
+  \frac{k}{n}\leq
+  \frac{\log Z_g(\beta)}{\log Z_f(\beta)}.
+\]
+Thus Cartesian products become ordinary scalar multiplication after taking
+\(\log Z\).  Passing to the asymptotic optimum gives the upper bound in the
+following formula.
+
+The asymptotic comparison is governed by
+\begin{equation}
+  \label{eq:rate}
+  C(g\mid f)
+  =\inf_{\beta\geq0}
+    \frac{\log Z_g(\beta)}{\log Z_f(\beta)},
+\end{equation}
+together with the endpoint
+\[
+  \lim_{\beta\to\infty}
+  \frac{\log Z_g(\beta)}{\log Z_f(\beta)}
+  =\frac{\log\max_j g_j}{\log\max_i f_i}.
+\]
+Necessity follows by applying every power sum to an implementation.
+Asymptotic sufficiency follows by sorting the product fibers and applying the
+usual exponential, or large-deviation, estimates to their ranks.  In this
+way all componentwise constraints are represented by the one-parameter
+family \(Z_a(\beta)\).
+
+Put
+\[
+  \epsilon_i=-\log a_i,\qquad
+  p_i(T)
+  =\frac{e^{-\epsilon_i/T}}{\sum_j e^{-\epsilon_j/T}}
+  =\frac{a_i^{1/T}}{Z_a(1/T)}.
+\]
+These are the Gibbs probabilities at physical temperature \(T\).  Their mean
+energy and entropy are
+\[
+  E_a(T)=\sum_i p_i(T)\epsilon_i,\qquad
+  H_a(T)=-\sum_i p_i(T)\log p_i(T).
+\]
+Writing \(\beta=1/T\), they satisfy
+\(\log Z_a(\beta)=H_a(T)-E_a(T)/T\).  Moreover,
+\[
+ H_{a^{\otimes k}}(T)=kH_a(T),\qquad
+ E_{a^{\otimes k}}(T)=kE_a(T),
+\]
+because the Gibbs distribution of the Cartesian power is the product
+distribution.  Eliminating \(T\) gives
+\[
+ E_{a^{\otimes k}}(H)=kE_a(H/k),
+\]
+so taking Cartesian powers is a homothety by \(k\) in the
+\((H,E)\)-plane.
+
+Geometrically,
+\(\log Z_a(\beta)=H_a(T)-\beta E_a(T)\) is the offset of the supporting
+line with normal \((1,-\beta)\) to the convex Gibbs region \(\mathcal R_a\).
+Therefore formula \eqref{eq:rate} is equivalently
+\[
+ C(g\mid f)
+ =\sup\{c\geq0:c\,\mathcal R_f\subseteq\mathcal R_g\}.
+\]
+In particular,
+\(C(g\mid f)\Gamma_f\) fits in the convex Gibbs region bounded by
+\(\Gamma_g\).  Equivalently, the tight homothetic copy of \(g\) embracing
+\(f\) is \(C(g\mid f)^{-1}\Gamma_g\).
+
+\section{The pair
+\texorpdfstring{\(\sig{2,2}\) and \(\sig{3,1}\)}
+{{2,2} and {3,1}}}
+
+Let \(g=\sig{2,2}\) and \(f=\sig{3,1}\).  Every fiber of
+\(g^{\otimes n}\) has size \(2^n\).  The largest fiber of
+\(f^{\otimes k}\) has size \(3^k\), and the remaining rank constraint is
+weaker at the optimum.  Hence
+\[
+  C(\sig{2,2}\mid\sig{3,1})
+  =\frac{\log2}{\log3}
+  =0.6309297536\ldots.
+\]
+The reverse direction is limited at a finite temperature:
+\begin{align*}
+  C(\sig{3,1}\mid\sig{2,2})
+  &=\min_{\beta\geq0}
+    \frac{\log(3^\beta+1)}{(\beta+1)\log2} \\
+  &=0.9653844417\ldots,
+  \qquad
+  \beta_*=0.4036799030\ldots,\quad
+  T_*=\beta_*^{-1}=2.47721027\ldots.
+\end{align*}
+The large asymmetry is visible in Figure~\ref{fig:pair}.  Solid lines are the
+original Gibbs boundaries.  In each panel the other signature is enlarged by
+the reciprocal directed rate; only this resulting tight boundary is dotted.
+The thin vertical line joins the \(T=\infty\) endpoint to \(E=0\).  When the
+\(T=0\) endpoint has residual entropy \(H(0)>0\), a thin horizontal line joins
+that endpoint to \(H=0\); no horizontal line is needed when \(H(0)=0\).
+Endpoint closures of homothetically scaled boundaries are thin and dotted,
+matching the scaled curve; endpoint closures of original boundaries are thin
+and solid.  These lines close the displayed convex Gibbs region.  Since
+\(\sig{2,2}\) has two equal energy levels, its canonical Gibbs boundary
+itself collapses to the single point
+\((H,E)=(\log2,-\log2)\).
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/exchange-homotheties_2-2_3-1.pdf}
+  \caption{The two directed homotheties for \(\sig{2,2}\) and
+  \(\sig{3,1}\).  Thin vertical lines close the \(T=\infty\) endpoints.
+  Horizontal lines close only \(T=0\) endpoints with \(H(0)>0\).
+  Both vertical and horizontal closures are dotted for homothetically scaled
+  boundaries.  The factors are
+  \(1/C(\sig{3,1}\mid\sig{2,2})=1.03585676\ldots\) on the left and
+  \(1/C(\sig{2,2}\mid\sig{3,1})=\log3/\log2\) on the right.}
+  \label{fig:pair}
+\end{figure}
+
+\section{A two-sided finite-temperature tangency}
+
+Finite-temperature contact can determine both directed rates.  Consider
+\[
+  a=\sig{6,5,2,1},
+  \qquad
+  b=\sig{6,4,3,2}.
+\]
+Because \(a\) and \(b\) have the same length and the same largest fiber,
+both endpoint comparisons are equal to one:
+\[
+ \frac{\log Z_a(0)}{\log Z_b(0)}=1,
+ \qquad
+ \lim_{\beta\to\infty}
+ \frac{\log Z_a(\beta)}{\log Z_b(\beta)}
+ =\frac{\log6}{\log6}=1.
+\]
+Nevertheless, the two directed minima are strictly smaller than one and occur
+at finite positive temperatures:
+\begin{center}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Direction & \(C\) & \(T_*\) & \(\beta_*=1/T_*\) \\
+\midrule
+\(C(a\mid b)\) &
+\(0.9664896992\) & \(1.7970865612\) & \(0.5564562229\) \\
+\(C(b\mid a)\) &
+\(0.9786567233\) & \(0.2459449336\) & \(4.0659508025\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+At an interior minimizer of
+\(R(\beta)=\log Z_g(\beta)/\log Z_f(\beta)\), the equation
+\(R'(\beta_*)=0\), together with \(\log Z=H-\beta E\), gives
+\[
+  E_g(T_*)=C(g\mid f)E_f(T_*),
+  \qquad
+  H_g(T_*)=C(g\mid f)H_f(T_*).
+\]
+Thus the scaled Gibbs boundary and the target boundary meet at the same point.
+Moreover
+\[
+  \frac{dE}{dH}=T_*=\frac{1}{\beta_*},
+\]
+which is invariant under homothety, so their tangent lines also agree.  Both
+contacts in Figure~\ref{fig:finite-temperature} are therefore genuine
+finite-temperature tangencies rather than endpoint contacts.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/exchange-homotheties_6-5-2-1_6-4-3-2.pdf}
+  \caption{Two-sided finite-temperature tangency.  The left panel scales
+  \(b\) by \(1/C(b\mid a)\) to embrace \(a\); the right panel scales \(a\)
+  by \(1/C(a\mid b)\) to embrace \(b\).  Crosses mark the interior contact
+  points.  Thin dotted vertical lines close the scaled regions at their
+  \(T=\infty\) endpoints.}
+  \label{fig:finite-temperature}
+\end{figure}
+
+\section{A cyclic strict comparison}
+
+\begin{definition}
+For signatures \(a,b\), define
+\[
+  a\prec b
+  \quad\Longleftrightarrow\quad
+  C(a\mid b)<C(b\mid a).
+\]
+\end{definition}
+
+This is a natural pairwise comparison: \(b\) is declared more complex when
+it converts into \(a\) more efficiently than \(a\) converts into \(b\).
+Nevertheless, it is not a strict linear order.
+
+Set
+\[
+  f_1=\sig{5,3},\qquad
+  f_2=\sig{3,1,1},\qquad
+  f_3=\sig{6,1}.
+\]
+Equation \eqref{eq:rate} gives the comparisons in
+Table~\ref{tab:cycle}.
+
+\begin{table}[ht]
+  \centering
+  \caption{Directed rates producing a strict cycle.}
+  \label{tab:cycle}
+  \begin{tabular}{@{}cccc@{}}
+    \toprule
+    Pair & Forward rate & Reverse rate & Conclusion \\
+    \midrule
+    \(f_1,f_2\) & \(C(f_1\mid f_2)=0.630929754\)
+                & \(C(f_2\mid f_1)=0.670211928\) & \(f_1\prec f_2\) \\
+    \(f_2,f_3\) & \(C(f_2\mid f_3)=0.613147193\)
+                & \(C(f_3\mid f_2)=0.630929754\) & \(f_2\prec f_3\) \\
+    \(f_3,f_1\) & \(C(f_3\mid f_1)=0.897931851\)
+                & \(C(f_1\mid f_3)=0.898244402\) & \(f_3\prec f_1\) \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Thus
+\[
+  f_1\prec f_2,\qquad f_2\prec f_3,\qquad f_3\prec f_1.
+\]
+A strict linear order must be transitive, so this three-cycle proves that
+\(\prec\) is not a linear order.  Figure~\ref{fig:cycle} shows all three
+pairwise comparisons geometrically.  In the panel targeting \(f_i\), the two
+dotted curves are \(C(f_j\mid f_i)^{-1}\Gamma_{f_j}\); each is the tight
+homothetic boundary embracing \(\Gamma_{f_i}\).
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/exchange-homotheties_cycle-5-3_3-1-1_6-1.pdf}
+  \caption{The cyclic example.  Solid curves are the three original Gibbs
+  boundaries.  Each panel emphasizes one target and shows the two tight
+  after-homothety boundaries as dotted curves.}
+  \label{fig:cycle}
+\end{figure}
+
+\section{Conclusion}
+
+Fiber signatures retain only a very small part of a finite map, yet their
+Cartesian products already produce a nontrivial asymptotic resource theory.
+The operational rate \(C(g\mid f)\), the power-sum formula, and the
+energy--entropy homotheties are three views of the same comparison.  The
+example above also warns against compressing the two directed rates into a
+single global ranking: pairwise exchange advantage can be cyclic.
+
+\appendix
+\section{Unrestricted input and output maps}
+
+Suppose that the maps \(h_{\mathrm{in}}\) and \(h_{\mathrm{out}}\) in the
+definition of implementation are allowed to be arbitrary.  Then \(b\) can be
+implemented by \(a\) exactly when
+\[
+  |Y_b|\leq |Y_a|.
+\]
+Indeed, arbitrary \(h_{\mathrm{in}}\) may send every element of a fiber of
+\(b\) to one chosen input of \(a\), so the fiber sizes impose no constraint.
+Conversely, a deterministic \(h_{\mathrm{out}}\) cannot produce more distinct
+outputs than \(a\) has.
+
+For Cartesian powers the condition is therefore
+\[
+  |Y_b|^k\leq |Y_a|^n,
+  \qquad
+  k_{\max}(n)
+  =\left\lfloor
+    n\frac{\log|Y_a|}{\log|Y_b|}
+   \right\rfloor.
+\]
+Consequently, when \(|Y_a|,|Y_b|>1\),
+\[
+  \boxed{\displaystyle
+  C(a\mid b)=\frac{\log|Y_a|}{\log|Y_b|}}.
+\]
+Thus \(C(a\mid b)C(b\mid a)=1\), and the comparison from
+Definition~3 reduces to
+\[
+  a\prec b
+  \quad\Longleftrightarrow\quad
+  |Y_a|<|Y_b|.
+\]
+It is a total preorder on signatures, with equal-size output sets tied, and
+becomes a linear order after identifying signatures having the same
+\(|Y|\).  In partition-function language only the endpoint
+\(Z_a(0)=|Y_a|\) remains; the fiber sizes and the rest of the Gibbs curve play
+no role.  If \(|Y_b|=1\), then \(C(a\mid b)=+\infty\); if
+\(|Y_a|=1<|Y_b|\), then \(C(a\mid b)=0\).
+
+\end{document}

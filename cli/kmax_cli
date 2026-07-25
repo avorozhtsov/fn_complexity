@@ -1,0 +1,580 @@
+#!/usr/bin/env python3
+"""Compute and plot exact finite-power k_max(n) values."""
+
+from __future__ import annotations
+
+import argparse
+from fractions import Fraction
+from html import escape
+import math
+from pathlib import Path
+import re
+import sys
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_ROOT / "src"))
+
+from fn_complexity import (  # noqa: E402
+    COVER_COLORS,
+    Hyperbola,
+    continued_fraction_convergents,
+    enumerate_hyperbolas,
+    exchange_rate_result,
+    k_max,
+    maximum_coverage_curve_per_slope,
+    normalize_signature,
+)
+
+HALF_BRANCH_COLORS = COVER_COLORS[:14]
+
+
+def parse_signature(text: str) -> tuple[int, ...]:
+    """Parse signatures such as ``3,1``, ``{3, 1}``, or ``3 1``."""
+
+    cleaned = text.strip()
+    if len(cleaned) >= 2 and cleaned[0] in "{[(" and cleaned[-1] in "}])":
+        cleaned = cleaned[1:-1].strip()
+    if not cleaned:
+        raise argparse.ArgumentTypeError("signature cannot be empty")
+    tokens = [token for token in re.split(r"[\s,]+", cleaned) if token]
+    if not all(re.fullmatch(r"[+]?\d+", token) for token in tokens):
+        raise argparse.ArgumentTypeError(
+            f"invalid signature {text!r}; use positive integers such as 3,1"
+        )
+    try:
+        return normalize_signature(int(token) for token in tokens)
+    except (TypeError, ValueError) as error:
+        raise argparse.ArgumentTypeError(str(error)) from error
+
+
+def _signature_slug(signature: tuple[int, ...]) -> str:
+    return "-".join(map(str, signature))
+
+
+def _nice_ceiling(value: float) -> float:
+    if value <= 0:
+        return 1.0
+    magnitude = 10 ** math.floor(math.log10(value))
+    scaled = value / magnitude
+    nice = next(
+        candidate
+        for candidate in (1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10)
+        if scaled <= candidate
+    )
+    return nice * magnitude
+
+
+def _polyline(points: list[tuple[float, float]]) -> str:
+    return " ".join(f"{x:.2f},{y:.2f}" for x, y in points)
+
+
+def _fraction_text(value: Fraction) -> str:
+    return str(value.numerator) if value.denominator == 1 else f"{value.numerator}/{value.denominator}"
+
+
+def _hyperbola_formula(slope: Fraction, intercept: Fraction) -> str:
+    if intercept == 0:
+        return _fraction_text(slope)
+    sign = "−" if intercept >= 0 else "+"
+    magnitude = abs(intercept)
+    correction = (
+        f"{magnitude.numerator}/n"
+        if magnitude.denominator == 1
+        else f"{magnitude.numerator}/({magnitude.denominator}n)"
+    )
+    return f"{_fraction_text(slope)} {sign} {correction}"
+
+
+def render_svg(
+    implementer: tuple[int, ...],
+    implemented: tuple[int, ...],
+    values: list[tuple[int, int]],
+    asymptotic_rate: float,
+    output: Path,
+    hyperbolas: tuple[Hyperbola, ...],
+    limit_formula: str | None = None,
+    log_x: bool = False,
+    hyperbola_colors: tuple[str, ...] = COVER_COLORS,
+    hyperbola_legend_title: str = "One maximum-coverage curve per convergent",
+    highlight_hyperbola_points: bool = False,
+    extend_hyperbolas_to_plot: bool = False,
+    y_max_override: float | None = None,
+    inverse_limit_gap: bool = False,
+) -> None:
+    """Render a dependency-free SVG plot with exact and asymptotic curves."""
+
+    width, height = 1200, 760
+    left, right, top, bottom = 105, 55, 105, 105
+    plot_width = width - left - right
+    plot_height = height - top - bottom
+    n_min, n_max = values[0][0], values[-1][0]
+    x_floor = n_min if log_x else min(0, n_min)
+    rates = [(n, k / n) for n, k in values]
+    display_values = [
+        (
+            n,
+            -1.0 / (rate - asymptotic_rate)
+            if inverse_limit_gap
+            else rate,
+        )
+        for n, rate in rates
+    ]
+    if inverse_limit_gap:
+        y_min = 0.0
+        y_max = _nice_ceiling(
+            max(value for _, value in display_values) * 1.06
+        )
+    else:
+        y_min = 0.0
+        y_max = (
+            y_max_override
+            if y_max_override is not None
+            else _nice_ceiling(
+                max(max(rate for _, rate in rates), asymptotic_rate) * 1.06
+            )
+        )
+
+    def sx(n: float) -> float:
+        if log_x:
+            log_min = math.log10(x_floor)
+            log_span = max(1e-12, math.log10(n_max) - log_min)
+            return left + (math.log10(n) - log_min) / log_span * plot_width
+        span = max(1, n_max - x_floor)
+        return left + (n - x_floor) / span * plot_width
+
+    def sy(value: float) -> float:
+        return top + (y_max - value) / (y_max - y_min) * plot_height
+
+    exact_points = [(sx(n), sy(value)) for n, value in display_values]
+    limit_points = [(sx(x_floor), sy(asymptotic_rate)), (sx(n_max), sy(asymptotic_rate))]
+    area_points = (
+        [(sx(values[0][0]), sy(asymptotic_rate))]
+        + [(sx(n), sy(asymptotic_rate)) for n, _ in values[1:]]
+        + list(reversed(exact_points))
+    )
+    hyperbola_paths: list[str] = []
+    for curve_index, curve in enumerate(hyperbolas):
+        if extend_hyperbolas_to_plot:
+            branch_start, branch_end = n_min, n_max
+        else:
+            branch_start, branch_end = min(curve.points), max(curve.points)
+        samples = max(2, min(120, 3 * (branch_end - branch_start + 1)))
+        branch_points = []
+        for index in range(samples):
+            n = branch_start + (branch_end - branch_start) * index / (samples - 1)
+            curve_value = float(curve.slope) - float(curve.offset) / n
+            if inverse_limit_gap:
+                curve_value = -1.0 / (curve_value - asymptotic_rate)
+            branch_points.append((sx(n), sy(curve_value)))
+        hyperbola_paths.append(
+            f'<polyline points="{_polyline(branch_points)}" fill="none" '
+            f'stroke="{hyperbola_colors[curve_index % len(hyperbola_colors)]}" '
+            'stroke-width="1.35" stroke-dasharray="2 7" '
+            'stroke-linecap="round" opacity=".8"/>'
+        )
+    legend_columns = 2 if len(hyperbolas) > 7 else 1
+    legend_rows = math.ceil(len(hyperbolas) / legend_columns)
+    legend_width = 510 if legend_columns == 2 else 330
+    legend_height = 34 + 22 * legend_rows
+    legend_x = width - legend_width - 55
+    legend_y = top + plot_height - legend_height - 12
+    hyperbola_labels_parts: list[str] = []
+    for index, curve in enumerate(hyperbolas):
+        column = index // legend_rows
+        row = index % legend_rows
+        x = 16 + column * 250
+        y = 39 + row * 22
+        color = hyperbola_colors[index % len(hyperbola_colors)]
+        hyperbola_labels_parts.append(
+            f'<line x1="{x}" y1="{y}" x2="{x + 34}" y2="{y}" '
+            f'stroke="{color}" stroke-width="1.35" stroke-dasharray="2 7"/>'
+            f'<text x="{x + 44}" y="{y + 5}" font-size="12">'
+            f'{"Yₙ=−1/(" if inverse_limit_gap else "cₙ="}'
+            f'{escape(_hyperbola_formula(curve.slope, curve.offset))}'
+            f'{"−C)" if inverse_limit_gap else ""}'
+            f' · {len(curve.points)} pts</text>'
+        )
+    hyperbola_labels = "".join(hyperbola_labels_parts)
+    hyperbola_point_highlights = ""
+    if highlight_hyperbola_points:
+        hyperbola_point_highlights = "".join(
+            f'<circle cx="{sx(n):.2f}" '
+            f'cy="{sy(-1.0 / (k / n - asymptotic_rate) if inverse_limit_gap else k / n):.2f}" r="8" '
+            f'fill="none" stroke="{hyperbola_colors[index % len(hyperbola_colors)]}" '
+            'stroke-width="2.5"/>'
+            for index, curve in enumerate(hyperbolas)
+            for n, k in values
+            if n in curve.points
+        )
+
+    y_ticks = 5
+    grid: list[str] = []
+    labels: list[str] = []
+    if log_x:
+        first_power = math.ceil(math.log10(x_floor))
+        last_power = math.floor(math.log10(n_max))
+        x_tick_values = [10**power for power in range(first_power, last_power + 1)]
+        if not x_tick_values:
+            x_tick_values = [x_floor]
+        elif x_tick_values[0] != x_floor:
+            x_tick_values.insert(0, x_floor)
+        if x_tick_values[-1] != n_max:
+            x_tick_values.append(n_max)
+    else:
+        x_tick_values = [
+            x_floor + (n_max - x_floor) * index / 10
+            for index in range(11)
+        ]
+    for value in x_tick_values:
+        x = sx(value)
+        if log_x and value >= 1000:
+            tick_label = f"{value / 1000:g}k"
+        else:
+            tick_label = f"{value:.0f}"
+        grid.append(f'<line x1="{x:.2f}" y1="{top}" x2="{x:.2f}" y2="{top + plot_height}" />')
+        labels.append(
+            f'<text x="{x:.2f}" y="{top + plot_height + 36}" text-anchor="middle">{tick_label}</text>'
+        )
+    for index in range(y_ticks + 1):
+        value = y_min + (y_max - y_min) * index / y_ticks
+        y = sy(value)
+        grid.append(f'<line x1="{left}" y1="{y:.2f}" x2="{left + plot_width}" y2="{y:.2f}" />')
+        labels.append(
+            f'<text x="{left - 18}" y="{y + 5:.2f}" text-anchor="end">{value:g}</text>'
+        )
+
+    marker_stride = max(1, math.ceil(len(rates) / 1200))
+    markers = "\n".join(
+        (
+            f'<rect x="{sx(n) - 3.2:.2f}" y="{sy(rate) - 3.2:.2f}" '
+            'width="6.4" height="6.4" rx=".8" '
+            'fill="#ffffff" stroke="#0072B2" stroke-width="1" '
+            f'transform="rotate(45 {sx(n):.2f} {sy(rate):.2f})"/>'
+        )
+        for index, (n, rate) in enumerate(display_values)
+        if index % marker_stride == 0 or index == len(display_values) - 1
+    )
+    title = (
+        f"Yₙ = −1/(cₙ − C):  f={implemented} implemented by g={implementer}"
+        if inverse_limit_gap
+        else f"cₙ = kₘₐₓ(n)/n:  f={implemented} implemented by g={implementer}"
+    )
+    last_n, last_k = values[-1]
+    finite_rate = last_k / last_n if last_n else math.nan
+    limit_label = (
+        f"C={limit_formula}={asymptotic_rate:.9f}"
+        if limit_formula
+        else f"limit C(g | f)={asymptotic_rate:.9f}"
+    )
+    if inverse_limit_gap:
+        area_svg = ""
+        limit_svg = ""
+        top_legend = (
+            '<line x1="18" y1="21" x2="64" y2="21" stroke="#4b5563" '
+            'stroke-width="2"/><text x="78" y="26" font-size="14">'
+            'exact Yₙ = −1/(cₙ−C)</text>'
+            f'<text x="18" y="49" font-size="14">C={asymptotic_rate:.9f}'
+            ' · singular at cₙ=C</text>'
+        )
+        annotation = (
+            f"At n={last_n}: kₘₐₓ={last_k}, "
+            f"Yₙ={-1.0 / (finite_rate - asymptotic_rate):.6f}"
+        )
+    else:
+        area_svg = f'<polygon points="{_polyline(area_points)}" fill="url(#gap)"/>'
+        limit_svg = (
+            f'<polyline points="{_polyline(limit_points)}" fill="none" '
+            'stroke="#D55E00" stroke-width="3" stroke-dasharray="10 9"/>'
+        )
+        top_legend = (
+            '<line x1="18" y1="21" x2="64" y2="21" stroke="#4b5563" '
+            'stroke-width="2"/><text x="78" y="26" font-size="14">'
+            'exact cₙ = kₘₐₓ(n)/n</text>'
+            '<line x1="18" y1="44" x2="64" y2="44" stroke="#D55E00" '
+            'stroke-width="3" stroke-dasharray="8 6"/>'
+            f'<text x="78" y="49" font-size="14">{escape(limit_label)}</text>'
+        )
+        annotation = (
+            f"At n={last_n}: kₘₐₓ={last_k}, "
+            f"kₘₐₓ/n={finite_rate:.6f}"
+        )
+
+    svg = f"""<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
+  <title>{escape(title)}</title>
+  <defs>
+    <linearGradient id="gap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#56B4E9" stop-opacity=".24"/>
+      <stop offset="100%" stop-color="#0072B2" stop-opacity=".04"/>
+    </linearGradient>
+    <clipPath id="plotClip"><rect x="{left}" y="{top}" width="{plot_width}" height="{plot_height}"/></clipPath>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <style>
+    text {{ font-family: Inter, ui-sans-serif, system-ui, sans-serif; fill: #1f2937; }}
+    .grid line {{ stroke: #d1d5db; stroke-opacity: .75; stroke-width: 1; }}
+    .labels text {{ font-size: 14px; fill: #4b5563; }}
+  </style>
+  <text x="{left}" y="48" font-size="25" font-weight="700" fill="#111827">{escape(title)}</text>
+  <text x="{left}" y="76" font-size="14">Exact Cartesian-power computation · natural logarithms · C(g | f){' · inverse limit gap' if inverse_limit_gap else ''}{' · logarithmic n-axis' if log_x else ''}</text>
+  <g class="grid">{''.join(grid)}</g>
+  <g class="labels">{''.join(labels)}</g>
+  {area_svg}
+  {limit_svg}
+  <polyline points="{_polyline(exact_points)}" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
+  <g aria-label="{escape(hyperbola_legend_title)}" clip-path="url(#plotClip)">{''.join(hyperbola_paths)}</g>
+  <g aria-label="Sampled markers; exact polyline contains every point">{markers}</g>
+  <g aria-label="Points grouped by exact hyperbola">{hyperbola_point_highlights}</g>
+  <line x1="{left}" y1="{top + plot_height}" x2="{left + plot_width}" y2="{top + plot_height}" stroke="#4b5563" stroke-width="1.5"/>
+  <line x1="{left}" y1="{top}" x2="{left}" y2="{top + plot_height}" stroke="#4b5563" stroke-width="1.5"/>
+  <text x="{left + plot_width / 2}" y="{height - 35}" text-anchor="middle" font-size="17">implementer copies n{' (log scale)' if log_x else ''}</text>
+  <text x="28" y="{top + plot_height / 2}" text-anchor="middle" font-size="17" transform="rotate(-90 28 {top + plot_height / 2})">{'inverse limit gap Yₙ' if inverse_limit_gap else 'finite exchange rate cₙ'}</text>
+  <g transform="translate({width - 360}, 30)">
+    <rect width="305" height="63" rx="12" fill="#ffffff" fill-opacity=".94" stroke="#9ca3af"/>
+    {top_legend}
+  </g>
+  <g transform="translate({legend_x}, {legend_y})">
+    <rect width="{legend_width}" height="{legend_height}" rx="12" fill="#ffffff" fill-opacity=".94" stroke="#9ca3af"/>
+    <text x="16" y="20" font-size="13" font-weight="700" fill="#111827">{escape(hyperbola_legend_title)}</text>
+    {hyperbola_labels}
+  </g>
+  <rect x="{left + 7}" y="{top + 8}" width="270" height="28" rx="6" fill="#ffffff" fill-opacity=".9" stroke="#d1d5db"/>
+  <text x="{left + 12}" y="{top + 28}" font-size="14" fill="#0f766e">{escape(annotation)}</text>
+</svg>
+"""
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(svg, encoding="utf-8")
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="kmax_cli",
+        description="Compute exact k_max(n) where f^k is implemented by g^n, and plot it.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    parser.add_argument("implementer", type=parse_signature, help="signature g, e.g. 3,1")
+    parser.add_argument("implemented", type=parse_signature, help="signature f, e.g. 2,2")
+    parser.add_argument("--n-min", type=int, default=1, help="first n to compute")
+    parser.add_argument("--n-max", type=int, default=100, help="last n to compute")
+    parser.add_argument("--step", type=int, default=1, help="spacing between n values")
+    parser.add_argument(
+        "--max-convergents",
+        type=int,
+        help="use only the first this many continued-fraction convergents",
+    )
+    parser.add_argument(
+        "--hyperbola-n-max",
+        type=int,
+        help=(
+            "select maximum-coverage hyperbolas using 1..N, independently "
+            "of the plotted n range"
+        ),
+    )
+    parser.add_argument(
+        "--first-half-branches",
+        action="store_true",
+        help=(
+            "instead show the first four upward e=1/2 branches: "
+            "d=0,-1/2,-1,-3/2"
+        ),
+    )
+    parser.add_argument(
+        "--half-branches",
+        type=int,
+        help=(
+            "instead show the first COUNT upward e=1/2 branches "
+            "c_n=1/2+j/(2n), j=0..COUNT-1"
+        ),
+    )
+    parser.add_argument(
+        "--unit-cover",
+        action="store_true",
+        help=(
+            "show the complete e=1 partition c_n=1-d/n over the plotted points"
+        ),
+    )
+    parser.add_argument(
+        "--log-x",
+        action="store_true",
+        help="use a logarithmic horizontal axis",
+    )
+    parser.add_argument(
+        "--inverse-limit-gap",
+        action="store_true",
+        help="plot Y_n=-1/(c_n-C)=1/(C-c_n) instead of c_n",
+    )
+    parser.add_argument(
+        "-o",
+        "--output",
+        type=Path,
+        help="SVG filename or output directory (default: PROJECT_ROOT/images)",
+    )
+    parser.add_argument("--quiet", action="store_true", help="suppress the value table")
+    return parser
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    if args.n_min < 1:
+        parser.error("--n-min must be at least 1")
+    if args.n_max < args.n_min:
+        parser.error("--n-max must be greater than or equal to --n-min")
+    if args.step < 1:
+        parser.error("--step must be at least 1")
+    if args.max_convergents is not None and args.max_convergents < 1:
+        parser.error("--max-convergents must be at least 1")
+    if args.hyperbola_n_max is not None and args.hyperbola_n_max < args.n_max:
+        parser.error("--hyperbola-n-max must be greater than or equal to --n-max")
+    if args.half_branches is not None and args.half_branches < 1:
+        parser.error("--half-branches must be at least 1")
+    if args.first_half_branches and args.half_branches is not None:
+        parser.error("use either --first-half-branches or --half-branches, not both")
+    if args.unit_cover and (
+        args.first_half_branches or args.half_branches is not None
+    ):
+        parser.error(
+            "--unit-cover cannot be combined with a half-branch option"
+        )
+    if args.implemented == (1,):
+        parser.error("k_max(n) is unbounded when the implemented signature is (1,)")
+
+    ns = list(range(args.n_min, args.n_max + 1, args.step))
+    if ns[-1] != args.n_max:
+        ns.append(args.n_max)
+    values = [(n, k_max(args.implementer, args.implemented, n)) for n in ns]
+    rate_result = exchange_rate_result(args.implementer, args.implemented)
+    rate = rate_result.rate
+    hyperbola_n_max = args.hyperbola_n_max or args.n_max
+    convergents = continued_fraction_convergents(
+        rate, maximum_denominator=hyperbola_n_max
+    )
+    if args.max_convergents is not None:
+        convergents = convergents[: args.max_convergents]
+    half_branch_count = (
+        args.half_branches
+        if args.half_branches is not None
+        else (4 if args.first_half_branches else None)
+    )
+    if args.unit_cover:
+        unit_candidates = enumerate_hyperbolas(values, (Fraction(1),))
+        selected_hyperbolas = tuple(
+            sorted(
+                unit_candidates,
+                key=lambda curve: (
+                    min(curve.points),
+                    curve.offset,
+                ),
+            )
+        )
+        plot_hyperbola_colors = COVER_COLORS
+        hyperbola_legend_title = "e=1 partition (all plotted points)"
+    elif half_branch_count is not None:
+        branch_candidates = enumerate_hyperbolas(values, (Fraction(1, 2),))
+        wanted_offsets = tuple(
+            -Fraction(index, 2) for index in range(half_branch_count)
+        )
+        by_offset = {curve.offset: curve for curve in branch_candidates}
+        missing_offsets = [
+            offset for offset in wanted_offsets if offset not in by_offset
+        ]
+        if missing_offsets:
+            parser.error(
+                f"the plotted n range is too short for {half_branch_count} "
+                "half-branches"
+            )
+        selected_hyperbolas = tuple(by_offset[offset] for offset in wanted_offsets)
+        plot_hyperbola_colors = HALF_BRANCH_COLORS
+        hyperbola_legend_title = (
+            f"First {half_branch_count} upward e=1/2 branches"
+        )
+    else:
+        selection_values = [
+            (n, k_max(args.implementer, args.implemented, n))
+            for n in range(1, hyperbola_n_max + 1)
+        ]
+        candidate_hyperbolas = enumerate_hyperbolas(
+            selection_values, convergents
+        )
+        selected_hyperbolas = maximum_coverage_curve_per_slope(
+            candidate_hyperbolas
+        )
+        plot_hyperbola_colors = COVER_COLORS
+        hyperbola_legend_title = "One maximum-coverage curve per convergent"
+    limit_formula = None
+    if rate_result.attained_at_infinity:
+        limit_formula = (
+            f"log {max(args.implementer)} / log {max(args.implemented)}"
+        )
+
+    default_name = (
+        f"kmax_g-{_signature_slug(args.implementer)}"
+        f"_f-{_signature_slug(args.implemented)}"
+        f"_n-{args.n_min}-{args.n_max}.svg"
+    )
+    if args.log_x:
+        default_name = default_name.removesuffix(".svg") + "_logx.svg"
+    if half_branch_count is not None:
+        default_name = (
+            default_name.removesuffix(".svg")
+            + f"_first-{half_branch_count}-half-branches.svg"
+        )
+    if args.unit_cover:
+        default_name = default_name.removesuffix(".svg") + "_unit-cover.svg"
+    if args.inverse_limit_gap:
+        default_name = default_name.removesuffix(".svg") + "_inverse-gap.svg"
+    if args.output is None:
+        output = PROJECT_ROOT / "images" / default_name
+    elif args.output.suffix.lower() == ".svg":
+        output = args.output.expanduser().resolve()
+    else:
+        output = args.output.expanduser().resolve() / default_name
+
+    if not args.quiet:
+        print("n\tk_max(n)\tk_max(n)/n")
+        for n, k in values:
+            print(f"{n}\t{k}\t{k / n:.9f}")
+    render_svg(
+        args.implementer,
+        args.implemented,
+        values,
+        rate,
+        output,
+        hyperbolas=selected_hyperbolas,
+        limit_formula=limit_formula,
+        log_x=args.log_x,
+        hyperbola_colors=plot_hyperbola_colors,
+        hyperbola_legend_title=hyperbola_legend_title,
+        highlight_hyperbola_points=(
+            half_branch_count is not None or args.unit_cover
+        ),
+        extend_hyperbolas_to_plot=(
+            half_branch_count is None
+            and not args.unit_cover
+            and hyperbola_n_max > args.n_max
+        ),
+        y_max_override=1.0 if args.unit_cover else None,
+        inverse_limit_gap=args.inverse_limit_gap,
+    )
+    print(f"\nC(g | f) = {rate:.12g}")
+    print(f"Continued-fraction convergents: {', '.join(map(str, convergents))}")
+    if args.unit_cover:
+        print("Complete e=1 partition over the plotted points:")
+    elif half_branch_count is not None:
+        print(f"First {half_branch_count} upward e=1/2 branches:")
+    else:
+        print(
+            "Maximum-coverage curve for each convergent "
+            f"(selected using n=1..{hyperbola_n_max}):"
+        )
+    for curve in selected_hyperbolas:
+        print(
+            f"  c_n = {_hyperbola_formula(curve.slope, curve.offset)}"
+            f"  ({len(curve.points)} points, n={curve.points[0]}..{curve.points[-1]})"
+        )
+    print(f"Plot saved to {output}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
