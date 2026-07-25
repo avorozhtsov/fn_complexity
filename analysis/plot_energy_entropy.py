@@ -73,16 +73,16 @@ def main() -> int:
         entropies = [point.entropy for point in points]
         energies = [point.energy for point in points]
         axis.plot(
-            entropies,
             energies,
+            entropies,
             color=color,
             linewidth=2.6,
             label=signature_label(signature),
         )
-        axis.vlines(
+        axis.hlines(
             entropies[-1],
-            energies[-1],
             0.0,
+            energies[-1],
             color=color,
             linewidth=2.0,
             linestyle=(0, (2, 3)),
@@ -90,8 +90,8 @@ def main() -> int:
             zorder=1,
         )
         axis.scatter(
-            [entropies[0], entropies[-1]],
             [energies[0], energies[-1]],
+            [entropies[0], entropies[-1]],
             color=color,
             edgecolor="white",
             linewidth=0.8,
@@ -101,15 +101,15 @@ def main() -> int:
 
     ho_points = harmonic_oscillator_curve()
     axis.plot(
-        [point[0] for point in ho_points],
         [point[1] for point in ho_points],
+        [point[0] for point in ho_points],
         color="#009E73",
         linewidth=2.6,
         label=r"$\mathrm{HO}(1,-\log 6)$",
     )
     axis.scatter(
-        [0.0],
         [HO_E0],
+        [0.0],
         color="#009E73",
         marker="s",
         s=47,
@@ -120,15 +120,15 @@ def main() -> int:
 
     axis.annotate(
         r"$T=0$",
-        xy=(0.0, -math.log(6)),
-        xytext=(0.07, -1.84),
+        xy=(-math.log(6), 0.0),
+        xytext=(-1.72, 0.10),
         color="#374151",
         arrowprops={"arrowstyle": "->", "color": "#6b7280"},
     )
     axis.annotate(
         r"$T\to\infty$",
-        xy=(math.log(3), -math.log(3) / 3),
-        xytext=(0.88, -0.22),
+        xy=(-math.log(3) / 3, math.log(3)),
+        xytext=(-0.72, 1.02),
         color="#374151",
         arrowprops={"arrowstyle": "->", "color": "#6b7280"},
     )
@@ -150,10 +150,10 @@ def main() -> int:
         color="#4b5563",
         fontsize=11,
     )
-    axis.set_xlabel(r"entropy $H=-\sum_i p_i\log p_i$", labelpad=12)
-    axis.set_ylabel(r"energy $E=\sum_i p_i\epsilon_i$", labelpad=12)
-    axis.set_xlim(-0.025, 1.15)
-    axis.set_ylim(-1.87, 0.06)
+    axis.set_xlabel(r"energy $E=\sum_i p_i\epsilon_i$", labelpad=12)
+    axis.set_ylabel(r"entropy $H=-\sum_i p_i\log p_i$", labelpad=12)
+    axis.set_xlim(-1.87, 0.06)
+    axis.set_ylim(-0.025, 1.15)
     axis.grid(color="#d1d5db", alpha=0.72, linewidth=0.8)
     axis.spines[["top", "right"]].set_visible(False)
     axis.spines[["bottom", "left"]].set_color("#6b7280")

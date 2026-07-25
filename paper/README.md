@@ -9,13 +9,21 @@ cd paper
 latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-The three vector figures are regenerated from the project root with:
+The four vector figures are regenerated from the project root with:
 
 ```bash
 PYTHONPATH=src python analysis/plot_pair_homotheties.py
 PYTHONPATH=src python analysis/plot_finite_temperature_pair.py
 PYTHONPATH=src python analysis/plot_exchange_homotheties.py
+python analysis/plot_relativistic_species_energy_entropy.py
 ```
 
-After regeneration, copy their PDF versions from `images/` into
-`paper/figures/` before compiling or submitting.
+The first three scripts write PDF versions to `images/`; copy those into
+`paper/figures/` before compiling or submitting.  The relativistic-species
+script writes its PDF directly to `paper/figures/`.
+
+Generate the ordered-signature and exception tables in Appendix B with:
+
+```bash
+PYTHONPATH=src python analysis/appendix_b_signatures.py
+```

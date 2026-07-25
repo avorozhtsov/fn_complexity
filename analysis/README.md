@@ -112,6 +112,21 @@ Regenerate all tables from the project root:
 The curated PDF-only plots and their regeneration commands are documented in
 [`images/README.md`](../images/README.md).
 
+## Relativistic radiation energy--entropy diagram
+
+Generate the white-background vector figure comparing photon and
+ultrarelativistic electron--positron sectors with:
+
+```bash
+python analysis/plot_relativistic_species_energy_entropy.py
+```
+
+The script writes
+`paper/figures/relativistic-radiation-energy-entropy.pdf`.  It uses
+\(g_\gamma=2\) and \(g_{e^\pm}=(7/8)4=7/2\), so the dotted \(7/4\)
+homothety of the photon curve coincides exactly with the electron--positron
+curve.
+
 ## Opposite direction through `n < 100000`
 
 For `C({3,1} | {2,2})`, feasibility has the exact binomial-tail form
@@ -228,3 +243,22 @@ are read through `src/fn_complexity/exchange_rates_cache.json`; only missing
 entries are computed, and the updated cache is saved atomically. Existing
 values from a previous matrix CSV are imported once before that CSV is
 replaced.
+
+## Appendix B: first 99 non-special signatures
+
+Generate the paper's 99-signature table and its backward-comparison exception
+table with:
+
+```bash
+PYTHONPATH=src python analysis/appendix_b_signatures.py
+```
+
+The candidate set starts with the extended 97-signature catalog, removes
+singletons and all-ones signatures, and adds every length-two signature with
+largest entry 7 or 8. The strict comparison graph is contracted into strongly
+connected components and ordered through its condensation DAG; the first 99
+signatures are written to `paper/appendix_b_signatures.tex`.
+
+For a numbered signature `x`, an exception is an earlier signature `a` for
+which `x ≺ a`. Each exception prints both `C(x | a)` and `C(a | x)`. All
+comparisons use and extend the persistent exchange-rate cache.

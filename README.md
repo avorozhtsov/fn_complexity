@@ -110,6 +110,9 @@ Throughout the project, `T` always denotes physical temperature and
 `analysis/exchange_matrix_extended.py` computes the requested 97-signature
 matrix through `ExchangeRateCache`. Its 9,409 directed rates are stored in
 `src/fn_complexity/exchange_rates_cache.json` and are reused on later runs.
+The same cache also stores the additional comparisons used to construct the
+99-signature table in Appendix B, so the cache can contain more entries than
+the matrix itself.
 The cache records the numerical algorithm and precision; a mismatch is
 rejected rather than silently mixing values computed under different
 settings.

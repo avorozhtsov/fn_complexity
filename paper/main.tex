@@ -4,6 +4,8 @@
 \usepackage{lmodern}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
 \usepackage{graphicx}
 \usepackage{tikz-cd}
 \usepackage[margin=1in]{geometry}
@@ -203,11 +205,11 @@ distribution.  Eliminating \(T\) gives
  E_{a^{\otimes k}}(H)=kE_a(H/k),
 \]
 so taking Cartesian powers is a homothety by \(k\) in the
-\((H,E)\)-plane.
+\((E,H)\)-plane.
 
 Geometrically,
 \(\log Z_a(\beta)=H_a(T)-\beta E_a(T)\) is the offset of the supporting
-line with normal \((1,-\beta)\) to the convex Gibbs region \(\mathcal R_a\).
+line with normal \((-\beta,1)\) to the convex Gibbs region \(\mathcal R_a\).
 Therefore formula \eqref{eq:rate} is equivalently
 \[
  C(g\mid f)
@@ -244,24 +246,25 @@ The reverse direction is limited at a finite temperature:
 The large asymmetry is visible in Figure~\ref{fig:pair}.  Solid lines are the
 original Gibbs boundaries.  In each panel the other signature is enlarged by
 the reciprocal directed rate; only this resulting tight boundary is dotted.
-The thin vertical line joins the \(T=\infty\) endpoint to \(E=0\).  When the
-\(T=0\) endpoint has residual entropy \(H(0)>0\), a thin horizontal line joins
-that endpoint to \(H=0\); no horizontal line is needed when \(H(0)=0\).
+The thin horizontal line joins the \(T=\infty\) endpoint to \(E=0\).  When the
+\(T=0\) endpoint has residual entropy \(H(0)>0\), a thin vertical line joins
+that endpoint to \(H=0\); no vertical line is needed when \(H(0)=0\).
 Endpoint closures of homothetically scaled boundaries are thin and dotted,
 matching the scaled curve; endpoint closures of original boundaries are thin
-and solid.  These lines close the displayed convex Gibbs region.  Since
+and solid.  The \(85\%\)-transparent fills extend horizontally from each
+boundary to \(E=0\), displaying the closed convex Gibbs regions.  Since
 \(\sig{2,2}\) has two equal energy levels, its canonical Gibbs boundary
 itself collapses to the single point
-\((H,E)=(\log2,-\log2)\).
+\((E,H)=(-\log2,\log2)\).
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{figures/exchange-homotheties_2-2_3-1.pdf}
   \caption{The two directed homotheties for \(\sig{2,2}\) and
-  \(\sig{3,1}\).  Thin vertical lines close the \(T=\infty\) endpoints.
-  Horizontal lines close only \(T=0\) endpoints with \(H(0)>0\).
-  Both vertical and horizontal closures are dotted for homothetically scaled
-  boundaries.  The factors are
+  \(\sig{3,1}\).  Thin horizontal lines close the \(T=\infty\) endpoints.
+  Vertical lines close only \(T=0\) endpoints with \(H(0)>0\).
+  Both horizontal and vertical closures are dotted for homothetically scaled
+  boundaries; translucent fills extend to \(E=0\).  The factors are
   \(1/C(\sig{3,1}\mid\sig{2,2})=1.03585676\ldots\) on the left and
   \(1/C(\sig{2,2}\mid\sig{3,1})=\log3/\log2\) on the right.}
   \label{fig:pair}
@@ -309,7 +312,7 @@ At an interior minimizer of
 Thus the scaled Gibbs boundary and the target boundary meet at the same point.
 Moreover
 \[
-  \frac{dE}{dH}=T_*=\frac{1}{\beta_*},
+  \frac{dH}{dE}=\frac{1}{T_*}=\beta_*,
 \]
 which is invariant under homothety, so their tangent lines also agree.  Both
 contacts in Figure~\ref{fig:finite-temperature} are therefore genuine
@@ -321,8 +324,8 @@ finite-temperature tangencies rather than endpoint contacts.
   \caption{Two-sided finite-temperature tangency.  The left panel scales
   \(b\) by \(1/C(b\mid a)\) to embrace \(a\); the right panel scales \(a\)
   by \(1/C(a\mid b)\) to embrace \(b\).  Crosses mark the interior contact
-  points.  Thin dotted vertical lines close the scaled regions at their
-  \(T=\infty\) endpoints.}
+  points.  Thin dotted horizontal lines close the scaled regions at their
+  \(T=\infty\) endpoints; translucent fills extend to \(E=0\).}
   \label{fig:finite-temperature}
 \end{figure}
 
@@ -382,10 +385,164 @@ homothetic boundary embracing \(\Gamma_{f_i}\).
   \centering
   \includegraphics[width=\textwidth]{figures/exchange-homotheties_cycle-5-3_3-1-1_6-1.pdf}
   \caption{The cyclic example.  Solid and dotted boundaries are original and
-  scaled, respectively.  Vertical \(T=\infty\) closures and
-  85\%-transparent fills display target containment.}
+  scaled, respectively.  Horizontal \(T=\infty\) closures and
+  85\%-transparent fills extending to \(E=0\) display target containment.}
   \label{fig:cycle}
 \end{figure}
+
+\section{A thermodynamic analogy and its limits}
+
+There is an appealing physical reading of the construction.  Regard a
+signature \(A=(a_i)\) as one idealized particle whose internal energy levels
+are \(\epsilon_i=-\log a_i\).  The Cartesian power \(A^{\otimes k}\) is then a
+system of \(k\) independent particles of type \(A\).  Likewise, a second
+signature \(B\) represents a second particle type.  At an interior contact of
+their homothetically scaled Gibbs boundaries,
+\[
+  \frac{dH_A}{dE}=\frac{dH_B}{dE}=\frac{1}{T},
+\]
+so the active comparison has a common temperature.  This makes the
+finite-temperature tangencies above analogous to reversible contact between
+two gases of particles.
+
+The analogy must not be read as a law of spontaneous reaction.  The relation
+\(\impl\) is a combinatorial possibility, not a microscopic dynamics, and
+\(C\) is a conversion capacity rather than a chemical affinity.  For a
+putative conversion
+\[
+  kA\rightleftharpoons nB
+\]
+put \(r=k/n\).  The definitions give the two distinct conditions
+\begin{align}
+  B^{\otimes n}\longrightarrow A^{\otimes k}
+  &\quad\Longleftrightarrow\quad
+  r\leq C(B\mid A)
+  &&\text{in the asymptotic closure}, \label{eq:B-to-A}\\
+  A^{\otimes k}\longrightarrow B^{\otimes n}
+  &\quad\Longleftrightarrow\quad
+  r\geq \frac{1}{C(A\mid B)}
+  &&\text{in the asymptotic closure}. \label{eq:A-to-B}
+\end{align}
+Strict inequalities guarantee the corresponding direction for sufficiently
+large block sizes; an exact boundary ratio need not be attained at finite
+size.
+Thus a single inequality involving \(C(A\mid B)\) does not choose the
+direction.  In fact,
+\[
+  C(A\mid B)C(B\mid A)\leq1,
+\]
+so the two thresholds form a conversion window
+\[
+  C(B\mid A)\leq r\leq\frac{1}{C(A\mid B)}.
+\]
+Away from equality there can be ratios in this window for which neither
+direction realizes that exact stoichiometry.  The width of the window is an
+irreversibility loss, analogous to a bid--ask spread.  When the endpoints
+coincide, the comparison is asymptotically reversible.  An interior tangency
+identifies the Gibbs temperature at which the corresponding supporting
+constraint is tight.
+
+For comparison, genuine chemical equilibrium at fixed temperature and
+pressure would require zero reaction affinity,
+\[
+  \mathcal A=k\mu_A-n\mu_B=0,
+\]
+in addition to equal temperature.  Here \(\mu_A,\mu_B\) are chemical
+potentials.  This condition is not part of the definition of
+implementation.  Consequently, the rate inequalities should be called
+\emph{allowed conversion directions}, not spontaneous reaction directions.
+
+A constant reaction-energy term can nevertheless be represented cleanly.
+For
+\[
+  kA\rightleftharpoons nB+q
+\]
+shift every level of \(B\) by \(q/n\):
+\[
+  \widetilde\epsilon_{B,j}=\epsilon_{B,j}+\frac qn.
+\]
+Then
+\[
+  \widetilde E_B(H)=E_B(H)+\frac qn,\qquad
+  \widetilde Z_B(T)=e^{-q/(nT)}Z_B(T),
+\]
+while \(H_B(T)\) and the tangent slope \(dH_B/dE=1/T\) are unchanged.  Hence
+the \(n\)-particle energy region moves horizontally by \(q\).  This bookkeeping
+is valid when \(q\) is a fixed energy offset carried by an explicit work or
+storage degree of freedom.  Heat passed to a bath also carries entropy and
+cannot, in general, be modeled by a horizontal shift alone.
+
+Several physical effects are deliberately absent: interactions, quantum
+symmetrization, translational and volume degrees of freedom, mixing entropy
+between particle types, conservation laws, reaction kinetics, activation
+barriers, and coupling to a heat or particle reservoir.  The logarithmic
+energies are dimensionless (\(k_B=1\)), and relative energy offsets between
+particle types must be fixed because a conversion may change particle
+number.  Subject to these simplifications, the construction suggests a
+broader question: use homothetic containment of Gibbs regions to compare the
+complexity of general Gibbs systems.
+
+The supporting function
+\[
+  \Psi_A(T)=\log Z_A(T)=-\frac{F_A(T)}{T}
+\]
+is the Massieu potential, or free entropy.  Thus
+\[
+  C(A\mid B)=\inf_{T>0}\frac{\Psi_A(T)}{\Psi_B(T)}
+\]
+is the largest factor \(c\) for which
+\(\Psi_A(T)\geq c\Psi_B(T)\) simultaneously at every temperature.  It may be
+read as an all-temperature, or worst-temperature, conversion rate; an
+interior minimizing \(T_*\) is the bottleneck temperature.  The closest
+established framework is the resource theory without a fixed background
+temperature developed by
+\href{https://arxiv.org/abs/1607.01302}
+{Sparaciari, Oppenheim, and Fritz}.  There, asymptotically many
+noninteracting systems are classified by energy and entropy, and conversion
+rates are read from a two-dimensional energy--entropy diagram.  Our
+construction specializes this idea to complete Gibbs boundaries and requires
+the comparison at all temperatures rather than relative to one prescribed
+heat bath.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.78\textwidth]{figures/relativistic-radiation-energy-entropy.pdf}
+  \caption{A real exact homothety in the ultrarelativistic limit.  At the same
+  temperature, the electron--positron sector has \(7/4\) times the energy and
+  entropy densities of the photon sector.  The dotted homothetic photon curve
+  coincides with the electron--positron curve.}
+  \label{fig:radiation-sectors}
+\end{figure}
+
+A simple real system realizes the homothety exactly.  For an
+ultrarelativistic equilibrium sector \(X\) with effective number \(g_X\) of
+internal degrees of freedom, in natural units and fixed volume,
+\[
+  E_X(T)=\frac{\pi^2}{30}g_XVT^4,\qquad
+  H_X(T)=\frac{2\pi^2}{45}g_XVT^3.
+\]
+Consequently, two such sectors \(A,B\) obey
+\[
+  E_A(T)=\frac{g_A}{g_B}E_B(T),\qquad
+  H_A(T)=\frac{g_A}{g_B}H_B(T)
+\]
+at every temperature: their entire energy--entropy boundaries are
+homothetic, with \(C=g_A/g_B\).  Photons have \(g_\gamma=2\), whereas an
+ultrarelativistic electron--positron sector has the fermionic effective value
+\(g_{e^\pm}=(7/8)\times4=7/2\).  Hence its factor relative to photons is
+\(7/4\), as shown in Figure~\ref{fig:radiation-sectors}.  The early-universe
+reaction \(e^-+e^+\rightleftharpoons2\gamma\) maintained thermal and chemical
+equilibrium in the relativistic regime; when the temperature fell below the
+electron mass, annihilation transferred entropy to the photon bath.  Detailed
+calculations confirm that most annihilation occurred near equilibrium and
+that the process affects big-bang nucleosynthesis and the effective
+relativistic degrees of freedom
+\href{https://doi.org/10.1103/PhysRevD.101.063507}{[Thomas et al., 2020]}.
+
+For arbitrary Gibbs systems this should initially be viewed as a proposed
+complexity comparison: unlike finite-map signatures, its operational
+interpretation and the treatment of infinite spectra require separate
+analysis.
 
 \section{Conclusion}
 
@@ -395,6 +552,9 @@ The operational rate \(C(g\mid f)\), the power-sum formula, and the
 energy--entropy homotheties are three views of the same comparison.  The
 example above also warns against compressing the two directed rates into a
 single global ranking: pairwise exchange advantage can be cyclic.
+The thermodynamic analogy suggests using the same Gibbs-region comparison
+for broader systems while keeping conversion capacity distinct from physical
+reaction affinity.
 
 \appendix
 \section{Unrestricted input and output maps}
@@ -437,5 +597,26 @@ becomes a linear order after identifying signatures having the same
 \(Z_a(0)=|Y_a|\) remains; the fiber sizes and the rest of the Gibbs curve play
 no role.  If \(|Y_b|=1\), then \(C(a\mid b)=+\infty\); if
 \(|Y_a|=1<|Y_b|\), then \(C(a\mid b)=0\).
+
+\section{The first 99 non-special signatures}
+
+Singleton signatures \(\sig{N}\) and all-ones signatures
+\(\sig{1,\ldots,1}\) form exceptional infinite families and are omitted from
+this finite list.  Starting from the catalog used for the exchange matrix, we
+adjoin all length-two signatures with largest entry \(7\) or \(8\), contract
+the strongly connected components of the strict comparison graph, and use
+the deterministic topological order described in the analysis code.
+
+Because \(\prec\) is not transitive, the resulting numbered list is not a
+linear extension of every pairwise comparison.  In
+Table~\ref{tab:signature-order-exceptions}, a row for \(x\) records every
+earlier numbered signature \(a\) for which \(x\prec a\), together with the two
+directed rates.  Thus each listed entry satisfies
+\[
+  C(x\mid a)<C(a\mid x)
+\]
+despite \(a\) appearing before \(x\).
+
+\input{appendix_b_signatures.tex}
 
 \end{document}

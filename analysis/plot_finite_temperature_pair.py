@@ -20,6 +20,7 @@ COLORS = ("#0072B2", "#D55E00")
 OUTPUT_STEM = (
     PROJECT_ROOT / "images" / "exchange-homotheties_6-5-2-1_6-4-3-2"
 )
+FILL_ALPHA = 0.15
 
 
 def temperatures() -> tuple[float, ...]:
@@ -45,6 +46,26 @@ def signature_text(signature: tuple[int, ...]) -> str:
     return r"\{" + ",".join(map(str, signature)) + r"\}"
 
 
+def fill_region(
+    axis,
+    entropies: list[float],
+    energies: list[float],
+    color: str,
+    *,
+    alpha: float = FILL_ALPHA,
+) -> None:
+    """Fill the closed Gibbs region horizontally from its boundary to E=0."""
+
+    axis.fill(
+        energies + [0.0, 0.0, energies[0]],
+        entropies + [entropies[-1], 0.0, 0.0],
+        color=color,
+        alpha=alpha,
+        linewidth=0.0,
+        zorder=0,
+    )
+
+
 def endpoint_lines(
     axis,
     entropies: list[float],
@@ -52,27 +73,27 @@ def endpoint_lines(
     color: str,
     *,
     alpha: float,
-    vertical_linestyle: str | tuple = "solid",
-    horizontal_linestyle: str | tuple = "solid",
+    infinity_linestyle: str | tuple = "solid",
+    zero_temperature_linestyle: str | tuple = "solid",
 ) -> None:
-    axis.vlines(
+    axis.hlines(
         entropies[-1],
-        energies[-1],
         0.0,
+        energies[-1],
         color=color,
         linewidth=1.0,
-        linestyle=vertical_linestyle,
+        linestyle=infinity_linestyle,
         alpha=alpha,
         zorder=1,
     )
     if entropies[0] > 1.0e-12:
-        axis.hlines(
+        axis.vlines(
             energies[0],
             0.0,
             entropies[0],
             color=color,
             linewidth=1.0,
-            linestyle=horizontal_linestyle,
+            linestyle=zero_temperature_linestyle,
             alpha=alpha,
             zorder=1,
         )
@@ -102,9 +123,11 @@ def main() -> int:
         ):
             entropies, energies = curves[signature]
             strong = source_index == target_index
+            if strong:
+                fill_region(axis, entropies, energies, color)
             axis.plot(
-                entropies,
                 energies,
+                entropies,
                 color=color,
                 linewidth=3.0 if strong else 1.8,
                 alpha=1.0 if strong else 0.45,
@@ -132,9 +155,15 @@ def main() -> int:
         entropies, energies = curves[source]
         scaled_entropies = [scale * value for value in entropies]
         scaled_energies = [scale * value for value in energies]
-        axis.plot(
+        fill_region(
+            axis,
             scaled_entropies,
             scaled_energies,
+            COLORS[source_index],
+        )
+        axis.plot(
+            scaled_energies,
+            scaled_entropies,
             color=COLORS[source_index],
             linewidth=2.6,
             linestyle=(0, (2, 3)),
@@ -146,19 +175,19 @@ def main() -> int:
             scaled_energies,
             COLORS[source_index],
             alpha=0.78,
-            vertical_linestyle=(0, (2, 3)),
-            horizontal_linestyle=(0, (2, 3)),
+            infinity_linestyle=(0, (2, 3)),
+            zero_temperature_linestyle=(0, (2, 3)),
         )
 
         target_contact = gibbs_point(target, temperature)
         source_contact = gibbs_point(source, temperature)
         scaled_source_contact = (
-            scale * source_contact.entropy,
             scale * source_contact.energy,
+            scale * source_contact.entropy,
         )
         axis.scatter(
-            [target_contact.entropy],
             [target_contact.energy],
+            [target_contact.entropy],
             facecolor="white",
             edgecolor=COLORS[target_index],
             linewidth=2.0,
@@ -176,8 +205,8 @@ def main() -> int:
         )
         axis.annotate(
             rf"$T_*={temperature:.6f}$",
-            xy=(target_contact.entropy, target_contact.energy),
-            xytext=(12, 24) if target_index == 0 else (-110, 30),
+            xy=(target_contact.energy, target_contact.entropy),
+            xytext=(12, 18) if target_index == 0 else (-112, -42),
             textcoords="offset points",
             color="#111827",
             fontsize=9,
@@ -219,7 +248,7 @@ def main() -> int:
                 ),
             ],
             title="tight homothety",
-            loc="upper left",
+            loc="lower right",
             fontsize=8.5,
             title_fontsize=10,
             frameon=True,
@@ -227,16 +256,16 @@ def main() -> int:
             edgecolor="#9ca3af",
             labelcolor="#111827",
         )
-        axis.axhline(0.0, color="#6b7280", linewidth=1.0)
+        axis.axvline(0.0, color="#6b7280", linewidth=1.0)
         axis.grid(color="#d1d5db", alpha=0.72, linewidth=0.8)
         axis.spines[["top", "right"]].set_visible(False)
         axis.spines[["bottom", "left"]].set_color("#6b7280")
         axis.tick_params(colors="#374151")
-        axis.set_xlabel(r"entropy $H$", labelpad=10)
-        axis.set_xlim(-0.03, 1.53)
-        axis.set_ylim(-1.93, 0.07)
+        axis.set_xlabel(r"energy $E$", labelpad=10)
+        axis.set_xlim(-1.93, 0.07)
+        axis.set_ylim(-0.03, 1.53)
 
-    axes[0].set_ylabel(r"energy $E$", labelpad=10)
+    axes[0].set_ylabel(r"entropy $H$", labelpad=10)
     figure.legend(
         handles=[
             Line2D(

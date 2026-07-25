@@ -47,6 +47,26 @@ def signature_text(signature: tuple[int, ...]) -> str:
     return r"\{" + ",".join(map(str, signature)) + r"\}"
 
 
+def fill_region(
+    axis,
+    entropies: list[float],
+    energies: list[float],
+    color: str,
+    *,
+    zorder: int,
+) -> None:
+    """Fill the closed Gibbs region horizontally from its boundary to E=0."""
+
+    axis.fill(
+        energies + [0.0, 0.0, energies[0]],
+        entropies + [entropies[-1], 0.0, 0.0],
+        color=color,
+        alpha=FILL_ALPHA,
+        linewidth=0.0,
+        zorder=zorder,
+    )
+
+
 def main() -> int:
     cache = ExchangeRateCache()
     curves = {
@@ -88,24 +108,20 @@ def main() -> int:
                     scaled_energies,
                 )
             )
-            axis.fill_between(
+            fill_region(
+                axis,
                 scaled_entropies,
                 scaled_energies,
-                0.0,
-                color=color,
-                alpha=FILL_ALPHA,
-                linewidth=0.0,
+                color,
                 zorder=0,
             )
 
         target_entropies, target_energies = curves[target]
-        axis.fill_between(
+        fill_region(
+            axis,
             target_entropies,
             target_energies,
-            0.0,
-            color=COLORS[target_index],
-            alpha=FILL_ALPHA,
-            linewidth=0.0,
+            COLORS[target_index],
             zorder=1,
         )
 
@@ -115,17 +131,17 @@ def main() -> int:
             entropies, energies = curves[signature]
             is_target = source_index == target_index
             axis.plot(
-                entropies,
                 energies,
+                entropies,
                 color=color,
                 linewidth=TARGET_LINEWIDTH if is_target else 1.7,
                 alpha=1.0 if is_target else 0.48,
                 zorder=4 if is_target else 3,
             )
-            axis.vlines(
+            axis.hlines(
                 entropies[-1],
-                energies[-1],
                 0.0,
+                energies[-1],
                 color=color,
                 linewidth=TARGET_CLOSURE_LINEWIDTH if is_target else 1.0,
                 alpha=1.0 if is_target else 0.48,
@@ -142,17 +158,17 @@ def main() -> int:
             scaled_energies,
         ) in scaled_curves:
             axis.plot(
-                scaled_entropies,
                 scaled_energies,
+                scaled_entropies,
                 color=color,
                 linewidth=2.3,
                 linestyle=SCALED_LINESTYLE,
                 zorder=5,
             )
-            axis.vlines(
+            axis.hlines(
                 scaled_entropies[-1],
-                scaled_energies[-1],
                 0.0,
+                scaled_energies[-1],
                 color=color,
                 linewidth=1.2,
                 linestyle=SCALED_LINESTYLE,
@@ -180,7 +196,7 @@ def main() -> int:
             color="#111827",
             pad=12,
         )
-        axis.axhline(0.0, color="#6b7280", linewidth=1.0)
+        axis.axvline(0.0, color="#6b7280", linewidth=1.0)
         axis.grid(color="#d1d5db", alpha=0.72, linewidth=0.8)
         axis.spines[["top", "right"]].set_visible(False)
         axis.spines[["bottom", "left"]].set_color("#6b7280")
@@ -197,11 +213,11 @@ def main() -> int:
             labelcolor="#111827",
         )
 
-    axes[0].set_ylabel(r"energy $E$", labelpad=10)
+    axes[0].set_ylabel(r"entropy $H$", labelpad=10)
     for axis in axes:
-        axis.set_xlabel(r"entropy $H$", labelpad=10)
-        axis.set_xlim(-0.03, 1.84)
-        axis.set_ylim(-3.0, 0.08)
+        axis.set_xlabel(r"energy $E$", labelpad=10)
+        axis.set_xlim(-3.0, 0.08)
+        axis.set_ylim(-0.03, 1.84)
 
     solid_handles = [
         Line2D(
