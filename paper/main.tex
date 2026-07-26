@@ -32,18 +32,17 @@
 \maketitle
 
 \begin{abstract}
-We associate to a surjective map between finite sets the multiset of its
-fiber cardinalities.  Cartesian products turn these signatures into a simple
-asymptotic resource theory.  Its exchange rate \(C(g\mid f)\) is the largest
-asymptotic number of copies of \(f\) implementable per copy of \(g\).
-Power sums compute this operationally defined limit, while Gibbs
-energy--entropy curves provide a geometric picture.  The comparison obtained
-by putting the two directed rates side by side is not transitive: the three
-signatures \(\sig{5,3}\), \(\sig{3,1,1}\), and \(\sig{6,1}\) form a strict
-cycle.  This is a concrete monoidal resource theory of finite deterministic
-computational tasks: its one-shot convertibility resembles strong Weihrauch
-reducibility, while its asymptotic exchange rate is a finite-map analogue of
-tensor relative exponents and Strassen's asymptotic spectrum.
+To a surjection between finite sets we assign the multiset of its fiber
+cardinalities.  We compare these signatures by allowing injective
+preprocessing and bijective relabelling of the outputs, and define an
+asymptotic exchange rate from Cartesian powers.  The rate is expressed by an
+infimum of ratios of power sums.  After the substitution
+\(\epsilon_i=-\log n_i\), the same formula describes homothetic containment
+of Gibbs energy--entropy regions.  The two directed rates do not induce a
+transitive comparison: \(\sig{5,3}\), \(\sig{3,1,1}\), and \(\sig{6,1}\)
+form a strict cycle.  Algebraically, this is an ordered semiring resource
+theory for finite deterministic tasks, related to strong Weihrauch
+reducibility and to asymptotic tensor restriction.
 \end{abstract}
 
 \section{Signatures and implementation}
@@ -54,15 +53,13 @@ Let \(f:X\to Y\) be onto and enumerate its output as
   f^{-1}(y_i)=\{x\in X:f(x)=y_i\},
   \qquad n_i=\left|f^{-1}(y_i)\right|.
 \]
-Thus \(n_i\) is the number of inputs mapped by \(f\) to the output \(y_i\).
-After ordering these fiber sizes by decreasing value, the \emph{signature} of
-\(f\) is
+Order the fiber sizes decreasingly and define the \emph{signature} of \(f\) by
 \[
   \sigma(f)=(n_1,\ldots,n_r),\qquad
   n_1\geq\cdots\geq n_r\geq 1,\qquad r=|Y|.
 \]
-Only the signature will matter below, so maps and their signatures are denoted
-by the same letters.
+No other information about the map will be used, and we henceforth use the
+same letter for a map and its signature.
 
 \begin{definition}[Implemented by]
 Let \(a=(a_1,\ldots,a_r)\) and \(b=(b_1,\ldots,b_s)\) be decreasing
@@ -105,24 +102,23 @@ actually used by the implementation, and the following diagram commutes:
   & Y_g .
 \end{tikzcd}
 \]
-Unused fibers of \(g\) may be discarded.  The componentwise condition above
-is exactly the condition that every fiber of \(f\) can be injected into its
-assigned fiber of \(g\).
+Unused fibers of \(g\) may be discarded.  Such an implementation exists
+precisely when each fiber of \(f\) injects into its assigned fiber of \(g\),
+which is the componentwise condition in Definition~1.
 
-The Cartesian product \(a\otimes b\) has all products \(a_i b_j\) as its
-fiber sizes, with multiplicity.  We write \(a^{\otimes k}\) for the \(k\)-fold
-product.
+Cartesian product multiplies fiber sizes:
 \[
   a\otimes b
   =\operatorname{sort}\{a_i b_j:1\leq i\leq r,\ 1\leq j\leq s\}.
 \]
+Multiplicity is retained, and \(a^{\otimes k}\) denotes the \(k\)-fold
+product.
 
-There is also a natural sum.  The disjoint union of maps
+Disjoint union supplies a second operation:
 \[
   f\sqcup g:X_f\sqcup X_g\longrightarrow Y_f\sqcup Y_g
 \]
-has as its signature the sorted concatenation of the two signatures; we write
-this as
+has signature
 \[
   a+b=\operatorname{sort}(a_1,\ldots,a_r,b_1,\ldots,b_s).
 \]
@@ -135,12 +131,10 @@ over this sum:
   \qquad
   a\otimes(b+c)=(a\otimes b)+(a\otimes c).
 \]
-Thus signatures form the nonzero part of an ordered commutative semiring
-(adjoining the empty signature gives the additive zero), with multiplicative
-unit \(\{1\}\).  The sum represents a disjoint, classically labelled
-alternative, whereas \(\otimes\) represents independent parallel
-composition.  Only \(\otimes\) is needed in the exchange-rate definition
-below.
+After adjoining the empty signature as zero, signatures form an ordered
+commutative semiring with multiplicative unit \(\{1\}\).  Here \(+\) is a
+classically labelled alternative and \(\otimes\) is parallel composition.
+Only the latter enters the exchange rate.
 
 \begin{definition}[Exchange rate]
 For signatures \(f\) and \(g\), set
@@ -155,60 +149,59 @@ The exchange rate, with the implementer written first, is
 \]
 \end{definition}
 
-The sequence \(k_{\max}\) is superadditive: implementations for \(n\) and
-\(m\) copies can be tensored.  Fekete's lemma therefore gives the limit
-(possibly \(+\infty\)) and identifies it with the corresponding supremum.
-Thus the limit is the definition; the infimum below is a computational
-characterization.
+Tensoring optimal implementations at block lengths \(n\) and \(m\) gives
+\[
+  k_{\max}(n+m)\geq k_{\max}(n)+k_{\max}(m).
+\]
+Fekete's lemma now yields
+\[
+  \lim_{n\to\infty}\frac{k_{\max}(n)}{n}
+  =\sup_{n\geq1}\frac{k_{\max}(n)}{n},
+\]
+with \(+\infty\) allowed.  The limit is the operational definition of
+\(C(g\mid f)\).
 
 \section{Related frameworks}
 
-The present construction is a concrete semiring resource theory: signatures
-are resources, implementation is free conversion, disjoint union supplies
-addition, and Cartesian product combines independent resources.  General
-resource theories formulate
-convertibility from freely available processes and explicitly ask for rates
-between many copies, while ordered commutative monoids and semirings provide
-an algebraic treatment of conversion, combination, and asymptotic rates
-(see, e.g., \cite{coecke-fritz-spekkens-2016,fritz-2017}).
+The operations above place the construction among semiring resource theories:
+implementation is the free conversion, \(+\) is disjoint choice, and
+\(\otimes\) combines independent resources.  General accounts of resource
+theories and their ordered algebraic structures are given in
+\cite{coecke-fritz-spekkens-2016,fritz-2017}.
 
-At the one-shot level, the factorization
+The one-shot factorization
 \[
   f=h_{\mathrm{out}}\circ g\circ h_{\mathrm{in}}
 \]
-resembles strong Weihrauch reducibility of computational problems, in which a
-single use of \(g\) is surrounded by computable preprocessing and
-postprocessing (see \cite{brattka-gherardi-pauly-2021}).  Weihrauch theory
-also has a parallel product.  The important distinction is that our finite
-processors are injective or bijective on the used sets; arbitrary computable
-processors would forget the fiber capacities that this paper retains.
+has the form of strong Weihrauch reduction: one call to \(g\), preceded and
+followed by fixed processors \cite{brattka-gherardi-pauly-2021}.  Unlike the
+computable processors in Weihrauch theory, ours are injective or bijective on
+the sets actually used.  This restriction preserves the fiber capacities.
 
-An even closer asymptotic precedent comes from algebraic complexity.  Tensors
-encode bilinear computational tasks, restriction converts one tensor to
-another by linear maps, and tensor product combines independent copies.
-Strassen's asymptotic spectrum characterizes large tensor powers by
-multiplicative monotones (see \cite{strassen-1988}).  The relative exponent
+The asymptotic construction is closer to tensor restriction.  Tensors encode
+bilinear tasks, linear maps implement restrictions, and tensor product
+combines copies.  Strassen's asymptotic spectrum characterizes large tensor
+powers by multiplicative monotones \cite{strassen-1988}.  The relative
+exponent
 \[
   \omega(t,s)
   =\lim_{n\to\infty}\frac1n
     \min\{m:t^{\otimes m}\text{ restricts to }s^{\otimes n}\}
 \]
-is the resource cost per target copy and has been used to quantify
-irreversibility in matrix-multiplication methods
-(see \cite{christandl-vrana-zuiddam-2021}).  With the direction reversed, it
-is the reciprocal convention to \(C(t\mid s)\).  In our setting the
-multiplicative quantities \(Z_a(\beta)\), or their additive logarithms, play
-the role of spectral monotones.  The resulting infimum over power sums is
-also close to the exact asymptotic-majorization rate, expressed as a minimum
-of ratios of R\'enyi entropies (see \cite{jensen-2019}).
+measures resource cost per target copy; it is used, for example, to quantify
+irreversibility in matrix multiplication
+\cite{christandl-vrana-zuiddam-2021}.  Its convention is reciprocal to ours
+after reversing the conversion.  Here the spectral monotones are the power
+sums \(Z_a(\beta)\).  The resulting formula is also analogous to exact
+asymptotic majorization, where the rate is a minimum of R\'enyi-entropy ratios
+\cite{jensen-2019}.
 
-Finally, channel simulation surrounds repeated uses of a resource channel by
-an encoder and decoder in order to reproduce a target channel.  For
-point-to-point discrete memoryless channels with common-randomness assistance,
-the first-order interconversion rate is the ratio of channel capacities
-(see \cite{cao-et-al-2024}).  Appendix~A explains why its unrestricted
-finite-map variant has exactly the corresponding logarithmic
-output-cardinality form.
+Channel simulation provides a third comparison: an encoder and decoder use
+copies of one channel to reproduce another.  With common-randomness
+assistance, the first-order rate for point-to-point discrete memoryless
+channels is the ratio of their capacities \cite{cao-et-al-2024}.  Appendix~A
+recovers the corresponding logarithmic cardinality ratio when both
+processors in the finite-map model are left unrestricted.
 
 \section{Power sums and Gibbs curves}
 
@@ -216,17 +209,15 @@ For a signature \(a=(a_i)\), define its power-sum partition function
 \[
   Z_a(\beta)=\sum_i a_i^\beta,\qquad \beta\geq0,
 \]
-where \(\beta=1/T\) is inverse physical temperature.  Throughout this paper,
-\(T\) denotes temperature and never inverse temperature.
-The sum and product of signatures become the ordinary sum and product of
-partition functions:
+where \(\beta=1/T\) is inverse temperature.  The semiring operations become ordinary addition and
+multiplication:
 \[
   Z_{a+b}(\beta)=Z_a(\beta)+Z_b(\beta),
   \qquad
   Z_{a\otimes b}(\beta)=Z_a(\beta)Z_b(\beta).
 \]
 The fibers of the \(k\)-fold Cartesian power \(a^{\otimes k}\) are indexed by
-\((i_1,\ldots,i_k)\) and have sizes \(a_{i_1}\cdots a_{i_k}\).  Consequently,
+\((i_1,\ldots,i_k)\) and have sizes \(a_{i_1}\cdots a_{i_k}\).  Therefore
 \begin{align}
   Z_{a^{\otimes k}}(\beta)
   &=\sum_{i_1,\ldots,i_k}
@@ -237,6 +228,24 @@ The fibers of the \(k\)-fold Cartesian power \(a^{\otimes k}\) are indexed by
   \log Z_{a^{\otimes k}}(\beta)=k\log Z_a(\beta).
   \label{eq:tensor-partition}
 \end{align}
+
+\begin{proposition}
+\label{prop:rate}
+Let \(f\) and \(g\) each have at least two fibers and a fiber of size greater
+than one.  Then
+\begin{equation}
+  \label{eq:rate}
+  C(g\mid f)
+  =\inf_{\beta\in[0,\infty]}
+    \frac{\log Z_g(\beta)}{\log Z_f(\beta)},
+\end{equation}
+where the value at \(\beta=\infty\) is
+\[
+  \frac{\log\max_j g_j}{\log\max_i f_i}.
+\]
+\end{proposition}
+
+\begin{proof}[Proof sketch]
 If \(f^{\otimes k}\impl g^{\otimes n}\), applying the power sum at every
 \(\beta\geq0\) gives
 \[
@@ -245,28 +254,21 @@ If \(f^{\otimes k}\impl g^{\otimes n}\), applying the power sum at every
   \frac{k}{n}\leq
   \frac{\log Z_g(\beta)}{\log Z_f(\beta)}.
 \]
-Thus Cartesian products become ordinary scalar multiplication after taking
-\(\log Z\).  Passing to the asymptotic optimum gives the upper bound in the
-following formula.
+The endpoint \(\beta=\infty\) gives the same inequality for the largest
+fibers, so the right-hand side of \eqref{eq:rate} is an upper bound.
 
-The asymptotic comparison is governed by
-\begin{equation}
-  \label{eq:rate}
-  C(g\mid f)
-  =\inf_{\beta\geq0}
-    \frac{\log Z_g(\beta)}{\log Z_f(\beta)},
-\end{equation}
-together with the endpoint
-\[
-  \lim_{\beta\to\infty}
-  \frac{\log Z_g(\beta)}{\log Z_f(\beta)}
-  =\frac{\log\max_j g_j}{\log\max_i f_i}.
-\]
-Necessity follows by applying every power sum to an implementation.
-Asymptotic sufficiency follows by sorting the product fibers and applying the
-usual exponential, or large-deviation, estimates to their ranks.  In this
-way all componentwise constraints are represented by the one-parameter
-family \(Z_a(\beta)\).
+For the converse, choose a rational \(k/n\) strictly below that infimum.
+Sort the logarithms of the fibers in \(f^{\otimes k\ell}\) and
+\(g^{\otimes n\ell}\).  The exponential growth rate of the number of entries
+above a fixed threshold is the Legendre transform of
+\(\log Z_f\), respectively \(\log Z_g\).  The strict power-sum inequalities,
+including the two endpoints, therefore give componentwise domination for all
+sufficiently large \(\ell\).  Hence
+\(f^{\otimes k\ell}\impl g^{\otimes n\ell}\).  Letting \(k/n\) increase to
+the infimum proves the reverse inequality.  This is the type-counting
+argument used in exact asymptotic majorization; compare
+\cite{jensen-2019}.
+\end{proof}
 
 Put
 \[
@@ -275,38 +277,41 @@ Put
   =\frac{e^{-\epsilon_i/T}}{\sum_j e^{-\epsilon_j/T}}
   =\frac{a_i^{1/T}}{Z_a(1/T)}.
 \]
-These are the Gibbs probabilities at physical temperature \(T\).  Their mean
-energy and entropy are
+The corresponding mean energy and entropy are
 \[
   E_a(T)=\sum_i p_i(T)\epsilon_i,\qquad
   H_a(T)=-\sum_i p_i(T)\log p_i(T).
 \]
-Writing \(\beta=1/T\), they satisfy
-\(\log Z_a(\beta)=H_a(T)-E_a(T)/T\).  Moreover,
+They satisfy
+\[
+  \log Z_a(1/T)=H_a(T)-\frac{E_a(T)}{T}.
+\]
+Since the Gibbs distribution of a Cartesian power is a product distribution,
 \[
  H_{a^{\otimes k}}(T)=kH_a(T),\qquad
  E_{a^{\otimes k}}(T)=kE_a(T),
 \]
-because the Gibbs distribution of the Cartesian power is the product
-distribution.  Eliminating \(T\) gives
+and therefore
 \[
  E_{a^{\otimes k}}(H)=kE_a(H/k),
 \]
-so taking Cartesian powers is a homothety by \(k\) in the
-\((E,H)\)-plane.
+so Cartesian powers act by homothety in the \((E,H)\)-plane.
 
-Geometrically,
-\(\log Z_a(\beta)=H_a(T)-\beta E_a(T)\) is the offset of the supporting
-line with normal \((-\beta,1)\) to the convex Gibbs region \(\mathcal R_a\).
-Therefore formula \eqref{eq:rate} is equivalently
+Let \(\Gamma_a\) denote the Gibbs curve
+\(\{(E_a(T),H_a(T)):0<T<\infty\}\), completed by its endpoint segments, and
+let \(\mathcal R_a\) be the closed convex region between this boundary and
+the line \(E=0\).  The quantity
+\[
+  \log Z_a(\beta)=H_a(T)-\beta E_a(T)
+\]
+is the offset of the supporting line with normal \((-\beta,1)\).  Proposition
+\ref{prop:rate} is therefore equivalent to
 \[
  C(g\mid f)
  =\sup\{c\geq0:c\,\mathcal R_f\subseteq\mathcal R_g\}.
 \]
-In particular,
-\(C(g\mid f)\Gamma_f\) fits in the convex Gibbs region bounded by
-\(\Gamma_g\).  Equivalently, the tight homothetic copy of \(g\) embracing
-\(f\) is \(C(g\mid f)^{-1}\Gamma_g\).
+Equivalently, \(C(g\mid f)^{-1}\Gamma_g\) is the smallest homothetic copy of
+\(\Gamma_g\) whose region contains \(\Gamma_f\).
 
 \section{The pair
 \texorpdfstring{\(\sig{2,2}\) and \(\sig{3,1}\)}
@@ -331,28 +336,20 @@ The reverse direction is limited at a finite temperature:
   \beta_*=0.4036799030\ldots,\quad
   T_*=\beta_*^{-1}=2.47721027\ldots.
 \end{align*}
-The large asymmetry is visible in Figure~\ref{fig:pair}.  Solid lines are the
-original Gibbs boundaries.  In each panel the other signature is enlarged by
-the reciprocal directed rate; only this resulting tight boundary is dotted.
-The thin horizontal line joins the \(T=\infty\) endpoint to \(E=0\).  When the
-\(T=0\) endpoint has residual entropy \(H(0)>0\), a thin vertical line joins
-that endpoint to \(H=0\); no vertical line is needed when \(H(0)=0\).
-Endpoint closures of homothetically scaled boundaries are thin and dotted,
-matching the scaled curve; endpoint closures of original boundaries are thin
-and solid.  The \(85\%\)-transparent fills extend horizontally from each
-boundary to \(E=0\), displaying the closed convex Gibbs regions.  Since
-\(\sig{2,2}\) has two equal energy levels, its canonical Gibbs boundary
-itself collapses to the single point
-\((E,H)=(-\log2,\log2)\).
+Figure~\ref{fig:pair} displays both homotheties.  Solid curves are unscaled;
+dotted curves are enlarged by the reciprocal directed rate.  Thin endpoint
+segments complete the boundaries, and the fills show the regions
+\(\mathcal R_a\).  Because the two levels of \(\sig{2,2}\) coincide, its Gibbs
+curve reduces to the point \((-\log2,\log2)\).
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{figures/exchange-homotheties_2-2_3-1.pdf}
-  \caption{The two directed homotheties for \(\sig{2,2}\) and
-  \(\sig{3,1}\).  Thin horizontal lines close the \(T=\infty\) endpoints.
-  Vertical lines close only \(T=0\) endpoints with \(H(0)>0\).
-  Both horizontal and vertical closures are dotted for homothetically scaled
-  boundaries; translucent fills extend to \(E=0\).  The factors are
+  \caption{Exchange rates as planar dilations.  In each panel, one
+  energy--entropy region is scaled about the origin until it just contains
+  the other.  Thin segments at the \(T=0\) and \(T=\infty\) endpoints close
+  the regions; dotted boundaries denote the scaled copy, and translucent
+  fills make the containment visible.  The required scale factors are
   \(1/C(\sig{3,1}\mid\sig{2,2})=1.03585676\ldots\) on the left and
   \(1/C(\sig{2,2}\mid\sig{3,1})=\log3/\log2\) on the right.}
   \label{fig:pair}
@@ -360,14 +357,14 @@ itself collapses to the single point
 
 \section{A two-sided finite-temperature tangency}
 
-Finite-temperature contact can determine both directed rates.  Consider
+Both directed rates may be attained away from the endpoints.  Consider
 \[
   a=\sig{6,5,2,1},
   \qquad
   b=\sig{6,4,3,2}.
 \]
-Because \(a\) and \(b\) have the same length and the same largest fiber,
-both endpoint comparisons are equal to one:
+The two signatures have equal length and equal largest fiber, so both
+endpoint ratios are one:
 \[
  \frac{\log Z_a(0)}{\log Z_b(0)}=1,
  \qquad
@@ -375,8 +372,7 @@ both endpoint comparisons are equal to one:
  \frac{\log Z_a(\beta)}{\log Z_b(\beta)}
  =\frac{\log6}{\log6}=1.
 \]
-Nevertheless, the two directed minima are strictly smaller than one and occur
-at finite positive temperatures:
+The interior minima are:
 \begin{center}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
@@ -389,22 +385,24 @@ Direction & \(C\) & \(T_*\) & \(\beta_*=1/T_*\) \\
 \bottomrule
 \end{tabular}
 \end{center}
-At an interior minimizer of
-\(R(\beta)=\log Z_g(\beta)/\log Z_f(\beta)\), the equation
-\(R'(\beta_*)=0\), together with \(\log Z=H-\beta E\), gives
+If
+\[
+  R(\beta)=\frac{\log Z_g(\beta)}{\log Z_f(\beta)}
+\]
+has an interior minimum at \(\beta_*\), then \(R'(\beta_*)=0\) and
+\(\log Z=H-\beta E\) give
 \[
   E_g(T_*)=C(g\mid f)E_f(T_*),
   \qquad
   H_g(T_*)=C(g\mid f)H_f(T_*).
 \]
-Thus the scaled Gibbs boundary and the target boundary meet at the same point.
-Moreover
+The target curve and the scaled source curve therefore meet at the same
+point.  Their slopes also agree, since
 \[
   \frac{dH}{dE}=\frac{1}{T_*}=\beta_*,
 \]
-which is invariant under homothety, so their tangent lines also agree.  Both
-contacts in Figure~\ref{fig:finite-temperature} are therefore genuine
-finite-temperature tangencies rather than endpoint contacts.
+and this slope is invariant under homothety.  The two contacts in
+Figure~\ref{fig:finite-temperature} are genuine tangencies.
 
 \begin{figure}[t]
   \centering
@@ -429,9 +427,9 @@ For signatures \(a,b\), define
 \]
 \end{definition}
 
-This is a natural pairwise comparison: \(b\) is declared more complex when
-it converts into \(a\) more efficiently than \(a\) converts into \(b\).
-Nevertheless, it is not a strict linear order.
+In this terminology, \(b\) is more complex than \(a\) when conversion from
+\(b\) to \(a\) is more efficient than conversion in the opposite direction.
+The relation is not transitive.
 
 Set
 \[
@@ -460,15 +458,13 @@ Table~\ref{tab:cycle}.
   \end{tabular}
 \end{table}
 
-Thus
+The three rows give
 \[
   f_1\prec f_2,\qquad f_2\prec f_3,\qquad f_3\prec f_1.
 \]
-A strict linear order must be transitive, so this three-cycle proves that
-\(\prec\) is not a linear order.  Figure~\ref{fig:cycle} shows all three
-pairwise comparisons geometrically.  In the panel targeting \(f_i\), the two
-dotted curves are \(C(f_j\mid f_i)^{-1}\Gamma_{f_j}\); each is the tight
-homothetic boundary embracing \(\Gamma_{f_i}\).
+Hence \(\prec\) is not a strict order.  Figure~\ref{fig:cycle} shows the three
+comparisons geometrically.  In the panel with target \(f_i\), the dotted curve
+for \(f_j\) is \(C(f_j\mid f_i)^{-1}\Gamma_{f_j}\).
 
 \begin{figure}[t]
   \centering
@@ -481,81 +477,78 @@ homothetic boundary embracing \(\Gamma_{f_i}\).
 
 \section{A thermodynamic analogy and its limits}
 
-There is an appealing physical reading of the construction.  Regard a
-signature \(A=(a_i)\) as one idealized particle whose internal energy levels
-are \(\epsilon_i=-\log a_i\).  The Cartesian power \(A^{\otimes k}\) is then a
-system of \(k\) independent particles of type \(A\).  Likewise, a second
-signature \(B\) represents a second particle type.  At an interior contact of
-their homothetically scaled Gibbs boundaries,
+Associate signatures \(A=(a_i)\) and \(B=(b_j)\) with two idealized particle
+species whose internal energy levels are
 \[
-  \frac{dH_A}{dE}=\frac{dH_B}{dE}=\frac{1}{T},
+  \epsilon_i^A=-\log a_i,
+  \qquad
+  \epsilon_j^B=-\log b_j.
 \]
-so the active comparison has a common temperature.  This makes the
-finite-temperature tangencies above analogous to reversible contact between
-two gases of particles.
+Then \(A^{\otimes k}\) and \(B^{\otimes n}\) represent \(k\) noninteracting
+particles of type \(A\) and \(n\) noninteracting particles of type \(B\),
+respectively.  If their scaled Gibbs curves are tangent at interior points,
+\[
+  \frac{dH_A}{dE_A}
+  =
+  \frac{dH_B}{dE_B}
+  =
+  \frac{1}{T}.
+\]
+The tangent Gibbs states therefore have the same temperature.
 
-The analogy must not be read as a law of spontaneous reaction.  The relation
-\(\impl\) is a combinatorial possibility, not a microscopic dynamics, and
-\(C\) is a conversion capacity rather than a chemical affinity.  For a
-putative conversion
+This identification is kinematic, not dynamical: \(\impl\) records an allowed
+combinatorial conversion, not a reaction mechanism.  For the formal
+stoichiometry
 \[
   kA\rightleftharpoons nB
 \]
-put \(r=k/n\).  The definitions give the two distinct conditions
+write \(r=k/n\).  In the asymptotic closure,
 \begin{align}
   B^{\otimes n}\longrightarrow A^{\otimes k}
-  &\quad\Longleftrightarrow\quad
-  r\leq C(B\mid A)
-  &&\text{in the asymptotic closure}, \label{eq:B-to-A}\\
+  &\quad\Longleftrightarrow\quad r\leq C(B\mid A),
+  \label{eq:B-to-A}\\
   A^{\otimes k}\longrightarrow B^{\otimes n}
   &\quad\Longleftrightarrow\quad
-  r\geq \frac{1}{C(A\mid B)}
-  &&\text{in the asymptotic closure}. \label{eq:A-to-B}
+  r\geq \frac{1}{C(A\mid B)}.
+  \label{eq:A-to-B}
 \end{align}
 Strict inequalities guarantee the corresponding direction for sufficiently
 large block sizes; an exact boundary ratio need not be attained at finite
-size.
-Thus a single inequality involving \(C(A\mid B)\) does not choose the
-direction.  In fact,
+size.  Since
 \[
   C(A\mid B)C(B\mid A)\leq1,
 \]
-so the two thresholds form a conversion window
+the thresholds leave the interval
 \[
   C(B\mid A)\leq r\leq\frac{1}{C(A\mid B)}.
 \]
-Away from equality there can be ratios in this window for which neither
-direction realizes that exact stoichiometry.  The width of the window is an
-irreversibility loss, analogous to a bid--ask spread.  When the endpoints
-coincide, the comparison is asymptotically reversible.  An interior tangency
-identifies the Gibbs temperature at which the corresponding supporting
-constraint is tight.
+For ratios in its interior, neither direction need realize the prescribed
+stoichiometry.  Coincident endpoints mean asymptotic reversibility; otherwise
+the interval measures irreversibility.
 
-For comparison, genuine chemical equilibrium at fixed temperature and
-pressure would require zero reaction affinity,
+Physical equilibrium requires more.  At fixed temperature and pressure the
+reaction affinity must vanish:
 \[
   \mathcal A=k\mu_A-n\mu_B=0,
 \]
-in addition to equal temperature.  Here \(\mu_A,\mu_B\) are chemical
-potentials.  This condition is not part of the definition of
-implementation.  Consequently, the rate inequalities should be called
-\emph{allowed conversion directions}, not spontaneous reaction directions.
+where \(\mu_A\) and \(\mu_B\) are chemical potentials.  Neither chemical
+potentials nor reaction kinetics occur in our definition.  Equations
+\eqref{eq:B-to-A}--\eqref{eq:A-to-B} therefore describe allowed conversions,
+not spontaneous reaction directions.
 
-The strict three-cycle suggests a sharper, explicitly nonequilibrium analogy.
-For a strict comparison arrow
-\(a\overset{\mathrm{s}}{\longrightarrow}b\), define the dimensionless
-\emph{complexity affinity}
+The strict cycle admits a formal comparison with a driven reaction network.
+For \(a\overset{\mathrm{s}}{\longrightarrow}b\), set
 \[
   \alpha(a\to b)
   =\log\frac{C(a\mid b)}{C(b\mid a)}>0.
 \]
-For the cycle in Section~\ref{sec:strict-cycle}, whose arrow orientation is
+For the cycle of Section~\ref{sec:strict-cycle},
 \[
   f_1\overset{\mathrm{s}}{\longrightarrow}f_3
   \overset{\mathrm{s}}{\longrightarrow}f_2
   \overset{\mathrm{s}}{\longrightarrow}f_1,
 \]
-the total complexity-cycle affinity is
+the sum around the cycle is
 \[
 \begin{split}
   \mathcal A_{\mathrm{cyc}}
@@ -568,41 +561,28 @@ the total complexity-cycle affinity is
   \qquad e^{\mathcal A_{\mathrm{cyc}}}=1.09345.
 \end{split}
 \]
-If \(\alpha\) is formally read as a logarithmic forward--reverse reaction
-bias, this resembles a preferred cycle in a three-component reaction network,
+If \(\alpha\) is read as a logarithmic forward--reverse bias, the orientation
+matches the reaction network
 \[
   A\rightleftharpoons B,\qquad
   B\rightleftharpoons C,\qquad
   C\rightleftharpoons A.
 \]
 
-Such a cycle cannot describe spontaneous circulation in a closed equilibrium
-gas.  Reaction affinity is the negative derivative of Gibbs energy with
-respect to reaction extent
-(see \cite{iupac-affinity});
-because Gibbs energy is a state function, the total affinity around a closed
-equilibrium cycle vanishes.  Equivalently, detailed balance imposes the
-Wegscheider cycle condition, so all three directions cannot simultaneously
-have strictly positive equilibrium affinity.  A nonzero cycle affinity instead
-belongs naturally to an open system driven by chemostats, fuel, radiation, or
-other reservoirs.  Open chemical reaction networks with emergent cycles and
-nonvanishing affinities are developed by Polettini and Esposito
-\cite{polettini-esposito-2014} and Rao and Esposito
-\cite{rao-esposito-2016}; Schmiedl and Seifert
-\cite{schmiedl-seifert-2007} give a stochastic-thermodynamic three-species
-cyclic example.
+It cannot represent circulation in a closed equilibrium gas.  Reaction
+affinity is the negative derivative of Gibbs energy with respect to reaction
+extent \cite{iupac-affinity}; detailed balance forces the affinity around a
+closed cycle to vanish.  Nonzero cycle affinity instead belongs to an open
+system maintained by reservoirs.  Such networks are studied in
+\cite{polettini-esposito-2014,rao-esposito-2016}; a stochastic
+three-species example appears in \cite{schmiedl-seifert-2007}.
 
-This identification remains structural rather than physical.  The quantities
-\(C(a\mid b)\) are conversion capacities, not kinetic rate constants; the
-three pairwise infima may occur at different temperatures; and the signature
-model supplies neither reaction kinetics nor conservation laws, stoichiometric
-closure, or external work accounting.  Hence a strict comparison cycle is a
-\emph{candidate nonequilibrium reaction cycle}: it gives an orientation and a
-formal cycle affinity, but by itself predicts neither a sustained current nor
-chemical oscillations.
+The analogy stops at this structural resemblance.  The rates \(C(a\mid b)\)
+are not kinetic constants, and the three minima may occur at different
+temperatures.  Without kinetics, conservation laws, or external work
+accounting, the strict cycle predicts neither a current nor an oscillation.
 
-A constant reaction-energy term can nevertheless be represented cleanly.
-For
+A fixed reaction energy can be included as an offset.  For
 \[
   kA\rightleftharpoons nB+q
 \]
@@ -613,95 +593,78 @@ shift every level of \(B\) by \(q/n\):
 Then
 \[
   \widetilde E_B(H)=E_B(H)+\frac qn,\qquad
-  \widetilde Z_B(T)=e^{-q/(nT)}Z_B(T),
+  \widetilde Z_B(1/T)=e^{-q/(nT)}Z_B(1/T),
 \]
-while \(H_B(T)\) and the tangent slope \(dH_B/dE=1/T\) are unchanged.  Hence
-the \(n\)-particle energy region moves horizontally by \(q\).  This bookkeeping
-is valid when \(q\) is a fixed energy offset carried by an explicit work or
-storage degree of freedom.  Heat passed to a bath also carries entropy and
-cannot, in general, be modeled by a horizontal shift alone.
+while \(H_B(T)\) and \(dH_B/dE=1/T\) are unchanged.  The \(n\)-particle
+region is therefore translated horizontally by \(q\).  This accounts for a
+fixed offset carried by a work-storage degree of freedom; heat transfer to a
+bath cannot be represented by a horizontal shift alone.
 
-Several physical effects are deliberately absent: interactions, quantum
-symmetrization, translational and volume degrees of freedom, mixing entropy
-between particle types, conservation laws, reaction kinetics, activation
-barriers, and coupling to a heat or particle reservoir.  The logarithmic
-energies are dimensionless (\(k_B=1\)), and relative energy offsets between
-particle types must be fixed because a conversion may change particle
-number.  Subject to these simplifications, the construction suggests a
-broader question: use homothetic containment of Gibbs regions to compare the
-complexity of general Gibbs systems.
+The model omits interactions, quantum statistics, translational and volume
+degrees of freedom, mixing entropy, conservation laws, kinetics, activation
+barriers, and reservoirs.  Its energies are dimensionless (\(k_B=1\)), and
+relative offsets between particle types must be fixed whenever particle
+number can change.  These omissions delimit the analogy.
 
 The supporting function
 \[
-  \Psi_A(T)=\log Z_A(T)=-\frac{F_A(T)}{T}
+  \Psi_A(T)=\log Z_A(1/T)=-\frac{F_A(T)}{T}
 \]
-is the Massieu potential, or free entropy.  Thus
+is the Massieu potential.  Proposition~\ref{prop:rate} becomes
 \[
   C(A\mid B)=\inf_{T>0}\frac{\Psi_A(T)}{\Psi_B(T)}
 \]
-is the largest factor \(c\) for which
-\(\Psi_A(T)\geq c\Psi_B(T)\) simultaneously at every temperature.  It may be
-read as an all-temperature, or worst-temperature, conversion rate; an
-interior minimizing \(T_*\) is the bottleneck temperature.  The closest
-established framework is the resource theory without a fixed background
-temperature developed by Sparaciari, Oppenheim, and Fritz
-(see \cite{sparaciari-oppenheim-fritz-2017}).  There, asymptotically many
-noninteracting systems are classified by energy and entropy, and conversion
-rates are read from a two-dimensional energy--entropy diagram.  Our
-construction specializes this idea to complete Gibbs boundaries and requires
-the comparison at all temperatures rather than relative to one prescribed
-heat bath.
+and asks for the largest \(c\) such that
+\(\Psi_A(T)\geq c\Psi_B(T)\) for every \(T\).  An interior minimizer is the
+bottleneck temperature.  Sparaciari, Oppenheim, and Fritz study a related
+resource theory without a fixed background temperature, in which asymptotic
+rates are read from an energy--entropy diagram
+\cite{sparaciari-oppenheim-fritz-2017}.  Our comparison uses the whole Gibbs
+boundary rather than a single prescribed heat bath.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.78\textwidth]{figures/relativistic-radiation-energy-entropy.pdf}
-  \caption{A real exact homothety in the ultrarelativistic limit.  At the same
+  \caption{Exact homothety in the ultrarelativistic limit.  At fixed
   temperature, the electron--positron sector has \(7/4\) times the energy and
-  entropy densities of the photon sector.  The dotted homothetic photon curve
-  coincides with the electron--positron curve.}
+  entropy densities of the photon sector; the rescaled photon curve therefore
+  coincides with it.}
   \label{fig:radiation-sectors}
 \end{figure}
 
-A simple real system realizes the homothety exactly.  For an
-ultrarelativistic equilibrium sector \(X\) with effective number \(g_X\) of
-internal degrees of freedom, in natural units and fixed volume,
+An exact physical homothety occurs for ultrarelativistic equilibrium sectors.
+If \(g_X\) is the effective number of internal degrees of freedom, then in
+natural units and at fixed volume
 \[
   E_X(T)=\frac{\pi^2}{30}g_XVT^4,\qquad
   H_X(T)=\frac{2\pi^2}{45}g_XVT^3.
 \]
-Consequently, two such sectors \(A,B\) obey
+Therefore
 \[
   E_A(T)=\frac{g_A}{g_B}E_B(T),\qquad
   H_A(T)=\frac{g_A}{g_B}H_B(T)
 \]
-at every temperature: their entire energy--entropy boundaries are
-homothetic, with \(C=g_A/g_B\).  Photons have \(g_\gamma=2\), whereas an
-ultrarelativistic electron--positron sector has the fermionic effective value
-\(g_{e^\pm}=(7/8)\times4=7/2\).  Hence its factor relative to photons is
-\(7/4\), as shown in Figure~\ref{fig:radiation-sectors}.  The early-universe
-reaction \(e^-+e^+\rightleftharpoons2\gamma\) maintained thermal and chemical
-equilibrium in the relativistic regime; when the temperature fell below the
-electron mass, annihilation transferred entropy to the photon bath.  Detailed
-calculations confirm that most annihilation occurred near equilibrium and
-that the process affects big-bang nucleosynthesis and the effective
-relativistic degrees of freedom (see \cite{thomas-et-al-2020}).
+at every temperature, so the two boundaries are homothetic with factor
+\(g_A/g_B\).  For photons \(g_\gamma=2\); for an ultrarelativistic
+electron--positron sector \(g_{e^\pm}=(7/8)\times4=7/2\).  The factor is
+therefore \(7/4\), as in Figure~\ref{fig:radiation-sectors}.  In the early
+universe, \(e^-+e^+\rightleftharpoons2\gamma\) maintained equilibrium until
+the temperature fell below the electron mass and annihilation transferred
+entropy to the photon bath \cite{thomas-et-al-2020}.
 
-For arbitrary Gibbs systems this should initially be viewed as a proposed
-complexity comparison: unlike finite-map signatures, its operational
-interpretation and the treatment of infinite spectra require separate
-analysis.
+For general Gibbs systems, homothetic containment is at present a proposed
+complexity measure.  Infinite spectra and an operational conversion model
+require separate treatment.
 
 \section{Conclusion}
 
-Fiber signatures retain only a very small part of a finite map, yet their
-Cartesian products already produce a nontrivial asymptotic resource theory.
-The operational rate \(C(g\mid f)\), the power-sum formula, and the
-energy--entropy homotheties are three views of the same comparison.  The
-example above also warns against compressing the two directed rates into a
-single global ranking: pairwise exchange advantage can be cyclic.
-The thermodynamic analogy suggests using the same Gibbs-region comparison
-for broader systems while keeping conversion capacity distinct from physical
-reaction affinity.
+A fiber signature is a coarse invariant of a finite map, but Cartesian powers
+already give it a nontrivial asymptotic conversion theory.  The operational
+rate, the power-sum formula, and containment of Gibbs regions are equivalent
+descriptions of that theory.  The directed rates cannot be compressed into a
+global ranking, as the explicit three-cycle shows.  Extending Gibbs-region
+containment beyond finite signatures remains plausible, but it requires an
+operational model distinct from chemical reaction dynamics.
 
 \begin{thebibliography}{99}
 \raggedright
@@ -806,15 +769,14 @@ L.~C.~Thomas, T.~Dezen, E.~B.~Grohs, and C.~T.~Kishimoto,
 \section{Unrestricted input and output maps}
 
 Suppose that the maps \(h_{\mathrm{in}}\) and \(h_{\mathrm{out}}\) in the
-definition of implementation are allowed to be arbitrary.  Then \(b\) can be
-implemented by \(a\) exactly when
+definition of implementation are unrestricted.  Then \(b\) is implementable
+by \(a\) if and only if
 \[
   |Y_b|\leq |Y_a|.
 \]
-Indeed, arbitrary \(h_{\mathrm{in}}\) may send every element of a fiber of
-\(b\) to one chosen input of \(a\), so the fiber sizes impose no constraint.
-Conversely, a deterministic \(h_{\mathrm{out}}\) cannot produce more distinct
-outputs than \(a\) has.
+An arbitrary \(h_{\mathrm{in}}\) may collapse each fiber of \(b\) onto one
+chosen input of \(a\), so only the number of available output fibers remains.
+A deterministic \(h_{\mathrm{out}}\) cannot increase that number.
 
 For Cartesian powers the condition is therefore
 \[
@@ -825,59 +787,53 @@ For Cartesian powers the condition is therefore
     n\frac{\log|Y_a|}{\log|Y_b|}
    \right\rfloor.
 \]
-Consequently, when \(|Y_a|,|Y_b|>1\),
+Hence, for \(|Y_a|,|Y_b|>1\),
 \[
   \boxed{\displaystyle
   C(a\mid b)=\frac{\log|Y_a|}{\log|Y_b|}}.
 \]
-This is the same first-order form as assisted point-to-point channel
-interconversion \cite{cao-et-al-2024}: a surjective deterministic channel with
-output set \(Y\) has capacity \(\log|Y|\), so the displayed rate is the ratio
-of the two channel capacities.  The unrestricted variant therefore sees only
-ordinary communication capacity, whereas the injective and bijective
-processors in the main theory retain the individual fiber sizes.
+The same ratio appears in assisted point-to-point channel interconversion
+\cite{cao-et-al-2024}: a surjective deterministic channel with output set
+\(Y\) has capacity \(\log|Y|\).  Unrestricted processors retain only this
+capacity; the processors of Definition~1 also retain the individual fiber
+sizes.
 
-Thus \(C(a\mid b)C(b\mid a)=1\), and the comparison from
+\(C(a\mid b)C(b\mid a)=1\), so the comparison from
 Definition~3 reduces to
 \[
   a\prec b
   \quad\Longleftrightarrow\quad
   |Y_a|<|Y_b|.
 \]
-It is a total preorder on signatures, with equal-size output sets tied, and
-becomes a linear order after identifying signatures having the same
-\(|Y|\).  In partition-function language only the endpoint
-\(Z_a(0)=|Y_a|\) remains; the fiber sizes and the rest of the Gibbs curve play
-no role.  If \(|Y_b|=1\), then \(C(a\mid b)=+\infty\); if
-\(|Y_a|=1<|Y_b|\), then \(C(a\mid b)=0\).
+This is a total preorder, and quotienting by equal output cardinality gives a
+linear order.  In partition-function language only
+\(Z_a(0)=|Y_a|\) remains.  If \(|Y_b|=1\), then
+\(C(a\mid b)=+\infty\); if \(|Y_a|=1<|Y_b|\), then \(C(a\mid b)=0\).
 
 \section{The first 69 non-special signatures}
 
-Singleton signatures \(\sig{N}\) and all-ones signatures
-\(\sig{1,\ldots,1}\) form exceptional infinite families and are omitted from
-this finite list.  To exhaust the remaining signatures without arbitrary
-length or entry caps, put
+We omit the exceptional infinite families \(\sig{N}\) and
+\(\sig{1,\ldots,1}\).  To enumerate every other signature without imposing a
+fixed length or entry bound, put
 \[
   \mathcal S_B
   =\{a:|a|\geq2,\ a_1>1,\ a_1+2|a|\leq B\}.
 \]
-Every non-special signature belongs to \(\mathcal S_B\) for all sufficiently
-large \(B\).  For each \(B\), we contract the strongly connected components
-of the strict comparison graph and use the deterministic topological order
-described in the analysis code.  At the stated numerical screening precision,
-the first 69 entries are identical for \(B=18\), \(B=19\), and \(B=20\);
-Table~\ref{tab:first-69-signatures} records this stabilized cutoff.  Its
-displayed rates are then recomputed with the high-accuracy persistent cache.
+Every non-special signature eventually belongs to \(\mathcal S_B\).  For each
+\(B\), the strongly connected components of the strict comparison graph are
+contracted and topologically ordered by the deterministic rule implemented in
+the analysis code.  At the stated screening precision, the first 69 entries
+agree for \(B=18,19,20\).  Table~\ref{tab:first-69-signatures} records this
+stable prefix; its rates were recomputed from the high-accuracy cache.
 
-Because \(\prec\) is not transitive, the resulting numbered list is not a
-linear extension of every pairwise comparison.  In
-Table~\ref{tab:signature-order-exceptions}, a row for \(x\) records every
-earlier numbered signature \(a\) for which \(x\prec a\), together with the two
-directed rates.  Thus each listed entry satisfies
+Because \(\prec\) is not transitive, this list is not a linear extension of
+all pairwise comparisons.  A row for \(x\) in
+Table~\ref{tab:signature-order-exceptions} records each earlier \(a\) for
+which
 \[
   C(x\mid a)<C(a\mid x)
 \]
-despite \(a\) appearing before \(x\).
+despite the displayed order \(a<x\).
 
 \input{appendix_b_signatures.tex}
 
@@ -894,8 +850,7 @@ non-strict and a strict comparison arrow:
   \quad\Longleftrightarrow\quad
   C(a\mid b)>C(b\mid a).
 \]
-Thus an arrow points from the greater element toward the smaller one, like
-the \(>\) symbol; equivalently,
+An arrow points from the greater element to the smaller one; equivalently,
 \(a\overset{\mathrm{s}}{\longrightarrow}b\) means \(b\prec a\).
 Equality produces two opposite non-strict arrows and no strict arrow.  Define
 the corresponding clusters as the strongly connected components
@@ -904,32 +859,29 @@ the corresponding clusters as the strongly connected components
   =\{b:a\longrightarrow^{*}b
           \ \text{and}\ b\longrightarrow^{*}a\},
 \]
-and analogously define \(\operatorname{Cl}_{>}(a)\) using only
-\(\overset{\mathrm{s}}{\longrightarrow}\).  Reversing the orientation used
-for the arrows does not change either strongly connected component.
+and define \(\operatorname{Cl}_{>}(a)\) analogously using only
+\(\overset{\mathrm{s}}{\longrightarrow}\).  Reversing every arrow leaves
+these components unchanged.
 
-This is an infinite-graph question: a strongly connected component of a
-finite induced subgraph need not equal the intersection of the global
-component with that subgraph, because paths may pass through signatures
-outside the truncation.  In particular, the 69-prefix give misleadingly small
-components.
+Finite truncations require care.  A path between two vertices of
+\(\mathcal S_B\) may leave the shell, so a component of the induced subgraph
+need not be the intersection of a global component with \(\mathcal S_B\).
+The 69-term prefix therefore gives components that are too small.
 
-Calculations on the nested finite shells \(\mathcal S_B\) suggest the following
-non-strict global description, which we leave as a conjecture:
+Calculations on nested shells suggest the following conjecture:
 \[
   \operatorname{Cl}_{\geq}\bigl(\sig{3,1,1}\bigr)
   =
   \{a:|a|\geq2,\ a_1>1\}
   \setminus\{\sig{2,1},\sig{2,2}\}.
 \]
-For example, the component contains 112 of the 129 signatures in
-\(\mathcal S_{12}\), and 2498 of the 2560 signatures in
-\(\mathcal S_{18}\).  Across the tested shells \(12\leq B\leq18\), these
-finite components do not stabilize: signatures near the boundary of a smaller
-shell join through paths appearing in larger shells.  Thus no finite list is
-asserted here.
+The computed component contains 112 of the 129 signatures in
+\(\mathcal S_{12}\) and 2498 of the 2560 signatures in \(\mathcal S_{18}\).
+It does not stabilize over \(12\leq B\leq18\): enlarging the shell supplies
+new connecting paths.  These counts support the conjecture but do not give a
+finite description of the global component.
 
-The strict cluster appears to have an equally simple description.  Put
+For the strict graph, put
 \[
 \begin{split}
   \mathcal E_{\mathrm{s}}=\{&
@@ -940,24 +892,22 @@ The strict cluster appears to have an equally simple description.  Put
     \sig{2,1,1,1}\}.
 \end{split}
 \]
-Our strict-cluster conjecture is
+We conjecture that
 \[
   \operatorname{Cl}_{>}\bigl(\sig{3,1,1}\bigr)
   =
   \{a:|a|\geq2,\ a_1>1\}\setminus\mathcal E_{\mathrm{s}}.
 \]
-As finite-shell evidence, the strict component in \(\mathcal S_{20}\)
-contains 6719 of its 6738 signatures.  Its intersection with
-\(\mathcal S_{19}\) is exactly
-\(\mathcal S_{19}\setminus\mathcal E_{\mathrm{s}}\); the remaining seven
-excluded signatures are all new boundary points with
-\(a_1+2|a|=20\).  This pattern is evidence rather than a proof that later
-shells absorb every boundary exception and never absorb a member of
-\(\mathcal E_{\mathrm{s}}\).
+In \(\mathcal S_{20}\), the computed strict component contains 6719 of 6738
+signatures.  Its intersection with \(\mathcal S_{19}\) is
+\(\mathcal S_{19}\setminus\mathcal E_{\mathrm{s}}\); the other seven omitted
+vertices lie on the new boundary \(a_1+2|a|=20\).  The computation does not
+prove that later shells absorb every boundary vertex, or that no element of
+\(\mathcal E_{\mathrm{s}}\) is eventually absorbed.
 
-Here is one explicit strict cycle, computed inside \(\mathcal S_{14}\) with
-comparison tolerance \(2\cdot10^{-6}\).  The shortest strict path from
-\(\sig{9,1}\) to \(\sig{3,2,2,2}\), in the arrow orientation above, is
+For reference, the following cycle was computed in \(\mathcal S_{14}\) with
+tolerance \(2\cdot10^{-6}\).  A shortest strict path from \(\sig{9,1}\) to
+\(\sig{3,2,2,2}\) is
 \[
   \sig{9,1}
   \overset{\mathrm{s}}{\longrightarrow}\sig{3,3,3}
@@ -966,8 +916,7 @@ comparison tolerance \(2\cdot10^{-6}\).  The shortest strict path from
   \overset{\mathrm{s}}{\longrightarrow}\sig{10,1}
   \overset{\mathrm{s}}{\longrightarrow}\sig{3,2,2,2}.
 \]
-Every row of Table~\ref{tab:strict-path-forward} satisfies
-\(C(a\mid b)>C(b\mid a)\).
+Table~\ref{tab:strict-path-forward} lists its edge rates.
 
 \begin{table}[htbp]
   \centering
@@ -992,7 +941,7 @@ Every row of Table~\ref{tab:strict-path-forward} satisfies
   \end{tabular}
 \end{table}
 
-The shortest strict return path has only two edges:
+A shortest return path has two edges:
 \[
   \sig{3,2,2,2}
   \overset{\mathrm{s}}{\longrightarrow}\sig{7,5}
@@ -1019,11 +968,9 @@ The shortest strict return path has only two edges:
 \clearpage
 \subsection{A length-three strict cycle}
 
-Strict cyclicity is not caused by comparing signatures of different lengths.
-An exhaustive high-accuracy evaluation of the 55 non-special length-three
-signatures with entries at most \(6\) finds no strict three-cycle at comparison
-tolerance \(2\cdot10^{-6}\).  The first maximum entry for which the bounded
-search finds one is \(7\):
+Strict cycles also occur at fixed length.  Among the 55 non-special
+length-three signatures with entries at most \(6\), exhaustive computation at
+tolerance \(2\cdot10^{-6}\) finds none.  Allowing entries up to \(7\) gives
 \[
   \sig{6,3,3}
   \overset{\mathrm{s}}{\longrightarrow}\sig{7,2,1}
