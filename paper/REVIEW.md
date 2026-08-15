@@ -69,16 +69,16 @@ Still open here: Appendix B's cluster claims elsewhere lean on "tolerance
 `2e-6`" without saying what it guarantees, and the length-three cycle
 `{6,3,3} -> {7,2,1} -> {6,5,1}` (margins `4-16e-3`) is not certified.
 
-### 2. Appendix B → ancillary files
+### 2. Appendix B --- DONE
 
-`tab:signature-order-exceptions` is several pages of raw decimals and dominates
-the page count. arXiv has `anc/`. Keep in the paper: the 69-signature table, a
-*summary* of the exceptions (count, distribution, and the visible pattern —
-they are overwhelmingly `{n,1}` and `{n,2}` against earlier `{m,k}` with
-`m < n`), the conjectures, and the two strict paths.
-
-Also: since `≺` is not transitive, the "first 69 in condensation-DAG order" is
-an artifact of a tie-breaking rule. Say so up front and say what the list is for.
+Both longtables are gone.  The 69-signature table cost one page and the
+exception table six; the paper went from 30 pages to 23.  The prefix survives
+as a compact run of text, the exceptions as a generated summary (22 of the 69
+signatures are involved, 112 pairs, every offending `x` of length two, and the
+counts thin out as its second entry grows: 7, 5, 4, 3, 2, 1), and both are
+written in full to `paper/anc/first_69_signatures.csv` and
+`paper/anc/order_exceptions.csv` by the same generator.  The tie-breaking
+caveat is now stated up front.
 
 ### 3. arXiv metadata
 

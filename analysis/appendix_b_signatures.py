@@ -14,6 +14,7 @@ high-accuracy persistent cache.
 
 from __future__ import annotations
 
+import csv
 from pathlib import Path
 import sys
 
@@ -26,6 +27,9 @@ from exchange_matrix_extended import (  # noqa: E402
 from fn_complexity import ExchangeRateCache  # noqa: E402
 
 OUTPUT_PATH = PROJECT_ROOT / "paper" / "appendix_b_signatures.tex"
+ANC_DIR = PROJECT_ROOT / "paper" / "anc"
+ORDER_CSV = ANC_DIR / "first_69_signatures.csv"
+EXCEPTION_CSV = ANC_DIR / "order_exceptions.csv"
 TABLE_SIZE = 69
 STABILITY_BUDGETS = (18, 19)
 STABILIZED_ORDER_PREFIX = (
@@ -135,36 +139,14 @@ def tex_signature(signature: tuple[int, ...]) -> str:
     return r"\(\sig{" + ",".join(map(str, signature)) + r"}\)"
 
 
-def render_order_table(ordered: list[tuple[int, ...]]) -> list[str]:
-    if len(ordered) % 3:
-        raise ValueError("the three-block table requires a multiple of three")
-    rows_per_block = len(ordered) // 3
-    lines = [
-        r"\begingroup",
-        r"\footnotesize",
-        r"\begin{longtable}{@{}r l@{\qquad}r l@{\qquad}r l@{}}",
-        rf"  \caption{{The stabilized first {len(ordered)} non-special "
-        r"signatures in the",
-        r"  deterministic condensation-DAG order.}",
-        rf"  \label{{tab:first-{len(ordered)}-signatures}}\\",
-        r"    \toprule",
-        r"    \(n\) & signature & \(n\) & signature & \(n\) & signature \\",
-        r"    \midrule",
+def render_order_list(ordered: list[tuple[int, ...]]) -> list[str]:
+    """The stabilized prefix as running text; the full table ships in anc/."""
+    entries = ", ".join(tex_signature(sig) for sig in ordered)
+    return [
+        r"\begingroup\small\noindent",
+        entries + ".",
+        r"\endgroup",
     ]
-    for row in range(rows_per_block):
-        cells: list[str] = []
-        for offset in (0, rows_per_block, 2 * rows_per_block):
-            index = row + offset
-            cells.extend([str(index + 1), tex_signature(ordered[index])])
-        lines.append("    " + " & ".join(cells) + r" \\")
-    lines.extend(
-        [
-            r"    \bottomrule",
-            r"\end{longtable}",
-            r"\endgroup",
-        ]
-    )
-    return lines
 
 
 def render_exception_table(
@@ -183,63 +165,29 @@ def render_exception_table(
         if previous:
             exception_rows.append((index, signature, previous))
 
+    pairs = sum(len(previous) for _, _, previous in exception_rows)
+    widths: dict[int, int] = {}
+    for _, signature, _ in exception_rows:
+        widths[signature[1]] = widths.get(signature[1], 0) + 1
+    spread = ", ".join(
+        rf"\(\sig{{n,{second}}}\): {count}"
+        for second, count in sorted(widths.items())
+    )
+    every_pair = all(len(sig) == 2 for _, sig, _ in exception_rows)
     lines = [
-        r"\begin{longtable}{@{}r l >{\raggedright\arraybackslash}p{0.67\textwidth}@{}}",
-        r"  \caption{Backward comparisons that obstruct a linear order.}",
-        r"  \label{tab:signature-order-exceptions}\\",
-        r"  \toprule",
-        r"  \(n\) & \(x\) & exceptions with previous \(n_a\) values \\",
-        r"  \midrule",
-        r"  \endfirsthead",
-        r"  \multicolumn{3}{@{}l}{\small\itshape Table "
-        r"\thetable\ continued from the previous page}\\",
-        r"  \toprule",
-        r"  \(n\) & \(x\) & exceptions with previous \(n_a\) values \\",
-        r"  \midrule",
-        r"  \endhead",
-        r"  \midrule",
-        r"  \multicolumn{3}{r@{}}{\small continued on the next page}\\",
-        r"  \endfoot",
-        r"  \bottomrule",
-        r"  \endlastfoot",
-    ]
-    for row_index, (index, signature, previous) in enumerate(exception_rows):
-        grouped: dict[tuple[str, str], list[int]] = {}
-        for earlier in previous:
-            rate_pair = (
-                f"{rates[signature, earlier]:.6f}",
-                f"{rates[earlier, signature]:.6f}",
-            )
-            grouped.setdefault(rate_pair, []).append(number[earlier])
-
-        rendered_exceptions = []
-        for (forward_rate, reverse_rate), earlier_numbers in grouped.items():
-            if len(earlier_numbers) == 1:
-                earlier_number = earlier_numbers[0]
-                earlier_signature = ",".join(
-                    map(str, ordered[earlier_number - 1])
-                )
-                reference = (
-                    rf"\(n_a={earlier_number},\ "
-                    rf"a=\sig{{{earlier_signature}}}\)"
-                )
-            else:
-                numbers = ",".join(str(value) for value in earlier_numbers)
-                reference = rf"\(n_a\in\{{{numbers}\}}\)"
-            rendered_exceptions.append(
-                reference
-                + r":\newline "
-                rf"\(\quad C(x\!\to\!a)={forward_rate},\ "
-                rf"C(a\!\to\!x)={reverse_rate}\)"
-            )
-        lines.append(
-            f"  {index} & {tex_signature(signature)} & "
-            + r"\newline ".join(rendered_exceptions)
-            + r" \\"
+        rf"Of the {len(ordered)} signatures, {len(exception_rows)} are preceded "
+        rf"by at least one \(a\) with \(C(x\to a)<C(a\to x)\), giving "
+        rf"{pairs} such pairs in all.  "
+        + (
+            r"Every offending \(x\) has exactly two entries, and the "
+            r"failures thin out as its second entry grows --- counted by that "
+            r"entry they are " + spread + ".  "
+            if every_pair
+            else ""
         )
-        if row_index < len(exception_rows) - 1:
-            lines.append(r"  \cmidrule(lr){1-3}")
-    lines.append(r"\end{longtable}")
+        + r"The pairs themselves, with both rates, are listed in the "
+        r"ancillary file \texttt{anc/order\_exceptions.csv}.",
+    ]
     return lines, len(exception_rows)
 
 
@@ -264,9 +212,29 @@ def main() -> int:
         outgoing,
         rates,
     )
+    ANC_DIR.mkdir(parents=True, exist_ok=True)
+    with ORDER_CSV.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(["n", "signature"])
+        for index, signature in enumerate(ordered, 1):
+            writer.writerow([index, ",".join(map(str, signature))])
+    number = {signature: index for index, signature in enumerate(ordered, 1)}
+    with EXCEPTION_CSV.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(["n_x", "x", "n_a", "a", "C_x_to_a", "C_a_to_x"])
+        for index, signature in enumerate(ordered, 1):
+            for earlier in ordered[: index - 1]:
+                if earlier in outgoing[signature]:
+                    writer.writerow([
+                        index, ",".join(map(str, signature)),
+                        number[earlier], ",".join(map(str, earlier)),
+                        f"{rates[(signature, earlier)]:.12f}",
+                        f"{rates[(earlier, signature)]:.12f}",
+                    ])
+
     content = [
         "% Generated by analysis/appendix_b_signatures.py.",
-        *render_order_table(ordered),
+        *render_order_list(ordered),
         "",
         *exception_lines,
         "",
@@ -279,6 +247,8 @@ def main() -> int:
         f"cache: {cache.hits} hits, {cache.misses} misses, "
         f"{len(cache)} total"
     )
+    print(ORDER_CSV)
+    print(EXCEPTION_CSV)
     print(OUTPUT_PATH)
     return 0
 

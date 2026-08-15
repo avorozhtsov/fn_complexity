@@ -1519,17 +1519,15 @@ Every non-special signature eventually belongs to \(\mathcal S_B\).  For each
 \(B\), the strongly connected components of the strict comparison graph are
 contracted and topologically ordered by the deterministic rule implemented in
 the analysis code.  At the stated screening precision, the first 69 entries
-agree for \(B=18,19,20\).  Table~\ref{tab:first-69-signatures} records this
-stable prefix; its rates were recomputed from the high-accuracy cache.
+agree for \(B=18,19,20\).  Since \(\prec\) is not transitive, the ordering
+within a shell depends on a tie-breaking rule, so the list below is a record
+of one deterministic run and not a canonical object.  Its rates were
+recomputed from the high-accuracy cache, and it is repeated with its indices
+in the ancillary file \texttt{anc/first\_69\_signatures.csv}.
 
-Because \(\prec\) is not transitive, this list is not a linear extension of
-all pairwise comparisons.  A row for \(x\) in
-Table~\ref{tab:signature-order-exceptions} records each earlier \(a\) for
-which
-\[
-  C(x\to a)<C(a\to x)
-\]
-despite the displayed order \(a<x\).
+Because \(\prec\) is not transitive, the list is also not a linear extension
+of all pairwise comparisons: some \(x\) is preceded by an \(a\) with
+\(C(x\to a)<C(a\to x)\) even though \(a\) comes first.
 
 \input{appendix_b_signatures.tex}
 

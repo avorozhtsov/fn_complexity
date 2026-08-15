@@ -39,11 +39,15 @@ certified separately, by branch and bound with a closed-form tail bound, in
 python analysis/certify_length_three_cycle.py
 ```
 
-Generate the ordered-signature and exception tables in Appendix B with:
+Generate the Appendix B list, its summary, and the two ancillary CSVs with:
 
 ```bash
 PYTHONPATH=src python analysis/appendix_b_signatures.py
 ```
+
+This writes `paper/anc/first_69_signatures.csv` and
+`paper/anc/order_exceptions.csv`.  Upload `anc/` alongside the source: arXiv
+publishes that directory as ancillary files.
 
 The larger NumPy/SciPy screening calculation that verifies the stable first
 69 across the \(B=18\) and \(B=19\) candidate shells is run from the project
