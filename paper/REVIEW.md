@@ -118,31 +118,35 @@ never as "the cycle collapses".
 
 ### 5. Content that would raise the level further
 
-1. **Reversibility --- STATED IN THE PAPER, CONJECTURE CORRECTED.**
-   `C(a->b)C(b->a) <= 1` with equality iff `R = log Z_a/log Z_b` is constant,
+1. **Reversibility --- SETTLED, and both conjectures along the way were wrong.**
+   `C(a->b)C(b->a) <= 1`, with equality iff `R = log Z_a/log Z_b` is constant,
    iff `Z_a = Z_b^c`, iff the regions are homothetic.
 
-   The conjecture as first written here --- that the only reversible pairs
-   share a `⊗`-root --- is **false**. An exhaustive screen of the 466,095
-   pairs in `S_16` found eight reversible pairs, six of them with no common
-   root, and all six are *flat* signatures (all entries equal). A flat
-   `{k}^n` has `log Z` affine in `beta`, so its region is the rectangle
-   `[-log k, 0] x [0, log n]`, and two rectangles are homothetic exactly when
-   `log n/log k = log m/log l`. Hence `{2,2}`, `{3,3,3}`, `{4,4,4,4}`,
-   `{5,5,5,5,5}` are mutually reversible, as are `{4,4}` and `{9,9,9}`. A flat
-   is never reversible against a non-flat, whose `log Z` is strictly convex.
+   *First guess* (only common tensor roots) died on **flat** signatures, all
+   entries equal: their `log Z` is affine, the region is a rectangle
+   `[-log k,0] x [0,log n]`, and rectangles are homothetic whenever their
+   shapes agree. Six of the eight reversible pairs in `S_16` are of this kind.
 
-   Corrected conjecture, now in the conclusion without proof: **among non-flat
-   signatures the only reversible pairs are `a = d^p`, `b = d^q`.** Verified
-   over `S_16`.
+   *Second guess* (non-flat => common tensor root) died too. Take
+   `D = 1 + 2x - x^2 + 3x^3 + 2x^4`: it has a negative coefficient, so it is
+   no signature, yet `D^2` and `D^3` are non-negative. At `x = 2^b` they are
+   the partition functions of two non-flat signatures with 49 and 343 fibers,
+   `R = 2/3` exactly. No common Cartesian root: `Z_d^P = D^2`, `Z_d^Q = D^3`
+   force `3P = 2Q` and then `Z_d^t = D`, and `D` is neither a square nor a
+   fourth power in `Z[x]`. `S_16` was far too small to see this.
 
-   Toward a proof: substituting `x_j = p_j^beta` for the primes dividing the
-   entries makes `Z_a` a polynomial with non-negative integer coefficients,
-   and `Z_a^q = Z_b^p` in a UFD gives `Z_a = D^{p'}`, `Z_b = D^{q'}`. The gap
-   is showing `D` is itself a signature --- and the flat family is exactly
-   where that step fails, so it is a real obstruction, not a technicality.
-   Irrational `c` is ruled out separately: `Z_b^c` is then not a finite
-   exponential sum.
+   **Theorem (in the conclusion, without proof).** For non-flat `a, b`,
+   reversibility holds iff `Z_a = D^p` and `Z_b = D^q` for a common Laurent
+   polynomial `D` over `Z` and coprime `p, q`; then `c = p/q`. Proof in three
+   steps: (i) writing `Z_b = m_1 b_1^b (1+W)`, finiteness of `Z_a` makes
+   `(1+W)^c` a Laurent polynomial, and the leading exponent vector along a
+   generic direction must stay in the lattice, so `c` is rational -- this is
+   exactly the step flat signatures escape, since there `W = 0`; (ii) `Q`-
+   independence of the logs of primes turns `Z_a^q = Z_b^p` into a polynomial
+   identity; (iii) unique factorization.
+
+   So the ring-versus-semiring gap I first called a technicality is where all
+   the non-trivial solutions live.
 
 2. **Which endpoint minimizes.** Three examples are given (`β* = 0`, `∞`,
    interior) with no criterion. The endpoint derivative conditions give a

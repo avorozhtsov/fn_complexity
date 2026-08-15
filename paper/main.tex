@@ -1321,7 +1321,8 @@ global ranking, as the explicit three-cycle shows.  Extending Gibbs-region
 containment beyond finite signatures remains plausible, but it requires an
 operational model distinct from chemical reaction dynamics.
 
-One question we leave open is when the exchange is lossless.  Since
+One structural question the theory answers cleanly is when the exchange
+is lossless.  Since
 \(C(a\to b)=\inf_\beta R\) and \(C(b\to a)=1/\sup_\beta R\) for
 \(R=\log Z_a/\log Z_b\), the product \(C(a\to b)C(b\to a)\) is at most one,
 with equality exactly when \(R\) is constant, that is when
@@ -1333,10 +1334,17 @@ when their rectangles have the same shape,
 \(\log n/\log k=\log m/\log l\); this makes \(\sig{2,2}\), \(\sig{3,3,3}\),
 \(\sig{4,4,4,4}\) mutually reversible, and likewise \(\sig{4,4}\) and
 \(\sig{9,9,9}\).  A flat signature is never reversible against a non-flat one,
-whose \(\log Z\) is strictly convex.  Among non-flat signatures the only
-examples we know are the trivial ones, \(a=d^{\otimes p}\) and
-\(b=d^{\otimes q}\) with \(c=p/q\); an exhaustive search of
-\(\mathcal S_{16}\) turns up no others.  We conjecture that there are none.
+whose \(\log Z\) is strictly convex.  Among non-flat signatures the
+criterion turns algebraic.  Substituting \(x_j=p_j^{\,\beta}\) for the primes
+dividing the entries writes each partition function as a Laurent polynomial
+with non-negative integer coefficients, and reversibility holds exactly when
+the two are powers \(D^{p}\) and \(D^{q}\) of one common Laurent polynomial,
+with \(c=p/q\); a degree count forces \(c\) rational and unique factorization
+does the rest.  The common root need not be a signature itself, so this is
+strictly weaker than sharing a Cartesian root: \(D=1+2x-x^2+3x^3+2x^4\) has a
+negative coefficient while \(D^2\) and \(D^3\) do not, and at \(x=2^\beta\)
+those two are the partition functions of reversible signatures with \(49\) and
+\(343\) fibers.
 
 \section*{Code and data availability}
 
