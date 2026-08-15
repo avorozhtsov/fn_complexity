@@ -1321,6 +1321,23 @@ global ranking, as the explicit three-cycle shows.  Extending Gibbs-region
 containment beyond finite signatures remains plausible, but it requires an
 operational model distinct from chemical reaction dynamics.
 
+One question we leave open is when the exchange is lossless.  Since
+\(C(a\to b)=\inf_\beta R\) and \(C(b\to a)=1/\sup_\beta R\) for
+\(R=\log Z_a/\log Z_b\), the product \(C(a\to b)C(b\to a)\) is at most one,
+with equality exactly when \(R\) is constant, that is when
+\(Z_a=Z_b^{\,c}\) and the two regions are homothetic.  Two families of
+solutions are visible.  A \emph{flat} signature, one with all entries equal to
+\(k\), has \(\log Z\) affine in \(\beta\) and region a rectangle
+\([-\log k,0]\times[0,\log n]\), so two flat signatures are reversible exactly
+when their rectangles have the same shape,
+\(\log n/\log k=\log m/\log l\); this makes \(\sig{2,2}\), \(\sig{3,3,3}\),
+\(\sig{4,4,4,4}\) mutually reversible, and likewise \(\sig{4,4}\) and
+\(\sig{9,9,9}\).  A flat signature is never reversible against a non-flat one,
+whose \(\log Z\) is strictly convex.  Among non-flat signatures the only
+examples we know are the trivial ones, \(a=d^{\otimes p}\) and
+\(b=d^{\otimes q}\) with \(c=p/q\); an exhaustive search of
+\(\mathcal S_{16}\) turns up no others.  We conjecture that there are none.
+
 \section*{Code and data availability}
 
 Every rate, table, and figure in this paper is reproducible from the reference

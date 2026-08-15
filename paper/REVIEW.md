@@ -118,12 +118,32 @@ never as "the cycle collapses".
 
 ### 5. Content that would raise the level further
 
-1. **Reversibility.** `C(a→b)C(b→a) = 1` iff `Z_a = Z_b^c`. For integer
-   signatures that is a Dirichlet-polynomial identity and looks very rigid.
-   **Conjecture:** the only reversible pairs share a `⊗`-root, `a ≅ d^{⊗p}`,
-   `b ≅ d^{⊗q}`, `c = p/q`. Stating it, with the easy direction proved and
-   small-case verification from the cache, answers the question every
-   resource-theory reader will ask.
+1. **Reversibility --- STATED IN THE PAPER, CONJECTURE CORRECTED.**
+   `C(a->b)C(b->a) <= 1` with equality iff `R = log Z_a/log Z_b` is constant,
+   iff `Z_a = Z_b^c`, iff the regions are homothetic.
+
+   The conjecture as first written here --- that the only reversible pairs
+   share a `⊗`-root --- is **false**. An exhaustive screen of the 466,095
+   pairs in `S_16` found eight reversible pairs, six of them with no common
+   root, and all six are *flat* signatures (all entries equal). A flat
+   `{k}^n` has `log Z` affine in `beta`, so its region is the rectangle
+   `[-log k, 0] x [0, log n]`, and two rectangles are homothetic exactly when
+   `log n/log k = log m/log l`. Hence `{2,2}`, `{3,3,3}`, `{4,4,4,4}`,
+   `{5,5,5,5,5}` are mutually reversible, as are `{4,4}` and `{9,9,9}`. A flat
+   is never reversible against a non-flat, whose `log Z` is strictly convex.
+
+   Corrected conjecture, now in the conclusion without proof: **among non-flat
+   signatures the only reversible pairs are `a = d^p`, `b = d^q`.** Verified
+   over `S_16`.
+
+   Toward a proof: substituting `x_j = p_j^beta` for the primes dividing the
+   entries makes `Z_a` a polynomial with non-negative integer coefficients,
+   and `Z_a^q = Z_b^p` in a UFD gives `Z_a = D^{p'}`, `Z_b = D^{q'}`. The gap
+   is showing `D` is itself a signature --- and the flat family is exactly
+   where that step fails, so it is a real obstruction, not a technicality.
+   Irrational `c` is ruled out separately: `Z_b^c` is then not a finite
+   exponential sum.
+
 2. **Which endpoint minimizes.** Three examples are given (`β* = 0`, `∞`,
    interior) with no criterion. The endpoint derivative conditions give a
    checkable one, and it explains why four of six rates in Table 1 are endpoint
