@@ -318,6 +318,117 @@ The fibers of the \(k\)-fold Cartesian power \(a^{\otimes k}\) are indexed by
   \label{eq:tensor-partition}
 \end{align}
 
+\begin{proposition}
+\label{prop:rate}
+Let \(f\) and \(g\) each have at least two fibers and a fiber of size greater
+than one.  Then
+\begin{equation}
+  \label{eq:rate}
+  C(g\to f)
+  =\inf_{\beta\in[0,\infty]}
+    \frac{\log Z_g(\beta)}{\log Z_f(\beta)},
+\end{equation}
+where the value at \(\beta=\infty\) is
+\[
+  \frac{\log\max_j g_j}{\log\max_i f_i}.
+\]
+\end{proposition}
+
+The proof is deferred to Section~\ref{sec:proof}.
+
+Put
+\[
+  \epsilon_i=-\log a_i,\qquad
+  p_i(T)
+  =\frac{e^{-\epsilon_i/T}}{\sum_j e^{-\epsilon_j/T}}
+  =\frac{a_i^{1/T}}{Z_a(1/T)}.
+\]
+The corresponding mean energy and entropy are
+\[
+  E_a(T)=\sum_i p_i(T)\epsilon_i,\qquad
+  H_a(T)=-\sum_i p_i(T)\log p_i(T).
+\]
+They satisfy
+\[
+  \log Z_a(1/T)=H_a(T)-\frac{E_a(T)}{T}.
+\]
+Since the Gibbs distribution of a Cartesian power is a product distribution,
+\[
+ H_{a^{\otimes k}}(T)=kH_a(T),\qquad
+ E_{a^{\otimes k}}(T)=kE_a(T),
+\]
+and therefore
+\[
+ E_{a^{\otimes k}}(H)=kE_a(H/k),
+\]
+so Cartesian powers act by homothety in the \((E,H)\)-plane.
+
+Let \(\Gamma_a\) denote the Gibbs curve
+\(\{(E_a(T),H_a(T)):0<T<\infty\}\), completed by its endpoint segments, and
+let \(\mathcal R_a\) be the closed convex region between this boundary and
+the line \(E=0\).  The quantity
+\[
+  \log Z_a(\beta)=H_a(T)-\beta E_a(T)
+\]
+is the offset of the supporting line with normal \((-\beta,1)\).  Proposition
+\ref{prop:rate} is therefore equivalent to
+\[
+ C(g\to f)
+ =\sup\{c\geq0:c\,\mathcal R_f\subseteq\mathcal R_g\}.
+\]
+Equivalently, \(C(g\to f)^{-1}\Gamma_g\) is the smallest homothetic copy of
+\(\Gamma_g\) whose region contains \(\Gamma_f\).
+
+\section{The pair
+\texorpdfstring{\(\sig{2,2}\) and \(\sig{3,1}\)}
+{{2,2} and {3,1}}}
+\label{sec:pair}
+
+Let \(g=\sig{2,2}\) and \(f=\sig{3,1}\).  Every fiber of
+\(g^{\otimes n}\) has size \(2^n\).  The largest fiber of
+\(f^{\otimes k}\) has size \(3^k\), and the remaining rank constraint is
+weaker at the optimum.  Hence
+\[
+  C(\sig{2,2}\to\sig{3,1})
+  =\frac{\log2}{\log3}
+  =0.6309297536\ldots.
+\]
+The reverse direction is limited at a finite temperature:
+\begin{align*}
+  C(\sig{3,1}\to\sig{2,2})
+  &=\min_{\beta\geq0}
+    \frac{\log(3^\beta+1)}{(\beta+1)\log2} \\
+  &=0.9653844417\ldots,
+  \qquad
+  \beta_*=0.4036799030\ldots,\quad
+  T_*=\beta_*^{-1}=2.47721027\ldots.
+\end{align*}
+Figure~\ref{fig:pair} displays both homotheties.  Solid curves are unscaled;
+dotted curves are enlarged by the reciprocal directed rate.  Thin endpoint
+segments complete the boundaries, and the fills show the regions
+\(\mathcal R_a\).  Because the two levels of \(\sig{2,2}\) coincide, its Gibbs
+curve reduces to the point \((-\log2,\log2)\).
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/exchange-homotheties_2-2_3-1.pdf}
+  \caption{Exchange rates as planar dilations.  In each panel, one
+  energy--entropy region is scaled about the origin until it just contains
+  the other.  Thin segments at the \(T=0\) and \(T=\infty\) endpoints close
+  the regions; dotted boundaries denote the scaled copy, and translucent
+  fills make the containment visible.  The required scale factors are
+  \(1/C(\sig{3,1}\to\sig{2,2})=1.03585676\ldots\) on the left and
+  \(1/C(\sig{2,2}\to\sig{3,1})=\log3/\log2\) on the right.}
+  \label{fig:pair}
+\end{figure}
+
+\section{Proof of the rate formula}
+\label{sec:proof}
+
+This section and the next are the technical ones.  Nothing later depends on
+their details, so a reader who would rather go on to further examples can
+skip to Section~\ref{sec:tangency}.
+
 \begin{lemma}[Counting form of \(\impl\)]
 \label{lem:counting}
 For signatures \(a\) and \(b\),
@@ -337,23 +448,7 @@ are \(\geq a_i\), hence so are at least \(i\) entries of \(b\), and as \(b\)
 decreases this says \(b_i\geq a_i\).  Taking \(t=1\) gives \(r\leq s\).
 \end{proof}
 
-\begin{proposition}
-\label{prop:rate}
-Let \(f\) and \(g\) each have at least two fibers and a fiber of size greater
-than one.  Then
-\begin{equation}
-  \label{eq:rate}
-  C(g\to f)
-  =\inf_{\beta\in[0,\infty]}
-    \frac{\log Z_g(\beta)}{\log Z_f(\beta)},
-\end{equation}
-where the value at \(\beta=\infty\) is
-\[
-  \frac{\log\max_j g_j}{\log\max_i f_i}.
-\]
-\end{proposition}
-
-\begin{proof}
+\begin{proof}[Proof of Proposition~\ref{prop:rate}]
 Write \(\varphi_a(\beta)=\log Z_a(\beta)\).  Every \(a_i\geq1\), so \(Z_a\) is
 non-decreasing and \(\varphi_a(\beta)\geq\varphi_a(0)=\log(\text{number of
 fibers})\geq\log2>0\).  Hence \(R(\beta)=\varphi_g(\beta)/\varphi_f(\beta)\)
@@ -466,48 +561,11 @@ letting \(k/n\) increase to \(C_*\) completes the proof.  The counting is the
 one used for exact asymptotic majorization; compare \cite{jensen-2019}.
 \end{proof}
 
-Put
-\[
-  \epsilon_i=-\log a_i,\qquad
-  p_i(T)
-  =\frac{e^{-\epsilon_i/T}}{\sum_j e^{-\epsilon_j/T}}
-  =\frac{a_i^{1/T}}{Z_a(1/T)}.
-\]
-The corresponding mean energy and entropy are
-\[
-  E_a(T)=\sum_i p_i(T)\epsilon_i,\qquad
-  H_a(T)=-\sum_i p_i(T)\log p_i(T).
-\]
-They satisfy
-\[
-  \log Z_a(1/T)=H_a(T)-\frac{E_a(T)}{T}.
-\]
-Since the Gibbs distribution of a Cartesian power is a product distribution,
-\[
- H_{a^{\otimes k}}(T)=kH_a(T),\qquad
- E_{a^{\otimes k}}(T)=kE_a(T),
-\]
-and therefore
-\[
- E_{a^{\otimes k}}(H)=kE_a(H/k),
-\]
-so Cartesian powers act by homothety in the \((E,H)\)-plane.
+\section{Products, areas, and negative temperatures}
+\label{sec:region}
 
-Let \(\Gamma_a\) denote the Gibbs curve
-\(\{(E_a(T),H_a(T)):0<T<\infty\}\), completed by its endpoint segments, and
-let \(\mathcal R_a\) be the closed convex region between this boundary and
-the line \(E=0\).  The quantity
-\[
-  \log Z_a(\beta)=H_a(T)-\beta E_a(T)
-\]
-is the offset of the supporting line with normal \((-\beta,1)\).  Proposition
-\ref{prop:rate} is therefore equivalent to
-\[
- C(g\to f)
- =\sup\{c\geq0:c\,\mathcal R_f\subseteq\mathcal R_g\}.
-\]
-Equivalently, \(C(g\to f)^{-1}\Gamma_g\) is the smallest homothetic copy of
-\(\Gamma_g\) whose region contains \(\Gamma_f\).
+Three properties of the region \(\mathcal R_a\) are worth recording.  The
+first says where its boundary stops, and why.
 
 \begin{remark}[Why the curve is not continued past \(\beta=0\)]
 \label{rem:negative-temperature}
@@ -587,50 +645,8 @@ inequality \(\sqrt{A}\) is superadditive under \(\otimes\), and the mixed area
 of two signatures that the present theory does not otherwise see.  We do not
 pursue it here.
 
-\section{The pair
-\texorpdfstring{\(\sig{2,2}\) and \(\sig{3,1}\)}
-{{2,2} and {3,1}}}
-\label{sec:pair}
-
-Let \(g=\sig{2,2}\) and \(f=\sig{3,1}\).  Every fiber of
-\(g^{\otimes n}\) has size \(2^n\).  The largest fiber of
-\(f^{\otimes k}\) has size \(3^k\), and the remaining rank constraint is
-weaker at the optimum.  Hence
-\[
-  C(\sig{2,2}\to\sig{3,1})
-  =\frac{\log2}{\log3}
-  =0.6309297536\ldots.
-\]
-The reverse direction is limited at a finite temperature:
-\begin{align*}
-  C(\sig{3,1}\to\sig{2,2})
-  &=\min_{\beta\geq0}
-    \frac{\log(3^\beta+1)}{(\beta+1)\log2} \\
-  &=0.9653844417\ldots,
-  \qquad
-  \beta_*=0.4036799030\ldots,\quad
-  T_*=\beta_*^{-1}=2.47721027\ldots.
-\end{align*}
-Figure~\ref{fig:pair} displays both homotheties.  Solid curves are unscaled;
-dotted curves are enlarged by the reciprocal directed rate.  Thin endpoint
-segments complete the boundaries, and the fills show the regions
-\(\mathcal R_a\).  Because the two levels of \(\sig{2,2}\) coincide, its Gibbs
-curve reduces to the point \((-\log2,\log2)\).
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{figures/exchange-homotheties_2-2_3-1.pdf}
-  \caption{Exchange rates as planar dilations.  In each panel, one
-  energy--entropy region is scaled about the origin until it just contains
-  the other.  Thin segments at the \(T=0\) and \(T=\infty\) endpoints close
-  the regions; dotted boundaries denote the scaled copy, and translucent
-  fills make the containment visible.  The required scale factors are
-  \(1/C(\sig{3,1}\to\sig{2,2})=1.03585676\ldots\) on the left and
-  \(1/C(\sig{2,2}\to\sig{3,1})=\log3/\log2\) on the right.}
-  \label{fig:pair}
-\end{figure}
-
 \section{A two-sided finite-temperature tangency}
+\label{sec:tangency}
 
 Both directed rates may be attained away from the endpoints.  Consider
 \[
