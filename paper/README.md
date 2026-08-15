@@ -32,6 +32,13 @@ Recheck the numerical comparisons of Appendix C in interval arithmetic with:
 python analysis/certify_cycle.py
 ```
 
+The length-three cycle of Appendix B is stated there without proof.  It is
+certified separately, by branch and bound with a closed-form tail bound, in
+
+```bash
+python analysis/certify_length_three_cycle.py
+```
+
 Generate the ordered-signature and exception tables in Appendix B with:
 
 ```bash
