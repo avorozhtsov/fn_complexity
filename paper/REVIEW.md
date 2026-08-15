@@ -186,9 +186,9 @@ never as "the cycle collapses".
 - Subtitle "A Simplified Thermodynamic Complexity" undersells and points at the
   weakest material.
 - Appendix A's `\boxed` formula — boxes are unusual in math papers.
-- Clipped prose in a few places: "the remaining rank constraint is weaker at the
-  optimum", "Its convention is reciprocal to ours after reversing the
-  conversion".
+- Clipped prose: "Its convention is reciprocal to ours after reversing the
+  conversion" (§ Relations to other work) still needs a clause of explanation.
+  The `{2,2}`/`{3,1}` one is fixed.
 - The §6 cycle and the §7 `→ˢ` cycle traverse the same three signatures in
   opposite directions (correctly — `≺` and `→ˢ` are reversed). Half a sentence
   would stop it reading as an inconsistency.

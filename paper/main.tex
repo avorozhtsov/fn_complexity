@@ -384,15 +384,22 @@ Equivalently, \(C(g\to f)^{-1}\Gamma_g\) is the smallest homothetic copy of
 {{2,2} and {3,1}}}
 \label{sec:pair}
 
-Let \(g=\sig{2,2}\) and \(f=\sig{3,1}\).  Every fiber of
-\(g^{\otimes n}\) has size \(2^n\).  The largest fiber of
-\(f^{\otimes k}\) has size \(3^k\), and the remaining rank constraint is
-weaker at the optimum.  Hence
+Let \(g=\sig{2,2}\) and \(f=\sig{3,1}\).  All \(2^n\) fibers of
+\(g^{\otimes n}\) have the same size \(2^n\), so \(f^{\otimes k}\impl
+g^{\otimes n}\) asks only two things: that \(f^{\otimes k}\) have no more
+fibers, and that its largest fiber not exceed \(2^n\).  The first condition is
+\(2^k\leq2^n\), that is \(k\leq n\); the second is \(3^k\leq2^n\), that is
+\(k\leq n\log2/\log3\).  Since \(\log2/\log3<1\), the second is the binding
+one, and the count is exact:
 \[
+  k_{\max}(n)=\left\lfloor n\frac{\log2}{\log3}\right\rfloor,
+  \qquad
   C(\sig{2,2}\to\sig{3,1})
   =\frac{\log2}{\log3}
   =0.6309297536\ldots.
 \]
+The two trades computed by hand in the introduction are the cases \(n=3\) and
+\(n=4\), where the floor is \(1\) and \(2\).
 The reverse direction is limited at a finite temperature:
 \begin{align*}
   C(\sig{3,1}\to\sig{2,2})
