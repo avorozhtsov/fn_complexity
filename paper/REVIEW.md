@@ -50,47 +50,24 @@ temperatures, the pair rates, and the shell cardinalities 129 / 2560 / 6738.
 
 ## Open
 
-### 1. Certify the three-cycle — the most valuable remaining item
+### 1. Certify the three-cycle --- DONE
 
-The abstract's selling point rests on 9-digit floating point, and one edge has
-a margin of `3.1 × 10⁻⁴`. Appendix B leans on "tolerance `2·10⁻⁶`". This should
-be a theorem.
+Appendix C now proves it.  Two of the three universal lower bounds turned out
+to be elementary: `5^b + 3^b >= (6^b+1)^(log5/log6)` from concavity of `x^a`
+(the needed `1 - log(5/3)/log6 > 0` is just `6 > 5/3`), and
+`6^b + 1 >= (3^b+2)^(log2/log3)` from `c log(t+2) <= log(t+1)`, which holds
+with equality at `t = 1`.  The third, `3^b + 2 > (5^b+3^b)^(log2/log3)`,
+follows from convexity of `x^(1/c)` plus a monotone split at `s = 12`.
 
-Most of it is free: **four of the six rates in Table 1 are exact**, and the
-paper still prints them as decimals.
+So four of the six rates are exact --- `log2/log3` twice, `log3/log6`,
+`log5/log6` --- and only five finite comparisons remain, all with margin at
+least `3e-4`: `A(12)`, `B(12)`, two products of logarithms, and the single
+evaluation at `beta = 9/20`.  `analysis/certify_cycle.py` rechecks them in
+mpmath interval arithmetic.
 
-| rate | exact value | attained at |
-|---|---|---|
-| `C(f₁→f₂) = C({5,3}→{3,1,1})` | `log 2 / log 3` | `β = 0` |
-| `C(f₃→f₂) = C({6,1}→{3,1,1})` | `log 2 / log 3` | `β = 0` |
-| `C(f₂→f₃) = C({3,1,1}→{6,1})` | `log 3 / log 6` | `β = ∞` |
-| `C(f₁→f₃) = C({5,3}→{6,1})` | `log 5 / log 6` | `β = ∞` |
-| `C(f₂→f₁)` | `0.670211928…` | `β* ≈ 2.90914` |
-| `C(f₃→f₁)` | `0.897931851…` | `β* ≈ 0.45541` |
-
-Printing `log 2 / log 3` twice as `0.630929754` hides structure and invites the
-suspicion that the cycle is a numerical artifact.
-
-Per edge you need an upper bound on one rate and a lower bound on the other:
-
-- *Upper bounds are free.* `C` is an infimum, so one rational `β` certifies one.
-  `f₃ ≺ f₁` needs only `R(β₀) < log 5 / log 6` at `β₀ ≈ 0.4554`.
-- *Lower bounds are the work.* `C(g→f) ≥ c` means `Z_g(β) ≥ Z_f(β)^c` for **all**
-  `β ≥ 0`. Two routes:
-  - **Tail lemma + compact interval.** Prove: for `β ≥ B₀(f,g)` computable from
-    the two largest fiber sizes and the top multiplicity,
-    `|R(β) − log g₁/log f₁| ≤ ε`. Then interval-arithmetic branch-and-bound on
-    `[0, B₀]` closes it. Automatable (`mpmath` `iv`, or Arb), and the
-    certificates ship as ancillary files.
-  - **Sign-change counting.** `h(β) = log Z_g − c log Z_f` has
-    `h′(β) = ⟨log g⟩_β − c⟨log f⟩_β`; the Descartes-type bound for exponential
-    sums (at most `#terms − 1` real zeros) reduces it to finitely many
-    evaluations.
-
-Do the same for the length-three cycle in Appendix B.2
-(`{6,3,3} → {7,2,1} → {6,5,1}`), whose margins are comfortable (`4–16 × 10⁻³`).
-Elsewhere, replace "tolerance `2·10⁻⁶`" by a statement of what it *guarantees*,
-and say plainly which claims are theorems and which are computations.
+Still open here: Appendix B's cluster claims elsewhere lean on "tolerance
+`2e-6`" without saying what it guarantees, and the length-three cycle
+`{6,3,3} -> {7,2,1} -> {6,5,1}` (margins `4-16e-3`) is not certified.
 
 ### 2. Appendix B → ancillary files
 

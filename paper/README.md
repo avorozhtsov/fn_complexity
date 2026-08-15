@@ -26,6 +26,12 @@ The first three scripts write PDF versions to `images/`; copy those into
 `paper/figures/` before compiling or submitting.  The relativistic-species
 script writes its PDF directly to `paper/figures/`.
 
+Recheck the numerical comparisons of Appendix C in interval arithmetic with:
+
+```bash
+python analysis/certify_cycle.py
+```
+
 Generate the ordered-signature and exception tables in Appendix B with:
 
 ```bash

@@ -761,8 +761,10 @@ Table~\ref{tab:cycle}.
 
 The three rows give
 \[
-  f_1\prec f_2,\qquad f_2\prec f_3,\qquad f_3\prec f_1.
+  f_1\prec f_2,\qquad f_2\prec f_3,\qquad f_3\prec f_1,
 \]
+and Appendix~\ref{sec:certify} proves them, four of the six rates being
+exactly \(\log2/\log3\), \(\log3/\log6\) or \(\log5/\log6\).
 Hence \(\prec\) is not a strict order.  Figure~\ref{fig:cycle} shows the three
 comparisons geometrically.  In the panel with target \(f_i\), the dotted curve
 for \(f_j\) is \(C(f_j\to f_i)^{-1}\Gamma_{f_j}\).
@@ -1691,5 +1693,130 @@ Table~\ref{tab:length-three-cycle} gives both directed rates on every edge.
     \bottomrule
   \end{tabular}
 \end{table}
+
+
+\section{Certification of the three-cycle}
+\label{sec:certify}
+
+The cycle of Section~\ref{sec:strict-cycle} is the sharpest claim in this
+paper, and its narrowest edge has a margin of \(3\cdot10^{-4}\).  This
+appendix proves it.  Write
+\[
+  c=\frac{\log2}{\log3},\qquad
+  \alpha=\frac{\log5}{\log6},\qquad
+  \gamma=\frac{\log3}{\log6},\qquad
+  \theta=\frac{\log5}{\log3},
+\]
+and recall \(f_1=\sig{5,3}\), \(f_2=\sig{3,1,1}\), \(f_3=\sig{6,1}\).
+
+Upper bounds on a rate are free: \(C(g\to f)\) is an infimum, so every single
+\(\beta\) certifies one, and so does the endpoint.  Lower bounds are the work,
+because \(C(g\to f)\geq\kappa\) asserts \(Z_g(\beta)\geq Z_f(\beta)^{\kappa}\)
+for \emph{every} \(\beta\).  The three needed lower bounds are the following.
+
+\begin{lemma}
+\label{lem:cert-i}
+\(5^\beta+3^\beta\geq(6^\beta+1)^{\alpha}\) for all \(\beta\geq0\); hence
+\(C(f_1\to f_3)=\alpha\).
+\end{lemma}
+
+\begin{proof}
+Put \(t=6^\beta\geq1\), so that \(5^\beta=t^{\alpha}\) and
+\(3^\beta=t^{\gamma}\).  As \(0<\alpha<1\), the function \(x\mapsto x^\alpha\)
+is concave, so \((t+1)^\alpha\leq t^\alpha+\alpha t^{\alpha-1}\) and
+\[
+  (t+1)^\alpha-t^\alpha-t^\gamma
+  \leq\alpha t^{\alpha-1}-t^{\gamma}
+  =t^{\alpha-1}\bigl(\alpha-t^{\gamma-\alpha+1}\bigr).
+\]
+Now \(\gamma-\alpha+1=1-\log(5/3)/\log6>0\), because \(6>5/3\); hence
+\(t^{\gamma-\alpha+1}\geq1>\alpha\) for \(t\geq1\), the bracket is negative,
+and the inequality follows.  Letting \(\beta\to\infty\) gives the reverse
+bound \(C(f_1\to f_3)\leq\alpha\).
+\end{proof}
+
+\begin{lemma}
+\label{lem:cert-ii}
+\(6^\beta+1\geq(3^\beta+2)^{c}\) for all \(\beta\geq0\); hence
+\(C(f_3\to f_2)=c\).
+\end{lemma}
+
+\begin{proof}
+Put \(t=3^\beta\geq1\), so that \(2^\beta=t^{c}\) and \(6^\beta=t^{1+c}\).
+We first claim \(c\log(t+2)\leq\log(t+1)\) for \(t\geq1\).  The two sides
+agree at \(t=1\), both being \(\log2\), since \(c\log3=\log2\); and
+\(c/(t+2)<1/(t+1)\) because \(c<1\) gives \(c(t+1)<t+2\).  So the right-hand
+side grows faster and the claim holds.  Therefore
+\((t+2)^{c}\leq t+1\leq t^{1+c}+1\), the last step because \(t^{1+c}\geq t\)
+for \(t\geq1\).  Taking \(\beta=0\) gives the reverse bound
+\(C(f_3\to f_2)\leq c\).
+\end{proof}
+
+\begin{lemma}
+\label{lem:cert-iii}
+\(3^\beta+2>(5^\beta+3^\beta)^{c}\) for all \(\beta\geq0\); hence
+\(C(f_2\to f_1)>c\).
+\end{lemma}
+
+\begin{proof}
+Put \(s=3^\beta\geq1\), so that \(5^\beta=s^{\theta}\).  Raising to the power
+\(1/c=\log3/\log2>1\), the claim reads
+\((s+2)^{1/c}>s^{\theta}+s\).  Convexity of \(x\mapsto x^{1/c}\) gives
+\((s+2)^{1/c}\geq s^{1/c}+(2/c)\,s^{1/c-1}\), so after division by \(s\) it
+suffices that \(A(s)+B(s)>1\), where
+\[
+  A(s)=s^{1/c-1}-s^{\theta-1},
+  \qquad
+  B(s)=\frac2c\,s^{1/c-2}.
+\]
+Here \(1/c-1>\theta-1>0\): the first inequality is
+\((\log3)^2>\log2\log5\), which holds as \(1.2069>1.1156\).  Hence
+\(A(1)=0\) and
+\[
+  A'(s)=s^{\theta-2}\Bigl[(1/c-1)s^{1/c-\theta}-(\theta-1)\Bigr]>0
+  \qquad(s\geq1),
+\]
+since \(1/c-\theta>0\), so \(A\) increases; and \(B\) decreases because
+\(1/c-2<0\).  Finally
+\[
+  A(12)=1.1030\ldots>1,
+  \qquad
+  B(12)=1.1301\ldots>1 .
+\]
+For \(1\leq s\leq12\) we get \(A(s)+B(s)\geq B(s)\geq B(12)>1\), and for
+\(s\geq12\) we get \(A(s)+B(s)\geq A(s)\geq A(12)>1\).
+\end{proof}
+
+\begin{proposition}
+\label{prop:cycle-certified}
+\(f_1\prec f_2\prec f_3\prec f_1\).
+\end{proposition}
+
+\begin{proof}
+For \(f_1\prec f_2\): at \(\beta=0\) the ratio defining \(C(f_1\to f_2)\) is
+\(\log2/\log3=c\), so \(C(f_1\to f_2)\leq c\), while
+Lemma~\ref{lem:cert-iii} gives \(C(f_2\to f_1)>c\).
+
+For \(f_2\prec f_3\): letting \(\beta\to\infty\) gives
+\(C(f_2\to f_3)\leq\log3/\log6=\gamma\), while Lemma~\ref{lem:cert-ii} gives
+\(C(f_3\to f_2)=c\).  These differ in the right direction because
+\(\gamma<c\) is \((\log3)^2<\log2\log6\), that is
+\(1.2069\ldots<1.2419\ldots\).
+
+For \(f_3\prec f_1\): evaluating at the single point \(\beta=9/20\),
+\[
+  C(f_3\to f_1)
+  \leq\frac{\log\bigl(6^{9/20}+1\bigr)}{\log\bigl(5^{9/20}+3^{9/20}\bigr)}
+  =0.8979388\ldots,
+\]
+while Lemma~\ref{lem:cert-i} gives \(C(f_1\to f_3)=\alpha=0.8982444\ldots\).
+\end{proof}
+
+Only three numerical comparisons enter: \(A(12)\) and \(B(12)\) against
+\(1\), the two products of logarithms, and the single evaluation at
+\(\beta=9/20\).  Each is a finite computation with a margin of at least
+\(3\cdot10^{-4}\).  The script \texttt{analysis/certify\_cycle.py} rechecks
+all five in interval arithmetic, so the verdicts are rigorous rather than
+floating point.
 
 \end{document}
