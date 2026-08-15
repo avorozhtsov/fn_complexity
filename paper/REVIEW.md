@@ -110,7 +110,7 @@ an artifact of a tie-breaking rule. Say so up front and say what the list is for
       list; 94A17 and 82B03 from memory — confirm on msc2020.org before
       submitting.
 - [x] Keywords in the paper: exchange rate; asymptotic conversion; fiber
-      signature; power sum; Gibbs curve; energy--entropy region; homothety;
+      signature; partition function; Gibbs curve; energy--entropy region;
       resource theory.
 - [ ] Categories — suggest **cs.IT (= math.IT)** primary, **math.CO** cross-list;
       consider **quant-ph** given the resource-theory audience.
