@@ -14,7 +14,7 @@ one-by-one, into distinct sorted fibers of `b`.
 For Cartesian powers, fiber sizes multiply.  The operational definition is
 
 ```text
-C(g | f) = lim  max{k : f^k is implemented by g^n} / n.
+C(g -> f) = lim  max{k : f^k is implemented by g^n} / n.
             n→∞
 ```
 
@@ -22,7 +22,7 @@ The entropy method proves the equivalent computational formula
 
 ```text
                             log(sum_j g_j^beta)
-C(g | f) = inf
+C(g -> f) = inf
           0 <= beta < ∞   log(sum_i f_i^beta),
 ```
 
@@ -72,7 +72,7 @@ intended as an independent verifier for modest powers.
 
 ## CLI and plots
 
-`kmax_cli` uses the argument order `C(g | f)`: implementer first, implemented
+`kmax_cli` uses the argument order `C(g -> f)`: implementer first, implemented
 map second.
 
 ```bash
@@ -124,7 +124,7 @@ settings.
 
 `cluster_cli` searches the strongly connected component of a non-special
 signature for arrows
-`a -> b` when `C(a | b) >= C(b | a)`, so arrows point toward the
+`a -> b` when `C(a -> b) >= C(b -> a)`, so arrows point toward the
 less-complex signature. It uses the exhaustive finite shells
 `S_B = {a : len(a) >= 2, a_1 > 1, a_1 + 2 len(a) <= B}` and the same
 vectorized power-sum screening used by the Appendix B analysis.
@@ -138,7 +138,7 @@ when that many distinct members have been found, or at `--max-b`. Without
 `--n-max`, it prints the complete component in `S_MAX_B`. Near-equal numerical
 comparisons receive arrows in both directions; tune this with `--tolerance`.
 Pass `--strict` to replace the default relation
-`C(a | b) >= C(b | a)` by `C(a | b) > C(b | a)`. In strict mode, differences
+`C(a -> b) >= C(b -> a)` by `C(a -> b) > C(b -> a)`. In strict mode, differences
 no larger than `--tolerance` produce no arrow.
 The special CLI requires the analysis dependencies:
 

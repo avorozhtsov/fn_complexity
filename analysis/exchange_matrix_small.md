@@ -1,8 +1,8 @@
 # Small exchange-rate matrix
 
-Rows are implementers `g`, columns are implemented signatures `f`, and each cell is `C(g | f)`.
+Rows are implementers `g`, columns are implemented signatures `f`, and each cell is `C(g -> f)`.
 
-The order is a topological sort of the relation `b -> a` when `C(a | b) > C(b | a)`. Lower-complexity signatures are shown first.
+The order is a topological sort of the relation `b -> a` when `C(a -> b) > C(b -> a)`. Lower-complexity signatures are shown first.
 
 | g \ f | {1,1,1} | {1,1,1,1} | {2,1,1} | {2,2,1} | {2,2,2} | {3,1,1} | {3,2,1} | {3,2,2} | {3,3,1} | {3,3,2} | {3,3,3} |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

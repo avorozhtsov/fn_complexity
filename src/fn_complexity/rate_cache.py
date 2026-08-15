@@ -31,7 +31,7 @@ def _parse_label(value: str) -> tuple[int, ...]:
 
 
 class ExchangeRateCache:
-    """Read-through JSON cache for ``C(implementer | implemented)``.
+    """Read-through JSON cache for ``C(implementer -> implemented)``.
 
     The cache is tied to the numerical algorithm and its accuracy settings.
     Infinite rates are encoded as the JSON string ``"inf"`` rather than a

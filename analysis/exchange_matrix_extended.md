@@ -1,6 +1,6 @@
 # Extended exchange-rate matrix
 
-Rows are implementers `g`, columns are implemented signatures `f`, and each cell is `C(g | f)`.
+Rows are implementers `g`, columns are implemented signatures `f`, and each cell is `C(g -> f)`.
 
 There are **97 signatures**, **4564 strict comparison edges**, **92 tied pairs**, and **58 condensation-DAG layers**. The strict graph contains **2 cyclic strongly connected component(s)**.
 

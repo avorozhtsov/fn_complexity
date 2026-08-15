@@ -29,7 +29,7 @@ class KMaxCliTests(unittest.TestCase):
                 check=True,
             )
             self.assertIn("5\t3\t0.600000000", result.stdout)
-            self.assertIn("C(g | f)", result.stdout)
+            self.assertIn("C(g -> f)", result.stdout)
             svg = output.read_text(encoding="utf-8")
             self.assertIn("<svg", svg)
             self.assertIn("exact cₙ = kₘₐₓ(n)/n", svg)

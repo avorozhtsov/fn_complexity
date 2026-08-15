@@ -11,7 +11,7 @@ requires-python = ">=3.10"
 license = {text = "MIT"}
 
 [project.optional-dependencies]
-analysis = ["numpy>=1.24", "scipy>=1.10"]
+analysis = ["numpy>=1.24", "scipy>=1.10", "matplotlib>=3.7"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

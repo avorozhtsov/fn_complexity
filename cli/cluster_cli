@@ -84,7 +84,7 @@ def main() -> int:
         "--strict",
         action="store_true",
         help=(
-            "use a -> b iff C(a|b) > C(b|a); differences no larger "
+            "use a -> b iff C(a -> b) > C(b -> a); differences no larger "
             "than --tolerance create no arrow"
         ),
     )

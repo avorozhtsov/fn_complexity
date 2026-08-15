@@ -264,7 +264,7 @@ def render_svg(
     limit_label = (
         f"C={limit_formula}={asymptotic_rate:.9f}"
         if limit_formula
-        else f"limit C(g | f)={asymptotic_rate:.9f}"
+        else f"limit C(g -> f)={asymptotic_rate:.9f}"
     )
     if inverse_limit_gap:
         area_svg = ""
@@ -316,7 +316,7 @@ def render_svg(
     .labels text {{ font-size: 14px; fill: #4b5563; }}
   </style>
   <text x="{left}" y="48" font-size="25" font-weight="700" fill="#111827">{escape(title)}</text>
-  <text x="{left}" y="76" font-size="14">Exact Cartesian-power computation · natural logarithms · C(g | f){' · inverse limit gap' if inverse_limit_gap else ''}{' · logarithmic n-axis' if log_x else ''}</text>
+  <text x="{left}" y="76" font-size="14">Exact Cartesian-power computation · natural logarithms · C(g -> f){' · inverse limit gap' if inverse_limit_gap else ''}{' · logarithmic n-axis' if log_x else ''}</text>
   <g class="grid">{''.join(grid)}</g>
   <g class="labels">{''.join(labels)}</g>
   {area_svg}
@@ -556,7 +556,7 @@ def main(argv: list[str] | None = None) -> int:
         y_max_override=1.0 if args.unit_cover else None,
         inverse_limit_gap=args.inverse_limit_gap,
     )
-    print(f"\nC(g | f) = {rate:.12g}")
+    print(f"\nC(g -> f) = {rate:.12g}")
     print(f"Continued-fraction convergents: {', '.join(map(str, convergents))}")
     if args.unit_cover:
         print("Complete e=1 partition over the plotted points:")

@@ -49,7 +49,7 @@ def comparison_graph(
     dict[tuple[int, ...], set[tuple[int, ...]]],
     int,
 ]:
-    """Return edges b -> a iff C(a|b) > C(b|a), plus tie count."""
+    """Return edges b -> a iff C(a -> b) > C(b -> a), plus tie count."""
 
     outgoing = {signature: set() for signature in all_signatures}
     tie_count = 0
@@ -272,7 +272,7 @@ def main() -> int:
         stream.write("# Extended exchange-rate matrix\n\n")
         stream.write(
             "Rows are implementers `g`, columns are implemented signatures "
-            "`f`, and each cell is `C(g | f)`.\n\n"
+            "`f`, and each cell is `C(g -> f)`.\n\n"
         )
         stream.write(
             f"There are **{len(ordered)} signatures**, **{edge_count} strict "

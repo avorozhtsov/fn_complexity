@@ -9,12 +9,12 @@ rearrangement of ``implementer``.
 Tensor (Cartesian) powers multiply fiber sizes.  The asymptotic exchange rate
 is defined operationally by
 
-    C(implementer | implemented)
+    C(implementer -> implemented)
       = lim_{n -> infinity} max{k : implemented**k <= implementer**n} / n.
 
 The power-sum spectrum gives the equivalent computational characterization:
 
-    C(implementer | implemented)
+    C(implementer -> implemented)
       = inf_{beta >= 0} log(sum(implementer_i**beta)) /
                           log(sum(implemented_i**beta)).
 
@@ -202,7 +202,7 @@ def exchange_rate_result(
     grid_size: int = 1024,
     tolerance: float = 1e-12,
 ) -> ExchangeRateResult:
-    """Compute the operational rate ``C(implementer | implemented)``.
+    """Compute the operational rate ``C(implementer -> implemented)``.
 
     This is the limit of ``k_max(n) / n``, where ``implemented**k`` must be
     implemented by ``implementer**n``.  The implementation evaluates its
@@ -268,7 +268,7 @@ def exchange_rate(
     implemented: Iterable[int],
     **kwargs,
 ) -> float:
-    """Return only ``C(implementer | implemented)``."""
+    """Return only ``C(implementer -> implemented)``."""
 
     return exchange_rate_result(implementer, implemented, **kwargs).rate
 

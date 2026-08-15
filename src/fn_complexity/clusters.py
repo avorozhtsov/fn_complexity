@@ -6,7 +6,7 @@ The non-special signatures are exhausted by
 
 For signatures ``a`` and ``b``, the comparison graph contains the arrow
 
-    a -> b  iff  C(a | b) >= C(b | a).
+    a -> b  iff  C(a -> b) >= C(b -> a).
 
 This module uses the same vectorized power-sum screening calculation as the
 Appendix B stabilization analysis.  NumPy is imported lazily so the rest of
@@ -153,7 +153,7 @@ def component_for_target(
     except ValueError as error:
         raise ValueError(f"target {target} is not in the candidate shell") from error
 
-    # rates[i, j] = C(i | j).  Arrows point toward the less-complex
+    # rates[i, j] = C(i -> j).  Arrows point toward the less-complex
     # signature.  In non-strict mode near-equalities are
     # conservatively represented by arrows in both directions.  In strict
     # mode an inequality must exceed the numerical tolerance.
@@ -192,7 +192,7 @@ def search_cluster(
 ) -> ClusterSearchResult:
     """Search ``Cl(target)`` in nested finite shells.
 
-    If ``strict`` is false, arrows use ``C(a|b) >= C(b|a)``; otherwise they
+    If ``strict`` is false, arrows use ``C(a -> b) >= C(b -> a)``; otherwise they
     use strict inequality.  If ``n_max`` is supplied, shells are examined in
     increasing order and the search stops once that many distinct component
     members have been found.  Otherwise only ``S_max_b`` is evaluated and its

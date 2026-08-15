@@ -33,7 +33,7 @@ PYTHONPATH=src python analysis/appendix_b_signatures.py
 ```
 
 The larger NumPy/SciPy screening calculation that verifies the stable first
-99 across the \(B=18\) and \(B=19\) candidate shells is run from the project
+69 across the \(B=18\) and \(B=19\) candidate shells is run from the project
 root with:
 
 ```bash

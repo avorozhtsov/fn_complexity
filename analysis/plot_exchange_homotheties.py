@@ -182,15 +182,15 @@ def main() -> int:
                     linewidth=2.3,
                     linestyle=SCALED_LINESTYLE,
                     label=(
-                        rf"${scale:.6f}\,f_{source_index + 1}$"
-                        rf"$=f_{source_index + 1}/"
-                        rf"C(f_{source_index + 1}\mid f_{target_index + 1})$"
+                        rf"$f_{source_index + 1}$ scaled by "
+                        rf"$1/C(f_{source_index + 1}\to f_{target_index + 1})"
+                        rf"={scale:.6f}$"
                     ),
                 )
             )
 
         axis.set_title(
-            rf"Embrace $f_{target_index + 1}={signature_text(target)}$",
+            rf"Target $f_{target_index + 1}={signature_text(target)}$",
             loc="left",
             fontsize=16,
             color="#111827",

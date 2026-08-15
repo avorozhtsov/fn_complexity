@@ -42,7 +42,7 @@ def main() -> int:
     }
 
     # Orient an edge b -> a when a is more complex than b:
-    # C(a | b) > C(b | a).  Kahn's algorithm then lists low complexity first.
+    # C(a -> b) > C(b -> a).  Kahn's algorithm then lists low complexity first.
     tolerance = 1e-12
     outgoing = {signature: set() for signature in all_signatures}
     indegree = {signature: 0 for signature in all_signatures}
@@ -108,11 +108,11 @@ def main() -> int:
         stream.write("# Small exchange-rate matrix\n\n")
         stream.write(
             "Rows are implementers `g`, columns are implemented signatures "
-            "`f`, and each cell is `C(g | f)`.\n\n"
+            "`f`, and each cell is `C(g -> f)`.\n\n"
         )
         stream.write(
             "The order is a topological sort of the relation `b -> a` when "
-            "`C(a | b) > C(b | a)`. Lower-complexity signatures are shown "
+            "`C(a -> b) > C(b -> a)`. Lower-complexity signatures are shown "
             "first.\n\n"
         )
         headers = ["g \\ f"] + [label(signature) for signature in ordered]

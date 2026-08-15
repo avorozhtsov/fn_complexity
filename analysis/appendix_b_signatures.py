@@ -229,8 +229,8 @@ def render_exception_table(
             rendered_exceptions.append(
                 reference
                 + r":\newline "
-                rf"\(\quad C(x\!\mid\!a)={forward_rate},\ "
-                rf"C(a\!\mid\!x)={reverse_rate}\)"
+                rf"\(\quad C(x\!\to\!a)={forward_rate},\ "
+                rf"C(a\!\to\!x)={reverse_rate}\)"
             )
         lines.append(
             f"  {index} & {tex_signature(signature)} & "

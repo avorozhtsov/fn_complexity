@@ -15,13 +15,17 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
 \newcommand{\sig}[1]{\left\{#1\right\}}
 \newcommand{\impl}{\preccurlyeq_{\mathrm{impl}}}
 
 \title{Exchange Rates for Finite Map Signatures\\
 \large A Simplified Thermodynamic Complexity}
-\author{Artem Vorozhtsov}
-\date{July 2026}
+\author{Artem Vorozhtsov\\
+\small\texttt{artem.voroztsov@gmail.com}}
+\date{\today}
 
 \hypersetup{
   pdftitle={Exchange Rates for Finite Map Signatures},
@@ -32,20 +36,142 @@
 \maketitle
 
 \begin{abstract}
-To a surjection between finite sets we assign the multiset of its fiber
-cardinalities.  We compare these signatures by allowing injective
-preprocessing and bijective relabelling of the outputs, and define an
-asymptotic exchange rate from Cartesian powers.  The rate is expressed by an
-infimum of ratios of power sums.  After the substitution
-\(\epsilon_i=-\log n_i\), the same formula describes homothetic containment
-of Gibbs energy--entropy regions.  The two directed rates do not induce a
-transitive comparison: \(\sig{5,3}\), \(\sig{3,1,1}\), and \(\sig{6,1}\)
-form a strict cycle.  Algebraically, this is an ordered semiring resource
-theory for finite deterministic tasks, related to strong Weihrauch
-reducibility and to asymptotic tensor restriction.
+One list of positive integers \emph{fits} into another when, after sorting,
+every entry is at most the entry facing it.  Lists multiply entrywise, so
+fitting becomes a question of exchange: how many copies of one list is a copy
+of another worth, when many copies are traded at once?  We compute this rate.
+It is the smallest value of \(\log Z_g/\log Z_f\), where
+\(Z_a(\beta)=\sum_ia_i^{\,\beta}\) interpolates between counting the entries
+and taking the largest one.  Writing \(\epsilon_i=-\log a_i\) turns \(Z_a\)
+into a partition function and the rate into a picture: the largest factor by
+which the region under one energy--entropy curve can be enlarged, from the
+origin, and still fit under the other.  The two directions give different
+rates, and the comparison they induce runs in circles --- \(\sig{5,3}\),
+\(\sig{3,1,1}\) and \(\sig{6,1}\) form a cycle --- so no single number
+reproduces it.  The lists are the fiber sizes of a map between finite sets,
+where fitting means computing one map with one call to another; this is also
+what fixes the origin the picture needs.  Any system with finitely many
+energy levels has such a curve, and for ultrarelativistic sectors the
+enlargement is exact: the factor between the photon and electron--positron
+gases is \(7/4\).
+
+\medskip
+\noindent\textbf{Keywords:} exchange rate; asymptotic conversion; fiber
+signature; power sum; Gibbs curve; energy--entropy region; homothety;
+resource theory.
+
+\noindent\textbf{MSC 2020:} 94A17 (primary); 05A17, 06F25, 16Y60, 82B03 (secondary).
 \end{abstract}
 
+\section{Introduction}
+
+Take two lists of positive integers,
+\[
+  \sig{2,2}
+  \qquad\text{and}\qquad
+  \sig{3,1}.
+\]
+Say that one list \emph{fits} into another when, after sorting both
+decreasingly, every entry of the first is at most the entry facing it in the
+second.  Neither of these two fits into the other: \(\sig{2,2}\) fails because
+its second entry \(2\) exceeds \(1\), and \(\sig{3,1}\) fails because its
+first entry \(3\) exceeds \(2\).
+
+Lists can be multiplied.  The product \(a\otimes b\) is the list of all
+products \(a_ib_j\), keeping repetitions.  So
+\[
+  \sig{3,1}^{\otimes2}=\sig{9,3,3,1},
+  \qquad
+  \sig{2,2}^{\otimes4}=\{\underbrace{16,\ldots,16}_{16}\},
+\]
+and now the first \emph{does} fit into the second.  A single \(\sig{3,1}\)
+cannot be built from a single \(\sig{2,2}\), yet two copies of \(\sig{3,1}\)
+can be built from four copies of \(\sig{2,2}\).  Three copies cannot, and
+neither can two copies from three, so this trade is the best available at
+these sizes.
+
+This paper is about the best trade available in the long run.  Write
+\(k_{\max}(n)\) for the largest \(k\) such that \(f^{\otimes k}\) fits into
+\(g^{\otimes n}\), and let
+\[
+  C(g\to f)=\lim_{n\to\infty}\frac{k_{\max}(n)}{n}
+\]
+be the number of copies of \(f\) that one copy of \(g\) is worth.  For the two
+lists above,
+\[
+  C(\sig{2,2}\to\sig{3,1})=\frac{\log2}{\log3}=0.6309\ldots,
+  \qquad
+  C(\sig{3,1}\to\sig{2,2})=0.9653\ldots
+\]
+Two features are already visible.  The two numbers are not reciprocal, so the
+trade cannot be undone: something is lost in either direction.  And they are
+not equal, so it is tempting to call \(\sig{3,1}\) the more complex of the
+two, since it buys more than it costs.
+
+Such lists are not arbitrary.  For a map \(f:X\to Y\) from a finite set onto
+another, record how many inputs land on each output; the resulting list of
+fiber sizes is the \emph{signature} of \(f\).  Fitting then means that \(f\)
+can be computed with a single call to \(g\), after relabelling inputs
+injectively and outputs bijectively, and multiplying lists means running maps
+side by side.  Section~\ref{sec:signatures} makes this precise, and it is the
+last piece of set-up the paper needs.
+
+Three things follow.
+
+The first is that the limit above has a closed form.  Attach to a list the
+weighted counts
+\[
+  Z_a(\beta)=\sum_i a_i^{\,\beta},\qquad\beta\geq0,
+\]
+which interpolate between the number of entries, at \(\beta=0\), and the
+largest entry, as \(\beta\to\infty\).  Then \(C(g\to f)\) is the smallest
+value of \(\log Z_g/\log Z_f\) over all \(\beta\).  Counting entries and
+taking the largest entry are the two obvious ways to compare lists; the
+content of the formula is that the truth lies at whichever \(\beta\) is worst,
+and that this is sometimes neither endpoint.
+
+The second is that the formula is a picture.  Substituting
+\(\epsilon_i=-\log a_i\) turns \(Z_a\) into a partition function and \(\beta\)
+into an inverse temperature, so every list becomes a curve in the plane whose
+axes are mean energy and entropy.  The exchange rate then has nothing to do
+with arithmetic: it is the largest factor by which the region under one curve
+can be enlarged, from the origin, and still slide under the other.  Where the
+two curves touch is a temperature, and it is the bottleneck of the trade.
+
+One caution belongs here rather than in the fine print.  Enlargement is
+measured from the origin, so the origin has to mean something.  For lists it
+does: an entry equal to \(1\) is a fiber that carries nothing, and
+\(\epsilon=-\log1=0\) puts it at the origin.  What carries the complexity is
+therefore the pair --- the curve together with its marked origin --- and not
+the curve alone.  Slide the origin far away and every system starts to look
+like every other.  Lists come with their origin already fixed; a physical
+system does not, and Section~\ref{sec:finite-spectrum} says what has to be
+supplied instead.
+
+The third is that ``more complex'' is not a ranking.  Comparing the two
+directed rates gives a relation that runs in circles: \(\sig{5,3}\),
+\(\sig{3,1,1}\) and \(\sig{6,1}\) each beat the next and are beaten by the
+one after.  No single number extracted from a list can reproduce the
+comparison, because the object being compared is a whole curve.
+
+Nothing in the second description mentions integers, and this is what makes
+the picture worth having.  Any system with a finite list of energy levels has
+such a curve, and two systems can be compared the same way.  When the curves
+happen to be exact enlargements of one another the trade is reversible: the
+cleanest instance is a gas of photons against a gas of electrons and
+positrons in the early universe, where the factor is exactly \(7/4\).
+Sections~\ref{sec:finite-spectrum}--\ref{sec:summary} collect this and other
+examples, from spins in a magnetic field to crystal-field levels to an Ising
+ring.
+
+The paper is meant to be read in order, and everything up to
+Section~\ref{sec:summary} is elementary.  Connections to resource theories,
+to Weihrauch reducibility and to Strassen's asymptotic spectrum are deferred
+to Section~\ref{sec:related}, where they can be stated quickly and skipped
+freely.
+
 \section{Signatures and implementation}
+\label{sec:signatures}
 
 Let \(f:X\to Y\) be onto and enumerate its output as
 \(Y=\{y_1,\ldots,y_r\}\).  The \emph{fiber} over \(y_i\) is the inverse image
@@ -131,23 +257,27 @@ over this sum:
   \qquad
   a\otimes(b+c)=(a\otimes b)+(a\otimes c).
 \]
-After adjoining the empty signature as zero, signatures form an ordered
-commutative semiring with multiplicative unit \(\{1\}\).  Here \(+\) is a
-classically labelled alternative and \(\otimes\) is parallel composition.
-Only the latter enters the exchange rate.
+Here \(+\) is a labelled alternative and \(\otimes\) is parallel composition.
+Only the product enters the exchange rate; the sum is recorded because it is
+needed once, in Section~\ref{sec:related}.
 
 \begin{definition}[Exchange rate]
 For signatures \(f\) and \(g\), set
 \[
- k_{\max}^{g\leftarrow f}(n)
+ k_{\max}^{g\to f}(n)
  =\max\left\{k\geq0:f^{\otimes k}\impl g^{\otimes n}\right\}.
 \]
-The exchange rate, with the implementer written first, is
+The exchange rate is
 \[
-  C(g\mid f)
-  =\lim_{n\to\infty}\frac{k_{\max}^{g\leftarrow f}(n)}{n}.
+  C(g\to f)
+  =\lim_{n\to\infty}\frac{k_{\max}^{g\to f}(n)}{n}.
 \]
 \end{definition}
+
+Throughout, \emph{the implementing resource is written first}: \(C(g\to f)\)
+counts copies of the target \(f\) obtained per copy of the resource \(g\), so
+the superscript \(g\to f\) records the direction of the conversion.  Larger
+values mean that \(g\) is the more useful resource.
 
 Tensoring optimal implementations at block lengths \(n\) and \(m\) gives
 \[
@@ -159,51 +289,10 @@ Fekete's lemma now yields
   =\sup_{n\geq1}\frac{k_{\max}(n)}{n},
 \]
 with \(+\infty\) allowed.  The limit is the operational definition of
-\(C(g\mid f)\).
-
-\section{Related frameworks}
-
-The operations above place the construction among semiring resource theories:
-implementation is the free conversion, \(+\) is disjoint choice, and
-\(\otimes\) combines independent resources.  General accounts of resource
-theories and their ordered algebraic structures are given in
-\cite{coecke-fritz-spekkens-2016,fritz-2017}.
-
-The one-shot factorization
-\[
-  f=h_{\mathrm{out}}\circ g\circ h_{\mathrm{in}}
-\]
-has the form of strong Weihrauch reduction: one call to \(g\), preceded and
-followed by fixed processors \cite{brattka-gherardi-pauly-2021}.  Unlike the
-computable processors in Weihrauch theory, ours are injective or bijective on
-the sets actually used.  This restriction preserves the fiber capacities.
-
-The asymptotic construction is closer to tensor restriction.  Tensors encode
-bilinear tasks, linear maps implement restrictions, and tensor product
-combines copies.  Strassen's asymptotic spectrum characterizes large tensor
-powers by multiplicative monotones \cite{strassen-1988}.  The relative
-exponent
-\[
-  \omega(t,s)
-  =\lim_{n\to\infty}\frac1n
-    \min\{m:t^{\otimes m}\text{ restricts to }s^{\otimes n}\}
-\]
-measures resource cost per target copy; it is used, for example, to quantify
-irreversibility in matrix multiplication
-\cite{christandl-vrana-zuiddam-2021}.  Its convention is reciprocal to ours
-after reversing the conversion.  Here the spectral monotones are the power
-sums \(Z_a(\beta)\).  The resulting formula is also analogous to exact
-asymptotic majorization, where the rate is a minimum of R\'enyi-entropy ratios
-\cite{jensen-2019}.
-
-Channel simulation provides a third comparison: an encoder and decoder use
-copies of one channel to reproduce another.  With common-randomness
-assistance, the first-order rate for point-to-point discrete memoryless
-channels is the ratio of their capacities \cite{cao-et-al-2024}.  Appendix~A
-recovers the corresponding logarithmic cardinality ratio when both
-processors in the finite-map model are left unrestricted.
+\(C(g\to f)\).
 
 \section{Power sums and Gibbs curves}
+\label{sec:power-sums}
 
 For a signature \(a=(a_i)\), define its power-sum partition function
 \[
@@ -229,13 +318,32 @@ The fibers of the \(k\)-fold Cartesian power \(a^{\otimes k}\) are indexed by
   \label{eq:tensor-partition}
 \end{align}
 
+\begin{lemma}[Counting form of \(\impl\)]
+\label{lem:counting}
+For signatures \(a\) and \(b\),
+\[
+  a\impl b
+  \quad\Longleftrightarrow\quad
+  \#\{i:a_i\geq t\}\leq\#\{j:b_j\geq t\}
+  \quad\text{for every }t\geq1 .
+\]
+\end{lemma}
+
+\begin{proof}
+If \(a\impl b\) then \(r\leq s\) and \(a_i\leq b_i\), so every \(a_i\geq t\)
+forces \(b_i\geq t\) and the left count is at most the right one.
+Conversely, apply the hypothesis at \(t=a_i\): at least \(i\) entries of \(a\)
+are \(\geq a_i\), hence so are at least \(i\) entries of \(b\), and as \(b\)
+decreases this says \(b_i\geq a_i\).  Taking \(t=1\) gives \(r\leq s\).
+\end{proof}
+
 \begin{proposition}
 \label{prop:rate}
 Let \(f\) and \(g\) each have at least two fibers and a fiber of size greater
 than one.  Then
 \begin{equation}
   \label{eq:rate}
-  C(g\mid f)
+  C(g\to f)
   =\inf_{\beta\in[0,\infty]}
     \frac{\log Z_g(\beta)}{\log Z_f(\beta)},
 \end{equation}
@@ -245,29 +353,117 @@ where the value at \(\beta=\infty\) is
 \]
 \end{proposition}
 
-\begin{proof}[Proof sketch]
-If \(f^{\otimes k}\impl g^{\otimes n}\), applying the power sum at every
-\(\beta\geq0\) gives
-\[
-  Z_f(\beta)^k\leq Z_g(\beta)^n,
-  \qquad
-  \frac{k}{n}\leq
-  \frac{\log Z_g(\beta)}{\log Z_f(\beta)}.
-\]
-The endpoint \(\beta=\infty\) gives the same inequality for the largest
-fibers, so the right-hand side of \eqref{eq:rate} is an upper bound.
+\begin{proof}
+Write \(\varphi_a(\beta)=\log Z_a(\beta)\).  Every \(a_i\geq1\), so \(Z_a\) is
+non-decreasing and \(\varphi_a(\beta)\geq\varphi_a(0)=\log(\text{number of
+fibers})\geq\log2>0\).  Hence \(R(\beta)=\varphi_g(\beta)/\varphi_f(\beta)\)
+is continuous and positive on \([0,\infty)\).  Moreover
+\(\varphi_a(\beta)=\beta\log a_1+\log m_a+o(1)\), where \(m_a\) is the number
+of fibers of maximal size, so \(R\) extends continuously to \([0,\infty]\)
+with the value stated at \(\infty\).  Its infimum \(C_*\) is therefore
+attained and lies in \((0,\infty)\).
 
-For the converse, choose a rational \(k/n\) strictly below that infimum.
-Sort the logarithms of the fibers in \(f^{\otimes k\ell}\) and
-\(g^{\otimes n\ell}\).  The exponential growth rate of the number of entries
-above a fixed threshold is the Legendre transform of
-\(\log Z_f\), respectively \(\log Z_g\).  The strict power-sum inequalities,
-including the two endpoints, therefore give componentwise domination for all
-sufficiently large \(\ell\).  Hence
-\(f^{\otimes k\ell}\impl g^{\otimes n\ell}\).  Letting \(k/n\) increase to
-the infimum proves the reverse inequality.  This is the type-counting
-argument used in exact asymptotic majorization; compare
-\cite{jensen-2019}.
+\emph{The rate is at most \(C_*\).}  Suppose \(f^{\otimes k}\impl g^{\otimes
+n}\).  For \(\beta\geq0\) the map \(x\mapsto x^\beta\) is non-decreasing on
+\([1,\infty)\), so matching fibers one by one and discarding the unused ones
+gives \(Z_f(\beta)^k\leq Z_g(\beta)^n\), that is \(k/n\leq R(\beta)\).
+Matching the largest fibers gives \(f_1^{\,k}\leq g_1^{\,n}\), which is
+\(k/n\leq R(\infty)\).  Hence \(k_{\max}(n)/n\leq C_*\) for every \(n\).
+
+\emph{The rate is at least \(C_*\).}  Fix integers \(k,n\geq1\) with
+\(k/n<C_*\).  We show \(f^{\otimes k\ell}\impl g^{\otimes n\ell}\) for all
+large \(\ell\).  Put \(u_i=\log f_i\) and \(v_j=\log g_j\), and for
+\(m\geq1\), \(x\in\mathbb R\) let
+\[
+  N_f(m,x)=\#\bigl\{\omega\in\{1,\ldots,r\}^m:
+    u_{\omega_1}+\cdots+u_{\omega_m}\geq mx\bigr\}
+\]
+count the fibers of \(f^{\otimes m}\) of size at least \(e^{mx}\), and define
+\(N_g\) likewise.  A threshold \(t\) corresponds to \(z=(\log t)/\ell\), so by
+Lemma~\ref{lem:counting} it is enough to prove
+\begin{equation}
+  \label{eq:counting-goal}
+  N_f(k\ell,\,z/k)\leq N_g(n\ell,\,z/n)
+  \qquad\text{for every }z\in\mathbb R .
+\end{equation}
+Introduce
+\[
+  \psi_a(x)=\inf_{\beta\geq0}\bigl(\varphi_a(\beta)-\beta x\bigr),
+\]
+which is the Gibbs curve of this section in disguise: where the infimum is
+attained, \(\varphi_a(\beta)-\beta x=H_a(T)\) with \(x=-E_a(T)\), so
+\(\psi_a\) is entropy as a function of energy.
+
+\emph{Upper bound.}  For every \(\beta\geq0\),
+\[
+  N_f(m,x)
+  \leq\sum_\omega e^{\beta(u_{\omega_1}+\cdots+u_{\omega_m}-mx)}
+  =e^{m(\varphi_f(\beta)-\beta x)},
+\]
+whence \(N_f(m,x)\leq e^{m\psi_f(x)}\), with \(e^{-\infty}=0\).
+
+\emph{A uniform gap.}  Since \(k/n<C_*\leq R(\beta)\) and
+\(\varphi_f(\beta)>0\), the function
+\(D(\beta)=n\varphi_g(\beta)-k\varphi_f(\beta)\) is positive on
+\([0,\infty)\); and \(k/n<R(\infty)\) gives \(k\log f_1<n\log g_1\), so
+\(D(\beta)\to+\infty\).  A positive continuous function tending to infinity
+has a positive infimum, so \(\delta:=\inf_{\beta\geq0}D(\beta)>0\).  As
+\(k\psi_f(z/k)=\inf_{\beta\geq0}(k\varphi_f(\beta)-\beta z)\), and similarly
+for \(g\), this yields
+\begin{equation}
+  \label{eq:psi-gap}
+  n\psi_g(z/n)\geq k\psi_f(z/k)+\delta
+  \qquad\text{for every }z\in\mathbb R .
+\end{equation}
+
+\emph{Lower bound, and where the endpoint is used.}  If \(z>k\log f_1\) the
+left side of \eqref{eq:counting-goal} vanishes and there is nothing to prove.
+So assume \(z\leq k\log f_1\); then
+\[
+  \frac zn\leq\frac kn\log f_1<\log g_1,
+  \qquad
+  \eta:=\log g_1-\frac kn\log f_1>0,
+\]
+and \(\eta\) does not depend on \(z\).  This is the only place where the
+endpoint \(\beta=\infty\) enters, and it is what makes the counting uniform:
+whenever \(f^{\otimes k\ell}\) has any fiber above the threshold at all, the
+matching threshold for \(g^{\otimes n\ell}\) stays a fixed distance below the
+largest fiber of \(g\).  Immediately below that largest fiber the counts grow
+polynomially rather than exponentially, and there an exponential-rate estimate
+would decide nothing.
+
+Fix \(m\) large enough that \(2s\log g_1/m\leq\eta/2\), and let
+\(L=L(g,\eta)\) bound the minimising \(\beta\) in \(\psi_g(x)\) over
+\(x\leq\log g_1-\eta/2\); on that range \(\psi_g\) is Lipschitz with the same
+constant.  We claim
+\begin{equation}
+  \label{eq:types}
+  N_g(m,x)\geq e^{m\psi_g(x)-c\log(m+1)}
+  \qquad\bigl(x\leq\log g_1-\eta\bigr)
+\end{equation}
+for a constant \(c=c(g,\eta)\).  Indeed, put \(x'=x+2s\log g_1/m\), let
+\(\beta\) attain the infimum for \(\psi_g(x')\), and let
+\(p_j=g_j^{\,\beta}/Z_g(\beta)\).  Round \(p\) to a type \(P\) with
+denominator \(m\), so \(\lVert P-p\rVert_1\leq2s/m\).  Every word of type
+\(P\) satisfies
+\(m^{-1}\sum_av_{\omega_a}=\sum_jP_jv_j\geq x'-2s\log g_1/m=x\), the type
+class has at least \((m+1)^{-s}e^{mH(P)}\) elements
+\cite{cover-thomas-2006}, and
+\(H(P)\geq H(p)-O(s\log m/m)\) while \(H(p)=\psi_g(x')\geq\psi_g(x)-2Ls\log
+g_1/m\).
+
+\emph{Conclusion.}  Combining the upper bound with \eqref{eq:psi-gap} and
+\eqref{eq:types} at \(m=n\ell\),
+\[
+  \log N_g(n\ell,z/n)-\log N_f(k\ell,z/k)
+  \geq\ell\delta-c\log(n\ell+1),
+\]
+positive for every \(\ell\geq\ell_0\), where \(\ell_0\) depends only on
+\(f,g,k,n\) and not on \(z\).  So \eqref{eq:counting-goal} holds for all
+\(z\) once \(\ell\geq\ell_0\), giving \(f^{\otimes k\ell}\impl g^{\otimes
+n\ell}\) and \(k_{\max}(n\ell)\geq k\ell\).  Hence \(C(g\to f)\geq k/n\), and
+letting \(k/n\) increase to \(C_*\) completes the proof.  The counting is the
+one used for exact asymptotic majorization; compare \cite{jensen-2019}.
 \end{proof}
 
 Put
@@ -307,28 +503,107 @@ the line \(E=0\).  The quantity
 is the offset of the supporting line with normal \((-\beta,1)\).  Proposition
 \ref{prop:rate} is therefore equivalent to
 \[
- C(g\mid f)
+ C(g\to f)
  =\sup\{c\geq0:c\,\mathcal R_f\subseteq\mathcal R_g\}.
 \]
-Equivalently, \(C(g\mid f)^{-1}\Gamma_g\) is the smallest homothetic copy of
+Equivalently, \(C(g\to f)^{-1}\Gamma_g\) is the smallest homothetic copy of
 \(\Gamma_g\) whose region contains \(\Gamma_f\).
+
+\begin{remark}[Why the curve is not continued past \(\beta=0\)]
+\label{rem:negative-temperature}
+Nothing forbids negative \(\beta\), and the curve does continue there: past
+its peak at \(\beta=0\) it turns and descends, returning towards the origin as
+\(\beta\to-\infty\).  For \(\sig{3,1}\) the peak is \((-0.549,0.693)\), and
+\(\beta=-3\) gives \((-0.039,0.154)\).  Systems with a bounded spectrum really
+do reach such states --- nuclear spins and cold atoms in optical lattices ---
+so it is worth saying why they play no part here.
+
+The reason is that \(Z_a(\beta)\) is order preserving only for
+\(\beta\geq0\).  For \(\beta<0\) the map \(x\mapsto x^\beta\) reverses order,
+and fitting no longer forces an inequality between power sums:
+\(\sig{1}\impl\sig{2}\), yet at \(\beta=-\tfrac12\) one has
+\(Z_{\sig{1}}=1>Z_{\sig{2}}=0.707\ldots\).  Negative \(\beta\) would therefore
+contribute constraints that are simply false.  Moreover \(\log Z_a(\beta)\)
+can turn negative there --- for \(\sig{2,2}\) already at \(\beta=-2\) --- so
+the inequality \(k/n\leq\log Z_g/\log Z_f\) would change direction and the
+formula would lose its meaning.
+
+Closing the region instead by the horizontal segment at \(H=\log r\) is the
+right thing to do, and it reads plainly: a state with inverted populations is
+never the better resource, because one can always waste energy instead and
+keep the same entropy.
+\end{remark}
+
+Products have a geometric meaning as well, though it is only the standard
+Legendre duality in other words.
+
+\begin{remark}[Product is Minkowski sum]
+\label{rem:minkowski}
+This is immediate from the duality between \(S(E)\) and \(\log Z\) recalled
+above.  That display says \(\log Z_a(\beta)\) is the support function of
+\(\mathcal R_a\) in the direction \((-\beta,1)\); support functions add under
+Minkowski addition, and \(\log Z\) adds under \(\otimes\).  Hence
+\[
+  \mathcal R_{a\otimes b}
+  =\mathcal R_a\oplus\mathcal R_b
+  =\{x+y:x\in\mathcal R_a,\ y\in\mathcal R_b\}.
+\]
+For the directions not of the form \((-\beta,1)\), write \(u=(u_1,u_2)\):
+if \(u_1,u_2>0\) the maximum of \(\langle x,u\rangle\) sits at the corner
+\((0,\log r)\) and equals \(u_2\log Z_a(0)\); if \(u_2\leq0\) it has \(H=0\)
+and equals \(0\) for \(u_1\geq0\) and \(|u_1|\log a_1\) otherwise.  Both are
+again additive under \(\otimes\).
+
+So the two operations of this paper are the two operations of planar convex
+geometry: \(\otimes\) is Minkowski addition, and Cartesian powers are
+dilations, \(\mathcal R_{a^{\otimes k}}=k\,\mathcal R_a\).
+\end{remark}
+
+Areas therefore grow quadratically, which gives a crude but instant bound on
+the exchange rate.
+
+\begin{proposition}[Area bound]
+\label{prop:area}
+Let \(A_a\) be the area of \(\mathcal R_a\).  Then
+\(A_{a^{\otimes k}}=k^2A_a\) and
+\[
+  C(g\to f)\leq\sqrt{A_g/A_f}.
+\]
+\end{proposition}
+
+\begin{proof}
+The first claim is the dilation of Remark~\ref{rem:minkowski}.  For the second, \(c\,\mathcal
+R_f\subseteq\mathcal R_g\) gives \(c^2A_f\leq A_g\).
+\end{proof}
+
+The bound is honest but loose: for the pair of Section~\ref{sec:pair} it
+returns \(0.856\) against the true \(0.631\), and \(1.168\) against
+\(0.965\).  It cannot be sharp, because by Remark~\ref{rem:monotones} the
+exact rate is controlled by the multiplicative family \(Z_a(\beta)\), whereas
+the area is quadratic and so is not one of them.  By the Brunn--Minkowski
+inequality \(\sqrt{A}\) is superadditive under \(\otimes\), and the mixed area
+\(V(\mathcal R_a,\mathcal R_b)\) in
+\(A_{a\otimes b}=A_a+2V(\mathcal R_a,\mathcal R_b)+A_b\) is a joint invariant
+of two signatures that the present theory does not otherwise see.  We do not
+pursue it here.
 
 \section{The pair
 \texorpdfstring{\(\sig{2,2}\) and \(\sig{3,1}\)}
 {{2,2} and {3,1}}}
+\label{sec:pair}
 
 Let \(g=\sig{2,2}\) and \(f=\sig{3,1}\).  Every fiber of
 \(g^{\otimes n}\) has size \(2^n\).  The largest fiber of
 \(f^{\otimes k}\) has size \(3^k\), and the remaining rank constraint is
 weaker at the optimum.  Hence
 \[
-  C(\sig{2,2}\mid\sig{3,1})
+  C(\sig{2,2}\to\sig{3,1})
   =\frac{\log2}{\log3}
   =0.6309297536\ldots.
 \]
 The reverse direction is limited at a finite temperature:
 \begin{align*}
-  C(\sig{3,1}\mid\sig{2,2})
+  C(\sig{3,1}\to\sig{2,2})
   &=\min_{\beta\geq0}
     \frac{\log(3^\beta+1)}{(\beta+1)\log2} \\
   &=0.9653844417\ldots,
@@ -350,8 +625,8 @@ curve reduces to the point \((-\log2,\log2)\).
   the other.  Thin segments at the \(T=0\) and \(T=\infty\) endpoints close
   the regions; dotted boundaries denote the scaled copy, and translucent
   fills make the containment visible.  The required scale factors are
-  \(1/C(\sig{3,1}\mid\sig{2,2})=1.03585676\ldots\) on the left and
-  \(1/C(\sig{2,2}\mid\sig{3,1})=\log3/\log2\) on the right.}
+  \(1/C(\sig{3,1}\to\sig{2,2})=1.03585676\ldots\) on the left and
+  \(1/C(\sig{2,2}\to\sig{3,1})=\log3/\log2\) on the right.}
   \label{fig:pair}
 \end{figure}
 
@@ -378,9 +653,9 @@ The interior minima are:
 \toprule
 Direction & \(C\) & \(T_*\) & \(\beta_*=1/T_*\) \\
 \midrule
-\(C(a\mid b)\) &
+\(C(a\to b)\) &
 \(0.9664896992\) & \(1.7970865612\) & \(0.5564562229\) \\
-\(C(b\mid a)\) &
+\(C(b\to a)\) &
 \(0.9786567233\) & \(0.2459449336\) & \(4.0659508025\) \\
 \bottomrule
 \end{tabular}
@@ -392,9 +667,9 @@ If
 has an interior minimum at \(\beta_*\), then \(R'(\beta_*)=0\) and
 \(\log Z=H-\beta E\) give
 \[
-  E_g(T_*)=C(g\mid f)E_f(T_*),
+  E_g(T_*)=C(g\to f)E_f(T_*),
   \qquad
-  H_g(T_*)=C(g\mid f)H_f(T_*).
+  H_g(T_*)=C(g\to f)H_f(T_*).
 \]
 The target curve and the scaled source curve therefore meet at the same
 point.  Their slopes also agree, since
@@ -408,8 +683,8 @@ Figure~\ref{fig:finite-temperature} are genuine tangencies.
   \centering
   \includegraphics[width=\textwidth]{figures/exchange-homotheties_6-5-2-1_6-4-3-2.pdf}
   \caption{Two-sided finite-temperature tangency.  The left panel scales
-  \(b\) by \(1/C(b\mid a)\) to embrace \(a\); the right panel scales \(a\)
-  by \(1/C(a\mid b)\) to embrace \(b\).  Crosses mark the interior contact
+  \(b\) by \(1/C(b\to a)\) to embrace \(a\); the right panel scales \(a\)
+  by \(1/C(a\to b)\) to embrace \(b\).  Crosses mark the interior contact
   points.  Thin dotted horizontal lines close the scaled regions at their
   \(T=\infty\) endpoints; translucent fills extend to \(E=0\).}
   \label{fig:finite-temperature}
@@ -423,7 +698,7 @@ For signatures \(a,b\), define
 \[
   a\prec b
   \quad\Longleftrightarrow\quad
-  C(a\mid b)<C(b\mid a).
+  C(a\to b)<C(b\to a).
 \]
 \end{definition}
 
@@ -448,12 +723,12 @@ Table~\ref{tab:cycle}.
     \toprule
     Pair & Forward rate & Reverse rate & Conclusion \\
     \midrule
-    \(f_1,f_2\) & \(C(f_1\mid f_2)=0.630929754\)
-                & \(C(f_2\mid f_1)=0.670211928\) & \(f_1\prec f_2\) \\
-    \(f_2,f_3\) & \(C(f_2\mid f_3)=0.613147193\)
-                & \(C(f_3\mid f_2)=0.630929754\) & \(f_2\prec f_3\) \\
-    \(f_3,f_1\) & \(C(f_3\mid f_1)=0.897931851\)
-                & \(C(f_1\mid f_3)=0.898244402\) & \(f_3\prec f_1\) \\
+    \(f_1,f_2\) & \(C(f_1\to f_2)=0.630929754\)
+                & \(C(f_2\to f_1)=0.670211928\) & \(f_1\prec f_2\) \\
+    \(f_2,f_3\) & \(C(f_2\to f_3)=0.613147193\)
+                & \(C(f_3\to f_2)=0.630929754\) & \(f_2\prec f_3\) \\
+    \(f_3,f_1\) & \(C(f_3\to f_1)=0.897931851\)
+                & \(C(f_1\to f_3)=0.898244402\) & \(f_3\prec f_1\) \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -464,7 +739,7 @@ The three rows give
 \]
 Hence \(\prec\) is not a strict order.  Figure~\ref{fig:cycle} shows the three
 comparisons geometrically.  In the panel with target \(f_i\), the dotted curve
-for \(f_j\) is \(C(f_j\mid f_i)^{-1}\Gamma_{f_j}\).
+for \(f_j\) is \(C(f_j\to f_i)^{-1}\Gamma_{f_j}\).
 
 \begin{figure}[t]
   \centering
@@ -505,22 +780,22 @@ stoichiometry
 write \(r=k/n\).  In the asymptotic closure,
 \begin{align}
   B^{\otimes n}\longrightarrow A^{\otimes k}
-  &\quad\Longleftrightarrow\quad r\leq C(B\mid A),
+  &\quad\Longleftrightarrow\quad r\leq C(B\to A),
   \label{eq:B-to-A}\\
   A^{\otimes k}\longrightarrow B^{\otimes n}
   &\quad\Longleftrightarrow\quad
-  r\geq \frac{1}{C(A\mid B)}.
+  r\geq \frac{1}{C(A\to B)}.
   \label{eq:A-to-B}
 \end{align}
 Strict inequalities guarantee the corresponding direction for sufficiently
 large block sizes; an exact boundary ratio need not be attained at finite
 size.  Since
 \[
-  C(A\mid B)C(B\mid A)\leq1,
+  C(A\to B)C(B\to A)\leq1,
 \]
 the thresholds leave the interval
 \[
-  C(B\mid A)\leq r\leq\frac{1}{C(A\mid B)}.
+  C(B\to A)\leq r\leq\frac{1}{C(A\to B)}.
 \]
 For ratios in its interior, neither direction need realize the prescribed
 stoichiometry.  Coincident endpoints mean asymptotic reversibility; otherwise
@@ -540,7 +815,7 @@ The strict cycle admits a formal comparison with a driven reaction network.
 For \(a\overset{\mathrm{s}}{\longrightarrow}b\), set
 \[
   \alpha(a\to b)
-  =\log\frac{C(a\mid b)}{C(b\mid a)}>0.
+  =\log\frac{C(a\to b)}{C(b\to a)}>0.
 \]
 For the cycle of Section~\ref{sec:strict-cycle},
 \[
@@ -577,7 +852,7 @@ system maintained by reservoirs.  Such networks are studied in
 \cite{polettini-esposito-2014,rao-esposito-2016}; a stochastic
 three-species example appears in \cite{schmiedl-seifert-2007}.
 
-The analogy stops at this structural resemblance.  The rates \(C(a\mid b)\)
+The analogy stops at this structural resemblance.  The rates \(C(a\to b)\)
 are not kinetic constants, and the three minima may occur at different
 temperatures.  Without kinetics, conservation laws, or external work
 accounting, the strict cycle predicts neither a current nor an oscillation.
@@ -612,15 +887,13 @@ The supporting function
 \]
 is the Massieu potential.  Proposition~\ref{prop:rate} becomes
 \[
-  C(A\mid B)=\inf_{T>0}\frac{\Psi_A(T)}{\Psi_B(T)}
+  C(A\to B)=\inf_{T>0}\frac{\Psi_A(T)}{\Psi_B(T)}
 \]
 and asks for the largest \(c\) such that
 \(\Psi_A(T)\geq c\Psi_B(T)\) for every \(T\).  An interior minimizer is the
-bottleneck temperature.  Sparaciari, Oppenheim, and Fritz study a related
-resource theory without a fixed background temperature, in which asymptotic
-rates are read from an energy--entropy diagram
-\cite{sparaciari-oppenheim-fritz-2017}.  Our comparison uses the whole Gibbs
-boundary rather than a single prescribed heat bath.
+bottleneck temperature.  As discussed in Section~2, our comparison uses the
+whole Gibbs boundary of a system rather than the states of a fixed one
+\cite{sparaciari-oppenheim-fritz-2017}.
 
 \begin{figure}[t]
   \centering
@@ -652,9 +925,363 @@ universe, \(e^-+e^+\rightleftharpoons2\gamma\) maintained equilibrium until
 the temperature fell below the electron mass and annihilation transferred
 entropy to the photon bath \cite{thomas-et-al-2020}.
 
-For general Gibbs systems, homothetic containment is at present a proposed
-complexity measure.  Infinite spectra and an operational conversion model
-require separate treatment.
+\section{Gibbs systems with a finite spectrum}
+\label{sec:finite-spectrum}
+
+Nothing in Section~3 used integrality.  Let a system have finitely many energy
+levels \(\epsilon_i\) with degeneracies \(g_i\), and put
+\[
+  Z(\beta)=\sum_i g_i e^{-\beta\epsilon_i}.
+\]
+Independent composition multiplies partition functions, exactly as
+\(\otimes\) does, so
+\[
+  C(A\to B)=\inf_{\beta\in[0,\infty]}\frac{\log Z_A(\beta)}{\log Z_B(\beta)}
+\]
+is defined verbatim.  Signatures are the special case in which every
+\(e^{-\epsilon_i}\) is a positive integer and \(g_i=1\); repeated entries
+reproduce degeneracies, so \(\sig{2,2}\) is a single doubly degenerate level.
+
+Two invariance properties delimit what this measures.
+
+\begin{remark}[Scale but not shift]
+\label{rem:gauge}
+\(C\) is unchanged by a global rescaling \(\epsilon_i\mapsto\lambda\epsilon_i\)
+with \(\lambda>0\), because \(\beta\) absorbs \(\lambda\).  It is \emph{not}
+invariant under a shift \(\epsilon_i\mapsto\epsilon_i+c\), since the homothety
+is centred at the origin.  What the construction measures is therefore a
+property of the pair \((\Gamma_a,\text{origin})\), not of the curve
+\(\Gamma_a\) alone: two observers who place the zero of energy differently
+will disagree about \(C\), and as the origin recedes every rate tends to
+\(1\).  In the finite-map model the origin is supplied canonically --- a fiber
+of size one carries no multiplicity, so \(a_i=1\) corresponds to
+\(\epsilon_i=0\) --- which is what makes the combinatorial model more than an
+illustration: it is where the missing datum comes from.  For a physical
+spectrum the origin has to be nominated instead.  In the examples below we use the
+\emph{top gauge}, in which the highest level is placed at \(\epsilon=0\); this
+is the choice that makes all weights \(e^{-\epsilon_i}\geq1\), as for
+signatures.
+\end{remark}
+
+\begin{proposition}[The two endpoints]
+\label{prop:endpoints}
+Let \(A\) and \(B\) have finite spectra, dimensions
+\(D=\sum_i g_i\) and depths \(W=-\min_i\epsilon_i\) below the chosen origin.
+Then
+\[
+  \left.\frac{\log Z_A}{\log Z_B}\right|_{\beta=0}
+  =\frac{\log D_A}{\log D_B},
+  \qquad
+  \lim_{\beta\to\infty}\frac{\log Z_A(\beta)}{\log Z_B(\beta)}
+  =\frac{W_A}{W_B}.
+\]
+\end{proposition}
+
+\begin{proof}
+At \(\beta=0\) one has \(Z=D\).  As \(\beta\to\infty\),
+\(\log Z(\beta)=\beta W+\log g_{\min}+o(1)\), where \(g_{\min}\) is the
+degeneracy of the lowest level; the ratio tends to \(W_A/W_B\).
+\end{proof}
+
+So the two obvious ways to compare systems --- how many states they have, and
+how wide their spectra are --- are exactly the two endpoints, and an interior
+minimiser means that neither alone is the bottleneck.  For signatures the two
+endpoints are \(\log r\) and \(\log a_1\).
+
+\section{Exact homotheties}
+\label{sec:exact-homotheties}
+
+Two regions are homothetic precisely when the Massieu potentials are
+proportional,
+\[
+  \Psi_A(T)=c\,\Psi_B(T)\ \text{ for all }T
+  \quad\Longleftrightarrow\quad
+  Z_A=Z_B^{\,c},
+\]
+and then \(C(A\to B)=c\), \(C(B\to A)=1/c\), so
+\(C(A\to B)C(B\to A)=1\): homothety is exactly asymptotic reversibility.
+
+\paragraph{Extensivity.}
+For \(N\) non-interacting copies \(Z_N=Z_1^N\), so the \(N\)-particle region is
+the single-particle region scaled by \(N\).  The homothety of Cartesian powers
+in Section~3 is therefore nothing but thermodynamic extensivity, and
+\(C(A\to B)\) is a generalised, not necessarily integer, particle count.
+
+\paragraph{Massless bosonic sectors in three dimensions.}
+A massless bosonic sector with \(g\) internal degrees of freedom and
+propagation speed \(v\), in a fixed volume \(V\), has
+\[
+  E=\frac{\pi^2}{30}\frac{g}{v^3}VT^4,\qquad
+  H=\frac{2\pi^2}{45}\frac{g}{v^3}VT^3,\qquad
+  \Psi=\frac{\pi^2}{90}\frac{g}{v^3}VT^3 .
+\]
+Any two such sectors are therefore exactly homothetic, with
+\begin{equation}
+  \label{eq:massless-homothety}
+  c=\frac{g_A/v_A^3}{g_B/v_B^3}.
+\end{equation}
+This one formula generates a family of exact homotheties, of which the
+electron--positron example of Figure~\ref{fig:radiation-sectors} is the first
+row:
+\begin{center}
+\begin{tabular}{@{}llr@{}}
+  \toprule
+  sector \(A\) & sector \(B\) & \(c\) \\
+  \midrule
+  \(e^\pm\) (\(g=7/2\)) & photons (\(g=2\)) & \(7/4\) \\
+  three neutrino species (\(g=21/4\)) & photons (\(g=2\)) & \(21/8\) \\
+  Debye phonons (\(g=3\), speed \(\bar c_{\mathrm s}\))
+    & photons (\(g=2\), speed \(c\))
+    & \(\tfrac32(c/\bar c_{\mathrm s})^3\) \\
+  \bottomrule
+\end{tabular}
+\end{center}
+The last row is the most extreme: with \(\bar c_{\mathrm s}=5\,\)km\,s\(^{-1}\)
+the factor is \(3\cdot10^{14}\).  A cold crystal and a photon gas have
+\emph{identical} energy--entropy shape and differ only by a dilation of
+fourteen orders of magnitude.  Here \(\bar c_{\mathrm s}\) is the effective
+sound speed defined by
+\(3/\bar c_{\mathrm s}^3=1/c_L^3+2/c_T^3\).
+
+Each homothety holds within the scaling regime that produces it: the
+\(e^\pm\) row requires \(T\gg m_e\), and the Debye row requires
+\(T\ll\Theta_D\).  Outside these windows the proportionality of \(\Psi\)
+fails, and the comparison becomes one of the contact problems of the next
+section.
+
+\section{Finite-temperature contact}
+\label{sec:contact}
+
+When the two potentials are not proportional, the scaled region touches its
+target and the contact locates a bottleneck temperature.  All values below are
+computed in the top gauge of Remark~\ref{rem:gauge}; \(\Delta\) denotes the
+level spacing and drops out of \(C\) by Remark~\ref{rem:gauge}.
+
+\paragraph{Relativistic plasmas across thresholds.}
+For a plasma in equilibrium at a single temperature,
+\(\Psi\propto g_*(T)VT^3\), so \eqref{eq:rate} collapses to
+\[
+  C(A\to B)=\min_T\frac{g_*^A(T)}{g_*^B(T)},
+\]
+the minimum over temperature of the ratio of effective degrees of freedom.
+Comparing the Standard Model plasma with a pure photon gas over the window
+\(1\,\mathrm{MeV}<T<300\,\mathrm{GeV}\), where \(g_*\) runs from \(10.75\) to
+\(106.75\) \cite{kolb-turner-1990},
+\[
+  C(\mathrm{SM}\to\gamma)=\frac{10.75}{2}=5.375,
+  \qquad
+  C(\gamma\to\mathrm{SM})=\frac{2}{106.75}=0.018735,
+\]
+with product \(0.1007\).  The two contacts sit at opposite ends of the window:
+the bottleneck is the epoch at which the two plasmas differ most.  The
+restriction to a temperature window is essential --- after neutrino decoupling
+the plasma no longer has a single temperature.
+
+\paragraph{Dimension against bandwidth.}
+A spin-\(1/2\) and a spin-\(1\) in the same field have spectra
+\(\{0,-\Delta\}\) and \(\{0,-\Delta,-2\Delta\}\).  By
+Proposition~\ref{prop:endpoints} the endpoints are \(\log3/\log2\) and
+\(2\), and both rates are attained at endpoints:
+\[
+  C(\text{spin-}1\to\text{spin-}\tfrac12)=\frac{\log3}{\log2}=1.584963,
+  \qquad
+  C(\text{spin-}\tfrac12\to\text{spin-}1)=\frac12,
+\]
+with product \(\log3/\log4=0.792481\).  The spin-\(1\) is dimension-limited as
+a resource and the spin-\(1/2\) is bandwidth-limited.  Two qubits with gaps
+\(\Delta\) and \(2\Delta\) give the extreme case: the wider one implements the
+narrower at rate \(1\), the narrower implements the wider only at rate
+\(1/2\).
+
+\paragraph{Crystal-field schemes.}
+For \(\mathrm{Ce}^{3+}\) in a cubic field the \(J=5/2\) multiplet splits into a
+\(\Gamma_7\) doublet and a \(\Gamma_8\) quartet.  Compare the two orderings:
+scheme \(A\) has the doublet lowest, scheme \(B\) the quartet.  Both have
+dimension \(6\) and the same total splitting, so \emph{both endpoints equal
+one}, yet
+\[
+  C(A\to B)=0.849525\ \text{ at }T_*=0.481814\,\Delta,
+  \qquad
+  C(B\to A)=1 .
+\]
+The scheme with the degenerate level lowest is the strictly better resource.
+With \(\Delta=\log3\) these are the integer signatures
+\(\sig{3,3,3,3,1,1}\) and \(\sig{3,3,1,1,1,1}\), so this example lies in both
+halves of the paper at once.  The \(J=4\) cubic scheme of
+\(\mathrm{Pr}^{3+}\), with irreducible representations of dimensions
+\(1,2,3,3\), gives \(0.827934\) at \(T_*=0.300661\,\Delta\) between its two
+orderings.
+
+\paragraph{Interaction as complexity.}
+A four-spin Ising ring at coupling \(J\) and four free spins in a field \(h=J\)
+have the same dimension \(16\) and the same bandwidth \(8J\), so again both
+endpoints are one.  Nevertheless
+\[
+  C(\text{Ising}\to\text{free})=1,
+  \qquad
+  C(\text{free}\to\text{Ising})=0.959587
+  \ \text{ at }T_*=0.666839\,J,
+\]
+so the interacting ring is strictly the more complex of the two, and the
+obstruction sits at the coupling scale.  At matched dimension and matched
+bandwidth, a state count cannot see this difference; the Gibbs region can.
+
+\section{Summary of the examples, and limits}
+\label{sec:summary}
+
+Table~\ref{tab:physical-examples} collects the comparisons.  Reversible rows
+are exactly the homothetic pairs of Section~\ref{sec:exact-homotheties}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Directed rates for the physical examples.  Contacts marked
+  \(T=\infty\) are dimension-limited, \(T=0\) bandwidth-limited, and a finite
+  \(T_*\) is an interior tangency.}
+  \label{tab:physical-examples}
+  \small
+  \begin{tabular}{@{}llrrrl@{}}
+    \toprule
+    \(A\) & \(B\) & \(C(A\to B)\) & \(C(B\to A)\) & product & contact \\
+    \midrule
+    \multicolumn{6}{@{}l}{\itshape exact homotheties (reversible)}\\
+    \(e^\pm\) & photons & \(1.75\) & \(0.571429\) & \(1\) & all \(T\) \\
+    \(3\nu\) & photons & \(2.625\) & \(0.380952\) & \(1\) & all \(T\) \\
+    Debye phonons & photons & \(3\cdot10^{14}\) & \(3\cdot10^{-15}\) & \(1\)
+      & all \(T\) \\
+    \(N\) copies & one copy & \(N\) & \(1/N\) & \(1\) & all \(T\) \\
+    \midrule
+    \multicolumn{6}{@{}l}{\itshape finite-temperature contact (irreversible)}\\
+    SM plasma & photons & \(5.375\) & \(0.018735\) & \(0.100703\)
+      & window ends \\
+    spin-\(1\) & spin-\(1/2\) & \(1.584963\) & \(0.500000\) & \(0.792481\)
+      & \(T=\infty\), \(T=0\) \\
+    qubit \(2\Delta\) & qubit \(\Delta\) & \(1.000000\) & \(0.500000\)
+      & \(0.500000\) & \(T=\infty\), \(T=0\) \\
+    \(\mathrm{Ce}^{3+}\) inverted & \(\mathrm{Ce}^{3+}\) normal
+      & \(1.000000\) & \(0.849525\) & \(0.849525\)
+      & \(T=0\), \(T_*=0.4818\Delta\) \\
+    \(\mathrm{Pr}^{3+}\) inverted & \(\mathrm{Pr}^{3+}\) normal
+      & \(1.000000\) & \(0.827934\) & \(0.827934\)
+      & \(T=0\), \(T_*=0.3007\Delta\) \\
+    Ising ring & free spins & \(1.000000\) & \(0.959587\) & \(0.959587\)
+      & \(T=0\), \(T_*=0.6668J\) \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Three limitations delimit the construction.
+
+First, unbounded spectra with different scaling exponents give nothing.
+Ferromagnetic magnons have \(\epsilon\propto k^2\) and hence
+\(\Psi\propto T^{3/2}\), against \(T^3\) for photons; the ratio runs over all
+of \((0,\infty)\) and both directed rates vanish.  A non-trivial comparison
+requires matching asymptotics at both ends of the temperature range, which is
+automatic for finite spectra and otherwise has to be imposed --- for instance
+by restricting the infimum to a physical window \(T\in[T_{\min},T_{\max}]\),
+as was done for the plasma above.
+
+Second, the construction assumes concavity of \(H(E)\).  Self-gravitating
+systems violate it: a Schwarzschild black hole has \(H\propto E^2\) and
+negative heat capacity, so the supporting-line duality behind
+\eqref{eq:rate} does not apply.
+
+Third, by Remark~\ref{rem:gauge} the origin is part of the data.  The
+construction is canonical without further input exactly when the boundary
+passes through the origin, that is when \(E\to0\) and \(H\to0\) as
+\(T\to0\).  This holds for the scale-free sectors of
+Section~\ref{sec:exact-homotheties}, which is why those examples require no
+convention, and fails for gapped finite systems, where a gauge must be fixed.
+
+\section{Relations to other work}
+\label{sec:related}
+
+Adjoining the empty signature as a zero, signatures form an ordered
+commutative semiring with multiplicative unit \(\sig{1}\).  This places the
+construction among semiring resource theories: implementation is the free
+conversion, \(+\) is disjoint choice, and \(\otimes\) combines independent
+resources.  General accounts of resource
+theories and their ordered algebraic structures are given in
+\cite{coecke-fritz-spekkens-2016,fritz-2017}.
+
+The one-shot factorization
+\[
+  f=h_{\mathrm{out}}\circ g\circ h_{\mathrm{in}}
+\]
+has the form of strong Weihrauch reduction: one call to \(g\), preceded and
+followed by fixed processors \cite{brattka-gherardi-pauly-2021}.  Unlike the
+computable processors in Weihrauch theory, ours are injective or bijective on
+the sets actually used.  This restriction preserves the fiber capacities.
+
+The asymptotic construction is closer to tensor restriction.  Tensors encode
+bilinear tasks, linear maps implement restrictions, and tensor product
+combines copies.  Strassen's asymptotic spectrum characterizes large tensor
+powers by multiplicative monotones \cite{strassen-1988}.  The relative
+exponent
+\[
+  \omega(t,s)
+  =\lim_{n\to\infty}\frac1n
+    \min\{m:t^{\otimes m}\text{ restricts to }s^{\otimes n}\}
+\]
+measures resource cost per target copy; it is used, for example, to quantify
+irreversibility in matrix multiplication
+\cite{christandl-vrana-zuiddam-2021}.  Its convention is reciprocal to ours
+after reversing the conversion.  The resulting formula is also analogous to
+exact asymptotic majorization, where the rate is a minimum of R\'enyi-entropy
+ratios \cite{jensen-2019}.
+
+\begin{remark}[The power sums are exactly the monotones]
+\label{rem:monotones}
+A \emph{monotone} for a resource theory is a quantity attached to each resource
+that cannot increase under the free conversions --- entropy is the familiar
+example.  Strassen's theory of the asymptotic spectrum \cite{strassen-1988}
+singles out those monotones \(\varphi\) that are compatible with the whole
+algebraic structure: additive under \(+\), multiplicative under \(\otimes\),
+monotone under \(\impl\), and equal to \(1\) on the unit \(\sig{1}\).  For
+signatures these are precisely the power sums.  Indeed, every signature is a
+sum of singletons, \(\sig{a_1,\ldots,a_r}=\sig{a_1}+\cdots+\sig{a_r}\), so
+\(\varphi\) is determined by the numbers \(t_n=\varphi(\sig{n})\).  Since
+\(\sig{n}\otimes\sig{m}=\sig{nm}\), the sequence \(t_n\) is completely
+multiplicative, and since \(\sig{n}\impl\sig{m}\) exactly when \(n\leq m\), it
+is non-decreasing.  A non-decreasing completely multiplicative sequence with
+\(t_1=1\) is \(t_n=n^\beta\) for a unique \(\beta\geq0\); monotonicity applied
+to \(2^p\leq n^q\) gives \(t_2^{\,p}\leq t_n^{\,q}\), and letting \(p/q\)
+approach \(\log n/\log 2\) from both sides forces
+\(\log t_n/\log n=\log t_2/\log 2\).  Hence
+\(\varphi(a)=\sum_i a_i^\beta=Z_a(\beta)\), and the family
+\(\{Z_\cdot(\beta)\}_{\beta\geq0}\) is a complete set of monotones in the sense
+that \eqref{eq:rate} determines every exchange rate.  The endpoint
+\(\beta=\infty\), that is \(a\mapsto\max_i a_i\), is not itself such a
+monotone, because the maximum is not additive under \(+\); it enters
+\eqref{eq:rate} only as a limit, and by continuity the infimum over
+\([0,\infty)\) is unchanged by adjoining it.  General accounts of monotones for
+ordered algebraic resource structures are given in \cite{fritz-2017}.
+\end{remark}
+
+The energy--entropy plane is itself an established tool in quantum
+thermodynamics, and the closest existing framework to the one used here.
+Sparaciari, Oppenheim, and Fritz construct a resource theory without a
+background temperature in which states are classified by their average energy
+and entropy, and conversion rates are read off a two-dimensional convex
+diagram \cite{sparaciari-oppenheim-fritz-2017}.  The difference is what the
+diagram collects.  Theirs is the set of pairs \((E,H)\) realised by the
+\emph{states} of one fixed Hamiltonian, and the free operations act within
+that system; ours is the Gibbs boundary of a system, and the comparison is
+between \emph{different} spectra, with scaling by a homothety about the origin
+in place of a background bath.  Relatedly, thermomajorization compares two
+states of a fixed system by asking whether one concave curve dominates another
+\cite{horodecki-oppenheim-2013}, and the conditions for conversion are
+governed by a family of R\'enyi free energies indexed by a single parameter
+\cite{brandao-et-al-2015}, in close formal analogy with the family
+\(Z_a(\beta)\) of Section~3.  What appears to be new here is the use of
+homothetic containment as a \emph{directed} comparison between systems, and
+the resulting failure of transitivity in Section~6.
+
+Channel simulation provides a third comparison: an encoder and decoder use
+copies of one channel to reproduce another.  With common-randomness
+assistance, the first-order rate for point-to-point discrete memoryless
+channels is the ratio of their capacities \cite{cao-et-al-2024}.  Appendix~A
+recovers the corresponding logarithmic cardinality ratio when both
+processors in the finite-map model are left unrestricted.
 
 \section{Conclusion}
 
@@ -665,6 +1292,16 @@ descriptions of that theory.  The directed rates cannot be compressed into a
 global ranking, as the explicit three-cycle shows.  Extending Gibbs-region
 containment beyond finite signatures remains plausible, but it requires an
 operational model distinct from chemical reaction dynamics.
+
+\section*{Code and data availability}
+
+Every rate, table, and figure in this paper is reproducible from the reference
+implementation at
+\href{https://github.com/avorozhtsov/fn_complexity}
+{\texttt{github.com/avorozhtsov/fn\_complexity}}, which contains the exchange
+rate solver, the exact finite-power verifier \(k_{\max}\), the cached matrix of
+directed rates, the shell-screening code behind Appendix~B, and the scripts
+that generate the figures.
 
 \begin{thebibliography}{99}
 \raggedright
@@ -704,6 +1341,11 @@ M.~Christandl, P.~Vrana, and J.~Zuiddam,
 \emph{Theory Comput.} \textbf{17}(2), 1--32 (2021).
 \href{https://doi.org/10.4086/toc.2021.v017a002}
 {doi:10.4086/toc.2021.v017a002}.
+
+\bibitem{cover-thomas-2006}
+T.~M.~Cover and J.~A.~Thomas,
+\emph{Elements of Information Theory}, 2nd ed. (Wiley, Hoboken, 2006),
+Chapter~11.
 
 \bibitem{jensen-2019}
 A.~Kj{\ae}rulff Jensen,
@@ -749,12 +1391,30 @@ T.~Schmiedl and U.~Seifert,
 \emph{J. Chem. Phys.} \textbf{126}, 044101 (2007).
 \href{https://doi.org/10.1063/1.2428297}{doi:10.1063/1.2428297}.
 
+\bibitem{horodecki-oppenheim-2013}
+M.~Horodecki and J.~Oppenheim,
+``Fundamental limitations for quantum thermodynamics,''
+\emph{Nature Communications} \textbf{4}, 2059 (2013).
+\href{https://doi.org/10.1038/ncomms3059}{doi:10.1038/ncomms3059}.
+
+\bibitem{brandao-et-al-2015}
+F.~Brand\~ao, M.~Horodecki, N.~Ng, J.~Oppenheim, and S.~Wehner,
+``The second laws of quantum thermodynamics,''
+\emph{Proc. Natl. Acad. Sci. USA} \textbf{112}(11), 3275--3279 (2015).
+\href{https://doi.org/10.1073/pnas.1411728112}
+{doi:10.1073/pnas.1411728112}.
+
 \bibitem{sparaciari-oppenheim-fritz-2017}
 C.~Sparaciari, J.~Oppenheim, and T.~Fritz,
 ``A resource theory for work and heat,''
 \emph{Phys. Rev. A} \textbf{96}, 052112 (2017).
 \href{https://doi.org/10.1103/PhysRevA.96.052112}
 {doi:10.1103/PhysRevA.96.052112}.
+
+\bibitem{kolb-turner-1990}
+E.~W.~Kolb and M.~S.~Turner,
+\emph{The Early Universe},
+Frontiers in Physics \textbf{69} (Addison-Wesley, Redwood City, 1990).
 
 \bibitem{thomas-et-al-2020}
 L.~C.~Thomas, T.~Dezen, E.~B.~Grohs, and C.~T.~Kishimoto,
@@ -790,7 +1450,7 @@ For Cartesian powers the condition is therefore
 Hence, for \(|Y_a|,|Y_b|>1\),
 \[
   \boxed{\displaystyle
-  C(a\mid b)=\frac{\log|Y_a|}{\log|Y_b|}}.
+  C(a\to b)=\frac{\log|Y_a|}{\log|Y_b|}}.
 \]
 The same ratio appears in assisted point-to-point channel interconversion
 \cite{cao-et-al-2024}: a surjective deterministic channel with output set
@@ -798,7 +1458,7 @@ The same ratio appears in assisted point-to-point channel interconversion
 capacity; the processors of Definition~1 also retain the individual fiber
 sizes.
 
-\(C(a\mid b)C(b\mid a)=1\), so the comparison from
+\(C(a\to b)C(b\to a)=1\), so the comparison from
 Definition~3 reduces to
 \[
   a\prec b
@@ -808,7 +1468,7 @@ Definition~3 reduces to
 This is a total preorder, and quotienting by equal output cardinality gives a
 linear order.  In partition-function language only
 \(Z_a(0)=|Y_a|\) remains.  If \(|Y_b|=1\), then
-\(C(a\mid b)=+\infty\); if \(|Y_a|=1<|Y_b|\), then \(C(a\mid b)=0\).
+\(C(a\to b)=+\infty\); if \(|Y_a|=1<|Y_b|\), then \(C(a\to b)=0\).
 
 \section{The first 69 non-special signatures}
 
@@ -831,7 +1491,7 @@ all pairwise comparisons.  A row for \(x\) in
 Table~\ref{tab:signature-order-exceptions} records each earlier \(a\) for
 which
 \[
-  C(x\mid a)<C(a\mid x)
+  C(x\to a)<C(a\to x)
 \]
 despite the displayed order \(a<x\).
 
@@ -844,11 +1504,11 @@ non-strict and a strict comparison arrow:
 \[
   a\longrightarrow b
   \quad\Longleftrightarrow\quad
-  C(a\mid b)\geq C(b\mid a),
+  C(a\to b)\geq C(b\to a),
   \qquad
   a\overset{\mathrm{s}}{\longrightarrow}b
   \quad\Longleftrightarrow\quad
-  C(a\mid b)>C(b\mid a).
+  C(a\to b)>C(b\to a).
 \]
 An arrow points from the greater element to the smaller one; equivalently,
 \(a\overset{\mathrm{s}}{\longrightarrow}b\) means \(b\prec a\).
@@ -925,7 +1585,7 @@ Table~\ref{tab:strict-path-forward} lists its edge rates.
   \begin{tabular}{@{}lrr@{}}
     \toprule
     Strict edge \(a\overset{\mathrm{s}}{\longrightarrow}b\)
-      & \(C(a\mid b)\) & \(C(b\mid a)\) \\
+      & \(C(a\to b)\) & \(C(b\to a)\) \\
     \midrule
     \(\sig{9,1}\overset{\mathrm{s}}{\longrightarrow}\sig{3,3,3}\)
       & 0.630929754 & 0.500000000 \\
@@ -955,7 +1615,7 @@ A shortest return path has two edges:
   \begin{tabular}{@{}lrr@{}}
     \toprule
     Strict edge \(a\overset{\mathrm{s}}{\longrightarrow}b\)
-      & \(C(a\mid b)\) & \(C(b\mid a)\) \\
+      & \(C(a\to b)\) & \(C(b\to a)\) \\
     \midrule
     \(\sig{3,2,2,2}\overset{\mathrm{s}}{\longrightarrow}\sig{7,5}\)
       & 0.564574819 & 0.500000000 \\
@@ -986,7 +1646,7 @@ Table~\ref{tab:length-three-cycle} gives both directed rates on every edge.
   \begin{tabular}{@{}lrrr@{}}
     \toprule
     Strict edge \(a\overset{\mathrm{s}}{\longrightarrow}b\)
-      & \(C(a\mid b)\) & \(C(b\mid a)\) & difference \\
+      & \(C(a\to b)\) & \(C(b\to a)\) & difference \\
     \midrule
     \(\sig{6,3,3}\overset{\mathrm{s}}{\longrightarrow}\sig{7,2,1}\)
       & 0.920782221 & 0.910910734 & 0.009871488 \\

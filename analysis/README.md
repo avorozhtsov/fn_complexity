@@ -197,7 +197,7 @@ Generate the matrix for all decreasing length-3 signatures with entries below
 ```
 
 Rows are implementers `g`, columns are implemented signatures `f`, and cells
-are `C(g | f)`. Outputs:
+are `C(g -> f)`. Outputs:
 
 - `exchange_matrix_small.csv` with 15-digit values;
 - `exchange_matrix_small.md` with a readable six-decimal table.
@@ -205,7 +205,7 @@ are `C(g | f)`. Outputs:
 The ordering uses the directed comparison requested for the project:
 
 ```text
-b -> a  when  C(a|b) > C(b|a).
+b -> a  when  C(a -> b) > C(b -> a).
 ```
 
 A deterministic topological sort displays lower-complexity signatures first.
@@ -236,7 +236,7 @@ Outputs:
 - `exchange_matrix_extended.md`, with cyclic components, ordered
   condensation-DAG layers, and the six-decimal matrix.
 
-The edge orientation remains `b -> a` when `C(a|b) > C(b|a)`. Equal rates
+The edge orientation remains `b -> a` when `C(a -> b) > C(b -> a)`. Equal rates
 create no edge. The special zero-complexity signature `{1}` produces infinite
 rates in its implemented column, matching the operational definition. Rates
 are read through `src/fn_complexity/exchange_rates_cache.json`; only missing
@@ -274,11 +274,11 @@ PYTHONPATH=src:analysis python analysis/stabilize_signature_order.py
 ```
 
 For a numbered signature `x`, an exception is an earlier signature `a` for
-which `x ≺ a`. Each exception prints both `C(x | a)` and `C(a | x)`. All
+which `x ≺ a`. Each exception prints both `C(x -> a)` and `C(a -> x)`. All
 comparisons use and extend the persistent exchange-rate cache.
 
 Appendix B also formulates the global strongly connected component problem for
-arrows `a -> b` when `C(a | b) >= C(b | a)`. Finite induced subgraphs do not
+arrows `a -> b` when `C(a -> b) >= C(b -> a)`. Finite induced subgraphs do not
 determine this global cluster. Nested-shell screening currently supports, but
 does not prove, the conjecture that the cluster of `{3,1,1}` contains every
 non-special signature except `{2,1}` and `{2,2}`.
