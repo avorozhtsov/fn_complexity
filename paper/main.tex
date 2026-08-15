@@ -21,14 +21,14 @@
 \newcommand{\sig}[1]{\left\{#1\right\}}
 \newcommand{\impl}{\preccurlyeq_{\mathrm{impl}}}
 
-\title{Exchange Rates for Finite Map Signatures\\
-\large A Simplified Thermodynamic Complexity}
+\title{Complexity of Finite Maps and Energy--Entropy Curves\\
+\large Exchange rates, and a comparison that runs in circles}
 \author{Artem Vorozhtsov\\
 \small\texttt{artem.voroztsov@gmail.com}}
 \date{\today}
 
 \hypersetup{
-  pdftitle={Exchange Rates for Finite Map Signatures},
+  pdftitle={Complexity of Finite Maps and Energy\textendash Entropy Curves},
   pdfauthor={Artem Vorozhtsov}
 }
 
@@ -36,29 +36,29 @@
 \maketitle
 
 \begin{abstract}
-One list of positive integers \emph{fits} into another when, after sorting,
-every entry is at most the entry facing it.  Lists multiply entrywise, so
-fitting becomes a question of exchange: how many copies of one list is a copy
-of another worth, when many copies are traded at once?  We compute this rate.
-It is the smallest value of \(\log Z_g/\log Z_f\), where
-\(Z_a(\beta)=\sum_ia_i^{\,\beta}\) interpolates between counting the entries
-and taking the largest one.  Writing \(\epsilon_i=-\log a_i\) turns \(Z_a\)
-into a partition function and the rate into a picture: the largest factor by
-which the region under one energy--entropy curve can be enlarged, from the
-origin, and still fit under the other.  The two directions give different
-rates, and the comparison they induce runs in circles --- \(\sig{5,3}\),
-\(\sig{3,1,1}\) and \(\sig{6,1}\) form a cycle --- so no single number
-reproduces it.  The lists are the fiber sizes of a map between finite sets,
-where fitting means computing one map with one call to another; this is also
-what fixes the origin the picture needs.  Any system with finitely many
-energy levels has such a curve, and for ultrarelativistic sectors the
-enlargement is exact: the factor between the photon and electron--positron
-gases is \(7/4\).
+How many copies of one map between finite sets is a copy of another worth?
+Keep only the list of fiber sizes.  One map is then built from another with a
+single call, after relabelling inputs injectively and outputs bijectively,
+exactly when the sorted lists fit entry by entry, and running maps side by
+side multiplies the lists.  Trading many copies at once turns this into an
+exchange rate, which we compute: it is the smallest value of
+\(\log Z_g/\log Z_f\), where \(Z_a(\beta)=\sum_ia_i^{\,\beta}\) interpolates
+between counting the fibers and taking the largest one.  Substituting
+\(\epsilon_i=-\log a_i\) turns \(Z_a\) into a partition function and the
+answer into a picture --- the largest factor by which the region under one
+energy--entropy curve can be enlarged, from the origin, and still fit under
+the other --- with the map itself supplying the origin that the picture
+needs.  The two directions give different rates, and the comparison they
+induce runs in circles: \(\sig{5,3}\), \(\sig{3,1,1}\) and \(\sig{6,1}\) each
+beat the next.  So no number is hiding behind that comparison; what plays the
+part of complexity is the curve, taken up to scale.  The same picture compares
+any two systems with finitely many energy levels, and for ultrarelativistic
+sectors the enlargement is exact --- between the photon and
+electron--positron gases the factor is \(7/4\).
 
 \medskip
 \noindent\textbf{Keywords:} exchange rate; asymptotic conversion; fiber
-signature; power sum; Gibbs curve; energy--entropy region; homothety;
-resource theory.
+signature; Gibbs curve; energy--entropy region; resource theory.
 
 \noindent\textbf{MSC 2020:} 94A17 (primary); 05A17, 06F25, 16Y60, 82B03 (secondary).
 \end{abstract}
@@ -151,8 +151,13 @@ supplied instead.
 The third is that ``more complex'' is not a ranking.  Comparing the two
 directed rates gives a relation that runs in circles: \(\sig{5,3}\),
 \(\sig{3,1,1}\) and \(\sig{6,1}\) each beat the next and are beaten by the
-one after.  No single number extracted from a list can reproduce the
-comparison, because the object being compared is a whole curve.
+one after.  This is worth more than its curiosity value.  Had the comparison
+come from some numerical complexity \(\varphi\), the quantity
+\(\log\bigl(C(a\to b)/C(b\to a)\bigr)\) would be the difference
+\(\varphi(b)-\varphi(a)\) and would sum to zero around every closed loop;
+around this one it does not, as Section~\ref{sec:analogy} computes.  No scalar
+lies behind the comparison, and what plays the part of complexity here is the
+whole curve, taken up to scale.
 
 Nothing in the second description mentions integers, and this is what makes
 the picture worth having.  Any system with a finite list of energy levels has
@@ -774,6 +779,7 @@ for \(f_j\) is \(C(f_j\to f_i)^{-1}\Gamma_{f_j}\).
 \end{figure}
 
 \section{A thermodynamic analogy and its limits}
+\label{sec:analogy}
 
 Associate signatures \(A=(a_i)\) and \(B=(b_j)\) with two idealized particle
 species whose internal energy levels are
