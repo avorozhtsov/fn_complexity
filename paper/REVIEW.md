@@ -136,14 +136,37 @@ never as "the cycle collapses".
    fourth power in `Z[x]`. `S_16` was far too small to see this.
 
    **Theorem (in the conclusion, without proof).** For non-flat `a, b`,
-   reversibility holds iff `Z_a = D^p` and `Z_b = D^q` for a common Laurent
-   polynomial `D` over `Z` and coprime `p, q`; then `c = p/q`. Proof in three
-   steps: (i) writing `Z_b = m_1 b_1^b (1+W)`, finiteness of `Z_a` makes
-   `(1+W)^c` a Laurent polynomial, and the leading exponent vector along a
-   generic direction must stay in the lattice, so `c` is rational -- this is
+   reversibility holds iff there are a Laurent polynomial `D` over `Z` and
+   positive integers `p, q` with `Z_a = D^p` and `Z_b = D^q`; then `c = p/q`.
+
+   Coprimality is *not* part of the condition — it is a normalization, and an
+   earlier draft of this entry stated it as if it were a hypothesis. Sufficiency
+   never uses it: `Z_a = D^p`, `Z_b = D^q` already give `R = p/q` constant. And
+   any presentation reduces to a coprime one: with `g = gcd(p,q)` put
+   `E = D^g`, so `Z_a = E^{p/g}`, `Z_b = E^{q/g}`. The two readings therefore
+   pick out the same pairs. What coprimality buys is uniqueness — it makes `D`
+   the maximal common root, determined up to sign, and writes `c` in lowest
+   terms. So say the exponents *can be taken* coprime, not that they must be.
+
+   Proof in three steps: (i) writing `Z_b = m_1 b_1^b (1+W)`, finiteness of
+   `Z_a` makes `(1+W)^c` a Laurent polynomial, and the leading exponent vector
+   along a generic direction must stay in the lattice, so `c` is rational --
    exactly the step flat signatures escape, since there `W = 0`; (ii) `Q`-
-   independence of the logs of primes turns `Z_a^q = Z_b^p` into a polynomial
-   identity; (iii) unique factorization.
+   independence of the logs of the primes turns `Z_a^q = Z_b^p` into a
+   polynomial identity; (iii) unique factorization.
+
+   **The theorem extends verbatim to real levels** — finite multisets of
+   positive reals, i.e. arbitrary systems with finitely many energy levels.
+   Only the choice of basis changes: the logs of the levels generate a
+   finitely generated subgroup `Λ ⊂ R`, free of finite rank, and a `Z`-basis of
+   it replaces the primes. Coefficients stay in `Z` because they are level
+   multiplicities, which are counts whatever the levels are — and that is the
+   only place integrality is needed, since it is what makes `Z[Λ]` a UFD.
+   Integrality of the *entries* is inessential; integrality of the
+   *multiplicities* is structural. Two things grow: the flat family becomes a
+   continuum (`{k,k}` and `{l,l,l}` are reversible whenever
+   `l = k^(log3/log2)`, for any real `k`), and `D` may now be genuinely Laurent,
+   negative exponents meaning levels above the reference.
 
    So the ring-versus-semiring gap I first called a technicality is where all
    the non-trivial solutions live.
