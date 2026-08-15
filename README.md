@@ -127,7 +127,7 @@ signature for arrows
 `a -> b` when `C(a -> b) >= C(b -> a)`, so arrows point toward the
 less-complex signature. It uses the exhaustive finite shells
 `S_B = {a : len(a) >= 2, a_1 > 1, a_1 + 2 len(a) <= B}` and the same
-vectorized power-sum screening used by the Appendix B analysis.
+vectorized partition-function screening used by the Appendix B analysis.
 
 ```bash
 ./cli/cluster_cli 3,1,1 --n-max 100 --max-b 18

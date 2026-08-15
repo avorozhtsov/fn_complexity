@@ -7,7 +7,7 @@ The candidate exhaustion is
 
 It contains every non-special signature for all sufficiently large ``B``.
 The deterministic condensation-DAG order has the same first 69 entries for
-``B=18`` and ``B=19`` (verified with the power-sum screening calculation).
+``B=18`` and ``B=19`` (verified with the partition-function screening calculation).
 Displayed rates and exception relations are recomputed here with the
 high-accuracy persistent cache.
 """

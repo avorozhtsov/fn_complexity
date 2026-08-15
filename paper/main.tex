@@ -43,9 +43,9 @@ exactly when the sorted lists fit entry by entry, and running maps side by
 side multiplies the lists.  Trading many copies at once turns this into an
 exchange rate, which we compute: it is the smallest value of
 \(\log Z_g/\log Z_f\), where \(Z_a(\beta)=\sum_ia_i^{\,\beta}\) interpolates
-between counting the fibers and taking the largest one.  Substituting
-\(\epsilon_i=-\log a_i\) turns \(Z_a\) into a partition function and the
-answer into a picture --- the largest factor by which the region under one
+between counting the fibers and taking the largest one.  Reading
+\(\epsilon_i=-\log a_i\) as energy levels and \(\beta\) as an inverse
+temperature turns the answer into a picture --- the largest factor by which the region under one
 energy--entropy curve can be enlarged, from the origin, and still fit under
 the other --- with the map itself supplying the origin that the picture
 needs.  The two directions give different rates, and the comparison they
@@ -131,9 +131,9 @@ taking the largest entry are the two obvious ways to compare lists; the
 content of the formula is that the truth lies at whichever \(\beta\) is worst,
 and that this is sometimes neither endpoint.
 
-The second is that the formula is a picture.  Substituting
-\(\epsilon_i=-\log a_i\) turns \(Z_a\) into a partition function and \(\beta\)
-into an inverse temperature, so every list becomes a curve in the plane whose
+The second is that the formula is a picture.  Reading
+\(\epsilon_i=-\log a_i\) as energy levels and \(\beta\) as an inverse
+temperature, every list becomes a curve in the plane whose
 axes are mean energy and entropy.  The exchange rate then has nothing to do
 with arithmetic: it is the largest factor by which the region under one curve
 can be enlarged, from the origin, and still slide under the other.  Where the
@@ -294,10 +294,10 @@ Fekete's lemma now yields
 with \(+\infty\) allowed.  The limit is the operational definition of
 \(C(g\to f)\).
 
-\section{Power sums and Gibbs curves}
-\label{sec:power-sums}
+\section{Partition functions and Gibbs curves}
+\label{sec:partition-functions}
 
-For a signature \(a=(a_i)\), define its power-sum partition function
+For a signature \(a=(a_i)\), define its partition function
 \[
   Z_a(\beta)=\sum_i a_i^\beta,\qquad \beta\geq0,
 \]
@@ -588,7 +588,7 @@ so it is worth saying why they play no part here.
 
 The reason is that \(Z_a(\beta)\) is order preserving only for
 \(\beta\geq0\).  For \(\beta<0\) the map \(x\mapsto x^\beta\) reverses order,
-and fitting no longer forces an inequality between power sums:
+and fitting no longer forces an inequality between partition functions:
 \(\sig{1}\impl\sig{2}\), yet at \(\beta=-\tfrac12\) one has
 \(Z_{\sig{1}}=1>Z_{\sig{2}}=0.707\ldots\).  Negative \(\beta\) would therefore
 contribute constraints that are simply false.  Moreover \(\log Z_a(\beta)\)
@@ -1256,7 +1256,7 @@ after reversing the conversion.  The resulting formula is also analogous to
 exact asymptotic majorization, where the rate is a minimum of R\'enyi-entropy
 ratios \cite{jensen-2019}.
 
-\begin{remark}[The power sums are exactly the monotones]
+\begin{remark}[The partition functions are exactly the monotones]
 \label{rem:monotones}
 A \emph{monotone} for a resource theory is a quantity attached to each resource
 that cannot increase under the free conversions --- entropy is the familiar
@@ -1264,7 +1264,7 @@ example.  Strassen's theory of the asymptotic spectrum \cite{strassen-1988}
 singles out those monotones \(\varphi\) that are compatible with the whole
 algebraic structure: additive under \(+\), multiplicative under \(\otimes\),
 monotone under \(\impl\), and equal to \(1\) on the unit \(\sig{1}\).  For
-signatures these are precisely the power sums.  Indeed, every signature is a
+signatures these are precisely the partition functions.  Indeed, every signature is a
 sum of singletons, \(\sig{a_1,\ldots,a_r}=\sig{a_1}+\cdots+\sig{a_r}\), so
 \(\varphi\) is determined by the numbers \(t_n=\varphi(\sig{n})\).  Since
 \(\sig{n}\otimes\sig{m}=\sig{nm}\), the sequence \(t_n\) is completely
@@ -1314,7 +1314,8 @@ processors in the finite-map model are left unrestricted.
 
 A fiber signature is a coarse invariant of a finite map, but Cartesian powers
 already give it a nontrivial asymptotic conversion theory.  The operational
-rate, the power-sum formula, and containment of Gibbs regions are equivalent
+rate, the partition-function formula, and containment of Gibbs regions are
+equivalent
 descriptions of that theory.  The directed rates cannot be compressed into a
 global ranking, as the explicit three-cycle shows.  Extending Gibbs-region
 containment beyond finite signatures remains plausible, but it requires an

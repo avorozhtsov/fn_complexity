@@ -12,7 +12,7 @@ is defined operationally by
     C(implementer -> implemented)
       = lim_{n -> infinity} max{k : implemented**k <= implementer**n} / n.
 
-The power-sum spectrum gives the equivalent computational characterization:
+The partition-function spectrum gives the equivalent computational characterization:
 
     C(implementer -> implemented)
       = inf_{beta >= 0} log(sum(implementer_i**beta)) /
@@ -206,9 +206,9 @@ def exchange_rate_result(
 
     This is the limit of ``k_max(n) / n``, where ``implemented**k`` must be
     implemented by ``implementer**n``.  The implementation evaluates its
-    equivalent power-sum infimum characterization.
+    equivalent partition-function infimum characterization.
 
-    ``beta`` is the non-negative exponent in the power-sum formula and equals
+    ``beta`` is the non-negative exponent in the partition-function formula and equals
     inverse physical temperature ``1/T`` for energies ``-log(n_i)``.  It is
     infinity (``T=0``) when the largest-fiber constraint is limiting.
 

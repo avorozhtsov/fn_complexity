@@ -3,7 +3,7 @@
 
 This is the large screening calculation behind
 ``analysis/appendix_b_signatures.py``.  It requires NumPy and SciPy and uses a
-vectorized power-sum grid before contracting the strict-comparison graph.
+vectorized partition-function grid before contracting the strict-comparison graph.
 The final displayed rates are computed separately by the project's
 high-accuracy persistent cache.
 """
@@ -50,7 +50,7 @@ def approximate_rate_matrix(
     budget: int,
     grid_size: int,
 ) -> np.ndarray:
-    """Evaluate the power-sum infimum on a shared geometric beta grid."""
+    """Evaluate the partition-function infimum on a shared geometric beta grid."""
 
     beta = np.concatenate(
         (

@@ -8,7 +8,7 @@ For signatures ``a`` and ``b``, the comparison graph contains the arrow
 
     a -> b  iff  C(a -> b) >= C(b -> a).
 
-This module uses the same vectorized power-sum screening calculation as the
+This module uses the same vectorized partition-function screening calculation as the
 Appendix B stabilization analysis.  NumPy is imported lazily so the rest of
 the library remains dependency-free.
 """
