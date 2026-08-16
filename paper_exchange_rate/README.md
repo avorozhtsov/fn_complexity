@@ -5,7 +5,7 @@ The directory is self-contained for a pdfLaTeX-based arXiv submission.
 Compile with TeX Live:
 
 ```bash
-cd paper
+cd paper_exchange_rate
 latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 cp main.pdf exchange_rates_finite_map_signatures.pdf
 ```
@@ -23,8 +23,9 @@ python analysis/plot_relativistic_species_energy_entropy.py
 ```
 
 The first three scripts write PDF versions to `images/`; copy those into
-`paper/figures/` before compiling or submitting.  The relativistic-species
-script writes its PDF directly to `paper/figures/`.
+`paper_exchange_rate/figures/` before compiling or submitting.  The
+relativistic-species script writes its PDF directly to
+`paper_exchange_rate/figures/`.
 
 Recheck the numerical comparisons of Appendix C in interval arithmetic with:
 
@@ -45,8 +46,8 @@ Generate the Appendix B list, its summary, and the two ancillary CSVs with:
 PYTHONPATH=src python analysis/appendix_b_signatures.py
 ```
 
-This writes `paper/anc/first_69_signatures.csv` and
-`paper/anc/order_exceptions.csv`.  Upload `anc/` alongside the source: arXiv
+This writes `paper_exchange_rate/anc/first_69_signatures.csv` and
+`paper_exchange_rate/anc/order_exceptions.csv`.  Upload `anc/` alongside the source: arXiv
 publishes that directory as ancillary files.
 
 The larger NumPy/SciPy screening calculation that verifies the stable first

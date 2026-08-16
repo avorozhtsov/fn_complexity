@@ -26,8 +26,8 @@ from exchange_matrix_extended import (  # noqa: E402
 )
 from fn_complexity import ExchangeRateCache  # noqa: E402
 
-OUTPUT_PATH = PROJECT_ROOT / "paper" / "appendix_b_signatures.tex"
-ANC_DIR = PROJECT_ROOT / "paper" / "anc"
+OUTPUT_PATH = PROJECT_ROOT / "paper_exchange_rate" / "appendix_b_signatures.tex"
+ANC_DIR = PROJECT_ROOT / "paper_exchange_rate" / "anc"
 ORDER_CSV = ANC_DIR / "first_69_signatures.csv"
 EXCEPTION_CSV = ANC_DIR / "order_exceptions.csv"
 TABLE_SIZE = 69

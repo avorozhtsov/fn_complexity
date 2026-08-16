@@ -8,7 +8,12 @@ import numpy as np
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = PROJECT_ROOT / "paper" / "figures" / "relativistic-radiation-energy-entropy.pdf"
+OUTPUT = (
+    PROJECT_ROOT
+    / "paper_exchange_rate"
+    / "figures"
+    / "relativistic-radiation-energy-entropy.pdf"
+)
 
 
 def radiation_curve(temperatures: np.ndarray, degrees_of_freedom: float):

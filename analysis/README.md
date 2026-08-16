@@ -122,7 +122,7 @@ python analysis/plot_relativistic_species_energy_entropy.py
 ```
 
 The script writes
-`paper/figures/relativistic-radiation-energy-entropy.pdf`.  It uses
+`paper_exchange_rate/figures/relativistic-radiation-energy-entropy.pdf`.  It uses
 \(g_\gamma=2\) and \(g_{e^\pm}=(7/8)4=7/2\), so the dotted \(7/4\)
 homothety of the photon curve coincides exactly with the electron--positron
 curve.
@@ -265,7 +265,7 @@ and ordered through its condensation DAG. Power-sum screening gives the same
 first 69 signatures for `B=18` and `B=19`; the generator stores that stabilized
 cutoff and recomputes all displayed rates and exception relations with the
 high-accuracy persistent cache before writing
-`paper/appendix_b_signatures.tex`.
+`paper_exchange_rate/appendix_b_signatures.tex`.
 
 Re-run the large stabilization check (approximately 400 MB peak memory) with:
 

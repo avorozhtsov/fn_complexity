@@ -3,6 +3,7 @@
 # Python
 __pycache__/
 *.py[cod]
+.DS_Store
 *.egg-info/
 .pytest_cache/
 .venv/
@@ -16,11 +17,11 @@ htmlcov/
 /output/
 
 # LaTeX build intermediates
-/paper/*.aux
-/paper/*.fdb_latexmk
-/paper/*.fls
-/paper/*.log
-/paper/*.out
-/paper/*.pdf
-!/paper/exchange_rates_finite_map_signatures.pdf
-/paper/*.synctex.gz
+/paper_exchange_rate/*.aux
+/paper_exchange_rate/*.fdb_latexmk
+/paper_exchange_rate/*.fls
+/paper_exchange_rate/*.log
+/paper_exchange_rate/*.out
+/paper_exchange_rate/*.pdf
+!/paper_exchange_rate/exchange_rates_finite_map_signatures.pdf
+/paper_exchange_rate/*.synctex.gz

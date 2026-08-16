@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1580" height="1080"
+     viewBox="0 0 1580 1080" role="img" aria-labelledby="title description">
+  <title id="title">Quadratic-map degeneration poset over the 3-adic numbers</title>
+  <desc id="description">Eight affine-equivalence classes of quadratic maps
+  from Q_3 squared to Q_3. There is one split and three pairwise-incomparable
+  anisotropic nondegenerate binary quadratic classes. Nine Hasse covers point
+  downward.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .edge { fill: none; stroke: #64748b; stroke-width: 2.3; opacity: .72; }
+      .node text { fill: #172033; text-anchor: middle;
+                   font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+      .form { font-size: 23px; font-weight: 700; }
+      .kind { font-size: 15px; fill: #475569; }
+      .size { font-size: 15px; font-weight: 650; font-variant-numeric: tabular-nums; }
+      .small-form { font-size: 20px; font-weight: 700; }
+      .small-kind { font-size: 13px; fill: #6b2942; }
+      .small-size { font-size: 13px; font-weight: 650; }
+      .title { fill: #172033; font: 700 34px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .subtitle { fill: #475569; font: 18px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .legend { fill: #475569; font: 15px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .group-label { fill: #9f1239; font: 650 16px Inter, ui-sans-serif, system-ui, sans-serif; }
+    </style>
+  </defs>
+  <rect width="1580" height="1080" fill="#ffffff"/>
+  <text class="title" x="790" y="48" text-anchor="middle">
+    Quadratic maps ℚ₃² → ℚ₃
+  </text>
+  <text class="subtitle" x="790" y="80" text-anchor="middle">
+    affine-equivalence classes and singular-processor degenerations
+  </text>
+  <text class="legend" x="790" y="112" text-anchor="middle">
+    square classes d ∈ {1, −1, 3, −3} · split d = −1 · 𝔠 = continuum
+  </text>
+
+  <rect x="690" y="150" width="830" height="245" rx="24"
+        fill="#be123c" fill-opacity="0.025" stroke="#be123c"
+        stroke-opacity="0.45" stroke-width="2" stroke-dasharray="9 8"/>
+  <text class="group-label" x="1105" y="180" text-anchor="middle">
+    three pairwise-incomparable anisotropic classes
+  </text>
+
+  <!-- Parabolic and split classes reach both lower nonconstant classes. -->
+  <path class="edge" d="M 170 338 C 170 486, 330 486, 330 594"
+        marker-end="url(#arrow)"/>
+  <path class="edge" d="M 230 338 C 230 510, 1015 510, 1015 594"
+        marker-end="url(#arrow)"/>
+  <path class="edge" d="M 470 338 C 470 486, 390 486, 390 594"
+        marker-end="url(#arrow)"/>
+  <path class="edge" d="M 530 338 C 530 490, 1045 490, 1045 594"
+        marker-end="url(#arrow)"/>
+
+  <!-- Each anisotropic class reaches rank 1, but not the linear class. -->
+  <path class="edge" d="M 830 330 C 830 450, 1075 450, 1075 594"
+        marker-end="url(#arrow)"/>
+  <path class="edge" d="M 1110 330 L 1110 594"
+        marker-end="url(#arrow)"/>
+  <path class="edge" d="M 1390 330 C 1390 450, 1145 450, 1145 594"
+        marker-end="url(#arrow)"/>
+
+  <!-- The two lower nonconstant classes reach constants. -->
+  <path class="edge" d="M 390 728 C 390 825, 730 825, 730 899"
+        marker-end="url(#arrow)"/>
+  <path class="edge" d="M 1110 728 C 1110 825, 850 825, 850 899"
+        marker-end="url(#arrow)"/>
+
+  <g class="node parabolic" transform="translate(200 280)">
+    <rect x="-125" y="-58" width="250" height="116" rx="18"
+          fill="#c2410c" fill-opacity="0.10" stroke="#c2410c" stroke-width="2.5"/>
+    <text class="form" x="0" y="-24">x² + y</text>
+    <text class="kind" x="0" y="4">parabolic</text>
+    <text class="size" x="0" y="34">|class| = 𝔠 · dim = 5</text>
+  </g>
+  <g class="node split" transform="translate(500 280)">
+    <rect x="-125" y="-58" width="250" height="116" rx="18"
+          fill="#7c3aed" fill-opacity="0.10" stroke="#7c3aed" stroke-width="2.5"/>
+    <text class="form" x="0" y="-24">x² − y²</text>
+    <text class="kind" x="0" y="4">split · d = −1</text>
+    <text class="size" x="0" y="34">|class| = 𝔠 · dim = 6</text>
+  </g>
+
+  <g class="node anisotropic-d1" transform="translate(830 275)">
+    <rect x="-110" y="-55" width="220" height="110" rx="16"
+          fill="#be123c" fill-opacity="0.09" stroke="#be123c" stroke-width="2"/>
+    <text class="small-form" x="0" y="-21">x² + y²</text>
+    <text class="small-kind" x="0" y="5">anisotropic · d = 1</text>
+    <text class="small-size" x="0" y="33">|class| = 𝔠 · dim = 6</text>
+  </g>
+  <g class="node anisotropic-d3" transform="translate(1110 275)">
+    <rect x="-110" y="-55" width="220" height="110" rx="16"
+          fill="#be123c" fill-opacity="0.09" stroke="#be123c" stroke-width="2"/>
+    <text class="small-form" x="0" y="-21">x² + 3y²</text>
+    <text class="small-kind" x="0" y="5">anisotropic · d = 3</text>
+    <text class="small-size" x="0" y="33">|class| = 𝔠 · dim = 6</text>
+  </g>
+  <g class="node anisotropic-dm3" transform="translate(1390 275)">
+    <rect x="-110" y="-55" width="220" height="110" rx="16"
+          fill="#be123c" fill-opacity="0.09" stroke="#be123c" stroke-width="2"/>
+    <text class="small-form" x="0" y="-21">x² − 3y²</text>
+    <text class="small-kind" x="0" y="5">anisotropic · d = −3</text>
+    <text class="small-size" x="0" y="33">|class| = 𝔠 · dim = 6</text>
+  </g>
+
+  <g class="node linear" transform="translate(360 670)">
+    <rect x="-140" y="-58" width="280" height="116" rx="18"
+          fill="#0f766e" fill-opacity="0.10" stroke="#0f766e" stroke-width="2.5"/>
+    <text class="form" x="0" y="-24">x</text>
+    <text class="kind" x="0" y="4">linear</text>
+    <text class="size" x="0" y="34">|class| = 𝔠 · dim = 3</text>
+  </g>
+  <g class="node rank1" transform="translate(1110 670)">
+    <rect x="-140" y="-58" width="280" height="116" rx="18"
+          fill="#2563eb" fill-opacity="0.10" stroke="#2563eb" stroke-width="2.5"/>
+    <text class="form" x="0" y="-24">x²</text>
+    <text class="kind" x="0" y="4">rank-1 quadratic</text>
+    <text class="size" x="0" y="34">|class| = 𝔠 · dim = 4</text>
+  </g>
+  <g class="node constant" transform="translate(790 965)">
+    <rect x="-140" y="-58" width="280" height="116" rx="18"
+          fill="#64748b" fill-opacity="0.10" stroke="#64748b" stroke-width="2.5"/>
+    <text class="form" x="0" y="-24">constant</text>
+    <text class="kind" x="0" y="4">constant</text>
+    <text class="size" x="0" y="34">|class| = 𝔠 · dim = 1</text>
+  </g>
+</svg>

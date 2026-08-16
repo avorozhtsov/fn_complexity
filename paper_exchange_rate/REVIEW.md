@@ -1,6 +1,6 @@
 # Working list — *Exchange Rates for Finite Map Signatures*
 
-Status of `paper/main.tex`: 29 pp., builds clean (`latexmk -pdf main.tex`, zero
+Status of `paper_exchange_rate/main.tex`: 29 pp., builds clean (`latexmk -pdf main.tex`, zero
 overfull boxes, zero warnings, all references resolve).
 
 All numerics in the paper were independently recomputed for this review and
@@ -43,7 +43,7 @@ temperatures, the pair rates, and the shell cardinalities 129 / 2560 / 6738.
 - **Notation** `C(g|f) → C(g→f)`, 342 replacements across 16 files including
   the generators; `k_max` arrow direction fixed.
 - **Housekeeping** — date, email, no affiliation (decided: none), code
-  availability section, `paper/README.md` 99 → 69, matplotlib declared in
+  availability section, `paper_exchange_rate/README.md` 99 → 69, matplotlib declared in
   `[analysis]`, figures regenerated with fixed legends and `Target` titles.
 
 ---
@@ -76,8 +76,8 @@ exception table six; the paper went from 30 pages to 23.  The prefix survives
 as a compact run of text, the exceptions as a generated summary (22 of the 69
 signatures are involved, 112 pairs, every offending `x` of length two, and the
 counts thin out as its second entry grows: 7, 5, 4, 3, 2, 1), and both are
-written in full to `paper/anc/first_69_signatures.csv` and
-`paper/anc/order_exceptions.csv` by the same generator.  The tie-breaking
+written in full to `paper_exchange_rate/anc/first_69_signatures.csv` and
+`paper_exchange_rate/anc/order_exceptions.csv` by the same generator.  The tie-breaking
 caveat is now stated up front.
 
 ### 3. arXiv metadata

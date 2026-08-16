@@ -55,10 +55,10 @@ target and scaled regions use 85%-transparent fills to display containment.
 Copy the three paper figures and rebuild the paper:
 
 ```bash
-cp images/exchange-homotheties_2-2_3-1.pdf paper/figures/
-cp images/exchange-homotheties_6-5-2-1_6-4-3-2.pdf paper/figures/
-cp images/exchange-homotheties_cycle-5-3_3-1-1_6-1.pdf paper/figures/
-(cd paper && latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex)
+cp images/exchange-homotheties_2-2_3-1.pdf paper_exchange_rate/figures/
+cp images/exchange-homotheties_6-5-2-1_6-4-3-2.pdf paper_exchange_rate/figures/
+cp images/exchange-homotheties_cycle-5-3_3-1-1_6-1.pdf paper_exchange_rate/figures/
+(cd paper_exchange_rate && latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex)
 ```
 
 Verify retained PDFs with `pdfinfo images/*.pdf`.

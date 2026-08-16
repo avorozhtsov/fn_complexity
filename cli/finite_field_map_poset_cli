@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+"""Generate finite-field quadratic-map degeneration diagrams."""
+
+from __future__ import annotations
+
+import argparse
+from pathlib import Path
+import sys
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_ROOT / "src"))
+
+from fn_complexity.finite_field_maps import (  # noqa: E402
+    quadratic_map_count,
+    quadratic_map_classes,
+    render_quadratic_map_poset_svg,
+    validate_field_order,
+)
+
+
+def field_order(text: str) -> int:
+    try:
+        q = int(text)
+        validate_field_order(q)
+        return q
+    except ValueError as error:
+        raise argparse.ArgumentTypeError(str(error)) from error
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Draw the affine degeneration poset of degree-at-most-two maps "
+            "F_q^2 -> F_q for prime powers q."
+        )
+    )
+    parser.add_argument(
+        "q",
+        type=field_order,
+        nargs="*",
+        default=[2, 3, 4, 5, 8, 9, 11, 13, 16, 25],
+        help="prime-power field orders (default: 2 3 4 5 8 9 11 13 16 25)",
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=PROJECT_ROOT / "paper_finite_fields_maps" / "images",
+        help="directory for generated SVGs",
+    )
+    return parser.parse_args()
+
+
+def main() -> int:
+    args = parse_args()
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+    print("q\tmaps\tclasses\toutput")
+    for q in args.q:
+        output = args.output_dir / f"quadratic-map-poset-q{q}.svg"
+        render_quadratic_map_poset_svg(q, output)
+        classes = quadratic_map_classes(q)
+        print(f"{q}\t{quadratic_map_count(q)}\t{len(classes)}\t{output}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
