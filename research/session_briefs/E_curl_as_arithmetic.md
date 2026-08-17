@@ -66,6 +66,35 @@ either "arithmetic pools have far more curl than random ones" (the flux is
 arithmetic) or "the same" (the flux is a generic feature of nearly flat
 signatures and the arithmetic is only in which signatures occur).
 
+### E1 seed — already computed, and it reproduces brief B exactly
+
+I ran E1 before writing this brief, through a pipeline independent of brief B's:
+own enumeration of `y² = P(x) + c` for `P` monic of degree 5 and 6 over `F_11`
+with `P(0) = 0`, `N_c = q + Σ_x χ(P(x)+c)`, then `A(a,b) = mid_β(u_a − u_b)` on a
+β-grid to `360q`. Scripts in `research/flux_arithmetic/`.
+
+```
+296 signatures            (drop the 4 with an empty fiber — the framework needs
+                           positive integers, and that is exactly brief B's 296)
+132 strict 3-cycles       identical to brief B's exhaustive census
+‖grad‖/‖A‖ = 0.9959
+‖curl‖/‖A‖ = 0.0908
+```
+
+Two things follow immediately.
+
+* **The census number is independently confirmed.** Two unrelated pipelines give
+  296 and 132. Treat brief B's `F_11` results as solid.
+* **The arithmetic pool has about twice the curl of a random one** — `0.091`
+  against `0.041–0.051` for random integer signatures at `n = 8, 16, 24`
+  (`research/realizability/tournament_seed.py`). That is the first evidence that
+  the flux is not a generic feature of nearly-flat signatures. **It is one data
+  point at one field and one genus; the job of E1 proper is to make it several.**
+  Run `F_13` (698 signatures, exhaustive), and build a *matched* random control —
+  random signatures with `q` entries summing to `q²` and the same spread — rather
+  than the unmatched random integers I used, because spread plausibly drives
+  curl on its own.
+
 ### E2 — what is `ψ_opt`?
 
 The gradient part is the *best possible scalar complexity* for genus-two pencils
@@ -76,15 +105,29 @@ Concretely: regress `ψ_opt` against the statistics that are known to be visible
 `m₄`, the multiplicity `μ` of the largest fiber, `ν(P) = #{(x,x′):P(x)=P(x′)}`,
 genus, and `φ = log q · log max_c N_c`. Report `R²` for nested models.
 
-The honest target is a sentence of the form "the best scalar invariant of a
-genus-two pencil over `F_q` is `ψ_opt = α·M + β·m₂ + …` to `R² = …`, and the
-residual is the flux." **If `ψ_opt` turns out to be `½ log φ` plus a small
-correction, say so** — that would mean the endpoint potential survives as the
-best scalar even where the connection is not flat, which is a clean result.
+**Seed, already computed** (same run as E1, `hodge_split.py`), regressing the
+least-squares potential `ψ_opt` on the `F_11` pool:
 
-Brief B's addendum predicts `φ̃ = M − ((3−2√2)/2)·m₂` as the two-term scalar,
-but derived it in the `β = O(1)` regime; brief B's own measurement puts the
-operative scale at `β ≍ √q`, `√q` deeper. **Expect `φ̃` to fail and record how.**
+| model | `R²` |
+|---|---:|
+| `M = max_c(−a_c)` | 0.975382 |
+| `log max_c N_c` | 0.988641 |
+| **`½ log φ`** | **0.990106** |
+| `M, m₂`  (the addendum's `φ̃`) | 0.982352 |
+| `M, m₂, log μ` | 0.982862 |
+| `M, m₂, m₃, m₄, log μ` | 0.991702 |
+
+**So the answer to E2 is already visible and it is the clean one: the endpoint
+potential `½ log φ` survives as the best scalar even where the connection is not
+flat**, at `R² = 0.9901`, and the whole moment ladder together barely improves on
+it (`0.9917`). Confirm this at `F_13` and at larger `q`, and then say it as a
+proposition.
+
+Note also that **brief B's addendum is refuted here as predicted**: its two-term
+scalar `φ̃ = M − ((3−2√2)/2)·m₂` scores `0.982`, *worse* than `½ log φ` alone.
+The addendum derived `φ̃` in the `β = O(1)` regime; brief B's own measurement put
+the operative scale at `β ≍ √q`, `√q` deeper. Record this explicitly — the
+addendum is committed to the repo and will mislead the next reader otherwise.
 
 ### E3 — brief C's crux, which is now decidable
 
@@ -150,5 +193,8 @@ count and must be written as such.
 
 ## Reproduce / build on
 
+`research/flux_arithmetic/build_f11_pool.py` and `hodge_split.py` (the seed
+numbers above — start by re-running these);
 `research/curve_family_cycles/common.py` (pool + vectorised rate engine),
-`search.py`, `certify.py`; `research/m_and_e_and_a_c/gauge_decomposition.py`.
+`search.py`, `certify.py`; `research/m_and_e_and_a_c/gauge_decomposition.py`;
+`research/realizability/tournament_seed.py` (the random control).
