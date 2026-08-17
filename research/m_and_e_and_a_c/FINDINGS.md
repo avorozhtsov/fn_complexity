@@ -438,6 +438,10 @@ propagated into the paper notes.
 
 ## Files
 
+`A_paper_or_section.md` records the decision on brief A — Track 2 became a
+section of `paper_finite_fields_maps/main.tex` (`\label{sec:frobenius}`), not a
+standalone paper, and how the one-way-information objection is met there.
+
 Per-thread notes `T1_1`, `T1_2`, `T1_4`, `T1_5`, `T2_1`, `T2_2`, `T2_3`, with
 scripts and CSVs alongside. Zeta zeros are cached in `zeta_zeros_1200.npy` and
 `zeta_zeros_2400.npy` (they take minutes to regenerate). The 48 MB search cache
