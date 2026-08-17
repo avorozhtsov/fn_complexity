@@ -440,3 +440,27 @@ profiles are linear at `s = 0` with slope `log p * E[v_p(f)]` and *saturate* at
 windowed irreversibility is markedly worse than for the Euler factors:
 `d = 3.62, 4.00, 4.20` against `2.28, 2.24, 2.11` on the same windows. Copies of
 a map cancel from the product, so the number measures shape alone.
+
+## Load-bearing verifiers for the paper claims
+
+Two self-contained scripts verify the claims the second paper makes that came
+out of the research in `research/m_and_e_and_a_c/`. The exploratory searches stay
+in that directory; these only verify.
+
+```bash
+python analysis/negative_type_certificate.py
+python analysis/frobenius_bottleneck.py
+```
+
+The first checks the five-signature witness that the exchange metric is not of
+negative type (`x^T D x = +9.81e-4`), recomputes the distance matrix on an
+independent `2e6`-point beta-grid out to `beta = 600` (the violation is
+invisible to grids truncated below ~500), confirms the triangle inequality, the
+four-point minimality bound `MET_4 = CUT_4`, and the pentagonal violation that
+places the metric in `MET \ HYP`.
+
+The second checks the two directions of the rate against a linear map over
+`F_q`: the forward rate is always the endpoint `log q / log(max_c N_c)`; the
+reverse has the universal bottleneck `beta* = sqrt(2) - 1` with
+`1 - C(f->L) = (3 - 2 sqrt 2) m_2 / (2 q log q)`, independent of family and
+genus; and a signature is flat exactly when `P` is a permutation polynomial.

@@ -138,9 +138,11 @@ breaks at exactly five points. The triangle inequality holds throughout
 (minimum slack \(-4.4\cdot10^{-16}\) over all \(8\cdot10^9\) triples of a
 2000-signature core).
 
-Certificate and reproduction: `research/m_and_e_and_a_c/`. The
-thirteen-signature family reported earlier was a search artefact, superseded by
-this one.
+Certificate and reproduction: `analysis/negative_type_certificate.py`, which
+verifies the witness, the triangle inequality, the four-point minimality bound
+and the pentagonal violation. The search that found the family is the
+exploratory record in `research/m_and_e_and_a_c/`; the thirteen-signature family
+reported earlier was a search artefact, superseded by this one.
 
 The interpretation is the point of the note. In the finite-map world the
 spectrum is real by construction, so the theory is an order theory and the

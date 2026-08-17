@@ -8,7 +8,10 @@ the Frobenius traces, and the exchange rate reads off the extreme Frobenius
 trace --- whose approach to the Weil edge encodes \(\dim USp(2g)\) --- and, in one
 clean example, a congruence on \(q\)**.
 
-Everything is reproduced by `analysis/frobenius_exchange_rates.py`.
+Reproduced by `analysis/frobenius_exchange_rates.py` (traces, moments and the
+congruence detector) and `analysis/frobenius_bottleneck.py` (the endpoint
+proposition, the universal bottleneck \(\beta_*=\sqrt2-1\), and the
+permutation-polynomial criterion for flatness).
 
 ## The partition function counts fiber powers
 
@@ -238,6 +241,21 @@ fibrations \(y^2=P_3(x)+c\) produce only \(5,3,3\) distinct signatures at
 classes. From genus \(2\) upward, \(398\)--\(400\) of \(400\) are distinct.
 Relatedly, \(m_2\) has the closed form \(m_2=K_P/q-1\) with
 \(K_P=\#\{(x,x'):P(x)=P(x')\}\) --- the fiber-square count again.
+
+## Flatness is a permutation-polynomial condition
+
+The congruence below is one case of a theorem. For \(f=y^2-P(x)\) over
+\(\mathbb F_q\), the signature is flat --- hence \(C(f\to L)=C(L\to f)=1\)
+exactly --- **iff \(P\) is a permutation polynomial of \(\mathbb F_q\)**. It
+follows in two lines from \(\sum_ca_c^2=q(\nu(P)-q)\) with
+\(\nu(P)=\#\{(x,x'):P(x)=P(x')\}\): the constraints
+\(\sum_un_u=\sum_un_u^2=q\) force \(n_u\equiv1\). Checked on 2093 pairs
+\((P,q)\) with no disagreement.
+
+Related criteria: \(y^r-x^d\) is flat iff
+\(\min(\gcd(r,q-1),\gcd(d,q-1))=1\), and for Dickson polynomials
+\(y^2-D_n(x)\) the condition is \(\gcd(n,q^2-1)=1\) --- a congruence involving
+\(q+1\), which no monomial family produces.
 
 ## One exchange rate that detects a congruence
 
