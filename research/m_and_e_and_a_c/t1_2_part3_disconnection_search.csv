@@ -1,0 +1,6 @@
+kind,trials,non_negative_type,with_multiple_sign_changes,max_sign_changes
+random_metric_5,4000,14,0,1
+random_metric_6,4000,134,0,1
+random_metric_8,3000,803,0,1
+random_metric_12,2000,1865,0,1
+two_scale_bipartite,4000,3989,0,1

@@ -1,0 +1,324 @@
+1200 zeta zeros, T = 1648.271, T/2pi = 262.330
+
+==========================================================================
+(1) DESIGNED vs GENERIC FAMILIES
+==========================================================================
+                    family  size  pairs   pearson  spearman  mean angle  angle sd
+              generic-T1.4    16    120   +0.1911   +0.1874      1.4870    0.2608
+         powers-of-2 pairs    21    210   +0.3893   +0.2632      1.4079    0.4124
+  powers-of-2 pairs (no 1)    21    210   +0.4173   +0.2643      1.4079    0.4124
+         powers-of-3 pairs    15    105   +0.4440   +0.2898      1.3806    0.4777
+       powers-of-2 triples    20    190   +0.6160   +0.6901      1.1854    0.4325
+            3-smooth pairs    21    210   +0.1649   +0.1792      1.5278    0.2450
+        staircase (2^t, 1)     9     36   -0.7080   -0.8579      1.5862    0.0501
+        staircase (2^t, 2)     9     36   -0.4349   -0.7677      1.5287    0.1340
+    scaled orbit 2^t*(2,1)     9     36   +0.3555   +0.0499      1.5619    0.2006
+       chain (2^t, 2^t, 1)     9     36   -0.8722   -0.9465      1.6208    0.0332
+        staircase (3^t, 1)     8     28   -0.8775   -0.9800      1.6192    0.0496
+      staircase (2^t, 2^t)     9     36   -0.8014   -0.8467      1.6280    0.0339
+      2-ladder subsets k=5    56   1540   +0.7248   +0.8152      1.0091    0.4375
+  prime-ladder subsets k=5    56   1540   +0.7432   +0.8204      0.8753    0.3710
+         generic control A    16    120   -0.1530   -0.1691      1.5715    0.0058
+         generic control B    21    210   -0.1808   -0.2309      1.5720    0.0088
+
+==========================================================================
+(1b) WHICH TERM DOES THE WORK: OVERLAP O, OR THE Lambda TERM A?
+==========================================================================
+Subsets of size k of a ladder of eight entries.  The first two ladders are
+geometric, so EVERY ratio is a prime power and the arithmetic term A is huge.
+The third has the same logarithmic spacing but no prime-power ratio at all,
+so A vanishes identically -- it is the control.
+
+                ladder  max cross A                k=3                k=4                k=5                k=6
+        2-power ladder        88.72      +0.514/+0.522      +0.623/+0.707      +0.725/+0.815      +0.822/+0.874
+        3-power ladder      2402.67      +0.517/+0.450      +0.637/+0.685      +0.750/+0.810      +0.857/+0.870
+  prime ladder (A = 0)         0.00      +0.562/+0.578      +0.659/+0.722      +0.743/+0.820      +0.826/+0.870
+
+   (each cell is pearson/spearman; pair counts are 56/70/56/28 signatures ->
+    1540/2415/1540/378 pairs)
+   The control matches the geometric ladders cell for cell: the agreement is
+   produced entirely by the OVERLAP term, and the arithmetic term contributes
+   nothing to it.
+
+==========================================================================
+(2) IS THE WEIL ANGLE EVER A MONOTONE FUNCTION OF d?
+==========================================================================
+
+staircase (2^t, 1): 36 pairs, pearson -0.7080, spearman -0.8579
+            d      angle
+      0.11778    1.67511
+      0.13353    1.67359
+      0.15415    1.66918
+      0.18232    1.66066
+      0.22314    1.64442
+   ...
+      1.60944    1.52660
+      1.79176    1.53764
+      1.94591    1.54492
+      2.07944    1.55088
+      2.19722    1.54776
+
+staircase (3^t, 1): 28 pairs, pearson -0.8775, spearman -0.9800
+            d      angle
+      0.13353    1.70854
+      0.15415    1.70717
+      0.18232    1.70593
+      0.22314    1.70415
+      0.28768    1.64895
+   ...
+      1.38629    1.57934
+      1.60944    1.57393
+      1.79176    1.56321
+      1.94591    1.54576
+      2.07944    1.56021
+
+staircase (2^t, 2): 36 pairs, pearson -0.4349, spearman -0.7677
+            d      angle
+      0.11778    1.67359
+      0.13353    1.66918
+      0.15415    1.66066
+      0.18232    1.64442
+      0.22314    1.61312
+   ...
+      1.60944    1.36010
+      1.79176    1.42037
+      1.94591    1.46175
+      2.07944    1.49294
+      2.19722    1.51393
+
+powers-of-2 triples: 190 pairs, pearson +0.6160, spearman +0.6901
+            d      angle
+      0.02038    0.27561
+      0.02263    0.29507
+      0.02297    0.68233
+      0.02346    0.38834
+      0.02496    0.30657
+   ...
+      0.91629    1.47383
+      0.91629    1.48408
+      0.91629    1.76335
+      0.91629    1.28412
+      0.91629    1.47925
+
+scaled orbit 2^t*(2,1): 36 pairs, pearson +0.3555, spearman +0.0499
+            d      angle
+      0.11778    1.19658
+      0.13353    1.19658
+      0.15415    1.19658
+      0.18232    1.19658
+      0.22314    1.19658
+   ...
+      1.60944    1.65217
+      1.79176    1.62610
+      1.94591    1.60678
+      2.07944    1.59342
+      2.19722    1.57810
+
+chain (2^t, 2^t, 1): 36 pairs, pearson -0.8722, spearman -0.9465
+            d      angle
+      0.11778    1.67756
+      0.13353    1.67757
+      0.15415    1.67688
+      0.18232    1.67561
+      0.22314    1.67325
+   ...
+      1.60944    1.59366
+      1.79176    1.58579
+      1.94591    1.57892
+      2.07944    1.57535
+      2.19722    1.56807
+
+powers-of-2 pairs (no 1): 210 pairs, pearson +0.4173, spearman +0.2643
+            d      angle
+      0.03264    0.22572
+      0.03462    0.31726
+      0.03709    0.44332
+      0.03861    0.31726
+      0.04034    0.61275
+   ...
+      1.25276    1.46231
+      1.25276    1.53764
+      1.25276    1.63360
+      1.25276    1.63523
+      1.25276    1.62610
+
+==========================================================================
+(2b) THE OBSTRUCTION: TRANSVERSE INVARIANCE GROUPS
+==========================================================================
+
+(i) Cartesian powering a -> a tensor a fixes d EXACTLY (log Z_{a^k} = k log Z_a) but moves the Weil angles.
+    max |d(a^2,b^2) - d(a,b)| = 2.776e-16 over 210 pairs   (identical d-geometry)
+    angles: mean |change| = 0.2242 rad, max = 0.8207 rad
+    corr(angle before, angle after) = +0.6976
+
+(ii) Common rescaling a -> lambda*a fixes O and A up to the common factor lambda, hence fixes ALL Weil angles, but moves d.
+     lambda   max |angle change| (Landau)   max |angle change| (exact)    mean d  corr(d_1,d_L)
+          1                     0.000e+00                       0.0000    0.3931        +1.0000
+          2                     6.106e-16                       0.0000    0.3220        +0.9982
+          3                     7.216e-16                       0.0000    0.2919        +0.9964
+          5                     1.166e-15                       0.0000    0.2615        +0.9940
+          7                     7.772e-16                       0.0000    0.2449        +0.9925
+         11                     5.551e-16                       0.0000    0.2258        +0.9904
+         30                     5.551e-16                       0.0000    0.1927        +0.9862
+        210                     7.772e-16                       0.0000    0.1505        +0.9796
+
+==========================================================================
+(2c) THE BEST FAMILY, DISSECTED:  a_t = (p^t, 1)
+==========================================================================
+
+p = 3, t = 1..8:  max |d(a_s,a_t) - log(t/s)| = 3.331e-16  (so d is EXACTLY log(t/s))
+   over 28 pairs: pearson -0.8775, spearman -0.9800
+
+   (A) pairs at the SAME exchange distance d = log 2, different Weil angles:
+         (s,t)         d     angle   angle-pi/2
+         (1,2)   0.69315   1.60337     +0.03257
+         (2,4)   0.69315   1.62685     +0.05605
+         (3,6)   0.69315   1.60752     +0.03672
+         (4,8)   0.69315   1.59359     +0.02280
+
+   (B) pairs at the SAME Weil angle (t - s = 1), exchange distance varying by a factor of five:
+         (s,t)         d     angle   angle-pi/2
+         (1,2)   0.69315   1.60337     +0.03257
+         (2,3)   0.40547   1.67055     +0.09976
+         (3,4)   0.28768   1.69508     +0.12428
+         (4,5)   0.22314   1.70415     +0.13336
+         (5,6)   0.18232   1.70593     +0.13513
+         (6,7)   0.15415   1.70717     +0.13637
+         (7,8)   0.13353   1.70854     +0.13774
+
+   fit  angle - pi/2 = K * p^(-(t-s)/2)  with K = 0.1916: relative rms residual 0.3345
+   corr(angle - pi/2, p^(-(t-s)/2)) = +0.8977   vs   corr(angle - pi/2, d) = -0.8775
+
+p = 2, t = 1..9:  max |d(a_s,a_t) - log(t/s)| = 3.053e-16  (so d is EXACTLY log(t/s))
+   over 36 pairs: pearson -0.7080, spearman -0.8579
+
+   (A) pairs at the SAME exchange distance d = log 2, different Weil angles:
+         (s,t)         d     angle   angle-pi/2
+         (1,2)   0.69315   1.45995     -0.11084
+         (2,4)   0.69315   1.55914     -0.01166
+         (3,6)   0.69315   1.59048     +0.01968
+         (4,8)   0.69315   1.59455     +0.02375
+
+   (B) pairs at the SAME Weil angle (t - s = 1), exchange distance varying by a factor of five:
+         (s,t)         d     angle   angle-pi/2
+         (1,2)   0.69315   1.45995     -0.11084
+         (2,3)   0.40547   1.55633     -0.01447
+         (3,4)   0.28768   1.61312     +0.04232
+         (4,5)   0.22314   1.64442     +0.07362
+         (5,6)   0.18232   1.66066     +0.08987
+         (6,7)   0.15415   1.66918     +0.09838
+         (7,8)   0.13353   1.67359     +0.10280
+         (8,9)   0.11778   1.67511     +0.10432
+
+   fit  angle - pi/2 = K * p^(-(t-s)/2)  with K = 0.0550: relative rms residual 0.8866
+   corr(angle - pi/2, p^(-(t-s)/2)) = +0.4406   vs   corr(angle - pi/2, d) = -0.7080
+
+==========================================================================
+(2e) THE BRIDGE: A RECEDING STAIRCASE WINDOW  a_t = (p^t, 1), t in [T0, T0+8]
+==========================================================================
+Two closed forms hold on this family:
+   d(a_s,a_t)          = log(t/s)                       (exact)
+   angle(a_s,a_t)-pi/2 = K * p^{-(t-s)/2},  K = (T/2piN) log p    (Landau)
+Since log(t/s) = (t-s)/T0 * (1 + O(n/T0)) inside a window of width n << T0,
+the angle becomes an exponential function of d:  angle - pi/2 = K exp(-c d),  c = T0 log p / 2.
+
+  p    T0  pairs   pearson  spearman  K fitted  K = (T/2piN)log p  rms resid
+  2     5     36   -0.9346   -0.9880   0.14229            0.15153     0.0776
+  2    10     36   -0.9442   -0.9755   0.15026            0.15153     0.0266
+  2    20     36   -0.9526   -0.9830   0.15071            0.15153     0.0242
+  2    40     36   -0.9559   -0.9802   0.15072            0.15153     0.0243
+  2   100     36   -0.9570   -0.9776   0.15072            0.15153     0.0243
+  3    10     36   -0.9054   -0.9754   0.23667            0.24017     0.0929
+  3    20     36   -0.9150   -0.9725   0.23669            0.24017     0.0930
+  3    40     36   -0.9183   -0.9663   0.23669            0.24017     0.0930
+
+   This is the best agreement found anywhere: spearman near -0.98 over 36 pairs,
+   with a derived two-parameter law.  Note the sign: on this family the Weil
+   form is REPULSIVE (angles above pi/2) and the repulsion DECREASES with d.
+
+==========================================================================
+(2d) TWO EXACT INVARIANCES, VERIFIED
+==========================================================================
+
+Theorem A.  E_{lambda a, lambda b} = lambda * E_{a,b} EXACTLY, for every truncation,
+            because sqrt(lambda a_i * lambda b_j) = lambda sqrt(a_i b_j) and every
+            ratio a_i/b_j is unchanged.  Hence the Weil correlation matrix R,
+            and every Weil angle, is EXACTLY scale invariant.
+   lambda =    2: max relative deviation of E 8.79e-15, max angle shift 2.11e-08
+   lambda =    3: max relative deviation of E 9.88e-15, max angle shift 2.11e-08
+   lambda =    5: max relative deviation of E 3.42e-14, max angle shift 2.11e-08
+   lambda =    7: max relative deviation of E 1.39e-14, max angle shift 1.49e-08
+   lambda =   30: max relative deviation of E 1.52e-13, max angle shift 2.11e-08
+   lambda =  210: max relative deviation of E 2.18e-12, max angle shift 2.11e-08
+
+Theorem B.  d(a^{ok}, b^{ok}) = d(a,b) EXACTLY, because log Z_{a^{ok}} = k log Z_a,
+            so the ratio defining C(a -> b) is unchanged.
+   k = 2: max |d change| = 1.25e-16
+   k = 3: max |d change| = 3.33e-16
+
+Consequence, inside ONE family.  Put F and 5*F side by side: the two blocks
+have IDENTICAL Weil angles and DIFFERENT exchange distances.
+                pair in F         d     angle                    pair in 5F         d     angle
+         (2, 1) vs (4, 1)   0.69315   1.45995            (10, 5) vs (20, 5)   0.26316   1.45995
+         (2, 1) vs (8, 1)   1.09861   1.48850            (10, 5) vs (40, 5)   0.47129   1.48850
+         (4, 1) vs (8, 1)   0.40547   1.55633            (20, 5) vs (40, 5)   0.20813   1.55633
+         (4, 2) vs (8, 2)   0.40547   1.45995          (20, 10) vs (40, 10)   0.20813   1.45995
+         (2, 1) vs (4, 2)   0.69315   1.19658           (10, 5) vs (20, 10)   0.26316   1.19658
+
+And the mirror image.  Put F and F^{o2} side by side: identical exchange
+distances, different Weil angles.
+                pair in F         d     angle                          pair in F^o2         d     angle
+         (2, 1) vs (4, 1)   0.69315   1.45995         (4, 2, 2, 1) vs (16, 4, 4, 1)   0.69315   1.24891
+         (2, 1) vs (8, 1)   1.09861   1.48850         (4, 2, 2, 1) vs (64, 8, 8, 1)   1.09861   1.68037
+         (4, 1) vs (8, 1)   0.40547   1.55633        (16, 4, 4, 1) vs (64, 8, 8, 1)   0.40547   1.73074
+         (4, 2) vs (8, 2)   0.40547   1.45995      (16, 8, 8, 4) vs (64, 16, 16, 4)   0.40547   1.24891
+         (2, 1) vs (4, 2)   0.69315   1.19658         (4, 2, 2, 1) vs (16, 8, 8, 4)   0.69315   1.60843
+
+==========================================================================
+(3) SCALE-INVARIANCE MISMATCH
+==========================================================================
+
+Cartesian square of the whole family (a -> a tensor a):
+   max |d change| over 120 pairs = 3.331e-16   (exactly invariant)
+
+Cartesian square of a SINGLE member (a -> a tensor a, others fixed):
+         member  mean |d change|  mean |angle change|
+         (2, 2)           0.0000               0.1982
+         (3, 1)           0.0000               0.1879
+         (4, 2)           0.0000               0.1472
+         (5, 3)           0.0000               0.3011
+
+Doubling a SINGLE member's entries (a -> 2a, others fixed):
+         member  mean |d change|  mean |angle change|  A-mass before  A-mass after
+         (2, 2)           0.5810               0.1982         42.794        50.022
+         (3, 1)           0.4106               0.3085         63.762        51.613
+         (4, 2)           0.2754               0.1697         44.408        46.340
+         (5, 3)           0.2340               0.3023         65.173        60.429
+         (6, 1)           0.2001               0.2074         58.507        54.640
+      (3, 1, 1)           0.4312               0.3172         95.083        74.931
+
+Same experiment inside the designed powers-of-2 family:
+(tripling every entry of one member destroys every 2-power ratio it had with
+ the rest, so its Weil angles all collapse to pi/2, while d barely moves.)
+         member  mean |d change|  mean |angle change|  mean |ang-pi/2| before     after
+         (4, 2)           0.5422               0.1351                  0.1183    0.0168
+         (8, 2)           0.3742               0.1800                  0.1590    0.0210
+        (16, 2)           0.2763               0.2391                  0.2160    0.0251
+        (32, 2)           0.2105               0.2997                  0.2725    0.0288
+
+==========================================================================
+(4) N-DEPENDENCE OF THE CORRELATION
+==========================================================================
+     N         T               generic-T1.4       2-ladder subsets k=5   prime-ladder subsets k=5         staircase (2^t, 1)
+   100     236.5            +0.2312/+0.2045            +0.7196/+0.8088            +0.7470/+0.8219            -0.8509/-0.9271
+   200     396.4            +0.2198/+0.2185            +0.7173/+0.8086            +0.7426/+0.8195            -0.7915/-0.8991
+   400     679.7            +0.2071/+0.2227            +0.7212/+0.8123            +0.7400/+0.8185            -0.8228/-0.9118
+   600     939.0            +0.2029/+0.2201            +0.7228/+0.8135            +0.7406/+0.8197            -0.7855/-0.9156
+   800    1183.7            +0.2003/+0.2385            +0.7241/+0.8146            +0.7438/+0.8206            -0.7723/-0.8991
+  1000    1419.4            +0.1936/+0.2071            +0.7240/+0.8147            +0.7410/+0.8190            -0.7420/-0.8866
+  1200    1648.3            +0.1911/+0.1874            +0.7248/+0.8152            +0.7432/+0.8204            -0.7080/-0.8579
+  1600    2090.0            +0.1880/+0.2230            +0.7253/+0.8157            +0.7425/+0.8200            -0.6810/-0.8484
+  2000    2515.3            +0.1859/+0.2438            +0.7260/+0.8163            +0.7427/+0.8201            -0.6577/-0.8309
+  2400    2930.0            +0.1838/+0.2411            +0.7262/+0.8166            +0.7422/+0.8199            -0.6616/-0.8309
+
+written to multiplicative_design.csv

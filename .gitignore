@@ -33,3 +33,6 @@ htmlcov/
 /paper_finite_fields_maps/*.out
 /paper_finite_fields_maps/main.pdf
 /paper_finite_fields_maps/*.synctex.gz
+
+# Research search caches (regenerated on demand)
+/research/m_and_e_and_a_c/cache/
