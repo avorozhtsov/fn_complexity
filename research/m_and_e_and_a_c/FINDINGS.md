@@ -21,7 +21,9 @@ geometries can exist, because each is invariant under a group the other is not,
 and one of those invariances is itself a manifestation of the critical line.
 Separately, the geometry of `M` is now pinned exactly in the Deza–Laurent
 hierarchy: it lies in `MET \ HYP`, with a minimal negative-type violation on
-exactly five points.
+exactly five points — and that violation is quantitatively mild, the
+`l2`-distortion being `1.3375` on the worst family found and about `1.1` on
+random ones, far below the `O(log n)` a general metric may need.
 
 **Track 2 is answered positively.** The two directions of the rate against a
 linear map read different things: `C(L→f)` sees the largest fiber and nothing
@@ -164,6 +166,60 @@ at the tropical end; the threshold peaks `4×`–`199×` above `t*(d)` near
 against a violation of `5.45e−4`; it reappears only at `β_max ≳ 500`. Any
 windowed computation on these objects needs `β ~ 10³`.
 
+
+### T1.3 The failure of negative type is quantitatively mild *(computed, bracketed)*
+
+Since `d` is not of negative type it does not embed isometrically in Hilbert
+space. The `l2`-distortion measures how badly:
+
+```
+c2(d) = min over f : X -> l2 of (max stretch) x (max shrink)
+```
+
+and Bourgain's theorem gives `c2 = O(log n)` for every n-point metric, attained
+on expanders. Computing `c2` exactly is an SDP; with no solver available it was
+bracketed from both sides.
+
+* **Upper bound** — any embedding gives one. Parametrise `G = X Xᵀ`, so
+  `Q_ij = ||x_i − x_j||²`, and minimise the spread
+  `max_ij(Q_ij/d_ij²) / min_ij(Q_ij/d_ij²)`.
+* **Lower bound** — a Poincaré certificate. For symmetric `Δ` with zero row sums
+  and `Δ ⪰ 0`, and any `f`, `Σ_ij Δ_ij ||f_i − f_j||² = −2 tr(ΔF) ≤ 0` because
+  the Gram matrix `F` is PSD. Splitting `Δ` by sign off the diagonal and using
+  `d_ij² ≤ ||f_i−f_j||² ≤ D² d_ij²` gives
+  `c2² ≥ Σ_{Δ>0} Δ d² / Σ_{Δ<0} |Δ| d²`. Writing `Δ = J Y Yᵀ J` makes both
+  constraints automatic.
+
+Solver check: `c2(C₄) = √2 = 1.414214` is reproduced from both sides.
+
+| family | n | c2 lower | c2 upper | c2 / log n |
+|---|---:|---:|---:|---:|
+| **minimal certificate** | 5 | **1.337503** | **1.337774** | 0.83 |
+| random | 5 | 1.008199 | 1.008385 | 0.63 |
+| random | 8 | 1.021893 | 1.025293 | 0.49 |
+| random | 12 | 1.114059 | 1.129574 | 0.45 |
+| random | 16 | 1.102484 | 1.134143 | 0.41 |
+| random | 20 | 1.052543 | 1.126801 | 0.38 |
+| random | 25 | 1.070405 | 1.143308 | 0.36 |
+
+**The metric is almost Hilbertian.** On the minimal five-signature witness
+`c2 = 1.3375`, bracketed to `3·10⁻⁴`; on random families `c2 ≈ 1.1` and it does
+**not grow** — `c2/log n` falls monotonically from 0.63 to 0.36, so Bourgain's
+bound is nowhere near attained (at `n = 25` it would allow ≈ 3.2 against an
+observed 1.14). Greedily extending the certificate improved nothing over 60
+candidate additions, so the largest distortion seen anywhere belongs to the
+*smallest possible* witness.
+
+This agrees with T1.2 from the other direction: the certificate's PSD threshold
+is only `t* = 0.124`, while artificially hill-climbed metrics reach `t* ≈ 12–17`.
+By both measures the exchange metric is a weak violator.
+
+*Open:* whether `c2` is bounded uniformly in `n` or grows very slowly. A greedy
+search is weak evidence and `n ≤ 25` is small, though the downward trend in
+`c2/log n` is consistent.
+
+Reproduce: `analysis/l2_distortion.py`.
+
 ---
 
 ## Track 2 — what M knows about {a_c}
@@ -295,8 +351,6 @@ propagated into the paper notes.
 
 ## Open
 
-* **T1.3**, not attempted: ℓ₂-distortion of the exchange metric against
-  Bourgain's `O(log N)`.
 * Whether `S(d)` is always an interval — proved only to have finitely many gaps.
 * Smoothed test measures, to make the Weil side admissible rather than
   finite-rank truncated, and to see what survives of the `Λ` term.
