@@ -173,12 +173,13 @@ cell at every subset size and every `N`. The climb is bought entirely by shared
 entries. Where `Λ` does dominate (`O = 0`) the correlation flips sign.
 
 **Theorem A (Weil angles are scale-invariant).** `Z_{λa}(ρ) = λ^ρ Z_a(ρ)`, so
-`E_{λa,λb} = λ^{2 Re ρ} E_{a,b}`. Verified to `6e−14` while mean `d` falls
+`E_{λa,λb} = λ E_{a,b}`. Verified to `6e−14` while mean `d` falls
 0.393 → 0.151 as λ: 1 → 210.
 
-> **This step uses RH.** The factor is constant across zeros *only because every
-> `Re ρ = ½`*. Counterfactual: moving 60 of 1200 zeros to `Re = 0.7` breaks the
-> invariance from `6e−14` to **`1.3e−1`**.
+> **This step does *not* use RH** — corrected, see below. The Weil pairing puts
+> `ρ` against `1−ρ`, and `ρ + (1−ρ) = 1`, so the homogeneity degree is exactly 1
+> for *any* multiset of zeros. Scale covariance is the **functional equation**;
+> what RH controls is **positivity**. The two must not be conflated.
 
 **Theorem B (d is Cartesian-power invariant).** `log Z_{a^⊗k} = k log Z_a` gives
 `C(a^⊗k→b) = k C(a→b)` and `C(b→a^⊗k) = C(b→a)/k`, so the product — hence `d` —
@@ -289,9 +290,11 @@ observed 1.14). Greedily extending the certificate improved nothing over 60
 candidate additions, so the largest distortion seen anywhere belongs to the
 *smallest possible* witness.
 
-This agrees with T1.2 from the other direction: the certificate's PSD threshold
-is only `t* = 0.124`, while artificially hill-climbed metrics reach `t* ≈ 12–17`.
-By both measures the exchange metric is a weak violator.
+This agrees with T1.2 from the other direction: the minimal certificate's PSD
+threshold is `t* = 1.0918`, while artificially hill-climbed metrics reach
+`t* ≈ 12–17`. By both measures the exchange metric is a weak violator, though
+the gap is an order of magnitude narrower than the `0.124` reported earlier —
+that value belongs to the superseded 13-point family (`cert13`).
 
 *Open:* whether `c2` is bounded uniformly in `n` or grows very slowly. A greedy
 search is weak evidence and `n ≤ 25` is small, though the downward trend in
@@ -407,7 +410,7 @@ signatures coincide*.
 
 ## Corrections to earlier claims
 
-The research overturned five things asserted before it ran. All have been
+The research overturned six things asserted before it ran. All have been
 propagated into the paper notes.
 
 1. **The 13-signature negative-type certificate was a search artefact.** The
@@ -421,12 +424,39 @@ propagated into the paper notes.
    conic (T2.1).
 4. **`max_c(−a_c) ≠ max_c |a_c|`** at finite `q` — they agree only 50–68% of the
    time for g = 2,3,4. The rate tracks the former only (T2.1).
-5. **The CM-by-`Z[i]` prediction was false as stated.** The quartic-twist family
+5. **Scale covariance of `E` does not use RH** (T1.5/T1.6). The "this step uses
+   RH" callout was an artefact of computing `G = Σ_ρ Z_a(ρ)conj(Z_b(ρ))`, which
+   is the Weil pairing *only under RH*, and of a counterfactual that moved zeros
+   singly and so broke closure under `ρ ↦ 1−ρ`. On the pairing itself,
+   covariance is unconditional. Propagated to `exchange_positivity_and_weil.md`
+   §3b(ii).
+6. **The CM-by-`Z[i]` prediction was false as stated.** The quartic-twist family
    does not go flat at `q ≡ 3 mod 4`; it becomes exactly the split conic, and at
    `q ≡ 1 mod 4` its signature records the factorisation `a² + b² = 4q` in
    `Z[i]` rather than merely the congruence (T2.3).
 
 ---
+
+### T1.6 What the truncated `E` can and cannot detect *(computed)*
+
+Redoing the T1.5 counterfactual on the pairing rather than on its RH-form: with
+zeros placed in quadruples `½ ± δ ± iγ` (closed under both `ρ ↦ 1−ρ` and
+`ρ ↦ ρ̄`, as Weil's zero set is), `W` is covariant to `1e−12` at every `δ` while
+`G` breaks by a factor of 1319 at `λ = 210`. The observable that *does* respond
+to `δ` is positivity, and it has a threshold:
+
+| family | `Re = 0.5` | `0.6` | `0.7` | `0.8` | `0.95` | `0.99` |
+|---|---:|---:|---:|---:|---:|---:|
+| T1.4, 16 signatures | psd | psd | psd | psd | psd | psd |
+| random, 40 signatures | psd | psd | psd | **−1.1e−7** | **−6.4e−4** | **−2.4e−3** |
+
+(entries are `λ_min/‖W‖`.) **The `Re = 0.7` of the earlier counterfactual sits
+just below detection**, and the 16-signature family never detects anything.
+Since atomic measures are not admissible test functions this bounds the
+truncation, not `ζ` — but it does close the question of whether signature
+families could serve as a numerical RH probe. They cannot.
+
+Reproduce: `t1_5_scale_covariance.py`.
 
 ## Open
 
@@ -437,6 +467,10 @@ propagated into the paper notes.
   detector, given that T2.3 shows the first moment is unavailable.
 
 ## Files
+
+`A_paper_or_section.md` records the decision on brief A — Track 2 became a
+section of `paper_finite_fields_maps/main.tex` (`\label{sec:frobenius}`), not a
+standalone paper, and how the one-way-information objection is met there.
 
 Per-thread notes `T1_1`, `T1_2`, `T1_4`, `T1_5`, `T2_1`, `T2_2`, `T2_3`, with
 scripts and CSVs alongside. Zeta zeros are cached in `zeta_zeros_1200.npy` and

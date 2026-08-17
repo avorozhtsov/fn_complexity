@@ -80,6 +80,17 @@ composition of any operational exchange rates proves
 most one.  We explain what cycle geometric means can measure and why this
 no-arbitrage property does not imply positive semidefiniteness.
 
+Evaluating the same observer on fibrations of the affine plane over \(\F_q\)
+gives closed forms for both directed rates against a linear map: the forward
+rate is an endpoint rate reading the largest fiber, and the reverse rate has a
+bottleneck at the family-independent temperature \(\beta^*=\sqrt2-1\) reading
+the second moment of the Frobenius traces.  Flatness of a fiber signature is
+equivalent to a permutation-polynomial condition.  We state plainly that these
+are translations of classical statistics rather than new arithmetic: the rate
+is a function of the signature, so information flows into the matrix and not
+out of it.  What is not a translation is the list of statistics the comparison
+provably cannot read.
+
 The final sections are an outlook.  The Euler product is an exact joint
 partition function of prime occupation modes for real \(s>1\), but the
 nontrivial zeros lie outside this ordinary Gibbs regime.  Weil's Hermitian
@@ -926,6 +937,569 @@ invariant under \(\GL_n(\mathbb Z_p)\), not unrestricted
 \(\GL_n(\mathbb Q_p)\).  They are prices in a local profile model, not the
 operational affine rates above.
 
+\section{Fibrations of the affine plane over \texorpdfstring{\(\F_q\)}{Fq}}
+\label{sec:frobenius}
+
+Section~\ref{sec:signature-observer} evaluated the fiber-signature observer on
+orbit classes of quadratic maps over \(\F_3\), where the signatures are short
+and carry no arithmetic.  This section evaluates the same observer on the
+smallest family of maps whose signatures are arithmetically rich: polynomials
+\(f\in\F_q[x,y]\), read as maps \(\mathbb A^2\to\mathbb A^1\), whose fibers are
+plane curves with a genus and a point count.  Both directed rates against a
+linear map then have closed forms, and each of them reads exactly one classical
+statistic of the family.
+
+Subsection~\ref{sub:one-way} states, without softening, what that does and does
+not amount to.  A reader who wants the objection before the results should read
+it first.
+
+\subsection{Setup and notation}
+\label{sub:frobenius-setup}
+
+Fix an odd prime power \(q\) and \(f\in\F_q[x,y]\).  Write
+\[
+  N_c=\#f^{-1}(c)=\#\{(x,y)\in\F_q^2: f(x,y)=c\},
+  \qquad
+  a_c=q-N_c ,
+\]
+so \(\sigma(f)=\{N_c\}_{c\in\F_q}\) is the fiber signature of
+Section~\ref{sec:signature-observer} and \(a_c\) is the deviation of the fiber
+count from the generic value \(q\).  When the fiber over \(c\) is a smooth
+affine curve of genus \(g\) with one rational point at infinity, \(a_c\) is
+the trace of Frobenius of its smooth projective model and
+\(|a_c|\le 2g\sqrt q\) by the Riemann hypothesis for curves
+\cite{weil-courbes}.  Let
+\[
+  L=(q,q,\ldots,q)\qquad(q\text{ entries})
+\]
+be the flat signature of the linear map \(f(x,y)=x\).  It is the natural
+reference: same number of fibers and same total \(q^2\) as any \(f\), but
+perfectly even.
+
+Two elementary identities govern everything below.  First, counting the plane
+twice,
+\begin{equation}
+  \sum_{c\in\F_q}N_c=q^2
+  \qquad\Longrightarrow\qquad
+  \sum_{c\in\F_q}a_c=0
+  \label{eq:first-moment}
+\end{equation}
+\emph{identically, for every \(f\)}, the sums being over all of \(\F_q\).  The
+signature retains only the nonzero fiber sizes, so it determines \(\{a_c\}\)
+exactly when the image is full, which holds for every family considered below.
+Second, with
+\begin{equation}
+  m_2=\frac1{q^2}\sum_{c\in\F_q}a_c^2 ,
+  \label{eq:m2-def}
+\end{equation}
+the Weil bound gives \(m_2=O(g^2)\), and for a family with large geometric
+monodromy the normalized traces \(a_c/\sqrt q\) equidistribute for the trace
+law of \(USp(2g)\) \cite{katz-sarnak}, so \(m_2\to1\).  The cyclic family
+\(y^2=x^3+c\) instead has \(m_2\to2\) at \(q\equiv1\bmod3\) and \(m_2=0\) at
+\(q\equiv2\bmod3\).
+
+\begin{example}[\(f=y^2-x^3-x\) at \(q=11\)]
+Listing the fiber counts in decreasing order,
+\[
+\begin{aligned}
+  \sigma(f)&=(17,15,14,13,12,11,10,9,8,7,5), &\quad \textstyle\sum N_c&=121=q^2,\\
+  \{a_c\}&=(-6,-4,-3,-2,-1,0,1,2,3,4,6),     &\quad \textstyle\sum a_c&=0,
+\end{aligned}
+\]
+and \(\sum a_c^2=132\), so \(m_2=132/121=1.0909\ldots\)
+\end{example}
+
+\begin{remark}[Geometric irreducibility is a real hypothesis]
+\label{rem:geom-irred}
+Everything in this section that is stated at the Weil scale \(1/\sqrt q\)
+assumes every fiber is geometrically irreducible over \(\F_q\).  A fiber with
+\(r\) geometric components carries \(N\approx rq\) points, and then
+\(1-\csig(L\to f)\asymp \log r/\log q\), which swamps every Weil-scale term.
+The split conic \(f=xy\) has \(N_0=2q-1\) and is exactly this failure; the
+correct genus-zero control is \(f=x^2+y^2\) at \(q\equiv3\bmod4\), where every
+nonzero fiber is an anisotropic conic with \(a_c=-1\) and
+\(1-\csig(L\to f)=1/(q\log q)\).  For \(f=y^2-h(x)\) with \(h\) squarefree of
+odd degree the singular fibers are nodal and irreducible, which is why the
+hyperelliptic families below behave.
+\end{remark}
+
+\subsection{The forward rate is an endpoint rate}
+
+\begin{proposition}[Forward rate]
+\label{prop:forward}
+For every \(f:\mathbb A^2\to\mathbb A^1\) over \(\F_q\) with full image and not
+all fibers equal,
+\[
+  \csig(L\to f)=\frac{\log q}{\log \max_c N_c},
+\]
+and the infimum in \eqref{eq:signature-rate} is attained at \(\beta=\infty\).
+\end{proposition}
+
+\begin{proof}
+Write \(A=\log q\), \(B=\log\max_c N_c\), and note \(B>A\) because the \(N_c\)
+sum to \(q^2\) over \(q\) fibers and are not all equal.  Since
+\(Z_L(\beta)=q^{1+\beta}\) and \(Z_f(\beta)=\sum_cN_c^\beta\le q(\max_cN_c)^\beta\),
+\[
+  \frac{\log Z_L(\beta)}{\log Z_f(\beta)}
+  \ \ge\ \frac{(1+\beta)A}{A+\beta B}\ >\ \frac AB
+\]
+for every finite \(\beta\), the last inequality being exactly \(B>A\); and the
+ratio tends to \(A/B\) as \(\beta\to\infty\).
+\end{proof}
+
+So this rate sees the largest fiber and nothing else.  Verified against the
+solver of \cite{vorozhtsov-exchange} to ten decimals:
+
+\begin{center}
+\begin{tabular}{@{}rlrrl@{}}
+\toprule
+\(q\) & family & \(\max_cN_c\) & \(\csig(L\to f)\) & contact\\
+\midrule
+\(211\)  & \(g=1\), \(y^2=x^3+x+c\) & \(239\)  & \(0.9772471017\) & \(\beta=\infty\)\\
+\(211\)  & \(g=2\), \(y^2=x^5+x+c\) & \(249\)  & \(0.9699870998\) & \(\beta=\infty\)\\
+\(211\)  & \(g=3\), \(y^2=x^7+x+c\) & \(250\)  & \(0.9692829874\) & \(\beta=\infty\)\\
+\(1009\) & \(g=1\), \(y^2=x^3+x+c\) & \(1071\) & \(0.9914521108\) & \(\beta=\infty\)\\
+\(1009\) & \(g=2\), \(y^2=x^5+x+c\) & \(1102\) & \(0.9874134968\) & \(\beta=\infty\)\\
+\(1009\) & \(g=3\), \(y^2=x^7+x+c\) & \(1090\) & \(0.9889592944\) & \(\beta=\infty\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Writing \(\mu=\max_c(-a_c)/\sqrt q\), Proposition~\ref{prop:forward} gives the
+exact expansion
+\begin{equation}
+  \bigl(1-\csig(L\to f)\bigr)\sqrt q\,\log q
+  =\mu-\frac{\mu^2}{\sqrt q}\Bigl(\tfrac12+\frac1{\log q}\Bigr)+O(q^{-1}),
+  \label{eq:mu-expansion}
+\end{equation}
+so the asymptotics of the forward rate are exactly the extreme-value
+statistics of the Frobenius traces.
+
+\begin{remark}[The \(2g\) limit and the rate of approach; numerical]
+\label{rem:extreme-value}
+Under Katz--Sarnak equidistribution \(\mu\to2g\), but the approach is slow and
+its exponent is a finer invariant than \(g\).  The \(USp(2g)\) trace law has
+lower tail \(P(2g-T<\varepsilon)\sim K_g\varepsilon^{d/2}\) with
+\(d=2g^2+g=\dim USp(2g)\) --- the edge exponent is half the dimension of the
+monodromy group --- whence a deficit
+\(2g-\mu\approx\Gamma(1+2/d)\,(qK_g)^{-2/d}\).  Log--log fits over
+\(q\in[4\cdot10^3,10^6]\) for four families per genus give:
+\begin{center}
+\begin{tabular}{@{}rrrr@{}}
+\toprule
+\(g\) & fitted exponent & \(-2/(2g^2+g)\) & \(\mu\) at \(q=10^6\) (target \(2g\))\\
+\midrule
+\(2\) & \(-0.1969\) & \(-0.2000\) & \(3.684\) \ (\(4\))\\
+\(3\) & \(-0.0931\) & \(-0.0952\) & \(4.663\) \ (\(6\))\\
+\(4\) & \(-0.0583\) & \(-0.0556\) & \(4.760\) \ (\(8\))\\
+\bottomrule
+\end{tabular}
+\end{center}
+The honest reading of the last column is that the \(2g\) law is confirmed as an
+asymptotic and is numerically unreachable for \(g\ge3\): within \(10\%\) of
+\(2g\) requires \(q\approx6\cdot10^4\), \(6\cdot10^9\), \(4\cdot10^{16}\) for
+\(g=2,3,4\).  The reason is that the \(USp(2g)\) trace has variance \(1\) and
+is nearly Gaussian in the bulk for every \(g\), so the maximum of \(q\) samples
+sits near \(\sqrt{2\log q}=4.77\) at \(q=10^6\) irrespective of the genus; the
+Weil edge is felt only once \(\log q\gtrsim2g^2\).  At \(g=4\) the observed
+maximum agrees with the Gaussian prediction to three decimals and \(2g=8\)
+plays no role at all.  For \(g=1\) the deficit is not extreme-value but integer
+quantization: \(\max_c(-a_c)=\lfloor2\sqrt q\rfloor\) for essentially every
+\(q\gtrsim4000\).
+\end{remark}
+
+\subsection{The reverse rate has a universal bottleneck temperature}
+
+\begin{proposition}[Reverse rate]
+\label{prop:reverse}
+Let \(f\) have full image and \(\max_c|a_c|=O(\sqrt q)\).  Then
+\[
+  1-\csig(f\to L)
+  =\frac{m_2}{2q\log q}\,
+    \max_{\beta\ge0}\frac{\beta(1-\beta)}{\beta+1}
+  +O(q^{-3/2}),
+\]
+and the maximum is attained at the positive root of \(\beta^2+2\beta-1=0\):
+\begin{equation}
+  \beta^*=\sqrt2-1=0.414213562\ldots,
+  \qquad
+  1-\csig(f\to L)=\frac{(3-2\sqrt2)\,m_2}{2q\log q}+O(q^{-3/2}).
+  \label{eq:beta-star}
+\end{equation}
+Both constants are independent of the family, the genus and \(q\).
+\end{proposition}
+
+\begin{proof}[Derivation]
+Expand \(N_c=q(1-a_c/q)\), so that
+\[
+  \log Z_f(\beta)=(\beta+1)\log q
+  +\sum_{k\ge2}(-1)^k\binom\beta k m_k q^{-k/2}+O(q^{-2}),
+  \qquad m_k=q^{-1-k/2}\sum_ca_c^k .
+\]
+The term \(k=1\) is absent by \eqref{eq:first-moment}: this is the point at
+which the identity \(\sum_cN_c=q^2\) enters.  Dividing by
+\(\log Z_L(\beta)=(\beta+1)\log q\) gives
+\[
+  \frac{\log Z_f(\beta)}{\log Z_L(\beta)}
+  =1+\frac{\binom\beta2 m_2}{(\beta+1)\,q\log q}+O(q^{-3/2}),
+\]
+so, taking the infimum over \(\beta\) and keeping the leading term,
+\[
+  1-\csig(f\to L)
+  =\frac{m_2}{q\log q}\,\max_{\beta\ge0}\frac{-\binom\beta2}{\beta+1}
+  +O(q^{-3/2}),
+  \qquad \binom\beta2=\frac{\beta(\beta-1)}2 .
+\]
+Since \(\binom\beta2<0\) exactly on \(0<\beta<1\), the infimum is interior.
+Differentiating \(\beta(1-\beta)/(\beta+1)\) gives
+\(-(\beta^2+2\beta-1)/(\beta+1)^2\), whose positive root is \(\sqrt2-1\); the
+value there is \(3-2\sqrt2\).
+\end{proof}
+
+Measured against the solver at \(q=1009\), the observed contact temperature and
+the observed constant \((1-\csig)\cdot2q\log q/m_2\) are:
+
+\begin{center}
+\begin{tabular}{@{}rlrr@{}}
+\toprule
+\(q\) & family & observed \(\beta^*\) & observed constant\\
+\midrule
+\(1009\) & \(g=1\), \(y^2=x^3+x+c\) & \(0.414089\) & \(0.171802\)\\
+\(1009\) & \(g=2\), \(y^2=x^5+x+c\) & \(0.414128\) & \(0.171671\)\\
+\(1009\) & \(g=3\), \(y^2=x^7+x+c\) & \(0.413947\) & \(0.172101\)\\
+\midrule
+ & targets & \(0.414214\) & \(0.171573\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For \(f=y^2-x^3-x\) the leading term of \eqref{eq:beta-star} against the true
+value is \(3.548\cdot10^{-3}\) versus \(3.869\cdot10^{-3}\) at \(q=11\) (a
+\(9\%\) discrepancy, the dropped term being of order \(q^{-3/2}\approx0.027\)),
+and \(1.226\cdot10^{-5}\) versus \(1.227\cdot10^{-5}\) at \(q=1009\).
+
+The interior is not exhausted by \(m_2\).  The same expansion gives
+\(1-\csig(f\to L)=\sum_{k\ge2}c_km_k+O(q^{-2})\) with successive ratio
+\begin{equation}
+  \frac{c_{k+1}}{c_k}=-\frac{\beta^*-k}{(k+1)\sqrt q}
+  \ =\ \frac{0.5286}{\sqrt q},\ \frac{0.6464}{\sqrt q},\ \frac{0.7172}{\sqrt q},\ \ldots
+  \label{eq:moment-ladder}
+\end{equation}
+so the whole moment ladder is present, each order damped by a further
+\(\approx0.6/\sqrt q\).  Subtracting the predicted contributions of moments
+\(2,\ldots,K\) from \(1-\csig(f\to L)\) over about \(720\) hyperelliptic maps of
+genus \(1\)--\(6\) at \(q=503\) drops the residual root-mean-square from
+\(2.75\cdot10^{-5}\) to \(8.5\cdot10^{-8}\), \(5.7\cdot10^{-8}\),
+\(3.7\cdot10^{-9}\), after which it plateaus at exactly the first dropped
+nonlinear term (predicted \(3.30\cdot10^{-9}\), observed \(3.36\cdot10^{-9}\)).
+
+\subsection{The direction of information flow}
+\label{sub:one-way}
+
+The two propositions must now be read against an objection that any number
+theorist will raise on sight, and that we state in its strongest form.
+
+\begin{remark}[The reduction, stated openly]
+\label{rem:reduction}
+\(\csig(L\to f)\) is a strictly monotone function of \(\max_cN_c\), and
+\(1-\csig(f\to L)\) is, to leading order, a linear function of \(m_2\).  So the
+sentence ``the exchange rate encodes the extreme Frobenius trace and the second
+moment'' reduces on inspection to ``a monotone function of \(X\) is a function
+of \(X\)''.  More generally the rate is a function of the signature, and the
+signature is nothing but the list \(\{N_c\}\); therefore \emph{nothing the rate
+says about the arithmetic of \(f\) could fail to be computable from
+\(\{N_c\}\) directly}.  Information flows from the arithmetic into the matrix,
+not out of it.  No result in this section is a new theorem about curves over
+finite fields, and none should be advertised as one.
+\end{remark}
+
+What survives Remark~\ref{rem:reduction} is smaller, and worth stating exactly.
+
+\begin{enumerate}
+  \item \textbf{The compression is selected, not chosen.}  There are many ways
+  to compress \(\{N_c\}\) into a real number.  The point of
+  Propositions~\ref{prop:forward} and~\ref{prop:reverse} is not that
+  \(\max_cN_c\) and \(m_2\) are readable --- they are readable by definition ---
+  but that these two, and no others, are what the \emph{resource-theoretic
+  comparison against a linear map} returns.  The framework was not built with
+  Frobenius traces in view, and the statistics it selects are exactly the two
+  that the arithmetic theory already regards as fundamental.  That is a
+  consistency check on the framework, not a discovery about curves.
+
+  \item \textbf{The bottleneck constant is a fact about the comparison, and
+  carries no arithmetic.}  \(\beta^*=\sqrt2-1\) is independent of family, genus
+  and \(q\); it is where the Gibbs curve of any Hasse--Weil-normalized signature
+  makes contact with the flat one.  Its content is structural: the reverse
+  comparison of a curve fibration with a linear map is decided at one fixed
+  finite temperature, never at an endpoint, and the vanishing of the first
+  moment \eqref{eq:first-moment} is what puts it there.
+
+  \item \textbf{The negative statements are genuine statements about the
+  framework.}  Which statistics the rate provably \emph{cannot} see is not
+  computable from \(\{N_c\}\) by inspection, because it is a statement about the
+  comparison rather than about \(f\).  Subsection~\ref{sub:invisible} collects
+  them.
+
+  \item \textbf{The one route that would escape the reduction is open.}  A
+  scalar reading of a family is a reading only because \(\preccurlyeq\) happens
+  to be a total preorder on the families compared.  The comparison
+  \(a\preccurlyeq b\iff \csig(a\to b)<\csig(b\to a)\) is known to run in circles
+  for integer signatures and for homogeneous maps \(\F_3^3\to\F_3^3\)
+  \cite{vorozhtsov-exchange}.  If three families of curves over a fixed \(\F_q\)
+  cycled, then no real-valued invariant \(\varphi\) of such families could
+  satisfy \(a\preccurlyeq b\iff\varphi(a)<\varphi(b)\), and the comparison would
+  not be a function of any single number --- the one statement in this circle of
+  ideas that is not a repackaging of a classical statistic.  We have not found
+  such a cycle, and Question~\ref{q:arith-cycle} records why the present regime
+  resists one: a pair whose two rates are both attained at an endpoint is
+  ordered by the scalar
+  \(\varphi=\log(\#\text{fibers})\cdot\log(\max\text{fiber})\) and therefore
+  cannot sit on a cycle, and curve signatures are close to flat, so the interior
+  correction available to overturn a \(\varphi\)-gap is only \(O(1/(q\log q))\).
+\end{enumerate}
+
+The rest of this section is written under Remark~\ref{rem:reduction}: the
+statements are translations, and their interest is that the translation is
+exact and that the dictionary is short.
+
+\subsection{Flatness is a permutation-polynomial condition}
+
+The one place where an entry of the exchange matrix is \emph{equivalent} to a
+named arithmetic condition, rather than approximately sensitive to a statistic,
+is the degenerate case \(\csig=1\).
+
+\begin{theorem}[Flatness]
+\label{thm:flatness}
+Let \(q\) be an odd prime power and \(P\in\F_q[x]\).  For \(f(x,y)=y^2-P(x)\),
+\[
+  \csig(f\to L)=\csig(L\to f)=1
+  \quad\Longleftrightarrow\quad
+  \sigma(f)=L
+  \quad\Longleftrightarrow\quad
+  P\ \text{is a permutation polynomial of}\ \F_q .
+\]
+\end{theorem}
+
+\begin{proof}
+With \(\chi\) the quadratic character, \(a_c=-\sum_x\chi(P(x)+c)\), and
+orthogonality of \(\chi\) gives the exact identity
+\begin{equation}
+  \sum_{c}a_c^2=q\bigl(\nu(P)-q\bigr),
+  \qquad
+  \nu(P)=\#\{(x,x')\in\F_q^2:P(x)=P(x')\}.
+  \label{eq:nu-identity}
+\end{equation}
+So \(\sigma(f)=L\) iff \(\nu(P)=q\).  Writing \(n_u=\#P^{-1}(u)\) we have
+\(\sum_un_u=q\) and \(\sum_un_u^2=q\) with \(n_u\ge0\) integers, which forces
+\(n_u\in\{0,1\}\) and hence \(n_u\equiv1\).  For the first equivalence, put
+\(h(\beta)=\log Z_f(\beta)-\log Z_L(\beta)\).  Since \(\log Z_L>0\) on
+\([0,\infty]\), \(\csig(f\to L)=1\) forces \(h\ge0\) and \(\csig(L\to f)=1\)
+forces \(h\le0\); so both hold iff \(h\equiv0\), that is iff the Dirichlet
+series \(\sum_cN_c^\beta\) and \(\sum_cq^\beta\) agree identically, which
+happens iff the two multisets agree.  (The shape of \(h\) is fixed in any case:
+it is convex, vanishes at \(\beta=1\) and is \(\le0\) at \(\beta=0\), hence
+\(\le0\) on \([0,1]\) and \(\ge0\) on \([1,\infty)\).)
+\end{proof}
+
+Verified on \(2093\) pairs \((P,q)\) --- \(23\) branch polynomials against all
+\(91\) primes \(11\le q\le500\) --- with no exceptions.  The instances are
+classical \cite{lidl-finite-fields}:
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+branch map \(P\) & flat exactly when & note\\
+\midrule
+\(x^d\) & \(\gcd(d,q-1)=1\) & \(d=3\) recovers the \(q\equiv2\bmod3\) case\\
+\(D_n(x)\) (Dickson) & \(\gcd(n,q^2-1)=1\) & involves \(q+1\); \(D_5\) flat iff \(q\equiv\pm2\bmod5\)\\
+\(x^3+ax\), \(a=1,2\) & never, for \(q\le500\) & negative control\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The same argument in the other variable gives, for \(f=y^r-x^d\), flatness
+exactly when \(\min(\gcd(r,q-1),\gcd(d,q-1))=1\) --- verified on \(4368\)
+triples \((r\le7,d\le9,q\le500)\) with no exceptions --- so
+\(\csig(y^3-x^5\to L)=1\) detects \(q\not\equiv1\bmod{15}\).  The Dickson row is
+the qualitatively different one: it is a condition on \(q\) modulo \(n\) through
+\(q^2-1\), which no monomial family can produce.
+
+\begin{example}[A non-congruence entry]
+\label{ex:supersingular}
+For a fixed \(E:y^2=P(x)\) put \(f(x,y)=P(x)y^2\) and let
+\(z=\#\{x:P(x)=0\}\), \(a_E=q-\#\{(x,y):y^2=P(x)\}\).  Then exactly
+\[
+  N_0=q+z(q-1),
+  \qquad
+  N_c=q-z-\chi(c)a_E\quad(c\ne0),
+\]
+so the signature takes at most three values, and it equals that of the split
+conic \(xy\) precisely when \(z=1\) and \(a_E=0\).  Also \(z=0\) forces \(\#E(\F_q)\) odd, hence \(a_E\ne0\), so a quadratic-twist
+family is never flat.  For the non-CM curve \(y^2=x^3+x+1\) the primes
+\(q\le500\) with \(a_E=0\) are \(17,179,227\) --- the supersingular primes,
+an infinite \cite{elkies-supersingular} set of density zero
+\cite{serre-chebotarev}.  At \(17\) and \(179\) the branch cubic has a single
+root and the signature is exactly that of the split conic; at \(227\) it has
+three, and the signature is \((4q-3,(q-3)^{q-1})\).  So the exchange-matrix
+entry \(\csig(f\to xy)=\csig(xy\to f)=1\) cuts out the supersingular primes
+with \(z=1\).  That set is nonempty and of density zero, whereas by Dirichlet
+any nonempty union of admissible residue classes has positive density; so this
+entry detects a condition that provably is not a congruence, and not one the
+framework was designed to express.
+\end{example}
+
+\begin{remark}[No exotic exact values]
+Scanning \(69\,426\) ordered rates --- all pairs from a \(58\)-map structured
+pool at every prime \(11\le q\le97\) --- against every \(p/r\) with \(r\le12\)
+and every \(\log a/\log b\) with \(a,b\le24\) at tolerance \(10^{-12}\), the
+only values that persist across \(q\) are \(1\) (signature coincidence),
+\(1/2\) (which is \(\csig(f\to\text{const})\), a third equivalent form of
+flatness) and \(0\).  The arithmetic enters the exchange matrix entirely through
+\emph{which signatures coincide}, not through exotic rate values.  The reason is
+structural: an exact value needs an endpoint infimum with commensurable
+logarithms, and for maps \(\mathbb A^2\to\mathbb A^1\) the fiber counts are all
+\(q+O(\sqrt q)\) or small multiples of \(q\).
+\end{remark}
+
+\subsection{What the rate cannot see}
+\label{sub:invisible}
+
+Two invisibilities are structural rather than numerical, and they are the
+statements of this section that do not follow from inspecting \(\{N_c\}\).
+
+\begin{proposition}[The smallest fiber is not an endpoint]
+\label{prop:smallest-fiber}
+The convention \(\beta\in[0,\infty]\) of \eqref{eq:signature-rate} isolates
+\(\max_cN_c\) at \(\beta=\infty\) and \(\#\{c:N_c>0\}\) at \(\beta=0\), and has
+no endpoint isolating \(\min_cN_c\); isolating it would require \(\beta<0\),
+which is excluded because \(Z_f(\beta)\) is order-preserving in the signature
+only for \(\beta\ge0\).  Consequently \(\min_ca_c\) is recovered exactly, as an integer,
+while \(\max_ca_c\) is seen only through the \(q^{-k/2}\)-damped moments of
+\eqref{eq:moment-ladder}.
+\end{proposition}
+
+The asymmetry is sharp, and the witness also shows that the interior tangency is
+not redundant.  Among \(1600\) full-image hyperelliptic maps at \(q=211\),
+grouped by the two endpoint readouts, the closest admissible pair is
+\[
+\begin{aligned}
+  f&:\ P=(151,33,27,120,193,35,61,108,199,1), &\quad N_{\min}&=173,\\
+  g&:\ P=(200,202,15,180,196,178,98,39,4,1), &\quad N_{\min}&=167,
+\end{aligned}
+\]
+with equal image size, equal \(N_{\max}=248\) and \emph{exactly} equal
+\(m_2=0.966824644550\).  All four endpoint probes agree exactly, to the last
+bit; the interior probes separate by \(2.419\cdot10^{-7}\), against a solver
+resolution of \(10^{-13}\), and the separation is predicted in advance by the
+ladder \eqref{eq:moment-ladder} as \(c_3\Delta m_3+c_4\Delta m_4=2.32\cdot10^{-7}\)
+(agreement \(4\%\)).  The six-unit change in the smallest fiber enters only
+through the moments.
+
+\begin{proposition}[The Katz--Sarnak separating statistic is unavailable]
+\label{prop:symmetry}
+In the Katz--Sarnak classification the low moment that separates orthogonal from
+symplectic symmetry is the first: \(\int\operatorname{tr}=0\) for \(U\), \(USp\)
+and \(SO(\text{even})\) but \(\pm1\) for the odd orthogonal cases, whereas
+\(\int\operatorname{tr}^2=1\) for symplectic and orthogonal alike
+\cite{katz-sarnak}.  By \eqref{eq:first-moment} the first moment of \(\{a_c\}\)
+vanishes identically for every fibration of \(\mathbb A^2\).  So the statistic
+that would separate the symmetry types is identically zero for every resource in
+this class, and the next one available, \(m_2\), takes the same value for both;
+no exchange rate against any reference reads symmetry type at leading order at a
+single \(q\).
+\end{proposition}
+
+This is the same identity \(\sum_cN_c=q^2\) that makes the framework work, so
+the obstruction is intrinsic rather than a limitation of the reference family
+chosen.  Symmetry type reappears only as a statement about
+an ensemble: for a quadratic-twist family \(m_2=(1-1/q)a_E^2/q\) exactly, so
+\(1-\csig(f\to L)\) fluctuates over \(q\) with the Sato--Tate law (over the
+\(100\) primes \(q<2000\) with \(z=0\) for \(y^2=x^3+x+1\), mean \(0.844\),
+standard deviation \(0.901\) against Sato--Tate values \(1\) and \(1\)), whereas
+a large-monodromy family gives \(m_2=0.9969\pm0.0035\) --- deterministic.
+
+What \emph{is} visible beyond the genus is the monodromy rank.  By
+\eqref{eq:nu-identity}, \(m_2=\nu(P)/q-1\) exactly, and \(\nu(P)/q\) converges
+to the number of orbits of the geometric monodromy group of \(P\) on ordered
+pairs.  At \(q=601\):
+
+\begin{center}
+\begin{tabular}{@{}llrr@{}}
+\toprule
+\(P\) & monodromy & rank & \(m_2\)\\
+\midrule
+\(x^3\) & cyclic \(\mathbb Z/3\) & \(3\) & \(1.9967\)\\
+\(x^5\) & cyclic \(\mathbb Z/5\) & \(5\) & \(3.9933\)\\
+\(D_5\) & dihedral & \(3\) & \(1.9834\)\\
+random of degree \(5\) & \(S_5\) & \(2\) & \(0.9617\)\\
+random of degree \(6\) & \(S_6\) & \(2\) & \(0.9750\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Rank \(2\) means \(2\)-transitive monodromy and gives \(m_2=1\) at
+\emph{every} genus, so \(m_2\) is a monodromy invariant independent of the
+genus.  At reachable \(q\) it is by far the sharper of the two readings: at
+\(q=421\) the \(m_2\) reading is exact to three or four digits, while
+Remark~\ref{rem:extreme-value} shows the genus reading does not resolve
+\(g=2,3,4\) at all.  The two readings are also genuinely two-dimensional data:
+across a panel of \(13\) families they order the families differently in \(10\)
+of \(13\) positions at \(q=421\) and \(12\) of \(13\) at \(q=601\).
+
+\begin{remark}[Signature collisions are structural]
+Among \(400\) random elliptic fibrations \(y^2=P_3(x)+c\) there are only
+\(\gcd(4,q-1)+1\) distinct signatures --- \(5\) at \(q=101\), \(3\) at
+\(q=211,503\) --- because \(x\mapsto u^2x\), \(y\mapsto u^3y\),
+\(c\mapsto u^6c\) shows the signature depends only on the quartic twist class.
+From genus \(2\) up, \(398\)--\(400\) of \(400\) random maps have distinct
+signatures.  The rate cannot separate two members of one twist class, but that
+is a property of the signature, not a failure of the rate.
+\end{remark}
+
+\subsection{The partition function at integer temperature is a point count}
+\label{sub:fiber-powers}
+
+One identity deserves separate mention because it connects this section to the
+next.  For \(f:X\to Y\) a map of finite sets and \(k\) a positive integer,
+\begin{equation}
+  Z_f(k)=\sum_{y}\bigl(\#f^{-1}(y)\bigr)^k
+  =\#\bigl(X\times_YX\times_Y\cdots\times_YX\bigr)
+  \qquad(k\ \text{factors}),
+  \label{eq:fiber-power}
+\end{equation}
+so the partition function of the signature observer, evaluated at an integer
+temperature, is the number of \(\F_q\)-points of the \(k\)-fold fiber power.
+In particular, for \(f:\mathbb A^2\to\mathbb A^1\),
+\[
+  Z_f(2)=q^3+q^2m_2,
+  \qquad\text{that is}\qquad
+  m_2=\frac{Z_f(2)}{q^2}-q,
+\]
+so the second moment is not an auxiliary statistic attached to the rate: it is
+the partition function itself at \(\beta=2\).  The fiber square \(X\times_YX\)
+is a threefold, and by Lang--Weil its leading term \(q^3\) records that it has
+one geometric component; \(m_2\) is exactly the normalized secondary term, which
+is the same place the Frobenius traces live.  Thus for these resources the Gibbs
+variable \(\beta\) has a geometric meaning at the integers, and its extension to
+real \(\beta\) --- which is what the infimum in \eqref{eq:signature-rate}
+actually uses --- interpolates between point counts of fiber powers.  This is the
+closest the present framework comes to the zeta-function picture taken up in
+Section~\ref{sec:zeta-gibbs}, and it is worth being precise about how close: it
+is an interpolation of counts, with no functional equation, no Euler product,
+and no zeros.
+
+\begin{remark}[Provenance]
+Propositions~\ref{prop:forward}, \ref{prop:reverse}, \ref{prop:smallest-fiber},
+\ref{prop:symmetry} and Theorem~\ref{thm:flatness} are proved above.  The
+numbers in Remark~\ref{rem:extreme-value}, the moment-ladder residuals, the
+monodromy table and the collision census are computations, re-verified against
+the independent solver of \cite{vorozhtsov-exchange} at a precision of
+\(10^{-13}\); they are reported as computations.  A grid truncated below
+\(\beta\approx500\) can hide interior structure on these objects entirely, so
+every contact temperature quoted here was confirmed on a dense grid to
+\(\beta\sim10^3\).
+\end{remark}
+
 \section{Prime modes and the zeta partition function}
 \label{sec:zeta-gibbs}
 
@@ -1257,6 +1831,12 @@ from the affine operational rate\\[2pt]
 cycle return & cycle means and max--plus algorithms are classical & apply them
 to map-class exchange matrices as round-trip-loss and observer-resolution
 diagnostics\\[2pt]
+signature rates of curve fibrations & the extreme trace, the second moment,
+permutation polynomials, and the \(USp(2g)\) edge law are classical & no new
+arithmetic: the rates are monotone functions of statistics already studied, and
+we say so (Remark~\ref{rem:reduction}).  Offered instead: the closed forms, the
+family-independent bottleneck \(\beta^*=\sqrt2-1\), and two invisibility
+statements that are about the comparison, not the curves\\[2pt]
 zeta as partition function & Euler product and Bost--Connes are classical &
 place the prime-mode Gibbs picture next to map profiles and show exactly where
 the analogy ceases to be an ordinary Gibbs system\\[2pt]
@@ -1301,6 +1881,24 @@ For which processor categories does a uniform gap
 \(r(\mathcal C)\le1-\varepsilon\) over all nontrivial cycles characterize an
 asymptotic separation of equivalence classes?  When does a cycle mean of one
 imply asymptotic reversibility rather than merely a coarse observer?
+\end{question}
+
+\begin{question}[A cycle among arithmetic families]
+\label{q:arith-cycle}
+Do three families of plane-curve fibrations over a fixed \(\F_q\) ever satisfy
+\(f_1\prec f_2\prec f_3\prec f_1\) for the signature comparison
+\(a\prec b\iff\csig(a\to b)<\csig(b\to a)\)?  If both rates of a pair are
+attained at an endpoint then \(a\prec b\iff\varphi(a)<\varphi(b)\) with
+\(\varphi=\log(\#\text{fibers})\cdot\log(\max\text{fiber})\), so the comparison
+is a total preorder there and no cycle is possible; a cycle therefore needs a
+pair on which an interior tangency overturns \(\varphi\), and for curve
+fibrations the interior correction is only \(O(1/(q\log q))\).  A positive
+answer would show that the comparison of arithmetic families is not a function
+of any single real invariant, which is the one statement in
+Section~\ref{sec:frobenius} that would not be a repackaging of a classical
+statistic (Remark~\ref{rem:reduction}).  A negative answer should be
+quantitative: how large an interior correction is needed to overturn a typical
+\(\varphi\)-gap?
 \end{question}
 
 \begin{question}[Functorial zeta profiles]
@@ -1444,7 +2042,11 @@ main regeneration commands are:
   \item \path{cli/homogeneous_tensor_poset_cli} for the homogeneous cases;
   \item \path{cli/cubic_map_poset_cli} for the cubic processor comparisons;
   \item \path{analysis/polynomial_map_exchange_examples.py} for the exchange
-  matrices and cycle means used here.
+  matrices and cycle means used here;
+  \item \path{analysis/frobenius_bottleneck.py} and\\
+  \path{analysis/frobenius_exchange_rates.py} for the closed forms, the
+  bottleneck temperature, and the flatness check of
+  Section~\ref{sec:frobenius}.
 \end{itemize}
 
 \begingroup
@@ -1496,6 +2098,30 @@ Cambridge University Press, 1997.
 J.-P. Serre,
 \emph{A Course in Arithmetic},
 Graduate Texts in Mathematics 7, Springer, 1973.
+
+\bibitem{weil-courbes}
+A.~Weil,
+\emph{Sur les courbes alg\'ebriques et les vari\'et\'es qui s'en d\'eduisent},
+Actualit\'es Sci. Ind. 1041, Hermann, Paris, 1948.
+
+\bibitem{katz-sarnak}
+N.~M. Katz and P.~Sarnak,
+\emph{Random Matrices, Frobenius Eigenvalues, and Monodromy},
+American Mathematical Society Colloquium Publications 45,
+American Mathematical Society, 1999.
+
+\bibitem{elkies-supersingular}
+N.~D. Elkies,
+The existence of infinitely many supersingular primes for every elliptic curve
+over \(\Q\),
+\emph{Invent. Math.} \textbf{89} (1987), 561--567,
+\url{https://doi.org/10.1007/BF01388985}.
+
+\bibitem{serre-chebotarev}
+J.-P. Serre,
+Quelques applications du th\'eor\`eme de densit\'e de Chebotarev,
+\emph{Publ. Math. Inst. Hautes \'Etudes Sci.} \textbf{54} (1981), 123--201,
+\url{https://doi.org/10.1007/BF02698692}.
 
 \bibitem{karp-cycle-mean}
 R.~M. Karp,

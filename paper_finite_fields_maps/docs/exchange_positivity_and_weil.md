@@ -427,18 +427,28 @@ relation between the two geometries is *impossible*. Each is invariant under a
 group the other is not.
 
 * **The Weil angle is invariant under \(a\mapsto\lambda a\).** Since
-  \(Z_{\lambda a}(\rho)=\lambda^\rho Z_a(\rho)\), one has
-  \(E_{\lambda a,\lambda b}=\lambda^{2\Re\rho}E_{a,b}\), and the factor is
-  *constant across zeros only because every \(\Re\rho=\tfrac12\)*. Verified to
-  \(6\cdot10^{-14}\); moving \(60\) of \(1200\) zeros to \(\Re=0.7\) breaks it
-  to \(1.3\cdot10^{-1}\). **The scale-invariance of the Weil geometry is a
-  manifestation of the critical line.**
+  \(Z_{\lambda a}(\rho)=\lambda^\rho Z_a(\rho)\) and the pairing puts \(\rho\)
+  against \(1-\rho\), one has \(E_{\lambda a,\lambda b}=\lambda E_{a,b}\),
+  verified to \(6\cdot10^{-14}\).
+
+  > **This is the functional equation, not the Riemann hypothesis.** The
+  > homogeneity degree is \(\rho+(1-\rho)=1\) for *any* multiset of zeros, so
+  > covariance is unconditional; an earlier version of this bullet claimed the
+  > opposite, on the strength of a counterfactual that measured
+  > \(G_{ab}=\sum_\rho\widehat g_a(\rho)\overline{\widehat g_b(\rho)}\) — which
+  > equals the pairing only under RH — and that moved zeros singly, breaking
+  > closure under \(\rho\mapsto1-\rho\). Redone on the pairing with quadruples
+  > \(\tfrac12\pm\delta\pm i\gamma\), covariance survives to \(10^{-12}\) at
+  > \(\Re\rho=0.99\). **Scale covariance is the functional equation; positivity
+  > is RH.** Record: `research/m_and_e_and_a_c/t1_5_scale_covariance.py`.
 * **The exchange metric is invariant under \(a\mapsto a^{\otimes k}\)**, since
   \(u_{a^{\otimes k}}=u_a+\log k\) is a constant shift and \(d\) is an
   oscillation. Verified to \(2.5\cdot10^{-16}\).
 
 Under a common rescaling \(d\) moves while the angles do not; under Cartesian
-powers the angles move while \(d\) does not. Hence neither is a function of the
+powers the angles move while \(d\) does not. (The impossibility argument is
+unaffected by the correction above: it needs only that the two invariance groups
+are transverse, and both invariances are unconditional.) Hence neither is a function of the
 other, and any correlation between them is an artefact of the family chosen.
 Research record: `research/m_and_e_and_a_c/T1_5_multiplicative_design.md`. There is no map carrying \(E\) to \(G\) or back: they are attached
 to different semirings, and no property of \(E\) is expressible through \(G\).
