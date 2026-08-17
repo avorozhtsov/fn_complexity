@@ -257,13 +257,28 @@ def _diagram_layout(q: int) -> tuple[dict[str, tuple[int, int]], tuple[str, ...]
     )
 
 
-def render_quadratic_map_poset_svg(q: int, output: Path) -> Path:
-    """Write a dependency-free SVG Hasse diagram for one prime-power order."""
+def render_quadratic_map_poset_svg(
+    q: int,
+    output: Path,
+    *,
+    show_titles: bool = True,
+) -> Path:
+    """Write a dependency-free SVG Hasse diagram for one prime-power order.
+
+    ``show_titles`` controls the visible three-line heading. Accessibility
+    metadata is retained in either mode.
+    """
 
     classes = {item.key: item for item in quadratic_map_classes(q)}
     covers = quadratic_map_covers(q)
     positions, node_order = _diagram_layout(q)
     width, height = 1200, 875
+    if not show_titles:
+        header_height = 130
+        height -= header_height
+        positions = {
+            key: (x, y - header_height) for key, (x, y) in positions.items()
+        }
     node_width, node_height = 256, 112
 
     def node_markup(key: str) -> str:
@@ -321,6 +336,18 @@ def render_quadratic_map_poset_svg(q: int, output: Path) -> Path:
     field = _field_label(q)
     map_count = quadratic_map_count(q)
     count_label = "polynomial functions" if q == 2 else "coefficient vectors"
+    visible_header = ""
+    if show_titles:
+        visible_header = f'''  <text class="title" x="600" y="48" text-anchor="middle">
+    Quadratic maps {field}² → {field}
+  </text>
+  <text class="subtitle" x="600" y="78" text-anchor="middle">
+    affine-equivalence classes and singular-processor degenerations
+  </text>
+  <text class="legend" x="600" y="111" text-anchor="middle">
+    arrow: resource → implementable degeneration · {map_count:,} {count_label}
+  </text>
+'''
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}"
      viewBox="0 0 {width} {height}" role="img"
      aria-labelledby="title description">
@@ -346,15 +373,7 @@ def render_quadratic_map_poset_svg(q: int, output: Path) -> Path:
     </style>
   </defs>
   <rect width="{width}" height="{height}" fill="#ffffff"/>
-  <text class="title" x="600" y="48" text-anchor="middle">
-    Quadratic maps {field}² → {field}
-  </text>
-  <text class="subtitle" x="600" y="78" text-anchor="middle">
-    affine-equivalence classes and singular-processor degenerations
-  </text>
-  <text class="legend" x="600" y="111" text-anchor="middle">
-    arrow: resource → implementable degeneration · {map_count:,} {count_label}
-  </text>
+{visible_header}
   {edges}
   {nodes}
 </svg>

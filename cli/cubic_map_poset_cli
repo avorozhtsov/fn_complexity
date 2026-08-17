@@ -48,6 +48,12 @@ def parse_args() -> argparse.Namespace:
         default=PROJECT_ROOT / "paper_finite_fields_maps" / "images",
         help="directory for generated SVGs",
     )
+    parser.add_argument(
+        "--titles",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="include the visible graph heading (default: titles)",
+    )
     return parser.parse_args()
 
 
@@ -57,7 +63,7 @@ def main() -> int:
         if args.case != "quadratic":
             raise SystemExit("q=8 currently requires --case quadratic")
         output = args.output_dir / "cubic-map-poset-q8-quadratic-input.svg"
-        render_cubic_q8_quadratic_poset_svg(output)
+        render_cubic_q8_quadratic_poset_svg(output, show_titles=args.titles)
         print("case\tmaps\tclasses\toutput")
         print(
             f"quadratic\t{cubic_q8_map_count()}\t"
@@ -73,7 +79,11 @@ def main() -> int:
             args.output_dir
             / f"cubic-map-poset-q3-{processor_case}-input.svg"
         )
-        render_cubic_q3_poset_svg(processor_case, output)
+        render_cubic_q3_poset_svg(
+            processor_case,
+            output,
+            show_titles=args.titles,
+        )
         print(
             f"{processor_case}\t{cubic_q3_map_count()}\t"
             f"{len(cubic_q3_classes(processor_case))}\t{output}"

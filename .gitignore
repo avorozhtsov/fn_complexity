@@ -25,3 +25,11 @@ htmlcov/
 /paper_exchange_rate/*.pdf
 !/paper_exchange_rate/exchange_rates_finite_map_signatures.pdf
 /paper_exchange_rate/*.synctex.gz
+
+/paper_finite_fields_maps/*.aux
+/paper_finite_fields_maps/*.fdb_latexmk
+/paper_finite_fields_maps/*.fls
+/paper_finite_fields_maps/*.log
+/paper_finite_fields_maps/*.out
+/paper_finite_fields_maps/main.pdf
+/paper_finite_fields_maps/*.synctex.gz

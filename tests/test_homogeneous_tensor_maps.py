@@ -101,6 +101,28 @@ class HomogeneousTensorPosetTests(unittest.TestCase):
             self.assertIn("1\t729\t5\t5", result.stdout)
             self.assertIn("6\t205891132094649\t>=1632040\tN/A", result.stdout)
 
+    def test_cli_can_omit_visible_titles(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            subprocess.run(
+                [
+                    str(CLI),
+                    "1",
+                    "--no-titles",
+                    "--output-dir",
+                    temporary_directory,
+                ],
+                cwd=PROJECT_ROOT,
+                text=True,
+                capture_output=True,
+                check=True,
+            )
+            svg = (
+                Path(temporary_directory)
+                / "homogeneous-tensor-poset-q3-case1-quadratic-ternary-form.svg"
+            ).read_text(encoding="utf-8")
+            self.assertNotIn("Quadratic ternary forms over F₃", svg)
+            self.assertNotIn("5 classes · 5 Hasse covers", svg)
+
 
 if __name__ == "__main__":
     unittest.main()

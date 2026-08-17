@@ -302,7 +302,12 @@ def _edge_markup(
     )
 
 
-def render_cubic_q3_poset_svg(processor_case: str, output: Path) -> Path:
+def render_cubic_q3_poset_svg(
+    processor_case: str,
+    output: Path,
+    *,
+    show_titles: bool = True,
+) -> Path:
     """Render one of the two cubic-map Hasse diagrams as dependency-free SVG."""
 
     classes = {item.key: item for item in cubic_q3_classes(processor_case)}
@@ -365,6 +370,13 @@ def render_cubic_q3_poset_svg(processor_case: str, output: Path) -> Path:
             "quadratic-input reductions. The classes form a chain."
         )
 
+    if not show_titles:
+        header_height = 130
+        height -= header_height
+        positions = {
+            key: (x, y - header_height) for key, (x, y) in positions.items()
+        }
+
     outgoing: dict[str, list[str]] = {key: [] for key in positions}
     for source, target in covers:
         outgoing[source].append(target)
@@ -387,6 +399,18 @@ def render_cubic_q3_poset_svg(processor_case: str, output: Path) -> Path:
         "arrow: resource → implementable degeneration · "
         f"{cubic_q3_map_count():,} polynomial functions"
     )
+    visible_header = ""
+    if show_titles:
+        visible_header = f'''  <text class="title" x="{width / 2:g}" y="48" text-anchor="middle">
+    {escape(title)}
+  </text>
+  <text class="subtitle" x="{width / 2:g}" y="78" text-anchor="middle">
+    {escape(subtitle)}
+  </text>
+  <text class="legend" x="{width / 2:g}" y="108" text-anchor="middle">
+    {escape(legend)}
+  </text>
+'''
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}"
      viewBox="0 0 {width} {height}" role="img"
      aria-labelledby="title description">
@@ -415,15 +439,7 @@ def render_cubic_q3_poset_svg(processor_case: str, output: Path) -> Path:
     </style>
   </defs>
   <rect width="{width}" height="{height}" fill="#ffffff"/>
-  <text class="title" x="{width / 2:g}" y="48" text-anchor="middle">
-    {escape(title)}
-  </text>
-  <text class="subtitle" x="{width / 2:g}" y="78" text-anchor="middle">
-    {escape(subtitle)}
-  </text>
-  <text class="legend" x="{width / 2:g}" y="108" text-anchor="middle">
-    {escape(legend)}
-  </text>
+{visible_header}
   {edges}
   {nodes}
 </svg>
@@ -544,7 +560,11 @@ def cubic_q8_generated_class_count() -> int:
     return sum(item.class_count for item in CUBIC_Q8_QUADRATIC_CLASSES)
 
 
-def render_cubic_q8_quadratic_poset_svg(output: Path) -> Path:
+def render_cubic_q8_quadratic_poset_svg(
+    output: Path,
+    *,
+    show_titles: bool = True,
+) -> Path:
     """Render the compressed 110-element Hasse diagram using Graphviz."""
 
     if sum(item.total_size for item in CUBIC_Q8_QUADRATIC_CLASSES) != cubic_q8_map_count():
@@ -583,11 +603,19 @@ def render_cubic_q8_quadratic_poset_svg(output: Path) -> Path:
     ranks = "\n".join(
         "  { rank=same; " + "; ".join(level) + "; }" for level in levels
     )
+    graph_title = ""
+    if show_titles:
+        graph_title = (
+            '         label="Cubic maps F₈² → F₈ · quadratic input processors\\n'
+            '110 generated-preorder classes · 23 boxes after grouping order '
+            'twins",\n'
+            '         labelloc="t", labeljust="c", fontsize="24", '
+            'fontname="Arial",\n'
+        )
     dot = f'''digraph cubic_q8_quadratic {{
   graph [rankdir=TB, bgcolor="white", pad="0.24", nodesep="0.20",
          ranksep="0.72 equally", splines="polyline",
-         label="Cubic maps F₈² → F₈ · quadratic input processors\n110 generated-preorder classes · 23 boxes after grouping order twins",
-         labelloc="t", labeljust="c", fontsize="24", fontname="Arial"];
+{graph_title}         fontname="Arial"];
   node [shape=box, style="rounded,filled", penwidth="1.7",
         fontname="Arial", margin="0.08,0.05"];
   edge [color="#64748b99", penwidth="1.25", arrowsize="0.68"];

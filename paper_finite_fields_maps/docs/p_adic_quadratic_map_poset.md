@@ -47,7 +47,7 @@ Every class has continuum cardinality. The node labels therefore also give
 the \(2\)-adic analytic orbit dimension inside the six-dimensional coefficient
 space.
 
-![Degeneration poset for quadratic maps over the 2-adic numbers](../images/quadratic-map-poset-Q2.svg)
+![Degeneration poset for quadratic maps over the 2-adic numbers](../images/quadratic-map-poset-q2-adic.svg)
 
 The SVG is deliberately static and is not overwritten by the finite-field CLI.
 

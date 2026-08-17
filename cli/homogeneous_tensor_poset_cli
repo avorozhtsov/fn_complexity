@@ -42,6 +42,12 @@ def parse_args() -> argparse.Namespace:
         default=PROJECT_ROOT / "paper_finite_fields_maps" / "images",
         help="directory for generated SVGs",
     )
+    parser.add_argument(
+        "--titles",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="include the visible graph heading (default: titles)",
+    )
     return parser.parse_args()
 
 
@@ -62,7 +68,11 @@ def main() -> int:
             if case4_orbits is None:
                 case4_orbits = len(compute_tensor_poset(4).orbits)
             exact_rank1_orbits = case4_orbits - 1
-            render_case6_scale_svg(output, exact_rank1_orbits)
+            render_case6_scale_svg(
+                output,
+                exact_rank1_orbits,
+                show_titles=args.titles,
+            )
             minima = minimum_orbit_counts_for_case6()
             minimum_classes = minima[3] + minima[2] + exact_rank1_orbits + 1
             print(
@@ -73,7 +83,7 @@ def main() -> int:
         poset = compute_tensor_poset(case_number)
         if case_number == 4:
             case4_orbits = len(poset.orbits)
-        render_tensor_poset_svg(poset, output)
+        render_tensor_poset_svg(poset, output, show_titles=args.titles)
         print(
             f"{case_number}\t{case.tensor_count}\t{len(poset.orbits)}\t"
             f"{len(poset.covers)}\t{output}"

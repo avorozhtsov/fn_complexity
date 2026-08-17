@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="875"
-     viewBox="0 0 1200 875" role="img"
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="745"
+     viewBox="0 0 1200 745" role="img"
      aria-labelledby="title description">
   <title id="title">Cubic maps F₃² → F₃ · quadratic input processors</title>
   <desc id="description">Three mutual-reachability classes in the transitive closure of quadratic-input reductions. The classes form a chain.</desc>
@@ -25,16 +25,8 @@
       .legend { fill: #475569; font: 15px Inter, ui-sans-serif, system-ui, sans-serif; }
     </style>
   </defs>
-  <rect width="1200" height="875" fill="#ffffff"/>
-  <text class="title" x="600" y="48" text-anchor="middle">
-    Cubic maps F₃² → F₃ · quadratic input processors
-  </text>
-  <text class="subtitle" x="600" y="78" text-anchor="middle">
-    poset of the generated preorder · linear output processors
-  </text>
-  <text class="legend" x="600" y="108" text-anchor="middle">
-    arrow: resource → implementable degeneration · 6,561 polynomial functions
-  </text>
-  <path class="edge" d="M 600 293 C 600 370.76, 600 370.76, 600 437" marker-end="url(#arrow-default)"/><path class="edge" d="M 600 563 C 600 629.96, 600 629.96, 600 687" marker-end="url(#arrow-default)"/>
-  <g class="node surjective" transform="translate(600 235)"><rect x="-195" y="-58" width="390" height="116" rx="17" fill="#9333ea" fill-opacity="0.10" stroke="#9333ea" stroke-width="2.5"/><text class="form" x="0" y="-22">x</text><text class="kind" x="0" y="3">all surjective cubic functions · image size 3</text><text class="size" x="0" y="33">|class| = 6,054</text></g><g class="node two-valued" transform="translate(600 505)"><rect x="-195" y="-58" width="390" height="116" rx="17" fill="#2563eb" fill-opacity="0.10" stroke="#2563eb" stroke-width="2.5"/><text class="form" x="0" y="-22">x²</text><text class="kind" x="0" y="3">all two-valued cubic functions · fibers 6+3</text><text class="size" x="0" y="33">|class| = 504</text></g><g class="node constant" transform="translate(600 755)"><rect x="-195" y="-58" width="390" height="116" rx="17" fill="#64748b" fill-opacity="0.10" stroke="#64748b" stroke-width="2.5"/><text class="form" x="0" y="-22">0</text><text class="kind" x="0" y="3">constant functions · image size 1</text><text class="size" x="0" y="33">|class| = 3</text></g>
+  <rect width="1200" height="745" fill="#ffffff"/>
+
+  <path class="edge" d="M 600 163 C 600 240.76, 600 240.76, 600 307" marker-end="url(#arrow-default)"/><path class="edge" d="M 600 433 C 600 499.96, 600 499.96, 600 557" marker-end="url(#arrow-default)"/>
+  <g class="node surjective" transform="translate(600 105)"><rect x="-195" y="-58" width="390" height="116" rx="17" fill="#9333ea" fill-opacity="0.10" stroke="#9333ea" stroke-width="2.5"/><text class="form" x="0" y="-22">x</text><text class="kind" x="0" y="3">all surjective cubic functions · image size 3</text><text class="size" x="0" y="33">|class| = 6,054</text></g><g class="node two-valued" transform="translate(600 375)"><rect x="-195" y="-58" width="390" height="116" rx="17" fill="#2563eb" fill-opacity="0.10" stroke="#2563eb" stroke-width="2.5"/><text class="form" x="0" y="-22">x²</text><text class="kind" x="0" y="3">all two-valued cubic functions · fibers 6+3</text><text class="size" x="0" y="33">|class| = 504</text></g><g class="node constant" transform="translate(600 625)"><rect x="-195" y="-58" width="390" height="116" rx="17" fill="#64748b" fill-opacity="0.10" stroke="#64748b" stroke-width="2.5"/><text class="form" x="0" y="-22">0</text><text class="kind" x="0" y="3">constant functions · image size 1</text><text class="size" x="0" y="33">|class| = 3</text></g>
 </svg>

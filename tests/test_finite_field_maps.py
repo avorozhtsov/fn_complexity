@@ -218,8 +218,9 @@ class QuadraticMapPosetTests(unittest.TestCase):
                 (16, "|class| = 8,355,840", 7, 11),
             )
             for q, expected_size, node_count, edge_count in cases:
+                stem = "F2" if q == 2 else f"q{q}"
                 svg = (
-                    Path(temporary_directory) / f"quadratic-map-poset-q{q}.svg"
+                    Path(temporary_directory) / f"quadratic-map-poset-{stem}.svg"
                 ).read_text(encoding="utf-8")
                 self.assertIn("<svg", svg)
                 field = "F" + str(q).translate(
@@ -239,6 +240,30 @@ class QuadraticMapPosetTests(unittest.TestCase):
         )
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("prime power", result.stderr)
+
+    def test_cli_can_omit_visible_titles(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            subprocess.run(
+                [
+                    str(CLI),
+                    "3",
+                    "--no-titles",
+                    "--output-dir",
+                    temporary_directory,
+                ],
+                cwd=PROJECT_ROOT,
+                text=True,
+                capture_output=True,
+                check=True,
+            )
+            svg = (
+                Path(temporary_directory) / "quadratic-map-poset-q3.svg"
+            ).read_text(encoding="utf-8")
+            self.assertNotIn('<text class="title"', svg)
+            self.assertNotIn('<text class="subtitle"', svg)
+            self.assertNotIn('<text class="legend"', svg)
+            self.assertIn('<title id="title">', svg)
+            self.assertIn('height="745"', svg)
 
     def test_manual_real_and_complex_diagrams(self):
         cases = {
@@ -331,7 +356,12 @@ class CubicMapPosetTests(unittest.TestCase):
     def test_cubic_cli_generates_both_svg_diagrams(self):
         with tempfile.TemporaryDirectory() as temporary_directory:
             result = subprocess.run(
-                [str(CUBIC_CLI), "--output-dir", temporary_directory],
+                [
+                    str(CUBIC_CLI),
+                    "--no-titles",
+                    "--output-dir",
+                    temporary_directory,
+                ],
                 cwd=PROJECT_ROOT,
                 text=True,
                 capture_output=True,
@@ -353,6 +383,7 @@ class CubicMapPosetTests(unittest.TestCase):
                 self.assertEqual(svg.count('class="node '), node_count)
                 self.assertEqual(svg.count('class="edge'), edge_count)
                 self.assertIn(size_label, svg)
+                self.assertNotIn('<text class="title"', svg)
 
     def test_q8_quadratic_input_class_sizes_partition_all_maps(self):
         self.assertEqual(cubic_q8_map_count(), 1_073_741_824)
@@ -394,6 +425,7 @@ class CubicMapPosetTests(unittest.TestCase):
                     "8",
                     "--case",
                     "quadratic",
+                    "--no-titles",
                     "--output-dir",
                     temporary_directory,
                 ],
@@ -412,6 +444,7 @@ class CubicMapPosetTests(unittest.TestCase):
             self.assertEqual(svg.count('class="node"'), 23)
             self.assertEqual(svg.count('class="edge"'), 57)
             self.assertIn("24 classes × 12,644,352 each", svg)
+            self.assertNotIn("110 generated-preorder classes", svg)
 
 
 if __name__ == "__main__":

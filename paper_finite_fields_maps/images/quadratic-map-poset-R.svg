@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="950"
-     viewBox="0 0 1200 950" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820"
+     viewBox="0 130 1200 820" role="img" aria-labelledby="title description">
   <title id="title">Quadratic-map degeneration poset over the real numbers</title>
   <desc id="description">Six affine-equivalence classes of quadratic maps from
   R squared to R. Arrows point downward along singular-processor degenerations.
@@ -23,16 +23,6 @@
     </style>
   </defs>
   <rect width="1200" height="950" fill="#ffffff"/>
-  <text class="title" x="600" y="48" text-anchor="middle">
-    Quadratic maps ℝ² → ℝ
-  </text>
-  <text class="subtitle" x="600" y="78" text-anchor="middle">
-    affine-equivalence classes and singular-processor degenerations
-  </text>
-  <text class="legend" x="600" y="111" text-anchor="middle">
-    arrow: resource → implementable degeneration · 𝔠 = continuum
-  </text>
-
   <path class="edge" d="M 140 316 C 140 390, 350 390, 350 464"
         marker-end="url(#arrow)"/>
   <path class="edge" d="M 220 316 C 220 390, 767 390, 767 464"

@@ -615,7 +615,12 @@ def _graphviz_svg(dot: str, output: Path, *, balance: bool = False) -> Path:
     return output
 
 
-def render_tensor_poset_svg(poset: TensorPoset, output: Path) -> Path:
+def render_tensor_poset_svg(
+    poset: TensorPoset,
+    output: Path,
+    *,
+    show_titles: bool = True,
+) -> Path:
     """Render one exact case-1-through-case-5 Hasse diagram."""
 
     nodes = []
@@ -636,11 +641,19 @@ def render_tensor_poset_svg(poset: TensorPoset, output: Path) -> Path:
       <TR><TD><FONT POINT-SIZE="13"><B>|class| = {orbit.size:,}</B></FONT></TD></TR>
     </TABLE>>];''')
     edges = "\n".join(f"  {source} -> {target};" for source, target in poset.covers)
+    graph_title = ""
+    if show_titles:
+        graph_title = (
+            f'         label="{escape(poset.case.title)}\\n'
+            f'{len(poset.orbits)} classes · {len(poset.covers)} Hasse covers · '
+            'singular linear processors allowed",\n'
+            '         labelloc="t", labeljust="c", fontsize="23", '
+            'fontname="Arial",\n'
+        )
     dot = f'''digraph tensor_poset {{
   graph [rankdir=TB, bgcolor="white", pad="0.24", nodesep="0.20",
          ranksep="0.66 equally", splines="polyline",
-         label="{escape(poset.case.title)}\n{len(poset.orbits)} classes · {len(poset.covers)} Hasse covers · singular linear processors allowed",
-         labelloc="t", labeljust="c", fontsize="23", fontname="Arial"];
+{graph_title}         fontname="Arial"];
   node [shape=box, style="rounded,filled", penwidth="1.7",
         fontname="Arial", margin="0.08,0.05"];
   edge [color="#64748b99", penwidth="1.25", arrowsize="0.68"];
@@ -651,7 +664,12 @@ def render_tensor_poset_svg(poset: TensorPoset, output: Path) -> Path:
     return _graphviz_svg(dot, output, balance=len(poset.orbits) > 25)
 
 
-def render_case6_scale_svg(output: Path, exact_rank1_orbits: int) -> Path:
+def render_case6_scale_svg(
+    output: Path,
+    exact_rank1_orbits: int,
+    *,
+    show_titles: bool = True,
+) -> Path:
     """Render the honest size obstruction in place of an impossible full graph."""
 
     counts = rank_counts_for_case6()
@@ -680,11 +698,19 @@ def render_case6_scale_svg(output: Path, exact_rank1_orbits: int) -> Path:
       <TR><TD><FONT POINT-SIZE="13"><B>{class_label_text}</B></FONT></TD></TR>
     </TABLE>>];''')
     total_minimum = minima[3] + minima[2] + exact_rank1_orbits + 1
+    graph_title = ""
+    if show_titles:
+        graph_title = (
+            '         label="Cubic homogeneous maps F₃³ → F₃³\\n'
+            'Coarse output-rank stratification, not a Hasse diagram · at least '
+            f'{total_minimum:,} classes",\n'
+            '         labelloc="t", labeljust="c", fontsize="24", '
+            'fontname="Arial",\n'
+        )
     dot = f'''digraph case6_scale {{
   graph [rankdir=TB, bgcolor="white", pad="0.28", nodesep="0.35",
          ranksep="0.82 equally", splines="polyline",
-         label="Cubic homogeneous maps F₃³ → F₃³\nCoarse output-rank stratification, not a Hasse diagram · at least {total_minimum:,} classes",
-         labelloc="t", labeljust="c", fontsize="24", fontname="Arial"];
+{graph_title}         fontname="Arial"];
   node [shape=box, style="rounded,filled", penwidth="1.8",
         fontname="Arial", margin="0.12,0.08"];
   edge [color="#64748b99", penwidth="1.4", arrowsize="0.72"];

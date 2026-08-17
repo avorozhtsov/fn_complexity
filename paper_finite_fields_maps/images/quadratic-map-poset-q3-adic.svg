@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1580" height="1080"
-     viewBox="0 0 1580 1080" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="1580" height="950"
+     viewBox="0 130 1580 950" role="img" aria-labelledby="title description">
   <title id="title">Quadratic-map degeneration poset over the 3-adic numbers</title>
   <desc id="description">Eight affine-equivalence classes of quadratic maps
   from Q_3 squared to Q_3. There is one split and three pairwise-incomparable
@@ -27,16 +27,6 @@
     </style>
   </defs>
   <rect width="1580" height="1080" fill="#ffffff"/>
-  <text class="title" x="790" y="48" text-anchor="middle">
-    Quadratic maps ℚ₃² → ℚ₃
-  </text>
-  <text class="subtitle" x="790" y="80" text-anchor="middle">
-    affine-equivalence classes and singular-processor degenerations
-  </text>
-  <text class="legend" x="790" y="112" text-anchor="middle">
-    square classes d ∈ {1, −1, 3, −3} · split d = −1 · 𝔠 = continuum
-  </text>
-
   <rect x="690" y="150" width="830" height="245" rx="24"
         fill="#be123c" fill-opacity="0.025" stroke="#be123c"
         stroke-opacity="0.45" stroke-width="2" stroke-dasharray="9 8"/>

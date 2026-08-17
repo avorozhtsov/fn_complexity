@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="745"
+     viewBox="0 0 1200 745" role="img"
+     aria-labelledby="title description">
+  <title id="title">Quadratic-map degeneration poset over F₂</title>
+  <desc id="description">3 affine-equivalence classes. Arrows point downward
+  from a quadratic map to a class obtainable using possibly singular affine
+  input and output processors. Every node displays its equivalence-class size.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .edge { fill: none; stroke: #64748b; stroke-width: 2.2; opacity: .74; }
+      .node text { fill: #172033; text-anchor: middle;
+                    font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+      .form { font-size: 24px; font-weight: 700; }
+      .kind { font-size: 16px; fill: #475569; }
+      .size { font-size: 18px; font-weight: 650; font-variant-numeric: tabular-nums; }
+      .title { fill: #172033; font: 700 32px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .subtitle { fill: #475569; font: 17px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .legend { fill: #475569; font: 15px Inter, ui-sans-serif, system-ui, sans-serif; }
+    </style>
+  </defs>
+  <rect width="1200" height="745" fill="#ffffff"/>
+
+  <path class="edge" d="M 600 156 C 600 222.5, 600 222.5, 600 289" marker-end="url(#arrow)"/><path class="edge" d="M 600 411 C 600 475, 600 475, 600 539" marker-end="url(#arrow)"/>
+  <g class="node singleton" transform="translate(600 100)"><rect x="-128" y="-56" width="256" height="112" rx="18" fill="#7c3aed" fill-opacity="0.10" stroke="#7c3aed" stroke-width="2.5"/><text class="form" x="0" y="-20">xy</text><text class="kind" x="0" y="8">weight 1 or 3</text><text class="size" x="0" y="37">|class| = 8</text></g><g class="node linear" transform="translate(600 355)"><rect x="-128" y="-56" width="256" height="112" rx="18" fill="#0f766e" fill-opacity="0.10" stroke="#0f766e" stroke-width="2.5"/><text class="form" x="0" y="-20">x</text><text class="kind" x="0" y="8">balanced</text><text class="size" x="0" y="37">|class| = 6</text></g><g class="node constant" transform="translate(600 605)"><rect x="-128" y="-56" width="256" height="112" rx="18" fill="#64748b" fill-opacity="0.10" stroke="#64748b" stroke-width="2.5"/><text class="form" x="0" y="-20">constant</text><text class="kind" x="0" y="8">constant</text><text class="size" x="0" y="37">|class| = 2</text></g>
+</svg>

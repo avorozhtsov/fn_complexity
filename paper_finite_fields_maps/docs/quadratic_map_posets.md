@@ -54,7 +54,7 @@ The Hasse order is the three-element chain
 
 ### \(q=2\)
 
-![Degeneration poset for quadratic maps over F2](../images/quadratic-map-poset-q2.svg)
+![Degeneration poset for quadratic maps over F2](../images/quadratic-map-poset-F2.svg)
 
 ## Even fields with \(q\ge4\)
 

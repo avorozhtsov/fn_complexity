@@ -47,6 +47,12 @@ def parse_args() -> argparse.Namespace:
         default=PROJECT_ROOT / "paper_finite_fields_maps" / "images",
         help="directory for generated SVGs",
     )
+    parser.add_argument(
+        "--titles",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="include visible title, subtitle, and legend (default: titles)",
+    )
     return parser.parse_args()
 
 
@@ -55,8 +61,11 @@ def main() -> int:
     args.output_dir.mkdir(parents=True, exist_ok=True)
     print("q\tmaps\tclasses\toutput")
     for q in args.q:
-        output = args.output_dir / f"quadratic-map-poset-q{q}.svg"
-        render_quadratic_map_poset_svg(q, output)
+        # Keep F_2 distinct from the historical Q_2 (2-adic) diagram on
+        # case-insensitive filesystems such as the default macOS filesystem.
+        stem = "F2" if q == 2 else f"q{q}"
+        output = args.output_dir / f"quadratic-map-poset-{stem}.svg"
+        render_quadratic_map_poset_svg(q, output, show_titles=args.titles)
         classes = quadratic_map_classes(q)
         print(f"{q}\t{quadratic_map_count(q)}\t{len(classes)}\t{output}")
     return 0
