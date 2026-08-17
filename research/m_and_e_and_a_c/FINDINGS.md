@@ -36,6 +36,85 @@ primes. Symmetry type is invisible, and provably so.
 Five claims of mine were corrected in the process; they are listed in
 [Corrections](#corrections-to-earlier-claims).
 
+
+---
+
+## Notation
+
+Used throughout, and worth fixing because two of the results are statements
+about which of these quantities the rate can see.
+
+**`A² → A¹`** — affine spaces: `A^n` over `F_q` is just `F_q^n`, so
+`f : A² → A¹` is a polynomial `f(x,y)` with values in `F_q`. The notation is
+geometric rather than set-theoretic because what matters is the **fibers**
+`f⁻¹(c)`, which are plane curves with a genus and a point count.
+"Geometrically irreducible fibers" is a real hypothesis: a fiber with `r`
+components carries about `r·q` points, which swamps the Weil-scale corrections
+(`1 − C ≍ log r/log q` instead of `≍ 1/(√q log q)`).
+
+**`σ(f)`** — the fiber signature, the multiset `{N_c}` of fiber cardinalities,
+`N_c = #f⁻¹(c)`. Always `Σ_c N_c = q²`.
+
+**`L`** — the flat signature `(q, q, …, q)` with `q` entries: the signature of a
+linear map `f(x,y) = x`, whose fibers are `q` lines of `q` points each. It is the
+reference resource — same fiber count and same total as any `f : A² → A¹`, but
+perfectly evenly distributed.
+
+**`C(g→f)`** — the implementer is written **first**: the number of copies of the
+target `f` obtainable per copy of the resource `g`, `inf_β log Z_g/log Z_f`. So
+`C(L→f)` and `C(f→L)` read different things, and that asymmetry is the content
+of T2.1 and T2.2.
+
+**`a_c`** — the trace of Frobenius of the fiber over `c`:
+
+```
+a_c = q − N_c
+```
+
+the deviation of the fiber's point count from the generic value `q`. The name is
+Weil's: a smooth projective curve of genus `g` over `F_q` has `q + 1 − a` points
+with `|a| ≤ 2g√q`. Since there are `q` fibers carrying `q²` points in total,
+
+```
+Σ_c a_c = q·q − q² = 0     identically, for every f
+```
+
+which is why the first moment drops out of the expansion and the linear-in-β
+term vanishes.
+
+**`m₂`** — the normalised second moment:
+
+```
+m₂ = (1/q²) Σ_c a_c²
+```
+
+The normalisation makes it `O(1)`: Weil gives `|a_c| ≲ 2g√q`, so `a_c² ≲ 4g²q`
+and the sum over `q` fibers is `≲ 4g²q²`. For a family with large monodromy the
+`a_c/√q` equidistribute by Sato–Tate, `E[a_c²] ≈ q`, hence **`m₂ → 1`**; the CM
+family `y² = x³ + c` gives `m₂ → 2` at `q ≡ 1 mod 3` and `m₂ = 0` at
+`q ≡ 2 mod 3`, where every fiber is supersingular.
+
+Equivalently `Σ_c a_c² = Σ_c N_c² − q³`, that is `m₂ = Z_f(2)/q² − q`, where
+`Z_f(2) = Σ_c N_c²` counts the points of the **fiber square** `X ×_Y X`. So `m₂`
+is not an auxiliary statistic but the partition function itself at the integer
+point `β = 2`.
+
+*Worked example*, `f = y² − x³ − x` at `q = 11`:
+
+```
+N_c = [17, 15, 14, 13, 12, 11, 10, 9, 8, 7, 5]     sum = 121 = q²
+a_c = [−6, −4, −3, −2, −1,  0,  1, 2, 3, 4, 6]     sum = 0
+Σ a_c² = 132        m₂ = 132/121 = 1.0909
+```
+
+| q | m₂ | `1 − C(f→L)` | `(3−2√2)·m₂/(2q log q)` |
+|---:|---:|---:|---:|
+| 11 | 1.090909 | 3.869·10⁻³ | 3.548·10⁻³ |
+| 1009 | 0.997027 | 1.227·10⁻⁵ | 1.226·10⁻⁵ |
+
+At `q = 11` the discrepancy is ~9%, since the dropped term is of order
+`q^{−3/2} ≈ 0.027`; by `q = 1009` the two agree to three significant figures.
+
 ---
 
 ## Track 1 — the M ↔ E connection
