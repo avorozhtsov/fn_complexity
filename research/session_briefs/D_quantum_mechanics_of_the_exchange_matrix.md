@@ -120,8 +120,8 @@ trace-formula reformulation, Bender–Brody–Müller (2017) on a `PT`-symmetric
 Hamiltonian for the zeros, de Branges spaces. Assume all of it is known to a
 referee.
 
-**The one thing this project contributes to that picture, and it is already
-proved.** T1.5 Theorem A says `Z_{λa}(ρ) = λ^ρ Z_a(ρ)`, hence
+**The one thing this project looked like it contributed to that picture —
+settled, and negatively.** T1.5 Theorem A says `Z_{λa}(ρ) = λ^ρ Z_a(ρ)`, hence
 `E_{λa,λb} = λ^{2Re ρ} E_{ab}`, *and the factor is constant across zeros only
 because every `Re ρ = ½`* — verified to `6·10⁻¹⁴`, broken to `1.3·10⁻¹` by
 moving 60 of 1200 zeros to `Re = 0.7`. In the quantum language this reads:
@@ -129,12 +129,33 @@ moving 60 of 1200 zeros to `Re = 0.7`. In the quantum language this reads:
 > **RH ⟺ the dilation group acts on the span of the zero modes by a scalar,
 > i.e. the Weil Gram matrix is covariant under dilations.**
 
-That is a symmetry statement rather than a positivity statement, it is
-equivalent to RH on the finite-rank truncation, and it is *measurable*: the
-defect `‖E_{λa,λb} − λ E_{ab}‖` is a numerical functional of the zero list that
-vanishes iff every zero used is on the line. Whether this is more than a
-repackaging of `Re ρ = ½` is the question to settle; the answer may well be no,
-and that answer should be written down either way.
+**This is false, and the error is instructive.** There are two matrices:
+
+```
+W_ab = Σ_ρ Z_a(ρ) Z_b(1−ρ)          the Weil pairing
+G_ab = Σ_ρ Z_a(ρ) conj(Z_b(ρ))      what it becomes under RH
+```
+
+`riemann_hypothesis_exchange_matrices.md` defines the pairing as `W`; the
+research thread computed `G` throughout, which is harmless while the zeros used
+are on the line and wrong the instant one is moved off it. Since
+`Z_{λa}(s) = λ^s Z_a(s)` and `ρ + (1−ρ) = 1`, **`W` is homogeneous of degree
+exactly 1 for any multiset of zeros whatever.** Scale covariance is the
+*functional equation*, not RH. Verified to `10⁻¹²` with zeros in quadruples
+`½ ± δ ± iγ` out to `Re ρ = 0.99`; `G` over the same zeros breaks by a factor of
+1319 at `λ = 210`. The earlier counterfactual also moved zeros singly, which
+breaks closure under `ρ ↦ 1−ρ` and so is not a legal zero set for the pairing.
+
+The salvage is a measurement, not a criterion. What responds to `δ` is
+*positivity* of `W` — Weil's actual criterion — and on atomic measures it has a
+detection threshold: the 16-signature family of T1.4 stays PSD even at
+`Re ρ = 0.99`, and a 40-signature family first goes negative between `Re = 0.7`
+and `Re = 0.8`. **The `Re = 0.7` of the original counterfactual sits just below
+detection.** Since atomic measures are inadmissible this bounds the truncation
+and says nothing about `ζ` — but it closes the question of whether signature
+families could be a numerical RH probe. They cannot.
+
+Record: `research/m_and_e_and_a_c/t1_5_scale_covariance.py`, FINDINGS T1.6.
 
 ---
 
@@ -289,13 +310,14 @@ the walk mixes to. *Risk:* the choice of `P` may be arbitrary enough that
 nothing invariant comes out. Kill the stage rather than defending an arbitrary
 normalisation.
 
-**Stage 4 — dilation covariance as RH (one session, uncertain value).**
-Restate T1.5 Theorem A as "the Weil Gram matrix is dilation-covariant iff RH",
-make the defect functional explicit, and compute it against off-line
-counterfactuals at several `N` to see whether the sensitivity is uniform.
-*Success criterion:* either a clean equivalence worth a proposition, or a
-written argument that it is a repackaging of `Re ρ = ½` and should be dropped.
-Decide in one session; do not let it run.
+**Stage 4 — dilation covariance as RH. DONE, and dropped.** Covariance is
+unconditional; it is the functional equation. Two corrections propagated: the
+"this step uses RH" callout in FINDINGS T1.5, and the bullet in §3b(ii) of the
+two-positivities note claiming that "the scale-invariance of the Weil geometry
+is a manifestation of the critical line". The impossibility argument of T1.5 is
+unaffected — it needs only that the two invariance groups are transverse, and
+both invariances are now unconditional, which if anything strengthens it. See
+Part 1 above for what replaced it.
 
 **Stage 5 — the KMS route (a programme, not a session).** Below `β = 1` the
 monotone diverges and `C(a→b)` is undefined. Ask what replaces it. Concretely:
