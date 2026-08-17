@@ -76,8 +76,14 @@ Two exact identities and one consequence.
 
 **(E2) The second moment is the fiber-square count.**
 `Σ_c a_c² = Σ_c N_c² − q³ = Z_f(2) − q³`, so
-`m₂ := q^{−2} Σ_c a_c² = Z_f(2)/q³ − 1`. By Lang–Weil, `m₂ + 1` is the number of
-`F_q`-rational irreducible components of `X ×_Y X`, up to `O(q^{−1/2})`.
+`m₂ := q^{−2} Σ_c a_c² = Z_f(2)/q² − q` (an earlier version of this note wrote
+`Z_f(2)/q³ − 1`, which is `m₂/q`; check: `q = 11`, `f = y²−x³−x` gives
+`Z_f(2) = 1463`, `1463/121 − 11 = 1.0909 = 132/121`). Equivalently
+`Z_f(2) = q³ + q²m₂`. The earlier gloss "by Lang–Weil `m₂ + 1` counts the
+`F_q`-rational components of `X ×_Y X`" went with the wrong normalisation and is
+**withdrawn**: `X ×_Y X` is a threefold, its Lang–Weil leading term is `q³` with
+coefficient 1 (one geometric component), and `m₂` is the normalised *secondary*
+term — the same order at which the Frobenius traces live.
 
 **(E3) For `f = y² − P(x)`**, `a_c = −Σ_x χ(P(x)+c)`, and orthogonality of `χ` gives
 
