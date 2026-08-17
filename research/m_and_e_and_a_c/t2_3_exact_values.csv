@@ -1,0 +1,3085 @@
+implementer,implemented,value,n_q,condition
+(x^3+1) y^2 (quadratic twists),const = 0,log 7/log 13,1,q = [0] mod 13
+(x^3+x) y^2 (quadratic twists),const = 0,log 7/log 13,1,q = [0] mod 13
+(x^3+x+1) y^2 (quadratic twists),(x^3+1) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+(x^3+x+1) y^2 (quadratic twists),(x^3+x) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+(x^3+x+1) y^2 (quadratic twists),const = 0,log 5/log 13,1,q = [0] mod 13
+(x^3+x+1) y^2 (quadratic twists),y^2 - (x^7+1x),log 20/log 24,1,q = [0] mod 19
+(x^3+x+1) y^2 (quadratic twists),y^4 - x^4,log 5/log 7,1,q = [0] mod 13
+L = x,(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+L = x,(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+L = x,(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+L = x,(x^3+x+1) y^2 (quadratic twists),log 19/log 20,1,q = [0] mod 19
+L = x,Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+L = x,Xaniso = x^2-d y^2,log 13/log 14,1,q = [0] mod 13
+L = x,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+L = x,Xaniso = x^2-d y^2,log 19/log 20,1,q = [0] mod 19
+L = x,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+L = x,Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+L = x,const = 0,1/2,21,always
+L = x,x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+L = x,x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+L = x,x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+L = x,x^2 + y^2,log 19/log 20,1,q = [0] mod 19
+L = x,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+L = x,x^2 + y^3,log 13/log 20,1,q = [0] mod 13
+L = x,x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+L = x,x^2 + y^4,log 19/log 20,1,q = [0] mod 19
+L = x,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+L = x,x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+L = x,x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+L = x,x^4 + y^4,log 19/log 20,1,q = [0] mod 19
+L = x,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+L = x,x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+L = x,y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+L = x,y^2 - (x^3+1x),log 13/log 19,1,q = [0] mod 13
+L = x,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+L = x,y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+L = x,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 13
+L = x,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+L = x,y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+L = x,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 13
+L = x,y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+L = x,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 13
+L = x,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+L = x,y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+L = x,y^2 - (x^7+1x),log 13/log 20,1,q = [0] mod 13
+L = x,y^2 - (x^7+1x),log 19/log 24,1,q = [0] mod 19
+L = x,y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+L = x,y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+L = x,y^2 - D_3(x),log 13/log 18,1,q = [0] mod 13
+L = x,y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+L = x,y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+L = x,y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+L = x,y^2 - D_6(x),log 13/log 23,1,q = [0] mod 13
+L = x,y^2 - D_7(x),log 13/log 21,1,q = [0] mod 13
+L = x,y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+L = x,y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+L = x,y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+L = x,y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+L = x,y^2 - x^3,log 13/log 20,1,q = [0] mod 13
+L = x,y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+L = x,y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+L = x,y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+L = x,y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+L = x,y^2 - x^9,log 13/log 20,1,q = [0] mod 13
+L = x,y^3 - x^2,log 13/log 20,1,q = [0] mod 13
+L = x,y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+L = x,y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+L = x,y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+L = x,y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+L = x,y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+L = x,y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+L = x,y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+Xaniso = x^2-d y^2,(x^3+1) y^2 (quadratic twists),log 12/log 21,1,q = [0] mod 11
+Xaniso = x^2-d y^2,(x^3+x) y^2 (quadratic twists),log 12/log 21,1,q = [0] mod 11
+Xaniso = x^2-d y^2,(x^3+x+1) y^2 (quadratic twists),log 12/log 21,1,q = [0] mod 11
+Xaniso = x^2-d y^2,Xsplit = xy,log 12/log 21,1,q = [0] mod 11
+Xaniso = x^2-d y^2,x y^2 - x^2 (quartic twists),log 12/log 21,1,q = [0] mod 11
+Xaniso = x^2-d y^2,x^2 (pushforward),log 12/log 22,1,q = [0] mod 11
+Xaniso = x^2-d y^2,x^2 + y^3,log 14/log 20,1,q = [0] mod 13
+Xaniso = x^2-d y^2,x^2 + y^5,log 12/log 22,1,q = [0] mod 11
+Xaniso = x^2-d y^2,x^4 + y^5,log 12/log 22,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - (x^3+1x),log 12/log 17,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - (x^3+1x),log 14/log 19,1,q = [0] mod 13
+Xaniso = x^2-d y^2,y^2 - (x^3+1x),log 18/log 24,1,q = [0] mod 17
+Xaniso = x^2-d y^2,y^2 - (x^3+2x),log 12/log 16,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - (x^3+2x),log 14/log 17,1,q = [0] mod 13
+Xaniso = x^2-d y^2,y^2 - (x^3+2x),log 18/log 23,1,q = [0] mod 17
+Xaniso = x^2-d y^2,y^2 - (x^5+1x),log 12/log 15,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - (x^5+1x),log 14/log 17,1,q = [0] mod 13
+Xaniso = x^2-d y^2,y^2 - (x^5+2x),log 12/log 18,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - (x^5+2x),log 14/log 17,1,q = [0] mod 13
+Xaniso = x^2-d y^2,y^2 - (x^5+2x),log 18/log 21,1,q = [0] mod 17
+Xaniso = x^2-d y^2,y^2 - (x^7+1x),log 12/log 17,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - (x^7+1x),log 14/log 20,1,q = [0] mod 13
+Xaniso = x^2-d y^2,y^2 - (x^7+1x),log 20/log 24,1,q = [0] mod 19
+Xaniso = x^2-d y^2,y^2 - D_2(x),log 12/log 21,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - D_3(x),log 12/log 16,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - D_3(x),log 14/log 18,1,q = [0] mod 13
+Xaniso = x^2-d y^2,y^2 - D_4(x),log 12/log 22,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - D_5(x),log 12/log 18,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - D_6(x),log 12/log 19,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - D_6(x),log 14/log 23,1,q = [0] mod 13
+Xaniso = x^2-d y^2,y^2 - D_7(x),log 14/log 21,1,q = [0] mod 13
+Xaniso = x^2-d y^2,y^2 - D_8(x),log 12/log 22,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - x^10,log 12/log 22,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - x^12,log 12/log 21,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - x^2,log 12/log 21,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - x^3,log 14/log 20,1,q = [0] mod 13
+Xaniso = x^2-d y^2,y^2 - x^4,log 12/log 21,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - x^5,log 12/log 22,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - x^6,log 12/log 21,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - x^8,log 12/log 21,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^2 - x^9,log 14/log 20,1,q = [0] mod 13
+Xaniso = x^2-d y^2,y^3 - x^2,log 14/log 20,1,q = [0] mod 13
+Xaniso = x^2-d y^2,y^4 - x^2,log 12/log 21,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^4 - x^4,log 12/log 21,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^4 - x^5,log 12/log 22,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^4 - x^6,log 12/log 21,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^5 - x^2,log 12/log 22,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^5 - x^4,log 12/log 22,1,q = [0] mod 11
+Xaniso = x^2-d y^2,y^5 - x^6,log 12/log 22,1,q = [0] mod 11
+Xsplit = xy,(x^3+1) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+Xsplit = xy,(x^3+x) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+Xsplit = xy,const = 0,log 5/log 13,1,q = [0] mod 13
+Xsplit = xy,y^4 - x^4,log 5/log 7,1,q = [0] mod 13
+const = 0,(x^3+1) y^2 (quadratic twists),0/1,21,always
+const = 0,(x^3+x) y^2 (quadratic twists),0/1,21,always
+const = 0,(x^3+x+1) y^2 (quadratic twists),0/1,21,always
+const = 0,L = x,0/1,21,always
+const = 0,Xaniso = x^2-d y^2,0/1,21,always
+const = 0,Xsplit = xy,0/1,21,always
+const = 0,x y^2 - x^2 (quartic twists),0/1,21,always
+const = 0,x^2 (pushforward),0/1,21,always
+const = 0,x^2 + y^2,0/1,21,always
+const = 0,x^2 + y^3,0/1,21,always
+const = 0,x^2 + y^4,0/1,21,always
+const = 0,x^2 + y^5,0/1,21,always
+const = 0,x^3 (pushforward),0/1,21,always
+const = 0,x^3 + y^3,0/1,21,always
+const = 0,x^3 + y^4,0/1,21,always
+const = 0,x^3 + y^5,0/1,21,always
+const = 0,x^4 + y^4,0/1,21,always
+const = 0,x^4 + y^5,0/1,21,always
+const = 0,x^5 + y^5,0/1,21,always
+const = 0,y^2 - (x^3+1x),0/1,21,always
+const = 0,y^2 - (x^3+2x),0/1,21,always
+const = 0,y^2 - (x^5+1x),0/1,21,always
+const = 0,y^2 - (x^5+2x),0/1,21,always
+const = 0,y^2 - (x^7+1x),0/1,21,always
+const = 0,y^2 - D_2(x),0/1,21,always
+const = 0,y^2 - D_3(x),0/1,21,always
+const = 0,y^2 - D_4(x),0/1,21,always
+const = 0,y^2 - D_5(x),0/1,21,always
+const = 0,y^2 - D_6(x),0/1,21,always
+const = 0,y^2 - D_7(x),0/1,21,always
+const = 0,y^2 - D_8(x),0/1,21,always
+const = 0,y^2 - x^10,0/1,21,always
+const = 0,y^2 - x^11,0/1,21,always
+const = 0,y^2 - x^12,0/1,21,always
+const = 0,y^2 - x^2,0/1,21,always
+const = 0,y^2 - x^3,0/1,21,always
+const = 0,y^2 - x^4,0/1,21,always
+const = 0,y^2 - x^5,0/1,21,always
+const = 0,y^2 - x^6,0/1,21,always
+const = 0,y^2 - x^7,0/1,21,always
+const = 0,y^2 - x^8,0/1,21,always
+const = 0,y^2 - x^9,0/1,21,always
+const = 0,y^3 - x^2,0/1,21,always
+const = 0,y^3 - x^3,0/1,21,always
+const = 0,y^3 - x^4,0/1,21,always
+const = 0,y^3 - x^5,0/1,21,always
+const = 0,y^3 - x^6,0/1,21,always
+const = 0,y^4 - x^2,0/1,21,always
+const = 0,y^4 - x^3,0/1,21,always
+const = 0,y^4 - x^4,0/1,21,always
+const = 0,y^4 - x^5,0/1,21,always
+const = 0,y^4 - x^6,0/1,21,always
+const = 0,y^5 - x^2,0/1,21,always
+const = 0,y^5 - x^3,0/1,21,always
+const = 0,y^5 - x^4,0/1,21,always
+const = 0,y^5 - x^5,0/1,21,always
+const = 0,y^5 - x^6,0/1,21,always
+x y^2 - x^2 (quartic twists),(x^3+1) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+x y^2 - x^2 (quartic twists),(x^3+x) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+x y^2 - x^2 (quartic twists),const = 0,log 5/log 13,1,q = [0] mod 13
+x y^2 - x^2 (quartic twists),y^4 - x^4,log 5/log 7,1,q = [0] mod 13
+x^2 (pushforward),(x^3+1) y^2 (quadratic twists),log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),(x^3+1) y^2 (quadratic twists),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),(x^3+1) y^2 (quadratic twists),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),(x^3+1) y^2 (quadratic twists),log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),(x^3+1) y^2 (quadratic twists),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),(x^3+x) y^2 (quadratic twists),log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),(x^3+x) y^2 (quadratic twists),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),(x^3+x) y^2 (quadratic twists),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),(x^3+x) y^2 (quadratic twists),log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),(x^3+x) y^2 (quadratic twists),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),(x^3+x+1) y^2 (quadratic twists),log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),(x^3+x+1) y^2 (quadratic twists),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),(x^3+x+1) y^2 (quadratic twists),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),(x^3+x+1) y^2 (quadratic twists),log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),(x^3+x+1) y^2 (quadratic twists),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),L = x,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),L = x,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),L = x,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),L = x,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),L = x,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),Xaniso = x^2-d y^2,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),Xaniso = x^2-d y^2,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),Xaniso = x^2-d y^2,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),Xaniso = x^2-d y^2,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),Xaniso = x^2-d y^2,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),Xsplit = xy,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),Xsplit = xy,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),Xsplit = xy,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),Xsplit = xy,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),Xsplit = xy,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),x y^2 - x^2 (quartic twists),log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),x y^2 - x^2 (quartic twists),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),x y^2 - x^2 (quartic twists),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),x y^2 - x^2 (quartic twists),log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),x y^2 - x^2 (quartic twists),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),x^2 + y^2,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),x^2 + y^2,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),x^2 + y^2,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),x^2 + y^2,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),x^2 + y^2,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),x^2 + y^3,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),x^2 + y^3,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),x^2 + y^3,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),x^2 + y^3,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),x^2 + y^3,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),x^2 + y^4,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),x^2 + y^4,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),x^2 + y^4,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),x^2 + y^4,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),x^2 + y^4,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),x^2 + y^5,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),x^2 + y^5,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),x^2 + y^5,log 6/log 10,1,q = [0] mod 11
+x^2 (pushforward),x^2 + y^5,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),x^2 + y^5,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),x^3 (pushforward),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),x^3 (pushforward),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),x^3 (pushforward),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),x^3 + y^3,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),x^3 + y^3,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),x^3 + y^3,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),x^3 + y^3,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),x^3 + y^3,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),x^3 + y^4,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),x^3 + y^4,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),x^3 + y^4,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),x^3 + y^4,log 7/log 12,1,q = [0] mod 13
+x^2 (pushforward),x^3 + y^4,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),x^3 + y^5,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),x^3 + y^5,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),x^3 + y^5,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),x^3 + y^5,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),x^3 + y^5,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),x^4 + y^4,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),x^4 + y^4,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),x^4 + y^4,log 15/log 22,1,q = [3] mod 13
+x^2 (pushforward),x^4 + y^4,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),x^4 + y^4,log 7/log 10,1,q = [0] mod 13
+x^2 (pushforward),x^4 + y^5,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),x^4 + y^5,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),x^4 + y^5,log 6/log 10,1,q = [0] mod 11
+x^2 (pushforward),x^4 + y^5,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),x^4 + y^5,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),x^5 + y^5,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),x^5 + y^5,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),x^5 + y^5,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),x^5 + y^5,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - (x^3+1x),log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - (x^3+1x),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - (x^3+1x),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - (x^3+1x),log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - (x^3+1x),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - (x^3+2x),log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - (x^3+2x),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - (x^3+2x),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - (x^3+2x),log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - (x^3+2x),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - (x^5+1x),log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - (x^5+1x),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - (x^5+1x),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - (x^5+1x),log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - (x^5+1x),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - (x^5+2x),log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - (x^5+2x),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - (x^5+2x),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - (x^5+2x),log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - (x^5+2x),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - (x^7+1x),log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - (x^7+1x),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - (x^7+1x),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - (x^7+1x),log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - (x^7+1x),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - D_2(x),log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - D_2(x),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - D_2(x),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - D_2(x),log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - D_2(x),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - D_3(x),log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - D_3(x),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - D_3(x),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - D_3(x),log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - D_3(x),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - D_4(x),log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - D_4(x),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - D_4(x),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - D_4(x),log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - D_4(x),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - D_5(x),log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - D_5(x),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - D_5(x),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - D_5(x),log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - D_5(x),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - D_6(x),log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - D_6(x),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - D_6(x),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - D_6(x),log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - D_6(x),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - D_7(x),log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - D_7(x),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - D_7(x),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - D_7(x),log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - D_7(x),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - D_8(x),log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - D_8(x),log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - D_8(x),log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - D_8(x),log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - D_8(x),log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - x^10,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - x^10,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - x^10,log 6/log 9,1,q = [0] mod 11
+x^2 (pushforward),y^2 - x^10,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - x^10,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - x^11,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - x^11,log 12/log 21,1,q = [10] mod 13
+x^2 (pushforward),y^2 - x^11,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - x^11,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - x^11,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - x^12,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - x^12,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - x^12,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - x^12,log 7/log 10,1,q = [0] mod 13
+x^2 (pushforward),y^2 - x^12,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - x^2,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - x^2,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - x^2,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - x^2,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - x^2,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - x^3,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - x^3,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - x^3,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - x^3,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - x^3,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - x^4,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - x^4,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - x^4,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - x^4,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - x^4,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - x^5,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - x^5,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - x^5,log 6/log 10,1,q = [0] mod 11
+x^2 (pushforward),y^2 - x^5,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - x^5,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - x^6,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - x^6,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - x^6,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - x^6,log 7/log 11,1,q = [0] mod 13
+x^2 (pushforward),y^2 - x^6,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - x^7,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - x^7,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - x^7,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - x^7,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - x^7,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^2 - x^8,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^2 - x^8,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - x^8,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - x^8,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - x^8,log 9/log 15,1,q = [0] mod 17
+x^2 (pushforward),y^2 - x^9,log 10/log 17,1,q = [0] mod 19
+x^2 (pushforward),y^2 - x^9,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^2 - x^9,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^2 - x^9,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^2 - x^9,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^3 - x^2,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^3 - x^2,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^3 - x^2,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^3 - x^2,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^3 - x^2,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^3 - x^3,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^3 - x^3,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^3 - x^3,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^3 - x^3,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^3 - x^3,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^3 - x^4,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^3 - x^4,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^3 - x^4,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^3 - x^4,log 7/log 12,1,q = [0] mod 13
+x^2 (pushforward),y^3 - x^4,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^3 - x^5,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^3 - x^5,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^3 - x^5,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^3 - x^5,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^3 - x^5,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^3 - x^6,log 10/log 16,1,q = [0] mod 19
+x^2 (pushforward),y^3 - x^6,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^3 - x^6,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^3 - x^6,log 7/log 11,1,q = [0] mod 13
+x^2 (pushforward),y^3 - x^6,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^4 - x^2,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^4 - x^2,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^4 - x^2,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^4 - x^2,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^4 - x^2,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^4 - x^3,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^4 - x^3,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^4 - x^3,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^4 - x^3,log 7/log 12,1,q = [0] mod 13
+x^2 (pushforward),y^4 - x^3,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^4 - x^4,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^4 - x^4,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^4 - x^4,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^4 - x^4,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^4 - x^5,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^4 - x^5,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^4 - x^5,log 6/log 10,1,q = [0] mod 11
+x^2 (pushforward),y^4 - x^5,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^4 - x^5,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^4 - x^6,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^4 - x^6,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^4 - x^6,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^4 - x^6,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^5 - x^2,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^5 - x^2,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^5 - x^2,log 6/log 10,1,q = [0] mod 11
+x^2 (pushforward),y^5 - x^2,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^5 - x^2,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^5 - x^3,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^5 - x^3,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^5 - x^3,log 6/log 11,1,q = [0] mod 11
+x^2 (pushforward),y^5 - x^3,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^5 - x^3,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^5 - x^4,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^5 - x^4,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^5 - x^4,log 6/log 10,1,q = [0] mod 11
+x^2 (pushforward),y^5 - x^4,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^5 - x^4,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^5 - x^5,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^5 - x^5,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^5 - x^5,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^5 - x^5,log 9/log 17,1,q = [0] mod 17
+x^2 (pushforward),y^5 - x^6,log 10/log 19,1,q = [0] mod 19
+x^2 (pushforward),y^5 - x^6,log 12/log 23,1,q = [10] mod 13
+x^2 (pushforward),y^5 - x^6,log 4/log 5,1,q = [14] mod 17
+x^2 (pushforward),y^5 - x^6,log 6/log 10,1,q = [0] mod 11
+x^2 (pushforward),y^5 - x^6,log 7/log 13,1,q = [0] mod 13
+x^2 (pushforward),y^5 - x^6,log 9/log 17,1,q = [0] mod 17
+x^2 + y^2,(x^3+1) y^2 (quadratic twists),log 12/log 21,1,q = [0] mod 11
+x^2 + y^2,(x^3+1) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+x^2 + y^2,(x^3+x) y^2 (quadratic twists),log 12/log 21,1,q = [0] mod 11
+x^2 + y^2,(x^3+x) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+x^2 + y^2,(x^3+x+1) y^2 (quadratic twists),log 12/log 21,1,q = [0] mod 11
+x^2 + y^2,Xsplit = xy,log 12/log 21,1,q = [0] mod 11
+x^2 + y^2,const = 0,log 5/log 13,1,q = [0] mod 13
+x^2 + y^2,x y^2 - x^2 (quartic twists),log 12/log 21,1,q = [0] mod 11
+x^2 + y^2,x^2 (pushforward),log 12/log 22,1,q = [0] mod 11
+x^2 + y^2,x^2 + y^5,log 12/log 22,1,q = [0] mod 11
+x^2 + y^2,x^4 + y^5,log 12/log 22,1,q = [0] mod 11
+x^2 + y^2,y^2 - (x^3+1x),log 12/log 17,1,q = [0] mod 11
+x^2 + y^2,y^2 - (x^3+2x),log 12/log 16,1,q = [0] mod 11
+x^2 + y^2,y^2 - (x^5+1x),log 12/log 15,1,q = [0] mod 11
+x^2 + y^2,y^2 - (x^5+2x),log 12/log 18,1,q = [0] mod 11
+x^2 + y^2,y^2 - (x^7+1x),log 12/log 17,1,q = [0] mod 11
+x^2 + y^2,y^2 - (x^7+1x),log 20/log 24,1,q = [0] mod 19
+x^2 + y^2,y^2 - D_2(x),log 12/log 21,1,q = [0] mod 11
+x^2 + y^2,y^2 - D_3(x),log 12/log 16,1,q = [0] mod 11
+x^2 + y^2,y^2 - D_4(x),log 12/log 22,1,q = [0] mod 11
+x^2 + y^2,y^2 - D_5(x),log 12/log 18,1,q = [0] mod 11
+x^2 + y^2,y^2 - D_6(x),log 12/log 19,1,q = [0] mod 11
+x^2 + y^2,y^2 - D_8(x),log 12/log 22,1,q = [0] mod 11
+x^2 + y^2,y^2 - x^10,log 12/log 22,1,q = [0] mod 11
+x^2 + y^2,y^2 - x^12,log 12/log 21,1,q = [0] mod 11
+x^2 + y^2,y^2 - x^2,log 12/log 21,1,q = [0] mod 11
+x^2 + y^2,y^2 - x^4,log 12/log 21,1,q = [0] mod 11
+x^2 + y^2,y^2 - x^5,log 12/log 22,1,q = [0] mod 11
+x^2 + y^2,y^2 - x^6,log 12/log 21,1,q = [0] mod 11
+x^2 + y^2,y^2 - x^8,log 12/log 21,1,q = [0] mod 11
+x^2 + y^2,y^4 - x^2,log 12/log 21,1,q = [0] mod 11
+x^2 + y^2,y^4 - x^4,log 12/log 21,1,q = [0] mod 11
+x^2 + y^2,y^4 - x^4,log 5/log 7,1,q = [0] mod 13
+x^2 + y^2,y^4 - x^5,log 12/log 22,1,q = [0] mod 11
+x^2 + y^2,y^4 - x^6,log 12/log 21,1,q = [0] mod 11
+x^2 + y^2,y^5 - x^2,log 12/log 22,1,q = [0] mod 11
+x^2 + y^2,y^5 - x^4,log 12/log 22,1,q = [0] mod 11
+x^2 + y^2,y^5 - x^6,log 12/log 22,1,q = [0] mod 11
+x^2 + y^3,(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+x^2 + y^3,(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+x^2 + y^3,(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+x^2 + y^3,Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+x^2 + y^3,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+x^2 + y^3,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+x^2 + y^3,Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+x^2 + y^3,const = 0,1/2,11,q = [2] mod 3
+x^2 + y^3,x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+x^2 + y^3,x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+x^2 + y^3,x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+x^2 + y^3,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+x^2 + y^3,x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+x^2 + y^3,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+x^2 + y^3,x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+x^2 + y^3,x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+x^2 + y^3,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+x^2 + y^3,x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+x^2 + y^3,y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+x^2 + y^3,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+x^2 + y^3,y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+x^2 + y^3,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+x^2 + y^3,y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+x^2 + y^3,y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+x^2 + y^3,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+x^2 + y^3,y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+x^2 + y^3,y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+x^2 + y^3,y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+x^2 + y^3,y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+x^2 + y^3,y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+x^2 + y^3,y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+x^2 + y^3,y^2 - D_6(x),log 20/log 23,1,q = [0] mod 13
+x^2 + y^3,y^2 - D_7(x),log 20/log 21,1,q = [0] mod 13
+x^2 + y^3,y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+x^2 + y^3,y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+x^2 + y^3,y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+x^2 + y^3,y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+x^2 + y^3,y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+x^2 + y^3,y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+x^2 + y^3,y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+x^2 + y^3,y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+x^2 + y^3,y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+x^2 + y^3,y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+x^2 + y^3,y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+x^2 + y^3,y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+x^2 + y^3,y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+x^2 + y^3,y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+x^2 + y^3,y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+x^2 + y^4,(x^3+1) y^2 (quadratic twists),log 12/log 21,1,q = [0] mod 11
+x^2 + y^4,(x^3+1) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+x^2 + y^4,(x^3+x) y^2 (quadratic twists),log 12/log 21,1,q = [0] mod 11
+x^2 + y^4,(x^3+x) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+x^2 + y^4,(x^3+x+1) y^2 (quadratic twists),log 12/log 21,1,q = [0] mod 11
+x^2 + y^4,Xsplit = xy,log 12/log 21,1,q = [0] mod 11
+x^2 + y^4,const = 0,log 5/log 13,1,q = [0] mod 13
+x^2 + y^4,x y^2 - x^2 (quartic twists),log 12/log 21,1,q = [0] mod 11
+x^2 + y^4,x^2 (pushforward),log 12/log 22,1,q = [0] mod 11
+x^2 + y^4,x^2 + y^5,log 12/log 22,1,q = [0] mod 11
+x^2 + y^4,x^4 + y^5,log 12/log 22,1,q = [0] mod 11
+x^2 + y^4,y^2 - (x^3+1x),log 12/log 17,1,q = [0] mod 11
+x^2 + y^4,y^2 - (x^3+2x),log 12/log 16,1,q = [0] mod 11
+x^2 + y^4,y^2 - (x^5+1x),log 12/log 15,1,q = [0] mod 11
+x^2 + y^4,y^2 - (x^5+2x),log 12/log 18,1,q = [0] mod 11
+x^2 + y^4,y^2 - (x^7+1x),log 12/log 17,1,q = [0] mod 11
+x^2 + y^4,y^2 - (x^7+1x),log 20/log 24,1,q = [0] mod 19
+x^2 + y^4,y^2 - D_2(x),log 12/log 21,1,q = [0] mod 11
+x^2 + y^4,y^2 - D_3(x),log 12/log 16,1,q = [0] mod 11
+x^2 + y^4,y^2 - D_4(x),log 12/log 22,1,q = [0] mod 11
+x^2 + y^4,y^2 - D_5(x),log 12/log 18,1,q = [0] mod 11
+x^2 + y^4,y^2 - D_6(x),log 12/log 19,1,q = [0] mod 11
+x^2 + y^4,y^2 - D_8(x),log 12/log 22,1,q = [0] mod 11
+x^2 + y^4,y^2 - x^10,log 12/log 22,1,q = [0] mod 11
+x^2 + y^4,y^2 - x^12,log 12/log 21,1,q = [0] mod 11
+x^2 + y^4,y^2 - x^2,log 12/log 21,1,q = [0] mod 11
+x^2 + y^4,y^2 - x^4,log 12/log 21,1,q = [0] mod 11
+x^2 + y^4,y^2 - x^5,log 12/log 22,1,q = [0] mod 11
+x^2 + y^4,y^2 - x^6,log 12/log 21,1,q = [0] mod 11
+x^2 + y^4,y^2 - x^8,log 12/log 21,1,q = [0] mod 11
+x^2 + y^4,y^4 - x^2,log 12/log 21,1,q = [0] mod 11
+x^2 + y^4,y^4 - x^4,log 12/log 21,1,q = [0] mod 11
+x^2 + y^4,y^4 - x^4,log 5/log 7,1,q = [0] mod 13
+x^2 + y^4,y^4 - x^5,log 12/log 22,1,q = [0] mod 11
+x^2 + y^4,y^4 - x^6,log 12/log 21,1,q = [0] mod 11
+x^2 + y^4,y^5 - x^2,log 12/log 22,1,q = [0] mod 11
+x^2 + y^4,y^5 - x^4,log 12/log 22,1,q = [0] mod 11
+x^2 + y^4,y^5 - x^6,log 12/log 22,1,q = [0] mod 11
+x^2 + y^5,(x^3+1) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,(x^3+x) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,(x^3+x+1) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,(x^3+x+1) y^2 (quadratic twists),log 19/log 20,1,q = [0] mod 19
+x^2 + y^5,L = x,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,Xaniso = x^2-d y^2,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,Xaniso = x^2-d y^2,log 13/log 14,1,q = [0] mod 13
+x^2 + y^5,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+x^2 + y^5,Xaniso = x^2-d y^2,log 19/log 20,1,q = [0] mod 19
+x^2 + y^5,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+x^2 + y^5,Xsplit = xy,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,const = 0,1/2,16,"q = [2, 3, 4] mod 5"
+x^2 + y^5,x y^2 - x^2 (quartic twists),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,x^2 + y^2,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,x^2 + y^2,log 19/log 20,1,q = [0] mod 19
+x^2 + y^5,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+x^2 + y^5,x^2 + y^3,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,x^2 + y^3,log 13/log 20,1,q = [0] mod 13
+x^2 + y^5,x^2 + y^4,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,x^2 + y^4,log 19/log 20,1,q = [0] mod 19
+x^2 + y^5,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+x^2 + y^5,x^3 (pushforward),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,x^3 + y^3,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,x^3 + y^4,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,x^3 + y^5,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,x^4 + y^4,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,x^4 + y^4,log 19/log 20,1,q = [0] mod 19
+x^2 + y^5,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+x^2 + y^5,y^2 - (x^3+1x),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - (x^3+1x),log 13/log 19,1,q = [0] mod 13
+x^2 + y^5,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+x^2 + y^5,y^2 - (x^3+2x),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 13
+x^2 + y^5,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+x^2 + y^5,y^2 - (x^5+1x),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 13
+x^2 + y^5,y^2 - (x^5+2x),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 13
+x^2 + y^5,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+x^2 + y^5,y^2 - (x^7+1x),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - (x^7+1x),log 13/log 20,1,q = [0] mod 13
+x^2 + y^5,y^2 - (x^7+1x),log 19/log 24,1,q = [0] mod 19
+x^2 + y^5,y^2 - D_2(x),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - D_3(x),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - D_3(x),log 13/log 18,1,q = [0] mod 13
+x^2 + y^5,y^2 - D_4(x),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - D_5(x),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - D_6(x),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - D_6(x),log 13/log 23,1,q = [0] mod 13
+x^2 + y^5,y^2 - D_7(x),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - D_7(x),log 13/log 21,1,q = [0] mod 13
+x^2 + y^5,y^2 - D_8(x),log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - x^11,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - x^12,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - x^2,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - x^3,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - x^3,log 13/log 20,1,q = [0] mod 13
+x^2 + y^5,y^2 - x^4,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - x^6,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - x^7,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - x^8,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - x^9,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^2 - x^9,log 13/log 20,1,q = [0] mod 13
+x^2 + y^5,y^3 - x^2,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^3 - x^2,log 13/log 20,1,q = [0] mod 13
+x^2 + y^5,y^3 - x^3,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^3 - x^4,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^3 - x^5,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^3 - x^6,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^4 - x^2,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^4 - x^3,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^4 - x^4,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^4 - x^6,log 10/log 11,1,q = [0] mod 11
+x^2 + y^5,y^5 - x^3,log 10/log 11,1,q = [0] mod 11
+x^3 (pushforward),(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+x^3 (pushforward),(x^3+1) y^2 (quadratic twists),log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),(x^3+1) y^2 (quadratic twists),log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+x^3 (pushforward),(x^3+x) y^2 (quadratic twists),log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),(x^3+x) y^2 (quadratic twists),log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+x^3 (pushforward),(x^3+x+1) y^2 (quadratic twists),log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),(x^3+x+1) y^2 (quadratic twists),log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),L = x,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),L = x,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+x^3 (pushforward),Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+x^3 (pushforward),Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+x^3 (pushforward),Xaniso = x^2-d y^2,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),Xaniso = x^2-d y^2,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+x^3 (pushforward),Xsplit = xy,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),Xsplit = xy,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),const = 0,1/2,11,q = [2] mod 3
+x^3 (pushforward),x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+x^3 (pushforward),x y^2 - x^2 (quartic twists),log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),x y^2 - x^2 (quartic twists),log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),x^2 (pushforward),log 11/log 16,1,q = [14] mod 17
+x^3 (pushforward),x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+x^3 (pushforward),x^2 (pushforward),log 13/log 19,1,q = [18] mod 19
+x^3 (pushforward),x^2 (pushforward),log 15/log 22,1,q = [10] mod 11
+x^3 (pushforward),x^2 (pushforward),log 5/log 7,1,q = [0] mod 13
+x^3 (pushforward),x^2 (pushforward),log 7/log 10,1,q = [0] mod 19
+x^3 (pushforward),x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+x^3 (pushforward),x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+x^3 (pushforward),x^2 + y^2,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),x^2 + y^2,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),x^2 + y^3,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),x^2 + y^3,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+x^3 (pushforward),x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+x^3 (pushforward),x^2 + y^4,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),x^2 + y^4,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+x^3 (pushforward),x^2 + y^5,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),x^2 + y^5,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),x^3 + y^3,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),x^3 + y^3,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),x^3 + y^4,log 5/log 12,1,q = [0] mod 13
+x^3 (pushforward),x^3 + y^4,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),x^3 + y^5,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),x^3 + y^5,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+x^3 (pushforward),x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+x^3 (pushforward),x^4 + y^4,log 5/log 10,1,q = [0] mod 13
+x^3 (pushforward),x^4 + y^4,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+x^3 (pushforward),x^4 + y^5,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),x^4 + y^5,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),x^5 + y^5,log 11/log 19,1,q = [14] mod 17
+x^3 (pushforward),x^5 + y^5,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),x^5 + y^5,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+x^3 (pushforward),y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+x^3 (pushforward),y^2 - (x^3+1x),log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - (x^3+1x),log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+x^3 (pushforward),y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+x^3 (pushforward),y^2 - (x^3+2x),log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - (x^3+2x),log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+x^3 (pushforward),y^2 - (x^5+1x),log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - (x^5+1x),log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+x^3 (pushforward),y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+x^3 (pushforward),y^2 - (x^5+2x),log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - (x^5+2x),log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+x^3 (pushforward),y^2 - (x^7+1x),log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - (x^7+1x),log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+x^3 (pushforward),y^2 - D_2(x),log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - D_2(x),log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+x^3 (pushforward),y^2 - D_3(x),log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - D_3(x),log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+x^3 (pushforward),y^2 - D_4(x),log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - D_4(x),log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+x^3 (pushforward),y^2 - D_5(x),log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - D_5(x),log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+x^3 (pushforward),y^2 - D_6(x),log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - D_6(x),log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - D_7(x),log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - D_7(x),log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+x^3 (pushforward),y^2 - D_8(x),log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - D_8(x),log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+x^3 (pushforward),y^2 - x^10,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - x^10,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - x^11,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - x^11,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+x^3 (pushforward),y^2 - x^12,log 5/log 10,1,q = [0] mod 13
+x^3 (pushforward),y^2 - x^12,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+x^3 (pushforward),y^2 - x^2,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - x^2,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - x^3,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - x^3,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+x^3 (pushforward),y^2 - x^4,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - x^4,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+x^3 (pushforward),y^2 - x^5,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - x^5,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+x^3 (pushforward),y^2 - x^6,log 5/log 11,1,q = [0] mod 13
+x^3 (pushforward),y^2 - x^6,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - x^7,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - x^7,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+x^3 (pushforward),y^2 - x^8,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - x^8,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^2 - x^9,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^2 - x^9,log 7/log 17,1,q = [0] mod 19
+x^3 (pushforward),y^3 - x^2,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^3 - x^2,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^3 - x^3,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^3 - x^3,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^3 - x^4,log 5/log 12,1,q = [0] mod 13
+x^3 (pushforward),y^3 - x^4,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^3 - x^5,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^3 - x^5,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^3 - x^6,log 5/log 11,1,q = [0] mod 13
+x^3 (pushforward),y^3 - x^6,log 7/log 16,1,q = [0] mod 19
+x^3 (pushforward),y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+x^3 (pushforward),y^4 - x^2,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^4 - x^2,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^4 - x^3,log 5/log 12,1,q = [0] mod 13
+x^3 (pushforward),y^4 - x^3,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+x^3 (pushforward),y^4 - x^4,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^4 - x^4,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+x^3 (pushforward),y^4 - x^5,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^4 - x^5,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+x^3 (pushforward),y^4 - x^6,log 5/log 9,1,q = [0] mod 13
+x^3 (pushforward),y^4 - x^6,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+x^3 (pushforward),y^5 - x^2,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^5 - x^2,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^5 - x^3,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^5 - x^3,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+x^3 (pushforward),y^5 - x^4,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^5 - x^4,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^5 - x^5,log 11/log 19,1,q = [14] mod 17
+x^3 (pushforward),y^5 - x^5,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^5 - x^5,log 7/log 19,1,q = [0] mod 19
+x^3 (pushforward),y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+x^3 (pushforward),y^5 - x^6,log 5/log 13,1,q = [0] mod 13
+x^3 (pushforward),y^5 - x^6,log 7/log 19,1,q = [0] mod 19
+x^3 + y^3,(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+x^3 + y^3,(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+x^3 + y^3,(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+x^3 + y^3,Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+x^3 + y^3,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+x^3 + y^3,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+x^3 + y^3,Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+x^3 + y^3,const = 0,1/2,11,q = [2] mod 3
+x^3 + y^3,x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+x^3 + y^3,x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+x^3 + y^3,x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+x^3 + y^3,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+x^3 + y^3,x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+x^3 + y^3,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+x^3 + y^3,x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+x^3 + y^3,x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+x^3 + y^3,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+x^3 + y^3,x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+x^3 + y^3,y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+x^3 + y^3,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+x^3 + y^3,y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+x^3 + y^3,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+x^3 + y^3,y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+x^3 + y^3,y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+x^3 + y^3,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+x^3 + y^3,y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+x^3 + y^3,y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+x^3 + y^3,y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+x^3 + y^3,y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+x^3 + y^3,y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+x^3 + y^3,y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+x^3 + y^3,y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+x^3 + y^3,y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+x^3 + y^3,y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+x^3 + y^3,y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+x^3 + y^3,y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+x^3 + y^3,y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+x^3 + y^3,y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+x^3 + y^3,y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+x^3 + y^3,y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+x^3 + y^3,y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+x^3 + y^3,y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+x^3 + y^3,y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+x^3 + y^3,y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+x^3 + y^3,y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+x^3 + y^3,y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+x^3 + y^4,(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+x^3 + y^4,(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+x^3 + y^4,(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+x^3 + y^4,(x^3+x+1) y^2 (quadratic twists),log 12/log 13,1,q = [0] mod 13
+x^3 + y^4,Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+x^3 + y^4,Xaniso = x^2-d y^2,log 12/log 13,1,q = [0] mod 13
+x^3 + y^4,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+x^3 + y^4,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+x^3 + y^4,Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+x^3 + y^4,const = 0,1/2,11,q = [2] mod 3
+x^3 + y^4,x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+x^3 + y^4,x y^2 - x^2 (quartic twists),log 12/log 13,1,q = [0] mod 13
+x^3 + y^4,x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+x^3 + y^4,x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+x^3 + y^4,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+x^3 + y^4,x^2 + y^3,log 12/log 13,1,q = [0] mod 13
+x^3 + y^4,x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+x^3 + y^4,x^2 + y^4,log 12/log 13,1,q = [0] mod 13
+x^3 + y^4,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+x^3 + y^4,x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+x^3 + y^4,x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+x^3 + y^4,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+x^3 + y^4,x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+x^3 + y^4,y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+x^3 + y^4,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+x^3 + y^4,y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+x^3 + y^4,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+x^3 + y^4,y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+x^3 + y^4,y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+x^3 + y^4,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+x^3 + y^4,y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+x^3 + y^4,y^2 - (x^7+1x),log 12/log 13,1,q = [0] mod 13
+x^3 + y^4,y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+x^3 + y^4,y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+x^3 + y^4,y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+x^3 + y^4,y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+x^3 + y^4,y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+x^3 + y^4,y^2 - D_6(x),log 12/log 13,1,q = [0] mod 13
+x^3 + y^4,y^2 - D_7(x),log 12/log 13,1,q = [0] mod 13
+x^3 + y^4,y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+x^3 + y^4,y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+x^3 + y^4,y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+x^3 + y^4,y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+x^3 + y^4,y^2 - x^3,log 12/log 13,1,q = [0] mod 13
+x^3 + y^4,y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+x^3 + y^4,y^2 - x^4,log 12/log 13,1,q = [0] mod 13
+x^3 + y^4,y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+x^3 + y^4,y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+x^3 + y^4,y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+x^3 + y^4,y^2 - x^8,log 12/log 13,1,q = [0] mod 13
+x^3 + y^4,y^2 - x^9,log 12/log 13,1,q = [0] mod 13
+x^3 + y^4,y^3 - x^2,log 12/log 13,1,q = [0] mod 13
+x^3 + y^4,y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+x^3 + y^4,y^4 - x^2,log 12/log 13,1,q = [0] mod 13
+x^3 + y^4,y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+x^3 + y^4,y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+x^3 + y^4,y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+x^3 + y^4,y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+x^3 + y^4,y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+x^3 + y^4,y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+x^3 + y^5,(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+x^3 + y^5,(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+x^3 + y^5,(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+x^3 + y^5,(x^3+x+1) y^2 (quadratic twists),log 19/log 20,1,q = [0] mod 19
+x^3 + y^5,Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+x^3 + y^5,Xaniso = x^2-d y^2,log 13/log 14,1,q = [0] mod 13
+x^3 + y^5,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+x^3 + y^5,Xaniso = x^2-d y^2,log 19/log 20,1,q = [0] mod 19
+x^3 + y^5,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+x^3 + y^5,Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+x^3 + y^5,const = 0,1/2,19,"q = [2, 4, 7, 8, 11, 13, 14] mod 15"
+x^3 + y^5,x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+x^3 + y^5,x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+x^3 + y^5,x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+x^3 + y^5,x^2 + y^2,log 19/log 20,1,q = [0] mod 19
+x^3 + y^5,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+x^3 + y^5,x^2 + y^3,log 13/log 20,1,q = [0] mod 13
+x^3 + y^5,x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+x^3 + y^5,x^2 + y^4,log 19/log 20,1,q = [0] mod 19
+x^3 + y^5,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+x^3 + y^5,x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+x^3 + y^5,x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+x^3 + y^5,x^4 + y^4,log 19/log 20,1,q = [0] mod 19
+x^3 + y^5,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+x^3 + y^5,x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+x^3 + y^5,y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+x^3 + y^5,y^2 - (x^3+1x),log 13/log 19,1,q = [0] mod 13
+x^3 + y^5,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+x^3 + y^5,y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+x^3 + y^5,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 13
+x^3 + y^5,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+x^3 + y^5,y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+x^3 + y^5,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 13
+x^3 + y^5,y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+x^3 + y^5,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 13
+x^3 + y^5,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+x^3 + y^5,y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+x^3 + y^5,y^2 - (x^7+1x),log 13/log 20,1,q = [0] mod 13
+x^3 + y^5,y^2 - (x^7+1x),log 19/log 24,1,q = [0] mod 19
+x^3 + y^5,y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+x^3 + y^5,y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+x^3 + y^5,y^2 - D_3(x),log 13/log 18,1,q = [0] mod 13
+x^3 + y^5,y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+x^3 + y^5,y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+x^3 + y^5,y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+x^3 + y^5,y^2 - D_6(x),log 13/log 23,1,q = [0] mod 13
+x^3 + y^5,y^2 - D_7(x),log 13/log 21,1,q = [0] mod 13
+x^3 + y^5,y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+x^3 + y^5,y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+x^3 + y^5,y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+x^3 + y^5,y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+x^3 + y^5,y^2 - x^3,log 13/log 20,1,q = [0] mod 13
+x^3 + y^5,y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+x^3 + y^5,y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+x^3 + y^5,y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+x^3 + y^5,y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+x^3 + y^5,y^2 - x^9,log 13/log 20,1,q = [0] mod 13
+x^3 + y^5,y^3 - x^2,log 13/log 20,1,q = [0] mod 13
+x^3 + y^5,y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+x^3 + y^5,y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+x^3 + y^5,y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+x^3 + y^5,y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+x^3 + y^5,y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+x^3 + y^5,y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+x^3 + y^5,y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+x^4 + y^4,(x^3+1) y^2 (quadratic twists),log 12/log 21,1,q = [0] mod 11
+x^4 + y^4,(x^3+1) y^2 (quadratic twists),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,(x^3+x) y^2 (quadratic twists),log 12/log 21,1,q = [0] mod 11
+x^4 + y^4,(x^3+x) y^2 (quadratic twists),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,(x^3+x+1) y^2 (quadratic twists),log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,(x^3+x+1) y^2 (quadratic twists),log 12/log 21,1,q = [0] mod 11
+x^4 + y^4,(x^3+x+1) y^2 (quadratic twists),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,L = x,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,L = x,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,Xaniso = x^2-d y^2,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,Xaniso = x^2-d y^2,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,Xsplit = xy,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,Xsplit = xy,log 12/log 21,1,q = [0] mod 11
+x^4 + y^4,Xsplit = xy,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,x y^2 - x^2 (quartic twists),log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,x y^2 - x^2 (quartic twists),log 12/log 21,1,q = [0] mod 11
+x^4 + y^4,x y^2 - x^2 (quartic twists),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,x^2 (pushforward),log 12/log 22,1,q = [0] mod 11
+x^4 + y^4,x^2 + y^2,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,x^2 + y^2,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,x^2 + y^3,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,x^2 + y^3,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,x^2 + y^4,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,x^2 + y^4,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,x^2 + y^5,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,x^2 + y^5,log 12/log 22,1,q = [0] mod 11
+x^4 + y^4,x^2 + y^5,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,x^3 (pushforward),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,x^3 + y^3,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,x^3 + y^3,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,x^3 + y^4,log 10/log 12,1,q = [0] mod 13
+x^4 + y^4,x^3 + y^4,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,x^3 + y^5,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,x^3 + y^5,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,x^4 + y^5,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,x^4 + y^5,log 12/log 22,1,q = [0] mod 11
+x^4 + y^4,x^4 + y^5,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,x^5 + y^5,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,x^5 + y^5,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - (x^3+1x),log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - (x^3+1x),log 12/log 17,1,q = [0] mod 11
+x^4 + y^4,y^2 - (x^3+1x),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - (x^3+2x),log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - (x^3+2x),log 12/log 16,1,q = [0] mod 11
+x^4 + y^4,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - (x^5+1x),log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - (x^5+1x),log 12/log 15,1,q = [0] mod 11
+x^4 + y^4,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - (x^5+2x),log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - (x^5+2x),log 12/log 18,1,q = [0] mod 11
+x^4 + y^4,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - (x^7+1x),log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - (x^7+1x),log 12/log 17,1,q = [0] mod 11
+x^4 + y^4,y^2 - (x^7+1x),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - (x^7+1x),log 20/log 24,1,q = [0] mod 19
+x^4 + y^4,y^2 - D_2(x),log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - D_2(x),log 12/log 21,1,q = [0] mod 11
+x^4 + y^4,y^2 - D_2(x),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - D_3(x),log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - D_3(x),log 12/log 16,1,q = [0] mod 11
+x^4 + y^4,y^2 - D_3(x),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - D_4(x),log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - D_4(x),log 12/log 22,1,q = [0] mod 11
+x^4 + y^4,y^2 - D_4(x),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - D_5(x),log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - D_5(x),log 12/log 18,1,q = [0] mod 11
+x^4 + y^4,y^2 - D_5(x),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - D_6(x),log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - D_6(x),log 12/log 19,1,q = [0] mod 11
+x^4 + y^4,y^2 - D_6(x),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - D_7(x),log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - D_7(x),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - D_8(x),log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - D_8(x),log 12/log 22,1,q = [0] mod 11
+x^4 + y^4,y^2 - D_8(x),log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - x^10,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - x^10,log 12/log 22,1,q = [0] mod 11
+x^4 + y^4,y^2 - x^10,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - x^11,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - x^11,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - x^12,log 12/log 21,1,q = [0] mod 11
+x^4 + y^4,y^2 - x^12,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - x^2,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - x^2,log 12/log 21,1,q = [0] mod 11
+x^4 + y^4,y^2 - x^2,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - x^3,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - x^3,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - x^4,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - x^4,log 12/log 21,1,q = [0] mod 11
+x^4 + y^4,y^2 - x^4,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - x^5,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - x^5,log 12/log 22,1,q = [0] mod 11
+x^4 + y^4,y^2 - x^5,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - x^6,log 12/log 21,1,q = [0] mod 11
+x^4 + y^4,y^2 - x^6,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - x^7,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - x^7,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^2 - x^8,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - x^8,log 12/log 21,1,q = [0] mod 11
+x^4 + y^4,y^2 - x^8,log 13/log 15,1,q = [0] mod 17
+x^4 + y^4,y^2 - x^9,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^2 - x^9,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^3 - x^2,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^3 - x^2,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^3 - x^3,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^3 - x^3,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^3 - x^4,log 10/log 12,1,q = [0] mod 13
+x^4 + y^4,y^3 - x^4,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^3 - x^5,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^3 - x^5,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^3 - x^6,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^4 - x^2,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^4 - x^2,log 12/log 21,1,q = [0] mod 11
+x^4 + y^4,y^4 - x^2,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^4 - x^3,log 10/log 12,1,q = [0] mod 13
+x^4 + y^4,y^4 - x^3,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^4 - x^4,log 12/log 21,1,q = [0] mod 11
+x^4 + y^4,y^4 - x^5,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^4 - x^5,log 12/log 22,1,q = [0] mod 11
+x^4 + y^4,y^4 - x^5,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^4 - x^6,log 12/log 21,1,q = [0] mod 11
+x^4 + y^4,y^4 - x^6,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^5 - x^2,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^5 - x^2,log 12/log 22,1,q = [0] mod 11
+x^4 + y^4,y^5 - x^2,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^5 - x^3,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^5 - x^3,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^5 - x^4,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^5 - x^4,log 12/log 22,1,q = [0] mod 11
+x^4 + y^4,y^5 - x^4,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^5 - x^5,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^5 - x^5,log 13/log 17,1,q = [0] mod 17
+x^4 + y^4,y^5 - x^6,log 10/log 13,1,q = [0] mod 13
+x^4 + y^4,y^5 - x^6,log 12/log 22,1,q = [0] mod 11
+x^4 + y^4,y^5 - x^6,log 13/log 17,1,q = [0] mod 17
+x^4 + y^5,(x^3+1) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,(x^3+x) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,(x^3+x+1) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,(x^3+x+1) y^2 (quadratic twists),log 19/log 20,1,q = [0] mod 19
+x^4 + y^5,L = x,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,Xaniso = x^2-d y^2,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,Xaniso = x^2-d y^2,log 13/log 14,1,q = [0] mod 13
+x^4 + y^5,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+x^4 + y^5,Xaniso = x^2-d y^2,log 19/log 20,1,q = [0] mod 19
+x^4 + y^5,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+x^4 + y^5,Xsplit = xy,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,const = 0,1/2,16,"q = [2, 3, 4] mod 5"
+x^4 + y^5,x y^2 - x^2 (quartic twists),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,x^2 + y^2,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,x^2 + y^2,log 19/log 20,1,q = [0] mod 19
+x^4 + y^5,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+x^4 + y^5,x^2 + y^3,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,x^2 + y^3,log 13/log 20,1,q = [0] mod 13
+x^4 + y^5,x^2 + y^4,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,x^2 + y^4,log 19/log 20,1,q = [0] mod 19
+x^4 + y^5,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+x^4 + y^5,x^3 (pushforward),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,x^3 + y^3,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,x^3 + y^4,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,x^3 + y^5,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,x^4 + y^4,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,x^4 + y^4,log 19/log 20,1,q = [0] mod 19
+x^4 + y^5,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+x^4 + y^5,y^2 - (x^3+1x),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - (x^3+1x),log 13/log 19,1,q = [0] mod 13
+x^4 + y^5,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+x^4 + y^5,y^2 - (x^3+2x),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 13
+x^4 + y^5,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+x^4 + y^5,y^2 - (x^5+1x),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 13
+x^4 + y^5,y^2 - (x^5+2x),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 13
+x^4 + y^5,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+x^4 + y^5,y^2 - (x^7+1x),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - (x^7+1x),log 13/log 20,1,q = [0] mod 13
+x^4 + y^5,y^2 - (x^7+1x),log 19/log 24,1,q = [0] mod 19
+x^4 + y^5,y^2 - D_2(x),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - D_3(x),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - D_3(x),log 13/log 18,1,q = [0] mod 13
+x^4 + y^5,y^2 - D_4(x),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - D_5(x),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - D_6(x),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - D_6(x),log 13/log 23,1,q = [0] mod 13
+x^4 + y^5,y^2 - D_7(x),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - D_7(x),log 13/log 21,1,q = [0] mod 13
+x^4 + y^5,y^2 - D_8(x),log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - x^11,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - x^12,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - x^2,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - x^3,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - x^3,log 13/log 20,1,q = [0] mod 13
+x^4 + y^5,y^2 - x^4,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - x^6,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - x^7,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - x^8,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - x^9,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^2 - x^9,log 13/log 20,1,q = [0] mod 13
+x^4 + y^5,y^3 - x^2,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^3 - x^2,log 13/log 20,1,q = [0] mod 13
+x^4 + y^5,y^3 - x^3,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^3 - x^4,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^3 - x^5,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^3 - x^6,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^4 - x^2,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^4 - x^3,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^4 - x^4,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^4 - x^6,log 10/log 11,1,q = [0] mod 11
+x^4 + y^5,y^5 - x^3,log 10/log 11,1,q = [0] mod 11
+x^5 + y^5,(x^3+1) y^2 (quadratic twists),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,(x^3+x) y^2 (quadratic twists),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,(x^3+x+1) y^2 (quadratic twists),log 19/log 20,1,q = [0] mod 19
+x^5 + y^5,(x^3+x+1) y^2 (quadratic twists),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,L = x,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,Xaniso = x^2-d y^2,log 13/log 14,1,q = [0] mod 13
+x^5 + y^5,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+x^5 + y^5,Xaniso = x^2-d y^2,log 19/log 20,1,q = [0] mod 19
+x^5 + y^5,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+x^5 + y^5,Xaniso = x^2-d y^2,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,Xsplit = xy,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,const = 0,1/2,16,"q = [2, 3, 4] mod 5"
+x^5 + y^5,x y^2 - x^2 (quartic twists),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,x^2 (pushforward),log 5/log 6,1,q = [0] mod 11
+x^5 + y^5,x^2 + y^2,log 19/log 20,1,q = [0] mod 19
+x^5 + y^5,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+x^5 + y^5,x^2 + y^2,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,x^2 + y^3,log 13/log 20,1,q = [0] mod 13
+x^5 + y^5,x^2 + y^3,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,x^2 + y^4,log 19/log 20,1,q = [0] mod 19
+x^5 + y^5,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+x^5 + y^5,x^2 + y^4,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,x^2 + y^5,log 5/log 10,1,q = [0] mod 11
+x^5 + y^5,x^3 (pushforward),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,x^3 + y^3,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,x^3 + y^4,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,x^3 + y^5,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,x^4 + y^4,log 19/log 20,1,q = [0] mod 19
+x^5 + y^5,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+x^5 + y^5,x^4 + y^4,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,x^4 + y^5,log 5/log 10,1,q = [0] mod 11
+x^5 + y^5,y^2 - (x^3+1x),log 13/log 19,1,q = [0] mod 13
+x^5 + y^5,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+x^5 + y^5,y^2 - (x^3+1x),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 13
+x^5 + y^5,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+x^5 + y^5,y^2 - (x^3+2x),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 13
+x^5 + y^5,y^2 - (x^5+1x),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 13
+x^5 + y^5,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+x^5 + y^5,y^2 - (x^5+2x),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - (x^7+1x),log 13/log 20,1,q = [0] mod 13
+x^5 + y^5,y^2 - (x^7+1x),log 19/log 24,1,q = [0] mod 19
+x^5 + y^5,y^2 - (x^7+1x),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - D_2(x),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - D_3(x),log 13/log 18,1,q = [0] mod 13
+x^5 + y^5,y^2 - D_3(x),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - D_4(x),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - D_5(x),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - D_6(x),log 13/log 23,1,q = [0] mod 13
+x^5 + y^5,y^2 - D_6(x),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - D_7(x),log 13/log 21,1,q = [0] mod 13
+x^5 + y^5,y^2 - D_7(x),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - D_8(x),log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - x^10,log 5/log 9,1,q = [0] mod 11
+x^5 + y^5,y^2 - x^11,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - x^12,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - x^2,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - x^3,log 13/log 20,1,q = [0] mod 13
+x^5 + y^5,y^2 - x^3,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - x^4,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - x^5,log 5/log 10,1,q = [0] mod 11
+x^5 + y^5,y^2 - x^6,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - x^7,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - x^8,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^2 - x^9,log 13/log 20,1,q = [0] mod 13
+x^5 + y^5,y^2 - x^9,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^3 - x^2,log 13/log 20,1,q = [0] mod 13
+x^5 + y^5,y^3 - x^2,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^3 - x^3,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^3 - x^4,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^3 - x^5,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^3 - x^6,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^4 - x^2,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^4 - x^3,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^4 - x^4,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^4 - x^5,log 5/log 10,1,q = [0] mod 11
+x^5 + y^5,y^4 - x^6,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^5 - x^2,log 5/log 10,1,q = [0] mod 11
+x^5 + y^5,y^5 - x^3,log 5/log 11,1,q = [0] mod 11
+x^5 + y^5,y^5 - x^4,log 5/log 10,1,q = [0] mod 11
+x^5 + y^5,y^5 - x^6,log 5/log 10,1,q = [0] mod 11
+y^2 - (x^3+1x),(x^3+1) y^2 (quadratic twists),log 17/log 21,1,q = [0] mod 11
+y^2 - (x^3+1x),(x^3+x) y^2 (quadratic twists),log 17/log 21,1,q = [0] mod 11
+y^2 - (x^3+1x),(x^3+x+1) y^2 (quadratic twists),log 17/log 21,1,q = [0] mod 11
+y^2 - (x^3+1x),Xsplit = xy,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^3+1x),x y^2 - x^2 (quartic twists),log 17/log 21,1,q = [0] mod 11
+y^2 - (x^3+1x),y^2 - (x^5+2x),log 17/log 18,1,q = [0] mod 11
+y^2 - (x^3+1x),y^2 - D_2(x),log 17/log 21,1,q = [0] mod 11
+y^2 - (x^3+1x),y^2 - D_4(x),log 17/log 22,1,q = [0] mod 11
+y^2 - (x^3+1x),y^2 - D_5(x),log 17/log 18,1,q = [0] mod 11
+y^2 - (x^3+1x),y^2 - D_6(x),log 19/log 23,1,q = [0] mod 13
+y^2 - (x^3+1x),y^2 - D_8(x),log 17/log 22,1,q = [0] mod 11
+y^2 - (x^3+1x),y^2 - x^12,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^3+1x),y^2 - x^2,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^3+1x),y^2 - x^4,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^3+1x),y^2 - x^6,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^3+1x),y^2 - x^8,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^3+1x),y^4 - x^2,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^3+1x),y^4 - x^4,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^3+1x),y^4 - x^6,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^3+2x),(x^3+1) y^2 (quadratic twists),log 16/log 21,1,q = [0] mod 11
+y^2 - (x^3+2x),(x^3+x) y^2 (quadratic twists),log 16/log 21,1,q = [0] mod 11
+y^2 - (x^3+2x),(x^3+x+1) y^2 (quadratic twists),log 16/log 21,1,q = [0] mod 11
+y^2 - (x^3+2x),Xsplit = xy,log 16/log 21,1,q = [0] mod 11
+y^2 - (x^3+2x),const = 0,log 4/log 11,1,q = [0] mod 11
+y^2 - (x^3+2x),x y^2 - x^2 (quartic twists),log 16/log 21,1,q = [0] mod 11
+y^2 - (x^3+2x),x^2 + y^3,log 17/log 20,1,q = [0] mod 13
+y^2 - (x^3+2x),x^2 + y^5,log 16/log 22,1,q = [0] mod 11
+y^2 - (x^3+2x),x^4 + y^5,log 16/log 22,1,q = [0] mod 11
+y^2 - (x^3+2x),y^2 - (x^3+1x),log 16/log 17,1,q = [0] mod 11
+y^2 - (x^3+2x),y^2 - (x^3+1x),log 17/log 19,1,q = [0] mod 13
+y^2 - (x^3+2x),y^2 - (x^5+2x),log 16/log 18,1,q = [0] mod 11
+y^2 - (x^3+2x),y^2 - (x^7+1x),log 16/log 17,1,q = [0] mod 11
+y^2 - (x^3+2x),y^2 - D_2(x),log 16/log 21,1,q = [0] mod 11
+y^2 - (x^3+2x),y^2 - D_3(x),log 17/log 18,1,q = [0] mod 13
+y^2 - (x^3+2x),y^2 - D_4(x),log 16/log 22,1,q = [0] mod 11
+y^2 - (x^3+2x),y^2 - D_5(x),log 16/log 18,1,q = [0] mod 11
+y^2 - (x^3+2x),y^2 - D_6(x),log 17/log 23,1,q = [0] mod 13
+y^2 - (x^3+2x),y^2 - D_7(x),log 17/log 21,1,q = [0] mod 13
+y^2 - (x^3+2x),y^2 - D_8(x),log 16/log 22,1,q = [0] mod 11
+y^2 - (x^3+2x),y^2 - x^12,log 16/log 21,1,q = [0] mod 11
+y^2 - (x^3+2x),y^2 - x^2,log 16/log 21,1,q = [0] mod 11
+y^2 - (x^3+2x),y^2 - x^3,log 17/log 20,1,q = [0] mod 13
+y^2 - (x^3+2x),y^2 - x^4,log 16/log 21,1,q = [0] mod 11
+y^2 - (x^3+2x),y^2 - x^5,log 16/log 22,1,q = [0] mod 11
+y^2 - (x^3+2x),y^2 - x^6,log 16/log 21,1,q = [0] mod 11
+y^2 - (x^3+2x),y^2 - x^8,log 16/log 21,1,q = [0] mod 11
+y^2 - (x^3+2x),y^2 - x^9,log 17/log 20,1,q = [0] mod 13
+y^2 - (x^3+2x),y^3 - x^2,log 17/log 20,1,q = [0] mod 13
+y^2 - (x^3+2x),y^4 - x^2,log 16/log 21,1,q = [0] mod 11
+y^2 - (x^3+2x),y^4 - x^4,log 16/log 21,1,q = [0] mod 11
+y^2 - (x^3+2x),y^4 - x^5,log 16/log 22,1,q = [0] mod 11
+y^2 - (x^3+2x),y^4 - x^6,log 16/log 21,1,q = [0] mod 11
+y^2 - (x^3+2x),y^5 - x^2,log 16/log 22,1,q = [0] mod 11
+y^2 - (x^3+2x),y^5 - x^4,log 16/log 22,1,q = [0] mod 11
+y^2 - (x^3+2x),y^5 - x^6,log 16/log 22,1,q = [0] mod 11
+y^2 - (x^5+1x),(x^3+1) y^2 (quadratic twists),log 15/log 21,1,q = [0] mod 11
+y^2 - (x^5+1x),(x^3+1) y^2 (quadratic twists),log 8/log 13,1,q = [10] mod 11
+y^2 - (x^5+1x),(x^3+x) y^2 (quadratic twists),log 15/log 21,1,q = [0] mod 11
+y^2 - (x^5+1x),(x^3+x+1) y^2 (quadratic twists),log 15/log 21,1,q = [0] mod 11
+y^2 - (x^5+1x),Xsplit = xy,log 15/log 21,1,q = [0] mod 11
+y^2 - (x^5+1x),x y^2 - x^2 (quartic twists),log 15/log 21,1,q = [0] mod 11
+y^2 - (x^5+1x),x^2 + y^3,log 17/log 20,1,q = [0] mod 13
+y^2 - (x^5+1x),y^2 - (x^3+1x),log 17/log 19,1,q = [0] mod 13
+y^2 - (x^5+1x),y^2 - (x^5+2x),log 15/log 18,1,q = [0] mod 11
+y^2 - (x^5+1x),y^2 - D_2(x),log 15/log 21,1,q = [0] mod 11
+y^2 - (x^5+1x),y^2 - D_3(x),log 17/log 18,1,q = [0] mod 13
+y^2 - (x^5+1x),y^2 - D_4(x),log 15/log 22,1,q = [0] mod 11
+y^2 - (x^5+1x),y^2 - D_5(x),log 15/log 18,1,q = [0] mod 11
+y^2 - (x^5+1x),y^2 - D_6(x),log 17/log 23,1,q = [0] mod 13
+y^2 - (x^5+1x),y^2 - D_7(x),log 17/log 21,1,q = [0] mod 13
+y^2 - (x^5+1x),y^2 - D_8(x),log 15/log 22,1,q = [0] mod 11
+y^2 - (x^5+1x),y^2 - x^12,log 15/log 21,1,q = [0] mod 11
+y^2 - (x^5+1x),y^2 - x^2,log 15/log 21,1,q = [0] mod 11
+y^2 - (x^5+1x),y^2 - x^3,log 17/log 20,1,q = [0] mod 13
+y^2 - (x^5+1x),y^2 - x^4,log 15/log 21,1,q = [0] mod 11
+y^2 - (x^5+1x),y^2 - x^6,log 15/log 21,1,q = [0] mod 11
+y^2 - (x^5+1x),y^2 - x^8,log 15/log 21,1,q = [0] mod 11
+y^2 - (x^5+1x),y^2 - x^9,log 17/log 20,1,q = [0] mod 13
+y^2 - (x^5+1x),y^3 - x^2,log 17/log 20,1,q = [0] mod 13
+y^2 - (x^5+1x),y^4 - x^2,log 15/log 21,1,q = [0] mod 11
+y^2 - (x^5+1x),y^4 - x^4,log 15/log 21,1,q = [0] mod 11
+y^2 - (x^5+1x),y^4 - x^6,log 15/log 21,1,q = [0] mod 11
+y^2 - (x^5+2x),(x^3+1) y^2 (quadratic twists),log 18/log 21,1,q = [0] mod 11
+y^2 - (x^5+2x),(x^3+1) y^2 (quadratic twists),log 7/log 9,1,q = [7] mod 17
+y^2 - (x^5+2x),(x^3+x) y^2 (quadratic twists),log 18/log 21,1,q = [0] mod 11
+y^2 - (x^5+2x),(x^3+x+1) y^2 (quadratic twists),log 18/log 21,1,q = [0] mod 11
+y^2 - (x^5+2x),Xsplit = xy,log 18/log 21,1,q = [0] mod 11
+y^2 - (x^5+2x),Xsplit = xy,log 7/log 9,1,q = [7] mod 17
+y^2 - (x^5+2x),x y^2 - x^2 (quartic twists),log 18/log 21,1,q = [0] mod 11
+y^2 - (x^5+2x),x y^2 - x^2 (quartic twists),log 7/log 9,1,q = [7] mod 17
+y^2 - (x^5+2x),x^2 + y^2,log 7/log 9,1,q = [7] mod 17
+y^2 - (x^5+2x),x^2 + y^3,log 17/log 20,1,q = [0] mod 13
+y^2 - (x^5+2x),x^2 + y^4,log 7/log 9,1,q = [7] mod 17
+y^2 - (x^5+2x),y^2 - (x^3+1x),log 17/log 19,1,q = [0] mod 13
+y^2 - (x^5+2x),y^2 - (x^3+1x),log 21/log 24,1,q = [0] mod 17
+y^2 - (x^5+2x),y^2 - (x^3+2x),log 21/log 23,1,q = [0] mod 17
+y^2 - (x^5+2x),y^2 - D_2(x),log 18/log 21,1,q = [0] mod 11
+y^2 - (x^5+2x),y^2 - D_2(x),log 7/log 9,1,q = [7] mod 17
+y^2 - (x^5+2x),y^2 - D_3(x),log 17/log 18,1,q = [0] mod 13
+y^2 - (x^5+2x),y^2 - D_4(x),log 18/log 22,1,q = [0] mod 11
+y^2 - (x^5+2x),y^2 - D_6(x),log 17/log 23,1,q = [0] mod 13
+y^2 - (x^5+2x),y^2 - D_6(x),log 7/log 9,1,q = [7] mod 17
+y^2 - (x^5+2x),y^2 - D_7(x),log 17/log 21,1,q = [0] mod 13
+y^2 - (x^5+2x),y^2 - D_8(x),log 18/log 22,1,q = [0] mod 11
+y^2 - (x^5+2x),y^2 - x^10,log 7/log 9,1,q = [7] mod 17
+y^2 - (x^5+2x),y^2 - x^12,log 18/log 21,1,q = [0] mod 11
+y^2 - (x^5+2x),y^2 - x^12,log 7/log 9,1,q = [7] mod 17
+y^2 - (x^5+2x),y^2 - x^2,log 18/log 21,1,q = [0] mod 11
+y^2 - (x^5+2x),y^2 - x^2,log 7/log 9,1,q = [7] mod 17
+y^2 - (x^5+2x),y^2 - x^3,log 17/log 20,1,q = [0] mod 13
+y^2 - (x^5+2x),y^2 - x^4,log 18/log 21,1,q = [0] mod 11
+y^2 - (x^5+2x),y^2 - x^4,log 7/log 9,1,q = [7] mod 17
+y^2 - (x^5+2x),y^2 - x^6,log 18/log 21,1,q = [0] mod 11
+y^2 - (x^5+2x),y^2 - x^6,log 7/log 9,1,q = [7] mod 17
+y^2 - (x^5+2x),y^2 - x^8,log 18/log 21,1,q = [0] mod 11
+y^2 - (x^5+2x),y^2 - x^8,log 7/log 9,1,q = [7] mod 17
+y^2 - (x^5+2x),y^2 - x^9,log 17/log 20,1,q = [0] mod 13
+y^2 - (x^5+2x),y^3 - x^2,log 17/log 20,1,q = [0] mod 13
+y^2 - (x^5+2x),y^4 - x^2,log 18/log 21,1,q = [0] mod 11
+y^2 - (x^5+2x),y^4 - x^2,log 7/log 9,1,q = [7] mod 17
+y^2 - (x^5+2x),y^4 - x^4,log 18/log 21,1,q = [0] mod 11
+y^2 - (x^5+2x),y^4 - x^6,log 18/log 21,1,q = [0] mod 11
+y^2 - (x^5+2x),y^4 - x^6,log 7/log 9,1,q = [7] mod 17
+y^2 - (x^7+1x),(x^3+1) y^2 (quadratic twists),log 17/log 21,1,q = [0] mod 11
+y^2 - (x^7+1x),(x^3+x) y^2 (quadratic twists),log 17/log 21,1,q = [0] mod 11
+y^2 - (x^7+1x),(x^3+x+1) y^2 (quadratic twists),log 17/log 21,1,q = [0] mod 11
+y^2 - (x^7+1x),Xsplit = xy,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^7+1x),x y^2 - x^2 (quartic twists),log 17/log 21,1,q = [0] mod 11
+y^2 - (x^7+1x),y^2 - (x^5+2x),log 17/log 18,1,q = [0] mod 11
+y^2 - (x^7+1x),y^2 - D_2(x),log 17/log 21,1,q = [0] mod 11
+y^2 - (x^7+1x),y^2 - D_4(x),log 17/log 22,1,q = [0] mod 11
+y^2 - (x^7+1x),y^2 - D_5(x),log 17/log 18,1,q = [0] mod 11
+y^2 - (x^7+1x),y^2 - D_6(x),log 20/log 23,1,q = [0] mod 13
+y^2 - (x^7+1x),y^2 - D_7(x),log 20/log 21,1,q = [0] mod 13
+y^2 - (x^7+1x),y^2 - D_8(x),log 17/log 22,1,q = [0] mod 11
+y^2 - (x^7+1x),y^2 - x^12,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^7+1x),y^2 - x^2,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^7+1x),y^2 - x^4,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^7+1x),y^2 - x^6,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^7+1x),y^2 - x^8,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^7+1x),y^4 - x^2,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^7+1x),y^4 - x^4,log 17/log 21,1,q = [0] mod 11
+y^2 - (x^7+1x),y^4 - x^6,log 17/log 21,1,q = [0] mod 11
+y^2 - D_2(x),(x^3+1) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+y^2 - D_2(x),(x^3+x) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+y^2 - D_2(x),const = 0,log 5/log 13,1,q = [0] mod 13
+y^2 - D_2(x),y^4 - x^4,log 5/log 7,1,q = [0] mod 13
+y^2 - D_3(x),(x^3+1) y^2 (quadratic twists),log 16/log 21,1,q = [0] mod 11
+y^2 - D_3(x),(x^3+x) y^2 (quadratic twists),log 16/log 21,1,q = [0] mod 11
+y^2 - D_3(x),(x^3+x+1) y^2 (quadratic twists),log 16/log 21,1,q = [0] mod 11
+y^2 - D_3(x),Xsplit = xy,log 16/log 21,1,q = [0] mod 11
+y^2 - D_3(x),const = 0,log 4/log 11,1,q = [0] mod 11
+y^2 - D_3(x),const = 0,log 5/log 17,1,q = [0] mod 17
+y^2 - D_3(x),x y^2 - x^2 (quartic twists),log 16/log 21,1,q = [0] mod 11
+y^2 - D_3(x),x^2 + y^5,log 16/log 22,1,q = [0] mod 11
+y^2 - D_3(x),x^4 + y^5,log 16/log 22,1,q = [0] mod 11
+y^2 - D_3(x),y^2 - (x^3+1x),log 16/log 17,1,q = [0] mod 11
+y^2 - D_3(x),y^2 - (x^3+1x),log 18/log 19,1,q = [0] mod 13
+y^2 - D_3(x),y^2 - (x^5+2x),log 16/log 18,1,q = [0] mod 11
+y^2 - D_3(x),y^2 - (x^7+1x),log 16/log 17,1,q = [0] mod 11
+y^2 - D_3(x),y^2 - D_2(x),log 16/log 21,1,q = [0] mod 11
+y^2 - D_3(x),y^2 - D_4(x),log 16/log 22,1,q = [0] mod 11
+y^2 - D_3(x),y^2 - D_5(x),log 16/log 18,1,q = [0] mod 11
+y^2 - D_3(x),y^2 - D_6(x),log 18/log 23,1,q = [0] mod 13
+y^2 - D_3(x),y^2 - D_7(x),log 18/log 21,1,q = [0] mod 13
+y^2 - D_3(x),y^2 - D_8(x),log 16/log 22,1,q = [0] mod 11
+y^2 - D_3(x),y^2 - x^12,log 16/log 21,1,q = [0] mod 11
+y^2 - D_3(x),y^2 - x^2,log 16/log 21,1,q = [0] mod 11
+y^2 - D_3(x),y^2 - x^4,log 16/log 21,1,q = [0] mod 11
+y^2 - D_3(x),y^2 - x^5,log 16/log 22,1,q = [0] mod 11
+y^2 - D_3(x),y^2 - x^6,log 16/log 21,1,q = [0] mod 11
+y^2 - D_3(x),y^2 - x^8,log 16/log 21,1,q = [0] mod 11
+y^2 - D_3(x),y^4 - x^2,log 16/log 21,1,q = [0] mod 11
+y^2 - D_3(x),y^4 - x^4,log 16/log 21,1,q = [0] mod 11
+y^2 - D_3(x),y^4 - x^5,log 16/log 22,1,q = [0] mod 11
+y^2 - D_3(x),y^4 - x^6,log 16/log 21,1,q = [0] mod 11
+y^2 - D_3(x),y^5 - x^2,log 16/log 22,1,q = [0] mod 11
+y^2 - D_3(x),y^5 - x^4,log 16/log 22,1,q = [0] mod 11
+y^2 - D_3(x),y^5 - x^6,log 16/log 22,1,q = [0] mod 11
+y^2 - D_4(x),(x^3+1) y^2 (quadratic twists),log 12/log 17,1,q = [5] mod 17
+y^2 - D_4(x),(x^3+x) y^2 (quadratic twists),log 12/log 17,1,q = [5] mod 17
+y^2 - D_4(x),x^4 + y^4,log 12/log 17,1,q = [5] mod 17
+y^2 - D_4(x),y^4 - x^4,log 12/log 17,1,q = [5] mod 17
+y^2 - D_5(x),(x^3+1) y^2 (quadratic twists),log 18/log 21,1,q = [0] mod 11
+y^2 - D_5(x),(x^3+x) y^2 (quadratic twists),log 18/log 21,1,q = [0] mod 11
+y^2 - D_5(x),(x^3+x+1) y^2 (quadratic twists),log 18/log 21,1,q = [0] mod 11
+y^2 - D_5(x),Xaniso = x^2-d y^2,log 13/log 14,1,q = [0] mod 13
+y^2 - D_5(x),Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^2 - D_5(x),Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^2 - D_5(x),Xsplit = xy,log 18/log 21,1,q = [0] mod 11
+y^2 - D_5(x),const = 0,1/2,11,"q = [2, 3] mod 5"
+y^2 - D_5(x),x y^2 - x^2 (quartic twists),log 18/log 21,1,q = [0] mod 11
+y^2 - D_5(x),x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^2 - D_5(x),x^2 + y^3,log 13/log 20,1,q = [0] mod 13
+y^2 - D_5(x),x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^2 - D_5(x),x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^2 - D_5(x),y^2 - (x^3+1x),log 13/log 19,1,q = [0] mod 13
+y^2 - D_5(x),y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^2 - D_5(x),y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 13
+y^2 - D_5(x),y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^2 - D_5(x),y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 13
+y^2 - D_5(x),y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 13
+y^2 - D_5(x),y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^2 - D_5(x),y^2 - (x^7+1x),log 13/log 20,1,q = [0] mod 13
+y^2 - D_5(x),y^2 - D_2(x),log 18/log 21,1,q = [0] mod 11
+y^2 - D_5(x),y^2 - D_3(x),log 13/log 18,1,q = [0] mod 13
+y^2 - D_5(x),y^2 - D_4(x),log 18/log 22,1,q = [0] mod 11
+y^2 - D_5(x),y^2 - D_6(x),log 13/log 23,1,q = [0] mod 13
+y^2 - D_5(x),y^2 - D_7(x),log 13/log 21,1,q = [0] mod 13
+y^2 - D_5(x),y^2 - D_8(x),log 18/log 22,1,q = [0] mod 11
+y^2 - D_5(x),y^2 - x^12,log 18/log 21,1,q = [0] mod 11
+y^2 - D_5(x),y^2 - x^2,log 18/log 21,1,q = [0] mod 11
+y^2 - D_5(x),y^2 - x^3,log 13/log 20,1,q = [0] mod 13
+y^2 - D_5(x),y^2 - x^4,log 18/log 21,1,q = [0] mod 11
+y^2 - D_5(x),y^2 - x^6,log 18/log 21,1,q = [0] mod 11
+y^2 - D_5(x),y^2 - x^8,log 18/log 21,1,q = [0] mod 11
+y^2 - D_5(x),y^2 - x^9,log 13/log 20,1,q = [0] mod 13
+y^2 - D_5(x),y^3 - x^2,log 13/log 20,1,q = [0] mod 13
+y^2 - D_5(x),y^4 - x^2,log 18/log 21,1,q = [0] mod 11
+y^2 - D_5(x),y^4 - x^4,log 18/log 21,1,q = [0] mod 11
+y^2 - D_5(x),y^4 - x^6,log 18/log 21,1,q = [0] mod 11
+y^2 - D_6(x),(x^3+1) y^2 (quadratic twists),log 19/log 21,1,q = [0] mod 11
+y^2 - D_6(x),(x^3+x) y^2 (quadratic twists),log 19/log 21,1,q = [0] mod 11
+y^2 - D_6(x),(x^3+x+1) y^2 (quadratic twists),log 19/log 21,1,q = [0] mod 11
+y^2 - D_6(x),Xsplit = xy,log 19/log 21,1,q = [0] mod 11
+y^2 - D_6(x),x y^2 - x^2 (quartic twists),log 19/log 21,1,q = [0] mod 11
+y^2 - D_6(x),x^2 + y^5,log 19/log 22,1,q = [0] mod 11
+y^2 - D_6(x),x^4 + y^5,log 19/log 22,1,q = [0] mod 11
+y^2 - D_6(x),y^2 - D_2(x),log 19/log 21,1,q = [0] mod 11
+y^2 - D_6(x),y^2 - D_4(x),log 19/log 22,1,q = [0] mod 11
+y^2 - D_6(x),y^2 - D_8(x),log 19/log 22,1,q = [0] mod 11
+y^2 - D_6(x),y^2 - x^12,log 19/log 21,1,q = [0] mod 11
+y^2 - D_6(x),y^2 - x^2,log 19/log 21,1,q = [0] mod 11
+y^2 - D_6(x),y^2 - x^4,log 19/log 21,1,q = [0] mod 11
+y^2 - D_6(x),y^2 - x^5,log 19/log 22,1,q = [0] mod 11
+y^2 - D_6(x),y^2 - x^6,log 19/log 21,1,q = [0] mod 11
+y^2 - D_6(x),y^2 - x^8,log 19/log 21,1,q = [0] mod 11
+y^2 - D_6(x),y^4 - x^2,log 19/log 21,1,q = [0] mod 11
+y^2 - D_6(x),y^4 - x^4,log 19/log 21,1,q = [0] mod 11
+y^2 - D_6(x),y^4 - x^5,log 19/log 22,1,q = [0] mod 11
+y^2 - D_6(x),y^4 - x^6,log 19/log 21,1,q = [0] mod 11
+y^2 - D_6(x),y^5 - x^2,log 19/log 22,1,q = [0] mod 11
+y^2 - D_6(x),y^5 - x^4,log 19/log 22,1,q = [0] mod 11
+y^2 - D_6(x),y^5 - x^6,log 19/log 22,1,q = [0] mod 11
+y^2 - D_7(x),(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - D_7(x),(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - D_7(x),(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - D_7(x),(x^3+x+1) y^2 (quadratic twists),log 19/log 20,1,q = [0] mod 19
+y^2 - D_7(x),Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+y^2 - D_7(x),Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^2 - D_7(x),Xaniso = x^2-d y^2,log 19/log 20,1,q = [0] mod 19
+y^2 - D_7(x),Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^2 - D_7(x),Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+y^2 - D_7(x),const = 0,1/2,14,"q = [2, 3, 4, 5] mod 7"
+y^2 - D_7(x),x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - D_7(x),x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+y^2 - D_7(x),x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+y^2 - D_7(x),x^2 + y^2,log 19/log 20,1,q = [0] mod 19
+y^2 - D_7(x),x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^2 - D_7(x),x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+y^2 - D_7(x),x^2 + y^4,log 19/log 20,1,q = [0] mod 19
+y^2 - D_7(x),x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^2 - D_7(x),x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+y^2 - D_7(x),x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+y^2 - D_7(x),x^4 + y^4,log 19/log 20,1,q = [0] mod 19
+y^2 - D_7(x),x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^2 - D_7(x),x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^2 - D_7(x),y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^2 - D_7(x),y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^2 - D_7(x),y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - (x^7+1x),log 19/log 24,1,q = [0] mod 19
+y^2 - D_7(x),y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - D_6(x),log 21/log 23,1,q = [0] mod 13
+y^2 - D_7(x),y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+y^2 - D_7(x),y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+y^2 - D_7(x),y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+y^2 - D_7(x),y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+y^2 - D_7(x),y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+y^2 - D_7(x),y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+y^2 - D_7(x),y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+y^2 - D_7(x),y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+y^2 - D_7(x),y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+y^2 - x^10,(x^3+1) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+y^2 - x^10,(x^3+1) y^2 (quadratic twists),log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,(x^3+x) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+y^2 - x^10,(x^3+x) y^2 (quadratic twists),log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,(x^3+x+1) y^2 (quadratic twists),log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,Xaniso = x^2-d y^2,log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,Xsplit = xy,log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,const = 0,log 5/log 13,1,q = [0] mod 13
+y^2 - x^10,x y^2 - x^2 (quartic twists),log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,x^2 + y^2,log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,x^2 + y^4,log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,x^4 + y^4,log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^2 - (x^3+1x),log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^2 - (x^3+2x),log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^2 - (x^5+2x),log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^2 - (x^7+1x),log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^2 - D_2(x),log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^2 - D_3(x),log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^2 - D_4(x),log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^2 - D_5(x),log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^2 - D_6(x),log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^2 - D_8(x),log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^2 - x^12,log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^2 - x^2,log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^2 - x^4,log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^2 - x^6,log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^2 - x^8,log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^4 - x^2,log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^4 - x^4,log 5/log 7,1,q = [0] mod 13
+y^2 - x^10,y^4 - x^4,log 9/log 11,1,q = [0] mod 11
+y^2 - x^10,y^4 - x^6,log 9/log 11,1,q = [0] mod 11
+y^2 - x^11,(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - x^11,(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - x^11,(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - x^11,(x^3+x+1) y^2 (quadratic twists),log 19/log 20,1,q = [0] mod 19
+y^2 - x^11,Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+y^2 - x^11,Xaniso = x^2-d y^2,log 13/log 14,1,q = [0] mod 13
+y^2 - x^11,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^2 - x^11,Xaniso = x^2-d y^2,log 19/log 20,1,q = [0] mod 19
+y^2 - x^11,Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+y^2 - x^11,const = 0,1/2,18,"q = [0, 2, 3, 4, 5, 6, 7, 8, 9, 10] mod 11"
+y^2 - x^11,x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - x^11,x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+y^2 - x^11,x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+y^2 - x^11,x^2 + y^2,log 19/log 20,1,q = [0] mod 19
+y^2 - x^11,x^2 + y^3,log 13/log 20,1,q = [0] mod 13
+y^2 - x^11,x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+y^2 - x^11,x^2 + y^4,log 19/log 20,1,q = [0] mod 19
+y^2 - x^11,x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+y^2 - x^11,x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+y^2 - x^11,x^4 + y^4,log 19/log 20,1,q = [0] mod 19
+y^2 - x^11,x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+y^2 - x^11,y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+y^2 - x^11,y^2 - (x^3+1x),log 13/log 19,1,q = [0] mod 13
+y^2 - x^11,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^2 - x^11,y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+y^2 - x^11,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 13
+y^2 - x^11,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^2 - x^11,y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+y^2 - x^11,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 13
+y^2 - x^11,y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+y^2 - x^11,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 13
+y^2 - x^11,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^2 - x^11,y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+y^2 - x^11,y^2 - (x^7+1x),log 13/log 20,1,q = [0] mod 13
+y^2 - x^11,y^2 - (x^7+1x),log 19/log 24,1,q = [0] mod 19
+y^2 - x^11,y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+y^2 - x^11,y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+y^2 - x^11,y^2 - D_3(x),log 13/log 18,1,q = [0] mod 13
+y^2 - x^11,y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+y^2 - x^11,y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+y^2 - x^11,y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+y^2 - x^11,y^2 - D_6(x),log 13/log 23,1,q = [0] mod 13
+y^2 - x^11,y^2 - D_7(x),log 13/log 21,1,q = [0] mod 13
+y^2 - x^11,y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+y^2 - x^11,y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+y^2 - x^11,y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+y^2 - x^11,y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+y^2 - x^11,y^2 - x^3,log 13/log 20,1,q = [0] mod 13
+y^2 - x^11,y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+y^2 - x^11,y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+y^2 - x^11,y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+y^2 - x^11,y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+y^2 - x^11,y^2 - x^9,log 13/log 20,1,q = [0] mod 13
+y^2 - x^11,y^3 - x^2,log 13/log 20,1,q = [0] mod 13
+y^2 - x^11,y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+y^2 - x^11,y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+y^2 - x^11,y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+y^2 - x^11,y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+y^2 - x^11,y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+y^2 - x^11,y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+y^2 - x^11,y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+y^2 - x^12,(x^3+x+1) y^2 (quadratic twists),log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,L = x,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,Xaniso = x^2-d y^2,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,Xsplit = xy,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,x y^2 - x^2 (quartic twists),log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,x^2 + y^2,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,x^2 + y^3,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,x^2 + y^4,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,x^2 + y^5,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,x^3 + y^3,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,x^3 + y^4,log 10/log 12,1,q = [0] mod 13
+y^2 - x^12,x^3 + y^5,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,x^4 + y^5,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,x^5 + y^5,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - (x^3+1x),log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - (x^3+2x),log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - (x^5+1x),log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - (x^5+2x),log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - (x^7+1x),log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - D_2(x),log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - D_3(x),log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - D_4(x),log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - D_5(x),log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - D_6(x),log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - D_7(x),log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - D_8(x),log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - x^10,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - x^11,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - x^2,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - x^3,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - x^4,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - x^5,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - x^7,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - x^8,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^2 - x^9,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^3 - x^2,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^3 - x^3,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^3 - x^4,log 10/log 12,1,q = [0] mod 13
+y^2 - x^12,y^3 - x^5,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^4 - x^2,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^4 - x^3,log 10/log 12,1,q = [0] mod 13
+y^2 - x^12,y^4 - x^5,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^5 - x^2,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^5 - x^3,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^5 - x^4,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^5 - x^5,log 10/log 13,1,q = [0] mod 13
+y^2 - x^12,y^5 - x^6,log 10/log 13,1,q = [0] mod 13
+y^2 - x^2,(x^3+1) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+y^2 - x^2,(x^3+x) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+y^2 - x^2,const = 0,log 5/log 13,1,q = [0] mod 13
+y^2 - x^2,y^4 - x^4,log 5/log 7,1,q = [0] mod 13
+y^2 - x^3,(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - x^3,(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - x^3,(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - x^3,Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+y^2 - x^3,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^2 - x^3,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^2 - x^3,Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+y^2 - x^3,const = 0,1/2,11,q = [2] mod 3
+y^2 - x^3,x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - x^3,x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+y^2 - x^3,x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+y^2 - x^3,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^2 - x^3,x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+y^2 - x^3,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^2 - x^3,x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+y^2 - x^3,x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+y^2 - x^3,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^2 - x^3,x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+y^2 - x^3,y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+y^2 - x^3,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^2 - x^3,y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+y^2 - x^3,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^2 - x^3,y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+y^2 - x^3,y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+y^2 - x^3,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^2 - x^3,y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+y^2 - x^3,y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+y^2 - x^3,y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+y^2 - x^3,y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+y^2 - x^3,y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+y^2 - x^3,y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+y^2 - x^3,y^2 - D_6(x),log 20/log 23,1,q = [0] mod 13
+y^2 - x^3,y^2 - D_7(x),log 20/log 21,1,q = [0] mod 13
+y^2 - x^3,y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+y^2 - x^3,y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+y^2 - x^3,y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+y^2 - x^3,y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+y^2 - x^3,y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+y^2 - x^3,y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+y^2 - x^3,y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+y^2 - x^3,y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+y^2 - x^3,y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+y^2 - x^3,y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+y^2 - x^3,y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+y^2 - x^3,y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+y^2 - x^3,y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+y^2 - x^3,y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+y^2 - x^3,y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+y^2 - x^4,(x^3+1) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+y^2 - x^4,(x^3+x) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+y^2 - x^4,const = 0,log 5/log 13,1,q = [0] mod 13
+y^2 - x^4,y^4 - x^4,log 5/log 7,1,q = [0] mod 13
+y^2 - x^5,(x^3+1) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,(x^3+x) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,(x^3+x+1) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,(x^3+x+1) y^2 (quadratic twists),log 19/log 20,1,q = [0] mod 19
+y^2 - x^5,L = x,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,Xaniso = x^2-d y^2,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,Xaniso = x^2-d y^2,log 13/log 14,1,q = [0] mod 13
+y^2 - x^5,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^2 - x^5,Xaniso = x^2-d y^2,log 19/log 20,1,q = [0] mod 19
+y^2 - x^5,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^2 - x^5,Xsplit = xy,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,const = 0,1/2,16,"q = [2, 3, 4] mod 5"
+y^2 - x^5,x y^2 - x^2 (quartic twists),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,x^2 + y^2,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,x^2 + y^2,log 19/log 20,1,q = [0] mod 19
+y^2 - x^5,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^2 - x^5,x^2 + y^3,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,x^2 + y^3,log 13/log 20,1,q = [0] mod 13
+y^2 - x^5,x^2 + y^4,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,x^2 + y^4,log 19/log 20,1,q = [0] mod 19
+y^2 - x^5,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^2 - x^5,x^3 (pushforward),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,x^3 + y^3,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,x^3 + y^4,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,x^3 + y^5,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,x^4 + y^4,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,x^4 + y^4,log 19/log 20,1,q = [0] mod 19
+y^2 - x^5,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^2 - x^5,y^2 - (x^3+1x),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - (x^3+1x),log 13/log 19,1,q = [0] mod 13
+y^2 - x^5,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^2 - x^5,y^2 - (x^3+2x),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 13
+y^2 - x^5,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^2 - x^5,y^2 - (x^5+1x),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 13
+y^2 - x^5,y^2 - (x^5+2x),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 13
+y^2 - x^5,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^2 - x^5,y^2 - (x^7+1x),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - (x^7+1x),log 13/log 20,1,q = [0] mod 13
+y^2 - x^5,y^2 - (x^7+1x),log 19/log 24,1,q = [0] mod 19
+y^2 - x^5,y^2 - D_2(x),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - D_3(x),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - D_3(x),log 13/log 18,1,q = [0] mod 13
+y^2 - x^5,y^2 - D_4(x),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - D_5(x),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - D_6(x),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - D_6(x),log 13/log 23,1,q = [0] mod 13
+y^2 - x^5,y^2 - D_7(x),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - D_7(x),log 13/log 21,1,q = [0] mod 13
+y^2 - x^5,y^2 - D_8(x),log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - x^11,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - x^12,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - x^2,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - x^3,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - x^3,log 13/log 20,1,q = [0] mod 13
+y^2 - x^5,y^2 - x^4,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - x^6,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - x^7,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - x^8,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - x^9,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^2 - x^9,log 13/log 20,1,q = [0] mod 13
+y^2 - x^5,y^3 - x^2,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^3 - x^2,log 13/log 20,1,q = [0] mod 13
+y^2 - x^5,y^3 - x^3,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^3 - x^4,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^3 - x^5,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^3 - x^6,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^4 - x^2,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^4 - x^3,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^4 - x^4,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^4 - x^6,log 10/log 11,1,q = [0] mod 11
+y^2 - x^5,y^5 - x^3,log 10/log 11,1,q = [0] mod 11
+y^2 - x^6,(x^3+1) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+y^2 - x^6,(x^3+x) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+y^2 - x^6,(x^3+x+1) y^2 (quadratic twists),log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,L = x,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,Xaniso = x^2-d y^2,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,Xsplit = xy,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,const = 0,log 5/log 13,1,q = [0] mod 13
+y^2 - x^6,x y^2 - x^2 (quartic twists),log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,x^2 + y^2,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,x^2 + y^3,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,x^2 + y^4,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,x^2 + y^5,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,x^3 + y^4,log 11/log 12,1,q = [0] mod 13
+y^2 - x^6,x^3 + y^5,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,x^4 + y^5,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,x^5 + y^5,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - (x^3+1x),log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - (x^3+2x),log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - (x^5+1x),log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - (x^5+2x),log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - (x^7+1x),log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - D_2(x),log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - D_3(x),log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - D_4(x),log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - D_5(x),log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - D_6(x),log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - D_7(x),log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - D_8(x),log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - x^10,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - x^11,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - x^2,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - x^3,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - x^4,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - x^5,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - x^7,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - x^8,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^2 - x^9,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^3 - x^2,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^3 - x^4,log 11/log 12,1,q = [0] mod 13
+y^2 - x^6,y^3 - x^5,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^4 - x^2,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^4 - x^3,log 11/log 12,1,q = [0] mod 13
+y^2 - x^6,y^4 - x^4,log 5/log 7,1,q = [0] mod 13
+y^2 - x^6,y^4 - x^5,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^5 - x^2,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^5 - x^3,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^5 - x^4,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^5 - x^5,log 11/log 13,1,q = [0] mod 13
+y^2 - x^6,y^5 - x^6,log 11/log 13,1,q = [0] mod 13
+y^2 - x^7,(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - x^7,(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - x^7,(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - x^7,(x^3+x+1) y^2 (quadratic twists),log 19/log 20,1,q = [0] mod 19
+y^2 - x^7,Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+y^2 - x^7,Xaniso = x^2-d y^2,log 13/log 14,1,q = [0] mod 13
+y^2 - x^7,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^2 - x^7,Xaniso = x^2-d y^2,log 19/log 20,1,q = [0] mod 19
+y^2 - x^7,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^2 - x^7,Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+y^2 - x^7,const = 0,1/2,18,"q = [2, 3, 4, 5, 6] mod 7"
+y^2 - x^7,x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - x^7,x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+y^2 - x^7,x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+y^2 - x^7,x^2 + y^2,log 19/log 20,1,q = [0] mod 19
+y^2 - x^7,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^2 - x^7,x^2 + y^3,log 13/log 20,1,q = [0] mod 13
+y^2 - x^7,x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+y^2 - x^7,x^2 + y^4,log 19/log 20,1,q = [0] mod 19
+y^2 - x^7,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^2 - x^7,x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+y^2 - x^7,x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+y^2 - x^7,x^4 + y^4,log 19/log 20,1,q = [0] mod 19
+y^2 - x^7,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^2 - x^7,x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+y^2 - x^7,y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+y^2 - x^7,y^2 - (x^3+1x),log 13/log 19,1,q = [0] mod 13
+y^2 - x^7,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^2 - x^7,y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+y^2 - x^7,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 13
+y^2 - x^7,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^2 - x^7,y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+y^2 - x^7,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 13
+y^2 - x^7,y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+y^2 - x^7,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 13
+y^2 - x^7,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^2 - x^7,y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+y^2 - x^7,y^2 - (x^7+1x),log 13/log 20,1,q = [0] mod 13
+y^2 - x^7,y^2 - (x^7+1x),log 19/log 24,1,q = [0] mod 19
+y^2 - x^7,y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+y^2 - x^7,y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+y^2 - x^7,y^2 - D_3(x),log 13/log 18,1,q = [0] mod 13
+y^2 - x^7,y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+y^2 - x^7,y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+y^2 - x^7,y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+y^2 - x^7,y^2 - D_6(x),log 13/log 23,1,q = [0] mod 13
+y^2 - x^7,y^2 - D_7(x),log 13/log 21,1,q = [0] mod 13
+y^2 - x^7,y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+y^2 - x^7,y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+y^2 - x^7,y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+y^2 - x^7,y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+y^2 - x^7,y^2 - x^3,log 13/log 20,1,q = [0] mod 13
+y^2 - x^7,y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+y^2 - x^7,y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+y^2 - x^7,y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+y^2 - x^7,y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+y^2 - x^7,y^2 - x^9,log 13/log 20,1,q = [0] mod 13
+y^2 - x^7,y^3 - x^2,log 13/log 20,1,q = [0] mod 13
+y^2 - x^7,y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+y^2 - x^7,y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+y^2 - x^7,y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+y^2 - x^7,y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+y^2 - x^7,y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+y^2 - x^7,y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+y^2 - x^7,y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+y^2 - x^8,(x^3+1) y^2 (quadratic twists),log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,(x^3+1) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+y^2 - x^8,(x^3+x) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+y^2 - x^8,(x^3+x+1) y^2 (quadratic twists),log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,L = x,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,Xaniso = x^2-d y^2,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,Xsplit = xy,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,const = 0,log 5/log 13,1,q = [0] mod 13
+y^2 - x^8,x y^2 - x^2 (quartic twists),log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,x^2 + y^2,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,x^2 + y^3,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,x^2 + y^4,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,x^2 + y^5,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,x^3 (pushforward),log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,x^3 + y^3,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,x^3 + y^4,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,x^3 + y^5,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,x^4 + y^5,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,x^5 + y^5,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - (x^3+1x),log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - (x^3+2x),log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - (x^5+1x),log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - (x^5+2x),log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - (x^7+1x),log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - D_2(x),log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - D_3(x),log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - D_4(x),log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - D_5(x),log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - D_6(x),log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - D_7(x),log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - D_8(x),log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - x^10,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - x^11,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - x^12,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - x^2,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - x^3,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - x^4,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - x^5,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - x^6,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - x^7,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^2 - x^9,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^3 - x^2,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^3 - x^3,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^3 - x^4,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^3 - x^5,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^3 - x^6,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^4 - x^2,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^4 - x^3,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^4 - x^4,log 5/log 7,1,q = [0] mod 13
+y^2 - x^8,y^4 - x^5,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^4 - x^6,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^5 - x^2,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^5 - x^3,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^5 - x^4,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^5 - x^5,log 15/log 17,1,q = [0] mod 17
+y^2 - x^8,y^5 - x^6,log 15/log 17,1,q = [0] mod 17
+y^2 - x^9,(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - x^9,(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - x^9,(x^3+x) y^2 (quadratic twists),log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - x^9,Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+y^2 - x^9,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^2 - x^9,Xaniso = x^2-d y^2,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^2 - x^9,Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+y^2 - x^9,Xsplit = xy,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,const = 0,1/2,11,q = [2] mod 3
+y^2 - x^9,x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+y^2 - x^9,x y^2 - x^2 (quartic twists),log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+y^2 - x^9,x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+y^2 - x^9,x^2 + y^2,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^2 - x^9,x^2 + y^3,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+y^2 - x^9,x^2 + y^4,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^2 - x^9,x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+y^2 - x^9,x^3 + y^4,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+y^2 - x^9,x^4 + y^4,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^2 - x^9,x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+y^2 - x^9,y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+y^2 - x^9,y^2 - (x^3+1x),log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^2 - x^9,y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+y^2 - x^9,y^2 - (x^3+2x),log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^2 - x^9,y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+y^2 - x^9,y^2 - (x^5+1x),log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+y^2 - x^9,y^2 - (x^5+2x),log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^2 - x^9,y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+y^2 - x^9,y^2 - (x^7+1x),log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+y^2 - x^9,y^2 - D_2(x),log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+y^2 - x^9,y^2 - D_3(x),log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+y^2 - x^9,y^2 - D_4(x),log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+y^2 - x^9,y^2 - D_5(x),log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+y^2 - x^9,y^2 - D_6(x),log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - D_6(x),log 20/log 23,1,q = [0] mod 13
+y^2 - x^9,y^2 - D_7(x),log 20/log 21,1,q = [0] mod 13
+y^2 - x^9,y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+y^2 - x^9,y^2 - D_8(x),log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+y^2 - x^9,y^2 - x^10,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+y^2 - x^9,y^2 - x^12,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+y^2 - x^9,y^2 - x^2,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - x^3,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+y^2 - x^9,y^2 - x^4,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+y^2 - x^9,y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+y^2 - x^9,y^2 - x^6,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+y^2 - x^9,y^2 - x^8,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^3 - x^2,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^3 - x^4,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+y^2 - x^9,y^4 - x^2,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^4 - x^3,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+y^2 - x^9,y^4 - x^4,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+y^2 - x^9,y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+y^2 - x^9,y^4 - x^6,log 17/log 19,1,q = [0] mod 19
+y^2 - x^9,y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+y^2 - x^9,y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+y^2 - x^9,y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+y^3 - x^2,(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^2,(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^2,(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^2,Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+y^3 - x^2,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^3 - x^2,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^3 - x^2,Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+y^3 - x^2,const = 0,1/2,11,q = [2] mod 3
+y^3 - x^2,x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^2,x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+y^3 - x^2,x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+y^3 - x^2,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^3 - x^2,x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+y^3 - x^2,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^3 - x^2,x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^2,x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+y^3 - x^2,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^3 - x^2,x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^2,y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+y^3 - x^2,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^3 - x^2,y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+y^3 - x^2,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^3 - x^2,y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+y^3 - x^2,y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+y^3 - x^2,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^3 - x^2,y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+y^3 - x^2,y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+y^3 - x^2,y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+y^3 - x^2,y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+y^3 - x^2,y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+y^3 - x^2,y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+y^3 - x^2,y^2 - D_6(x),log 20/log 23,1,q = [0] mod 13
+y^3 - x^2,y^2 - D_7(x),log 20/log 21,1,q = [0] mod 13
+y^3 - x^2,y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+y^3 - x^2,y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+y^3 - x^2,y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+y^3 - x^2,y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+y^3 - x^2,y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+y^3 - x^2,y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^2,y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+y^3 - x^2,y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+y^3 - x^2,y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+y^3 - x^2,y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+y^3 - x^2,y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^2,y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+y^3 - x^2,y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+y^3 - x^2,y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+y^3 - x^2,y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+y^3 - x^3,(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^3,(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^3,(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^3,Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+y^3 - x^3,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^3 - x^3,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^3 - x^3,Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+y^3 - x^3,const = 0,1/2,11,q = [2] mod 3
+y^3 - x^3,x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^3,x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+y^3 - x^3,x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+y^3 - x^3,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^3 - x^3,x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+y^3 - x^3,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^3 - x^3,x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^3,x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+y^3 - x^3,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^3 - x^3,x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^3,y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+y^3 - x^3,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^3 - x^3,y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+y^3 - x^3,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^3 - x^3,y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+y^3 - x^3,y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+y^3 - x^3,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^3 - x^3,y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+y^3 - x^3,y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+y^3 - x^3,y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+y^3 - x^3,y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+y^3 - x^3,y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+y^3 - x^3,y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+y^3 - x^3,y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+y^3 - x^3,y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+y^3 - x^3,y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+y^3 - x^3,y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+y^3 - x^3,y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+y^3 - x^3,y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^3,y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+y^3 - x^3,y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+y^3 - x^3,y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+y^3 - x^3,y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+y^3 - x^3,y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^3,y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+y^3 - x^3,y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+y^3 - x^3,y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+y^3 - x^3,y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+y^3 - x^4,(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^4,(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^4,(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^4,(x^3+x+1) y^2 (quadratic twists),log 12/log 13,1,q = [0] mod 13
+y^3 - x^4,Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+y^3 - x^4,Xaniso = x^2-d y^2,log 12/log 13,1,q = [0] mod 13
+y^3 - x^4,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^3 - x^4,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^3 - x^4,Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+y^3 - x^4,const = 0,1/2,11,q = [2] mod 3
+y^3 - x^4,x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^4,x y^2 - x^2 (quartic twists),log 12/log 13,1,q = [0] mod 13
+y^3 - x^4,x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+y^3 - x^4,x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+y^3 - x^4,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^3 - x^4,x^2 + y^3,log 12/log 13,1,q = [0] mod 13
+y^3 - x^4,x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+y^3 - x^4,x^2 + y^4,log 12/log 13,1,q = [0] mod 13
+y^3 - x^4,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^3 - x^4,x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^4,x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+y^3 - x^4,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^3 - x^4,x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^4,y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+y^3 - x^4,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^3 - x^4,y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+y^3 - x^4,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^3 - x^4,y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+y^3 - x^4,y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+y^3 - x^4,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^3 - x^4,y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+y^3 - x^4,y^2 - (x^7+1x),log 12/log 13,1,q = [0] mod 13
+y^3 - x^4,y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+y^3 - x^4,y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+y^3 - x^4,y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+y^3 - x^4,y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+y^3 - x^4,y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+y^3 - x^4,y^2 - D_6(x),log 12/log 13,1,q = [0] mod 13
+y^3 - x^4,y^2 - D_7(x),log 12/log 13,1,q = [0] mod 13
+y^3 - x^4,y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+y^3 - x^4,y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+y^3 - x^4,y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+y^3 - x^4,y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+y^3 - x^4,y^2 - x^3,log 12/log 13,1,q = [0] mod 13
+y^3 - x^4,y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+y^3 - x^4,y^2 - x^4,log 12/log 13,1,q = [0] mod 13
+y^3 - x^4,y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^4,y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+y^3 - x^4,y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+y^3 - x^4,y^2 - x^8,log 12/log 13,1,q = [0] mod 13
+y^3 - x^4,y^2 - x^9,log 12/log 13,1,q = [0] mod 13
+y^3 - x^4,y^3 - x^2,log 12/log 13,1,q = [0] mod 13
+y^3 - x^4,y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+y^3 - x^4,y^4 - x^2,log 12/log 13,1,q = [0] mod 13
+y^3 - x^4,y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+y^3 - x^4,y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^4,y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+y^3 - x^4,y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+y^3 - x^4,y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+y^3 - x^4,y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+y^3 - x^5,(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^5,(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^5,(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^5,(x^3+x+1) y^2 (quadratic twists),log 19/log 20,1,q = [0] mod 19
+y^3 - x^5,Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+y^3 - x^5,Xaniso = x^2-d y^2,log 13/log 14,1,q = [0] mod 13
+y^3 - x^5,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^3 - x^5,Xaniso = x^2-d y^2,log 19/log 20,1,q = [0] mod 19
+y^3 - x^5,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^3 - x^5,Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+y^3 - x^5,const = 0,1/2,19,"q = [2, 4, 7, 8, 11, 13, 14] mod 15"
+y^3 - x^5,x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^5,x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+y^3 - x^5,x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+y^3 - x^5,x^2 + y^2,log 19/log 20,1,q = [0] mod 19
+y^3 - x^5,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^3 - x^5,x^2 + y^3,log 13/log 20,1,q = [0] mod 13
+y^3 - x^5,x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+y^3 - x^5,x^2 + y^4,log 19/log 20,1,q = [0] mod 19
+y^3 - x^5,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^3 - x^5,x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^5,x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+y^3 - x^5,x^4 + y^4,log 19/log 20,1,q = [0] mod 19
+y^3 - x^5,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^3 - x^5,x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^5,y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+y^3 - x^5,y^2 - (x^3+1x),log 13/log 19,1,q = [0] mod 13
+y^3 - x^5,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^3 - x^5,y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+y^3 - x^5,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 13
+y^3 - x^5,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^3 - x^5,y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+y^3 - x^5,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 13
+y^3 - x^5,y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+y^3 - x^5,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 13
+y^3 - x^5,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^3 - x^5,y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+y^3 - x^5,y^2 - (x^7+1x),log 13/log 20,1,q = [0] mod 13
+y^3 - x^5,y^2 - (x^7+1x),log 19/log 24,1,q = [0] mod 19
+y^3 - x^5,y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+y^3 - x^5,y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+y^3 - x^5,y^2 - D_3(x),log 13/log 18,1,q = [0] mod 13
+y^3 - x^5,y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+y^3 - x^5,y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+y^3 - x^5,y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+y^3 - x^5,y^2 - D_6(x),log 13/log 23,1,q = [0] mod 13
+y^3 - x^5,y^2 - D_7(x),log 13/log 21,1,q = [0] mod 13
+y^3 - x^5,y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+y^3 - x^5,y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+y^3 - x^5,y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+y^3 - x^5,y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+y^3 - x^5,y^2 - x^3,log 13/log 20,1,q = [0] mod 13
+y^3 - x^5,y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+y^3 - x^5,y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^5,y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+y^3 - x^5,y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+y^3 - x^5,y^2 - x^9,log 13/log 20,1,q = [0] mod 13
+y^3 - x^5,y^3 - x^2,log 13/log 20,1,q = [0] mod 13
+y^3 - x^5,y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+y^3 - x^5,y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+y^3 - x^5,y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^5,y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+y^3 - x^5,y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+y^3 - x^5,y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+y^3 - x^5,y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+y^3 - x^6,(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^6,(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^6,(x^3+x) y^2 (quadratic twists),log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,(x^3+x+1) y^2 (quadratic twists),log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^6,(x^3+x+1) y^2 (quadratic twists),log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,L = x,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,L = x,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+y^3 - x^6,Xaniso = x^2-d y^2,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,Xaniso = x^2-d y^2,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^3 - x^6,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^3 - x^6,Xsplit = xy,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+y^3 - x^6,Xsplit = xy,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,const = 0,1/2,11,q = [2] mod 3
+y^3 - x^6,x y^2 - x^2 (quartic twists),log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+y^3 - x^6,x y^2 - x^2 (quartic twists),log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+y^3 - x^6,x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+y^3 - x^6,x^2 + y^2,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,x^2 + y^2,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^3 - x^6,x^2 + y^3,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,x^2 + y^3,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+y^3 - x^6,x^2 + y^4,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,x^2 + y^4,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^3 - x^6,x^2 + y^5,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^6,x^2 + y^5,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,x^3 + y^3,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,x^3 + y^3,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,x^3 + y^4,log 11/log 12,1,q = [0] mod 13
+y^3 - x^6,x^3 + y^4,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,x^3 + y^5,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,x^3 + y^5,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+y^3 - x^6,x^4 + y^4,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^3 - x^6,x^4 + y^5,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^6,x^4 + y^5,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,x^5 + y^5,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,x^5 + y^5,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - (x^3+1x),log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+y^3 - x^6,y^2 - (x^3+1x),log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^3 - x^6,y^2 - (x^3+2x),log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+y^3 - x^6,y^2 - (x^3+2x),log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^3 - x^6,y^2 - (x^5+1x),log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+y^3 - x^6,y^2 - (x^5+1x),log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - (x^5+2x),log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+y^3 - x^6,y^2 - (x^5+2x),log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^3 - x^6,y^2 - (x^7+1x),log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+y^3 - x^6,y^2 - (x^7+1x),log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - D_2(x),log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+y^3 - x^6,y^2 - D_2(x),log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - D_3(x),log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+y^3 - x^6,y^2 - D_3(x),log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - D_4(x),log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+y^3 - x^6,y^2 - D_4(x),log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - D_5(x),log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+y^3 - x^6,y^2 - D_5(x),log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - D_6(x),log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+y^3 - x^6,y^2 - D_6(x),log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - D_7(x),log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - D_7(x),log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - D_8(x),log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+y^3 - x^6,y^2 - D_8(x),log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - x^10,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+y^3 - x^6,y^2 - x^10,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - x^11,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - x^11,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+y^3 - x^6,y^2 - x^12,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - x^2,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+y^3 - x^6,y^2 - x^2,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - x^3,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - x^3,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - x^4,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+y^3 - x^6,y^2 - x^4,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - x^5,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^6,y^2 - x^5,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+y^3 - x^6,y^2 - x^6,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - x^7,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - x^7,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - x^8,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+y^3 - x^6,y^2 - x^8,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^2 - x^9,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^2 - x^9,log 16/log 17,1,q = [0] mod 19
+y^3 - x^6,y^3 - x^2,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^3 - x^2,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^3 - x^3,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^3 - x^3,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^3 - x^4,log 11/log 12,1,q = [0] mod 13
+y^3 - x^6,y^3 - x^4,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^3 - x^5,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^3 - x^5,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^4 - x^2,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+y^3 - x^6,y^4 - x^2,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^4 - x^3,log 11/log 12,1,q = [0] mod 13
+y^3 - x^6,y^4 - x^3,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+y^3 - x^6,y^4 - x^4,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^4 - x^5,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+y^3 - x^6,y^4 - x^5,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+y^3 - x^6,y^4 - x^6,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^5 - x^2,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+y^3 - x^6,y^5 - x^2,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^5 - x^3,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^5 - x^3,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^5 - x^4,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+y^3 - x^6,y^5 - x^4,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^5 - x^5,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^5 - x^5,log 16/log 19,1,q = [0] mod 19
+y^3 - x^6,y^5 - x^6,log 11/log 13,1,q = [0] mod 13
+y^3 - x^6,y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+y^3 - x^6,y^5 - x^6,log 16/log 19,1,q = [0] mod 19
+y^4 - x^2,(x^3+1) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+y^4 - x^2,(x^3+x) y^2 (quadratic twists),log 5/log 7,1,q = [0] mod 13
+y^4 - x^2,const = 0,log 5/log 13,1,q = [0] mod 13
+y^4 - x^2,y^4 - x^4,log 5/log 7,1,q = [0] mod 13
+y^4 - x^3,(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^4 - x^3,(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^4 - x^3,(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^4 - x^3,(x^3+x+1) y^2 (quadratic twists),log 12/log 13,1,q = [0] mod 13
+y^4 - x^3,Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+y^4 - x^3,Xaniso = x^2-d y^2,log 12/log 13,1,q = [0] mod 13
+y^4 - x^3,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^4 - x^3,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^4 - x^3,Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+y^4 - x^3,const = 0,1/2,11,q = [2] mod 3
+y^4 - x^3,x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+y^4 - x^3,x y^2 - x^2 (quartic twists),log 12/log 13,1,q = [0] mod 13
+y^4 - x^3,x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+y^4 - x^3,x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+y^4 - x^3,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^4 - x^3,x^2 + y^3,log 12/log 13,1,q = [0] mod 13
+y^4 - x^3,x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+y^4 - x^3,x^2 + y^4,log 12/log 13,1,q = [0] mod 13
+y^4 - x^3,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^4 - x^3,x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+y^4 - x^3,x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+y^4 - x^3,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^4 - x^3,x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+y^4 - x^3,y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+y^4 - x^3,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^4 - x^3,y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+y^4 - x^3,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^4 - x^3,y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+y^4 - x^3,y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+y^4 - x^3,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^4 - x^3,y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+y^4 - x^3,y^2 - (x^7+1x),log 12/log 13,1,q = [0] mod 13
+y^4 - x^3,y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+y^4 - x^3,y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+y^4 - x^3,y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+y^4 - x^3,y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+y^4 - x^3,y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+y^4 - x^3,y^2 - D_6(x),log 12/log 13,1,q = [0] mod 13
+y^4 - x^3,y^2 - D_7(x),log 12/log 13,1,q = [0] mod 13
+y^4 - x^3,y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+y^4 - x^3,y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+y^4 - x^3,y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+y^4 - x^3,y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+y^4 - x^3,y^2 - x^3,log 12/log 13,1,q = [0] mod 13
+y^4 - x^3,y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+y^4 - x^3,y^2 - x^4,log 12/log 13,1,q = [0] mod 13
+y^4 - x^3,y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+y^4 - x^3,y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+y^4 - x^3,y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+y^4 - x^3,y^2 - x^8,log 12/log 13,1,q = [0] mod 13
+y^4 - x^3,y^2 - x^9,log 12/log 13,1,q = [0] mod 13
+y^4 - x^3,y^3 - x^2,log 12/log 13,1,q = [0] mod 13
+y^4 - x^3,y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+y^4 - x^3,y^4 - x^2,log 12/log 13,1,q = [0] mod 13
+y^4 - x^3,y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+y^4 - x^3,y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+y^4 - x^3,y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+y^4 - x^3,y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+y^4 - x^3,y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+y^4 - x^3,y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+y^4 - x^4,(x^3+1) y^2 (quadratic twists),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,(x^3+x) y^2 (quadratic twists),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,(x^3+x+1) y^2 (quadratic twists),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,L = x,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,Xaniso = x^2-d y^2,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,Xsplit = xy,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,const = 0,log 7/log 13,1,q = [0] mod 13
+y^4 - x^4,x y^2 - x^2 (quartic twists),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,x^2 + y^2,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,x^2 + y^3,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,x^2 + y^4,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,x^2 + y^5,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,x^3 (pushforward),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,x^3 + y^3,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,x^3 + y^4,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,x^3 + y^5,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,x^4 + y^5,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,x^5 + y^5,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - (x^3+1x),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - (x^7+1x),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - D_2(x),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - D_3(x),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - D_4(x),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - D_5(x),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - D_6(x),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - D_7(x),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - D_8(x),log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - x^10,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - x^11,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - x^12,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - x^2,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - x^3,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - x^4,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - x^5,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - x^6,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - x^7,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^2 - x^8,log 13/log 15,1,q = [0] mod 17
+y^4 - x^4,y^2 - x^9,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^3 - x^2,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^3 - x^3,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^3 - x^4,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^3 - x^5,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^3 - x^6,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^4 - x^2,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^4 - x^3,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^4 - x^5,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^4 - x^6,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^5 - x^2,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^5 - x^3,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^5 - x^4,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^5 - x^5,log 13/log 17,1,q = [0] mod 17
+y^4 - x^4,y^5 - x^6,log 13/log 17,1,q = [0] mod 17
+y^4 - x^5,(x^3+1) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,(x^3+x) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,(x^3+x+1) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,(x^3+x+1) y^2 (quadratic twists),log 19/log 20,1,q = [0] mod 19
+y^4 - x^5,L = x,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,Xaniso = x^2-d y^2,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,Xaniso = x^2-d y^2,log 13/log 14,1,q = [0] mod 13
+y^4 - x^5,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^4 - x^5,Xaniso = x^2-d y^2,log 19/log 20,1,q = [0] mod 19
+y^4 - x^5,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^4 - x^5,Xsplit = xy,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,const = 0,1/2,16,"q = [2, 3, 4] mod 5"
+y^4 - x^5,x y^2 - x^2 (quartic twists),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,x^2 + y^2,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,x^2 + y^2,log 19/log 20,1,q = [0] mod 19
+y^4 - x^5,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^4 - x^5,x^2 + y^3,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,x^2 + y^3,log 13/log 20,1,q = [0] mod 13
+y^4 - x^5,x^2 + y^4,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,x^2 + y^4,log 19/log 20,1,q = [0] mod 19
+y^4 - x^5,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^4 - x^5,x^3 (pushforward),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,x^3 + y^3,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,x^3 + y^4,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,x^3 + y^5,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,x^4 + y^4,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,x^4 + y^4,log 19/log 20,1,q = [0] mod 19
+y^4 - x^5,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^4 - x^5,y^2 - (x^3+1x),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - (x^3+1x),log 13/log 19,1,q = [0] mod 13
+y^4 - x^5,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^4 - x^5,y^2 - (x^3+2x),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 13
+y^4 - x^5,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^4 - x^5,y^2 - (x^5+1x),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 13
+y^4 - x^5,y^2 - (x^5+2x),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 13
+y^4 - x^5,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^4 - x^5,y^2 - (x^7+1x),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - (x^7+1x),log 13/log 20,1,q = [0] mod 13
+y^4 - x^5,y^2 - (x^7+1x),log 19/log 24,1,q = [0] mod 19
+y^4 - x^5,y^2 - D_2(x),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - D_3(x),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - D_3(x),log 13/log 18,1,q = [0] mod 13
+y^4 - x^5,y^2 - D_4(x),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - D_5(x),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - D_6(x),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - D_6(x),log 13/log 23,1,q = [0] mod 13
+y^4 - x^5,y^2 - D_7(x),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - D_7(x),log 13/log 21,1,q = [0] mod 13
+y^4 - x^5,y^2 - D_8(x),log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - x^11,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - x^12,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - x^2,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - x^3,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - x^3,log 13/log 20,1,q = [0] mod 13
+y^4 - x^5,y^2 - x^4,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - x^6,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - x^7,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - x^8,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - x^9,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^2 - x^9,log 13/log 20,1,q = [0] mod 13
+y^4 - x^5,y^3 - x^2,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^3 - x^2,log 13/log 20,1,q = [0] mod 13
+y^4 - x^5,y^3 - x^3,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^3 - x^4,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^3 - x^5,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^3 - x^6,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^4 - x^2,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^4 - x^3,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^4 - x^4,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^4 - x^6,log 10/log 11,1,q = [0] mod 11
+y^4 - x^5,y^5 - x^3,log 10/log 11,1,q = [0] mod 11
+y^4 - x^6,(x^3+1) y^2 (quadratic twists),log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,(x^3+x) y^2 (quadratic twists),log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,(x^3+x+1) y^2 (quadratic twists),log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,L = x,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,Xaniso = x^2-d y^2,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,Xsplit = xy,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,x y^2 - x^2 (quartic twists),log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,x^2 + y^2,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,x^2 + y^3,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,x^2 + y^4,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,x^2 + y^5,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,x^3 + y^3,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,x^3 + y^4,log 9/log 12,1,q = [0] mod 13
+y^4 - x^6,x^3 + y^5,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,x^4 + y^4,log 9/log 10,1,q = [0] mod 13
+y^4 - x^6,x^4 + y^5,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,x^5 + y^5,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - (x^3+1x),log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - (x^3+2x),log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - (x^5+1x),log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - (x^5+2x),log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - (x^7+1x),log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - D_2(x),log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - D_3(x),log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - D_4(x),log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - D_5(x),log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - D_6(x),log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - D_7(x),log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - D_8(x),log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - x^10,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - x^11,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - x^12,log 9/log 10,1,q = [0] mod 13
+y^4 - x^6,y^2 - x^2,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - x^3,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - x^4,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - x^5,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - x^6,log 9/log 11,1,q = [0] mod 13
+y^4 - x^6,y^2 - x^7,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - x^8,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^2 - x^9,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^3 - x^2,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^3 - x^3,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^3 - x^4,log 9/log 12,1,q = [0] mod 13
+y^4 - x^6,y^3 - x^5,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^3 - x^6,log 9/log 11,1,q = [0] mod 13
+y^4 - x^6,y^4 - x^2,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^4 - x^3,log 9/log 12,1,q = [0] mod 13
+y^4 - x^6,y^4 - x^4,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^4 - x^5,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^5 - x^2,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^5 - x^3,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^5 - x^4,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^5 - x^5,log 9/log 13,1,q = [0] mod 13
+y^4 - x^6,y^5 - x^6,log 9/log 13,1,q = [0] mod 13
+y^5 - x^2,(x^3+1) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,(x^3+x) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,(x^3+x+1) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,(x^3+x+1) y^2 (quadratic twists),log 19/log 20,1,q = [0] mod 19
+y^5 - x^2,L = x,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,Xaniso = x^2-d y^2,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,Xaniso = x^2-d y^2,log 13/log 14,1,q = [0] mod 13
+y^5 - x^2,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^5 - x^2,Xaniso = x^2-d y^2,log 19/log 20,1,q = [0] mod 19
+y^5 - x^2,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^5 - x^2,Xsplit = xy,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,const = 0,1/2,16,"q = [2, 3, 4] mod 5"
+y^5 - x^2,x y^2 - x^2 (quartic twists),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,x^2 + y^2,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,x^2 + y^2,log 19/log 20,1,q = [0] mod 19
+y^5 - x^2,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^5 - x^2,x^2 + y^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,x^2 + y^3,log 13/log 20,1,q = [0] mod 13
+y^5 - x^2,x^2 + y^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,x^2 + y^4,log 19/log 20,1,q = [0] mod 19
+y^5 - x^2,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^5 - x^2,x^3 (pushforward),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,x^3 + y^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,x^3 + y^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,x^3 + y^5,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,x^4 + y^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,x^4 + y^4,log 19/log 20,1,q = [0] mod 19
+y^5 - x^2,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^5 - x^2,y^2 - (x^3+1x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - (x^3+1x),log 13/log 19,1,q = [0] mod 13
+y^5 - x^2,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^5 - x^2,y^2 - (x^3+2x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 13
+y^5 - x^2,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^5 - x^2,y^2 - (x^5+1x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 13
+y^5 - x^2,y^2 - (x^5+2x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 13
+y^5 - x^2,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^5 - x^2,y^2 - (x^7+1x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - (x^7+1x),log 13/log 20,1,q = [0] mod 13
+y^5 - x^2,y^2 - (x^7+1x),log 19/log 24,1,q = [0] mod 19
+y^5 - x^2,y^2 - D_2(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - D_3(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - D_3(x),log 13/log 18,1,q = [0] mod 13
+y^5 - x^2,y^2 - D_4(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - D_5(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - D_6(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - D_6(x),log 13/log 23,1,q = [0] mod 13
+y^5 - x^2,y^2 - D_7(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - D_7(x),log 13/log 21,1,q = [0] mod 13
+y^5 - x^2,y^2 - D_8(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - x^11,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - x^12,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - x^2,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - x^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - x^3,log 13/log 20,1,q = [0] mod 13
+y^5 - x^2,y^2 - x^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - x^6,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - x^7,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - x^8,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - x^9,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^2 - x^9,log 13/log 20,1,q = [0] mod 13
+y^5 - x^2,y^3 - x^2,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^3 - x^2,log 13/log 20,1,q = [0] mod 13
+y^5 - x^2,y^3 - x^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^3 - x^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^3 - x^5,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^3 - x^6,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^4 - x^2,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^4 - x^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^4 - x^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^4 - x^6,log 10/log 11,1,q = [0] mod 11
+y^5 - x^2,y^5 - x^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^3,(x^3+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^5 - x^3,(x^3+x) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^5 - x^3,(x^3+x+1) y^2 (quadratic twists),log 11/log 21,1,q = [0] mod 11
+y^5 - x^3,(x^3+x+1) y^2 (quadratic twists),log 19/log 20,1,q = [0] mod 19
+y^5 - x^3,Xaniso = x^2-d y^2,log 11/log 12,1,q = [0] mod 11
+y^5 - x^3,Xaniso = x^2-d y^2,log 13/log 14,1,q = [0] mod 13
+y^5 - x^3,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^5 - x^3,Xaniso = x^2-d y^2,log 19/log 20,1,q = [0] mod 19
+y^5 - x^3,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^5 - x^3,Xsplit = xy,log 11/log 21,1,q = [0] mod 11
+y^5 - x^3,const = 0,1/2,19,"q = [2, 4, 7, 8, 11, 13, 14] mod 15"
+y^5 - x^3,x y^2 - x^2 (quartic twists),log 11/log 21,1,q = [0] mod 11
+y^5 - x^3,x^2 (pushforward),log 11/log 22,1,q = [0] mod 11
+y^5 - x^3,x^2 + y^2,log 11/log 12,1,q = [0] mod 11
+y^5 - x^3,x^2 + y^2,log 19/log 20,1,q = [0] mod 19
+y^5 - x^3,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^5 - x^3,x^2 + y^3,log 13/log 20,1,q = [0] mod 13
+y^5 - x^3,x^2 + y^4,log 11/log 12,1,q = [0] mod 11
+y^5 - x^3,x^2 + y^4,log 19/log 20,1,q = [0] mod 19
+y^5 - x^3,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^5 - x^3,x^2 + y^5,log 11/log 22,1,q = [0] mod 11
+y^5 - x^3,x^4 + y^4,log 11/log 12,1,q = [0] mod 11
+y^5 - x^3,x^4 + y^4,log 19/log 20,1,q = [0] mod 19
+y^5 - x^3,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^5 - x^3,x^4 + y^5,log 11/log 22,1,q = [0] mod 11
+y^5 - x^3,y^2 - (x^3+1x),log 11/log 17,1,q = [0] mod 11
+y^5 - x^3,y^2 - (x^3+1x),log 13/log 19,1,q = [0] mod 13
+y^5 - x^3,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^5 - x^3,y^2 - (x^3+2x),log 11/log 16,1,q = [0] mod 11
+y^5 - x^3,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 13
+y^5 - x^3,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^5 - x^3,y^2 - (x^5+1x),log 11/log 15,1,q = [0] mod 11
+y^5 - x^3,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 13
+y^5 - x^3,y^2 - (x^5+2x),log 11/log 18,1,q = [0] mod 11
+y^5 - x^3,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 13
+y^5 - x^3,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^5 - x^3,y^2 - (x^7+1x),log 11/log 17,1,q = [0] mod 11
+y^5 - x^3,y^2 - (x^7+1x),log 13/log 20,1,q = [0] mod 13
+y^5 - x^3,y^2 - (x^7+1x),log 19/log 24,1,q = [0] mod 19
+y^5 - x^3,y^2 - D_2(x),log 11/log 21,1,q = [0] mod 11
+y^5 - x^3,y^2 - D_3(x),log 11/log 16,1,q = [0] mod 11
+y^5 - x^3,y^2 - D_3(x),log 13/log 18,1,q = [0] mod 13
+y^5 - x^3,y^2 - D_4(x),log 11/log 22,1,q = [0] mod 11
+y^5 - x^3,y^2 - D_5(x),log 11/log 18,1,q = [0] mod 11
+y^5 - x^3,y^2 - D_6(x),log 11/log 19,1,q = [0] mod 11
+y^5 - x^3,y^2 - D_6(x),log 13/log 23,1,q = [0] mod 13
+y^5 - x^3,y^2 - D_7(x),log 13/log 21,1,q = [0] mod 13
+y^5 - x^3,y^2 - D_8(x),log 11/log 22,1,q = [0] mod 11
+y^5 - x^3,y^2 - x^10,log 11/log 22,1,q = [0] mod 11
+y^5 - x^3,y^2 - x^12,log 11/log 21,1,q = [0] mod 11
+y^5 - x^3,y^2 - x^2,log 11/log 21,1,q = [0] mod 11
+y^5 - x^3,y^2 - x^3,log 13/log 20,1,q = [0] mod 13
+y^5 - x^3,y^2 - x^4,log 11/log 21,1,q = [0] mod 11
+y^5 - x^3,y^2 - x^5,log 11/log 22,1,q = [0] mod 11
+y^5 - x^3,y^2 - x^6,log 11/log 21,1,q = [0] mod 11
+y^5 - x^3,y^2 - x^8,log 11/log 21,1,q = [0] mod 11
+y^5 - x^3,y^2 - x^9,log 13/log 20,1,q = [0] mod 13
+y^5 - x^3,y^3 - x^2,log 13/log 20,1,q = [0] mod 13
+y^5 - x^3,y^4 - x^2,log 11/log 21,1,q = [0] mod 11
+y^5 - x^3,y^4 - x^4,log 11/log 21,1,q = [0] mod 11
+y^5 - x^3,y^4 - x^5,log 11/log 22,1,q = [0] mod 11
+y^5 - x^3,y^4 - x^6,log 11/log 21,1,q = [0] mod 11
+y^5 - x^3,y^5 - x^2,log 11/log 22,1,q = [0] mod 11
+y^5 - x^3,y^5 - x^4,log 11/log 22,1,q = [0] mod 11
+y^5 - x^3,y^5 - x^6,log 11/log 22,1,q = [0] mod 11
+y^5 - x^4,(x^3+1) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,(x^3+x) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,(x^3+x+1) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,(x^3+x+1) y^2 (quadratic twists),log 19/log 20,1,q = [0] mod 19
+y^5 - x^4,L = x,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,Xaniso = x^2-d y^2,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,Xaniso = x^2-d y^2,log 13/log 14,1,q = [0] mod 13
+y^5 - x^4,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^5 - x^4,Xaniso = x^2-d y^2,log 19/log 20,1,q = [0] mod 19
+y^5 - x^4,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^5 - x^4,Xsplit = xy,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,const = 0,1/2,16,"q = [2, 3, 4] mod 5"
+y^5 - x^4,x y^2 - x^2 (quartic twists),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,x^2 + y^2,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,x^2 + y^2,log 19/log 20,1,q = [0] mod 19
+y^5 - x^4,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^5 - x^4,x^2 + y^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,x^2 + y^3,log 13/log 20,1,q = [0] mod 13
+y^5 - x^4,x^2 + y^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,x^2 + y^4,log 19/log 20,1,q = [0] mod 19
+y^5 - x^4,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^5 - x^4,x^3 (pushforward),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,x^3 + y^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,x^3 + y^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,x^3 + y^5,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,x^4 + y^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,x^4 + y^4,log 19/log 20,1,q = [0] mod 19
+y^5 - x^4,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^5 - x^4,y^2 - (x^3+1x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - (x^3+1x),log 13/log 19,1,q = [0] mod 13
+y^5 - x^4,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^5 - x^4,y^2 - (x^3+2x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 13
+y^5 - x^4,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^5 - x^4,y^2 - (x^5+1x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 13
+y^5 - x^4,y^2 - (x^5+2x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 13
+y^5 - x^4,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^5 - x^4,y^2 - (x^7+1x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - (x^7+1x),log 13/log 20,1,q = [0] mod 13
+y^5 - x^4,y^2 - (x^7+1x),log 19/log 24,1,q = [0] mod 19
+y^5 - x^4,y^2 - D_2(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - D_3(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - D_3(x),log 13/log 18,1,q = [0] mod 13
+y^5 - x^4,y^2 - D_4(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - D_5(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - D_6(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - D_6(x),log 13/log 23,1,q = [0] mod 13
+y^5 - x^4,y^2 - D_7(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - D_7(x),log 13/log 21,1,q = [0] mod 13
+y^5 - x^4,y^2 - D_8(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - x^11,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - x^12,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - x^2,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - x^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - x^3,log 13/log 20,1,q = [0] mod 13
+y^5 - x^4,y^2 - x^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - x^6,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - x^7,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - x^8,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - x^9,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^2 - x^9,log 13/log 20,1,q = [0] mod 13
+y^5 - x^4,y^3 - x^2,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^3 - x^2,log 13/log 20,1,q = [0] mod 13
+y^5 - x^4,y^3 - x^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^3 - x^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^3 - x^5,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^3 - x^6,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^4 - x^2,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^4 - x^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^4 - x^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^4 - x^6,log 10/log 11,1,q = [0] mod 11
+y^5 - x^4,y^5 - x^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^5,(x^3+1) y^2 (quadratic twists),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,(x^3+x) y^2 (quadratic twists),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,(x^3+x+1) y^2 (quadratic twists),log 19/log 20,1,q = [0] mod 19
+y^5 - x^5,(x^3+x+1) y^2 (quadratic twists),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,L = x,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,Xaniso = x^2-d y^2,log 13/log 14,1,q = [0] mod 13
+y^5 - x^5,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^5 - x^5,Xaniso = x^2-d y^2,log 19/log 20,1,q = [0] mod 19
+y^5 - x^5,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^5 - x^5,Xaniso = x^2-d y^2,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,Xsplit = xy,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,const = 0,1/2,16,"q = [2, 3, 4] mod 5"
+y^5 - x^5,x y^2 - x^2 (quartic twists),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,x^2 (pushforward),log 5/log 6,1,q = [0] mod 11
+y^5 - x^5,x^2 + y^2,log 19/log 20,1,q = [0] mod 19
+y^5 - x^5,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^5 - x^5,x^2 + y^2,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,x^2 + y^3,log 13/log 20,1,q = [0] mod 13
+y^5 - x^5,x^2 + y^3,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,x^2 + y^4,log 19/log 20,1,q = [0] mod 19
+y^5 - x^5,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^5 - x^5,x^2 + y^4,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,x^2 + y^5,log 5/log 10,1,q = [0] mod 11
+y^5 - x^5,x^3 (pushforward),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,x^3 + y^3,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,x^3 + y^4,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,x^3 + y^5,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,x^4 + y^4,log 19/log 20,1,q = [0] mod 19
+y^5 - x^5,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^5 - x^5,x^4 + y^4,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,x^4 + y^5,log 5/log 10,1,q = [0] mod 11
+y^5 - x^5,y^2 - (x^3+1x),log 13/log 19,1,q = [0] mod 13
+y^5 - x^5,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^5 - x^5,y^2 - (x^3+1x),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 13
+y^5 - x^5,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^5 - x^5,y^2 - (x^3+2x),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 13
+y^5 - x^5,y^2 - (x^5+1x),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 13
+y^5 - x^5,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^5 - x^5,y^2 - (x^5+2x),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - (x^7+1x),log 13/log 20,1,q = [0] mod 13
+y^5 - x^5,y^2 - (x^7+1x),log 19/log 24,1,q = [0] mod 19
+y^5 - x^5,y^2 - (x^7+1x),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - D_2(x),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - D_3(x),log 13/log 18,1,q = [0] mod 13
+y^5 - x^5,y^2 - D_3(x),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - D_4(x),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - D_5(x),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - D_6(x),log 13/log 23,1,q = [0] mod 13
+y^5 - x^5,y^2 - D_6(x),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - D_7(x),log 13/log 21,1,q = [0] mod 13
+y^5 - x^5,y^2 - D_7(x),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - D_8(x),log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - x^10,log 5/log 9,1,q = [0] mod 11
+y^5 - x^5,y^2 - x^11,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - x^12,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - x^2,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - x^3,log 13/log 20,1,q = [0] mod 13
+y^5 - x^5,y^2 - x^3,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - x^4,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - x^5,log 5/log 10,1,q = [0] mod 11
+y^5 - x^5,y^2 - x^6,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - x^7,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - x^8,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^2 - x^9,log 13/log 20,1,q = [0] mod 13
+y^5 - x^5,y^2 - x^9,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^3 - x^2,log 13/log 20,1,q = [0] mod 13
+y^5 - x^5,y^3 - x^2,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^3 - x^3,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^3 - x^4,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^3 - x^5,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^3 - x^6,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^4 - x^2,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^4 - x^3,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^4 - x^4,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^4 - x^5,log 5/log 10,1,q = [0] mod 11
+y^5 - x^5,y^4 - x^6,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^5 - x^2,log 5/log 10,1,q = [0] mod 11
+y^5 - x^5,y^5 - x^3,log 5/log 11,1,q = [0] mod 11
+y^5 - x^5,y^5 - x^4,log 5/log 10,1,q = [0] mod 11
+y^5 - x^5,y^5 - x^6,log 5/log 10,1,q = [0] mod 11
+y^5 - x^6,(x^3+1) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,(x^3+x) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,(x^3+x+1) y^2 (quadratic twists),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,(x^3+x+1) y^2 (quadratic twists),log 19/log 20,1,q = [0] mod 19
+y^5 - x^6,L = x,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,Xaniso = x^2-d y^2,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,Xaniso = x^2-d y^2,log 13/log 14,1,q = [0] mod 13
+y^5 - x^6,Xaniso = x^2-d y^2,log 17/log 18,1,q = [0] mod 17
+y^5 - x^6,Xaniso = x^2-d y^2,log 19/log 20,1,q = [0] mod 19
+y^5 - x^6,Xaniso = x^2-d y^2,log 23/log 24,1,q = [10] mod 13
+y^5 - x^6,Xsplit = xy,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,const = 0,1/2,16,"q = [2, 3, 4] mod 5"
+y^5 - x^6,x y^2 - x^2 (quartic twists),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,x^2 + y^2,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,x^2 + y^2,log 19/log 20,1,q = [0] mod 19
+y^5 - x^6,x^2 + y^2,log 23/log 24,1,q = [10] mod 13
+y^5 - x^6,x^2 + y^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,x^2 + y^3,log 13/log 20,1,q = [0] mod 13
+y^5 - x^6,x^2 + y^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,x^2 + y^4,log 19/log 20,1,q = [0] mod 19
+y^5 - x^6,x^2 + y^4,log 23/log 24,1,q = [10] mod 13
+y^5 - x^6,x^3 (pushforward),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,x^3 + y^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,x^3 + y^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,x^3 + y^5,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,x^4 + y^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,x^4 + y^4,log 19/log 20,1,q = [0] mod 19
+y^5 - x^6,x^4 + y^4,log 23/log 24,1,q = [10] mod 13
+y^5 - x^6,y^2 - (x^3+1x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - (x^3+1x),log 13/log 19,1,q = [0] mod 13
+y^5 - x^6,y^2 - (x^3+1x),log 17/log 24,1,q = [0] mod 17
+y^5 - x^6,y^2 - (x^3+2x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - (x^3+2x),log 13/log 17,1,q = [0] mod 13
+y^5 - x^6,y^2 - (x^3+2x),log 17/log 23,1,q = [0] mod 17
+y^5 - x^6,y^2 - (x^5+1x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - (x^5+1x),log 13/log 17,1,q = [0] mod 13
+y^5 - x^6,y^2 - (x^5+2x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - (x^5+2x),log 13/log 17,1,q = [0] mod 13
+y^5 - x^6,y^2 - (x^5+2x),log 17/log 21,1,q = [0] mod 17
+y^5 - x^6,y^2 - (x^7+1x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - (x^7+1x),log 13/log 20,1,q = [0] mod 13
+y^5 - x^6,y^2 - (x^7+1x),log 19/log 24,1,q = [0] mod 19
+y^5 - x^6,y^2 - D_2(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - D_3(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - D_3(x),log 13/log 18,1,q = [0] mod 13
+y^5 - x^6,y^2 - D_4(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - D_5(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - D_6(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - D_6(x),log 13/log 23,1,q = [0] mod 13
+y^5 - x^6,y^2 - D_7(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - D_7(x),log 13/log 21,1,q = [0] mod 13
+y^5 - x^6,y^2 - D_8(x),log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - x^11,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - x^12,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - x^2,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - x^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - x^3,log 13/log 20,1,q = [0] mod 13
+y^5 - x^6,y^2 - x^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - x^6,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - x^7,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - x^8,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - x^9,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^2 - x^9,log 13/log 20,1,q = [0] mod 13
+y^5 - x^6,y^3 - x^2,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^3 - x^2,log 13/log 20,1,q = [0] mod 13
+y^5 - x^6,y^3 - x^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^3 - x^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^3 - x^5,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^3 - x^6,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^4 - x^2,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^4 - x^3,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^4 - x^4,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^4 - x^6,log 10/log 11,1,q = [0] mod 11
+y^5 - x^6,y^5 - x^3,log 10/log 11,1,q = [0] mod 11

@@ -187,3 +187,10 @@ maps and the original operational exchange rates remains open.
 The local Riemann-factor numeraire that motivates this global formulation is
 developed in
 [Local zeta profiles and Riemann-zeta currency](p_adic_zeta_exchange_currency.md).
+
+The structural comparison between this Hermitian matrix \(E\) and the directed
+exchange matrix \(M_{ij}=C(f_i\to f_j)\) --- including the sup-norm
+representation of \(M\), the unconditional failure of the corresponding
+positivity for finite maps, and the finite-field register in which Weil numbers
+appear directly in the exchange rates --- is in
+[Two positivities: the exchange matrix and the Weil matrix](exchange_positivity_and_weil.md).

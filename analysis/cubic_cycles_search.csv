@@ -1,0 +1,4 @@
+family,implementer,implemented,rate,reverse_rate,contact_beta,reverse_contact_beta,margin,phi,witness
+cubic homogeneous maps F_3^3 -> F_3^3,"{5,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}","{5,5,5,1,1,1,1,1,1,1,1,1,1,1,1}",0.850687545833020,0.889482753533978,2.9651,0,0.038795207700958,violating,⟨zzz + yyy + 2xzz + 2xyz; 2xyz + xxz + 2xxy; zzz + 2xyy⟩
+cubic homogeneous maps F_3^3 -> F_3^3,"{5,5,5,1,1,1,1,1,1,1,1,1,1,1,1}","{7,2,2,2,2,2,2,2,2,2,2}",0.827087475346916,0.885469284071026,inf,0,0.058381808724109,consistent,⟨2zzz + yzz + 2yyy + 2xzz + 2xyz + xxz + xxy; 2zzz + 2yyz + yyy + 2xyz + xyy; zzz⟩
+cubic homogeneous maps F_3^3 -> F_3^3,"{7,2,2,2,2,2,2,2,2,2,2}","{5,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}",0.787609656965256,0.827087475346916,0,37.3357,0.039477818381660,consistent,⟨xxy; yzz; yzz + xxz + xxy⟩

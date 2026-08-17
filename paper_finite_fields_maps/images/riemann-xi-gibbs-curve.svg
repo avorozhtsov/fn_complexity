@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720"
+     viewBox="0 0 1100 720" role="img"
+     aria-labelledby="title description">
+  <title id="title">Energy-entropy curve of the completed zeta function</title>
+  <desc id="description">The Gibbs curve of Z(b) = xi(1/2 + b). Because the
+  Riemann kernel Phi is positive and even, the curve exists for every real b and
+  is symmetric about the entropy axis; that symmetry is the functional
+  equation.</desc>
+  <defs>
+    <style>
+      .grid { stroke: #e2e8f0; stroke-width: 1; }
+      .axis { stroke: #94a3b8; stroke-width: 1.8; }
+      .axis-zero { stroke: #cbd5e1; stroke-width: 1.6; stroke-dasharray: 5 4; }
+      .curve { fill: none; stroke-width: 2.8; stroke-linejoin: round; }
+      .tick { fill: #64748b; font: 13px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .axis-label { fill: #475569; font: 15px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .legend { fill: #475569; font: 14px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .note { fill: #b45309; font: 600 13px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .mark { fill: #475569; font: 13px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .title { fill: #172033; font: 700 29px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .subtitle { fill: #475569; font: 16px Inter, ui-sans-serif, system-ui, sans-serif; }
+    </style>
+  </defs>
+  <rect width="1100" height="720" fill="#ffffff"/>
+  <text class="title" x="550" y="58" text-anchor="middle">
+    The energy–entropy curve of the completed zeta function
+  </text>
+  <text class="subtitle" x="550" y="90" text-anchor="middle">
+    ζ has none — its region is unbounded at the pole. ξ does, for every real β.
+  </text>
+  <line class="grid" x1="130" y1="150" x2="130" y2="630"/>
+  <text class="tick" x="130" y="656" text-anchor="middle">-0.51</text>
+  <line class="grid" x1="241.667" y1="150" x2="241.667" y2="630"/>
+  <text class="tick" x="241.667" y="656" text-anchor="middle">-0.34</text>
+  <line class="grid" x1="353.333" y1="150" x2="353.333" y2="630"/>
+  <text class="tick" x="353.333" y="656" text-anchor="middle">-0.17</text>
+  <line class="grid" x1="465" y1="150" x2="465" y2="630"/>
+  <text class="tick" x="465" y="656" text-anchor="middle">0.00</text>
+  <line class="grid" x1="576.667" y1="150" x2="576.667" y2="630"/>
+  <text class="tick" x="576.667" y="656" text-anchor="middle">0.17</text>
+  <line class="grid" x1="688.333" y1="150" x2="688.333" y2="630"/>
+  <text class="tick" x="688.333" y="656" text-anchor="middle">0.34</text>
+  <line class="grid" x1="800" y1="150" x2="800" y2="630"/>
+  <text class="tick" x="800" y="656" text-anchor="middle">0.51</text>
+  <line class="grid" x1="130" y1="630" x2="800" y2="630"/>
+  <text class="tick" x="116" y="635" text-anchor="end">-2.81</text>
+  <line class="grid" x1="130" y1="534" x2="800" y2="534"/>
+  <text class="tick" x="116" y="539" text-anchor="end">-2.23</text>
+  <line class="grid" x1="130" y1="438" x2="800" y2="438"/>
+  <text class="tick" x="116" y="443" text-anchor="end">-1.65</text>
+  <line class="grid" x1="130" y1="342" x2="800" y2="342"/>
+  <text class="tick" x="116" y="347" text-anchor="end">-1.07</text>
+  <line class="grid" x1="130" y1="246" x2="800" y2="246"/>
+  <text class="tick" x="116" y="251" text-anchor="end">-0.50</text>
+  <line class="grid" x1="130" y1="150" x2="800" y2="150"/>
+  <text class="tick" x="116" y="155" text-anchor="end">0.08</text>
+  <line class="axis-zero" x1="465" y1="150" x2="465" y2="630"/>
+  <polyline class="curve" stroke="#7c3aed" points="775.185,595.43 772.743,588.086 770.285,580.772 767.812,573.491 765.324,566.242 762.82,559.026 760.299,551.844 757.763,544.696 755.211,537.583 752.643,530.506 750.058,523.465 747.457,516.461 744.839,509.495 742.205,502.568 739.553,495.68 736.885,488.832 734.2,482.024 731.497,475.259 728.777,468.535 726.04,461.855 723.286,455.219 720.513,448.628 717.724,442.083 714.916,435.584 712.09,429.133 709.247,422.73 706.385,416.377 703.505,410.075 700.608,403.824 697.691,397.625 694.757,391.48 691.804,385.389 688.833,379.354 685.843,373.375 682.835,367.454 679.808,361.592 676.762,355.79 673.698,350.049 670.616,344.37 667.514,338.754 664.394,333.203 661.256,327.718 658.099,322.299 654.923,316.949 651.729,311.668 648.516,306.457 645.285,301.319 642.035,296.254 638.768,291.263 635.482,286.348 632.178,281.51 628.856,276.75 625.516,272.069 622.158,267.47 618.783,262.953 615.391,258.519 611.981,254.17 608.554,249.908 605.11,245.733 601.65,241.646 598.173,237.65 594.68,233.745 591.171,229.933 587.647,226.215 584.107,222.592 580.551,219.065 576.981,215.636 573.397,212.306 569.798,209.077 566.186,205.948 562.56,202.922 558.921,200 555.269,197.183 551.605,194.471 547.929,191.867 544.241,189.37 540.543,186.982 536.834,184.704 533.114,182.538 529.385,180.483 525.647,178.54 521.9,176.711 518.144,174.996 514.381,173.397 510.611,171.912 506.834,170.545 503.051,169.294 499.262,168.16 495.468,167.145 491.669,166.247 487.867,165.469 484.061,164.81 476.441,163.85 472.628,163.55 468.815,163.37 465,163.31 461.185,163.37 457.372,163.55 453.559,163.85 445.939,164.81 442.133,165.469 438.331,166.247 434.532,167.145 430.738,168.16 426.949,169.294 423.166,170.545 419.389,171.912 415.619,173.397 411.856,174.996 408.1,176.711 404.353,178.54 400.615,180.483 396.886,182.538 393.166,184.704 389.457,186.982 385.759,189.37 382.071,191.867 378.395,194.471 374.731,197.183 371.079,200 367.44,202.922 363.814,205.948 360.202,209.077 356.603,212.306 353.019,215.636 349.449,219.065 345.893,222.592 342.353,226.215 338.829,229.933 335.32,233.745 331.827,237.65 328.35,241.646 324.89,245.733 321.446,249.908 318.019,254.17 314.609,258.519 311.217,262.953 307.842,267.47 304.484,272.069 301.144,276.75 297.822,281.51 294.518,286.348 291.232,291.263 287.965,296.254 284.715,301.319 281.484,306.457 278.271,311.668 275.077,316.949 271.901,322.299 268.744,327.718 265.606,333.203 262.486,338.754 259.384,344.37 256.302,350.049 253.238,355.79 250.192,361.592 247.165,367.454 244.157,373.375 241.167,379.354 238.196,385.389 235.243,391.48 232.309,397.625 229.392,403.824 226.495,410.075 223.615,416.377 220.753,422.73 217.91,429.133 215.084,435.584 212.276,442.083 209.487,448.628 206.714,455.219 203.96,461.855 201.223,468.535 198.503,475.259 195.8,482.024 193.115,488.832 190.447,495.68 187.795,502.568 185.161,509.495 182.543,516.461 179.942,523.465 177.357,530.506 174.789,537.583 172.237,544.696 169.701,551.844 167.18,559.026 164.676,566.242 162.188,573.491 159.715,580.772 157.257,588.086 154.815,595.43"/>
+  <circle cx="465" cy="163.31" r="6" fill="#ffffff" stroke="#b45309" stroke-width="3"/>
+  <text class="note" x="479" y="151.31">β = 0, the critical line</text>
+  <circle cx="374.731" cy="197.183" r="4.5" fill="#7c3aed"/>
+  <text class="mark" x="362.731" y="215.183" text-anchor="end">β = 3</text>
+  <circle cx="555.269" cy="197.183" r="4.5" fill="#7c3aed"/>
+  <text class="mark" x="567.269" y="215.183" text-anchor="start">β = −3</text>
+  <text class="legend" x="840" y="170">Z(β) = ξ(½ + β)</text>
+  <text class="legend" x="840" y="196">= ∫ Φ(u) e^{βu} du,  Φ &gt; 0</text>
+  <text class="legend" x="840" y="232">Φ even ⟹ Z(β) = Z(−β)</text>
+  <text class="legend" x="840" y="258">⟹ E odd, H even</text>
+  <text class="legend" x="840" y="294">the mirror symmetry is</text>
+  <text class="legend" x="840" y="320">the functional equation</text>
+  <text class="legend" x="840" y="346">ξ(s) = ξ(1 − s)</text>
+  <line class="axis" x1="130" y1="630" x2="800" y2="630"/>
+  <line class="axis" x1="130" y1="150" x2="130" y2="630"/>
+  <text class="axis-label" x="465" y="688"
+        text-anchor="middle">mean energy E</text>
+  <text class="axis-label" x="52" y="390"
+        text-anchor="middle" transform="rotate(-90 52 390)">
+    entropy H</text>
+</svg>

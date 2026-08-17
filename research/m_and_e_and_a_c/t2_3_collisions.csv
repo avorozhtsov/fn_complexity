@@ -1,0 +1,167 @@
+map,reference,condition
+L = x,L,always
+L = x,Xsplit,never
+L = x,Xaniso,never
+Xsplit = xy,L,never
+Xsplit = xy,Xsplit,always
+Xsplit = xy,Xaniso,never
+Xaniso = x^2-d y^2,L,never
+Xaniso = x^2-d y^2,Xsplit,never
+Xaniso = x^2-d y^2,Xaniso,always
+y^2 - x^2,L,never
+y^2 - x^2,Xsplit,always
+y^2 - x^2,Xaniso,never
+y^2 - x^3,L,q = [2] mod 3
+y^2 - x^3,Xsplit,never
+y^2 - x^3,Xaniso,never
+y^2 - x^4,L,never
+y^2 - x^4,Xsplit,q = [3] mod 4
+y^2 - x^4,Xaniso,never
+y^2 - x^5,L,"q = [2, 3, 4] mod 5"
+y^2 - x^5,Xsplit,never
+y^2 - x^5,Xaniso,never
+y^2 - x^6,L,never
+y^2 - x^6,Xsplit,q = [2] mod 3
+y^2 - x^6,Xaniso,never
+y^2 - x^7,L,"q = [2, 3, 4, 5, 6] mod 7"
+y^2 - x^7,Xsplit,never
+y^2 - x^7,Xaniso,never
+y^2 - x^8,L,never
+y^2 - x^8,Xsplit,q = [3] mod 4
+y^2 - x^8,Xaniso,never
+y^2 - x^9,L,q = [2] mod 3
+y^2 - x^9,Xsplit,never
+y^2 - x^9,Xaniso,never
+y^2 - x^10,L,never
+y^2 - x^10,Xsplit,"q = [2, 3, 4] mod 5"
+y^2 - x^10,Xaniso,never
+y^2 - x^11,L,"q = [0, 2, 3, 4, 5, 6, 7, 8, 9, 10] mod 11"
+y^2 - x^11,Xsplit,never
+y^2 - x^11,Xaniso,never
+y^2 - x^12,L,never
+y^2 - x^12,Xsplit,q = [11] mod 12
+y^2 - x^12,Xaniso,never
+y^2 - D_2(x),L,never
+y^2 - D_2(x),Xsplit,always
+y^2 - D_2(x),Xaniso,never
+y^2 - D_5(x),L,"q = [2, 3] mod 5"
+y^2 - D_5(x),Xsplit,never
+y^2 - D_5(x),Xaniso,never
+y^2 - D_7(x),L,"q = [2, 3, 4, 5] mod 7"
+y^2 - D_7(x),Xsplit,never
+y^2 - D_7(x),Xaniso,never
+y^3 - x^2,L,q = [2] mod 3
+y^3 - x^2,Xsplit,never
+y^3 - x^2,Xaniso,never
+y^3 - x^3,L,q = [2] mod 3
+y^3 - x^3,Xsplit,never
+y^3 - x^3,Xaniso,never
+y^3 - x^4,L,q = [2] mod 3
+y^3 - x^4,Xsplit,never
+y^3 - x^4,Xaniso,never
+y^3 - x^5,L,"q = [2, 4, 7, 8, 11, 13, 14] mod 15"
+y^3 - x^5,Xsplit,never
+y^3 - x^5,Xaniso,never
+y^3 - x^6,L,q = [2] mod 3
+y^3 - x^6,Xsplit,never
+y^3 - x^6,Xaniso,never
+y^4 - x^2,L,never
+y^4 - x^2,Xsplit,q = [3] mod 4
+y^4 - x^2,Xaniso,never
+y^4 - x^3,L,q = [2] mod 3
+y^4 - x^3,Xsplit,never
+y^4 - x^3,Xaniso,never
+y^4 - x^4,L,never
+y^4 - x^4,Xsplit,q = [3] mod 4
+y^4 - x^4,Xaniso,never
+y^4 - x^5,L,"q = [2, 3, 4] mod 5"
+y^4 - x^5,Xsplit,never
+y^4 - x^5,Xaniso,never
+y^4 - x^6,L,never
+y^4 - x^6,Xsplit,q = [11] mod 12
+y^4 - x^6,Xaniso,never
+y^5 - x^2,L,"q = [2, 3, 4] mod 5"
+y^5 - x^2,Xsplit,never
+y^5 - x^2,Xaniso,never
+y^5 - x^3,L,"q = [2, 4, 7, 8, 11, 13, 14] mod 15"
+y^5 - x^3,Xsplit,never
+y^5 - x^3,Xaniso,never
+y^5 - x^4,L,"q = [2, 3, 4] mod 5"
+y^5 - x^4,Xsplit,never
+y^5 - x^4,Xaniso,never
+y^5 - x^5,L,"q = [2, 3, 4] mod 5"
+y^5 - x^5,Xsplit,never
+y^5 - x^5,Xaniso,never
+y^5 - x^6,L,"q = [2, 3, 4] mod 5"
+y^5 - x^6,Xsplit,never
+y^5 - x^6,Xaniso,never
+x^2 + y^2,L,never
+x^2 + y^2,Xsplit,q = [1] mod 4
+x^2 + y^2,Xaniso,q = [3] mod 4
+x^2 + y^3,L,q = [2] mod 3
+x^2 + y^3,Xsplit,never
+x^2 + y^3,Xaniso,never
+x^2 + y^4,L,never
+x^2 + y^4,Xsplit,never
+x^2 + y^4,Xaniso,q = [3] mod 4
+x^2 + y^5,L,"q = [2, 3, 4] mod 5"
+x^2 + y^5,Xsplit,never
+x^2 + y^5,Xaniso,never
+x^3 + y^3,L,q = [2] mod 3
+x^3 + y^3,Xsplit,never
+x^3 + y^3,Xaniso,never
+x^3 + y^4,L,q = [2] mod 3
+x^3 + y^4,Xsplit,never
+x^3 + y^4,Xaniso,never
+x^3 + y^5,L,"q = [2, 4, 7, 8, 11, 13, 14] mod 15"
+x^3 + y^5,Xsplit,never
+x^3 + y^5,Xaniso,never
+x^4 + y^4,L,never
+x^4 + y^4,Xsplit,never
+x^4 + y^4,Xaniso,q = [3] mod 4
+x^4 + y^5,L,"q = [2, 3, 4] mod 5"
+x^4 + y^5,Xsplit,never
+x^4 + y^5,Xaniso,never
+x^5 + y^5,L,"q = [2, 3, 4] mod 5"
+x^5 + y^5,Xsplit,never
+x^5 + y^5,Xaniso,never
+x^3 (pushforward),L,q = [2] mod 3
+x^3 (pushforward),Xsplit,never
+x^3 (pushforward),Xaniso,never
+x y^2 - x^2 (quartic twists),L,never
+x y^2 - x^2 (quartic twists),Xsplit,q = [3] mod 4
+x y^2 - x^2 (quartic twists),Xaniso,never
+(x^3+x) y^2 (quadratic twists),L,never
+(x^3+x) y^2 (quadratic twists),Xsplit,q = [3] mod 4
+(x^3+x) y^2 (quadratic twists),Xaniso,never
+(x^3+1) y^2 (quadratic twists),L,never
+(x^3+1) y^2 (quadratic twists),Xsplit,q = [2] mod 3
+(x^3+1) y^2 (quadratic twists),Xaniso,never
+(x^3+x+1) y^2 (quadratic twists),L,never
+(x^3+x+1) y^2 (quadratic twists),Xsplit,not a congruence (n=2)
+(x^3+x+1) y^2 (quadratic twists),Xaniso,never
+y^2 - D_4(x)|y^2 - D_8(x),shared,"q = [3, 5] mod 8"
+x^3 + y^3|y^3 - x^3,shared,q = [1] mod 3
+y^2 - (x^5+1x)|y^2 - (x^5+2x),shared,not a congruence (n=30)
+y^2 - x^12|y^2 - x^6|y^4 - x^6,shared,q = [7] mod 12
+x^5 + y^5|y^5 - x^5,shared,q = [1] mod 5
+(x^3+x) y^2 (quadratic twists)|y^4 - x^4,shared,not a congruence (n=22)
+y^2 - (x^3+2x)|y^2 - D_3(x),shared,not a congruence (n=21)
+x^3 + y^4|y^3 - x^4|y^4 - x^3,shared,q = [1] mod 12
+x^4 + y^4|y^4 - x^4,shared,q = [1] mod 8
+y^2 - (x^3+1x)|y^2 - (x^3+2x),shared,not a congruence (n=20)
+y^2 - (x^3+1x)|y^2 - D_3(x),shared,not a congruence (n=19)
+x^2 + y^3|y^2 - x^3|y^2 - x^9|y^3 - x^2,shared,"q = [13, 25] mod 36"
+x^2 + y^3|x^3 + y^4|y^2 - x^3|y^2 - x^9|y^3 - x^2|y^3 - x^4|y^4 - x^3,shared,"q = [7, 31] mod 36"
+x y^2 - x^2 (quartic twists)|x^2 + y^4|y^2 - x^4|y^2 - x^8|y^4 - x^2,shared,q = [13] mod 24
+y^2 - (x^3+1x)|y^2 - (x^3+2x)|y^2 - D_3(x),shared,q = [7] mod 24
+x y^2 - x^2 (quartic twists)|x^2 + y^4|y^2 - x^12|y^2 - x^4|y^4 - x^2|y^4 - x^6,shared,q = [17] mod 24
+x y^2 - x^2 (quartic twists)|x^2 + y^4|y^2 - x^12|y^2 - x^4|y^2 - x^8|y^4 - x^2|y^4 - x^6,shared,q = [5] mod 24
+x^3 + y^5|y^3 - x^5|y^5 - x^3,shared,q = [1] mod 15
+x^4 + y^5|y^4 - x^5|y^5 - x^4,shared,q = [1] mod 20
+x y^2 - x^2 (quartic twists)|x^2 + y^4|y^2 - x^4|y^4 - x^2,shared,q = [1] mod 24
+x^2 + y^5|x^4 + y^5|y^2 - x^5|y^4 - x^5|y^5 - x^2|y^5 - x^4|y^5 - x^6,shared,q = [11] mod 60
+x^2 + y^3|x^3 + y^4|y^2 - x^3|y^3 - x^2|y^3 - x^4|y^4 - x^3,shared,q = [19] mod 36
+x^2 + y^3|y^2 - x^3|y^3 - x^2,shared,q = [1] mod 36
+x^2 + y^5|x^4 + y^5|y^2 - x^5|y^4 - x^5|y^5 - x^2|y^5 - x^4,shared,q = [31] mod 60
+x^2 + y^5|y^2 - x^5|y^5 - x^2|y^5 - x^6,shared,q = [41] mod 60

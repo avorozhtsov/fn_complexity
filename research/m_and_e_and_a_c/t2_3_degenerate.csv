@@ -1,0 +1,51 @@
+map,n_q_flat,flat_condition,n_q_two_valued,two_valued_condition
+L = x,91,always,0,never
+const = 0,91,always,0,never
+Xsplit = xy,0,never,91,always
+Xaniso = x^2-d y^2,0,never,91,always
+y^2 - x^2,0,never,91,always
+y^2 - x^3,47,q = [2] mod 3,0,never
+y^2 - x^4,0,never,48,q = [3] mod 4
+y^2 - x^5,69,"q = [2, 3, 4] mod 5",0,never
+y^2 - x^6,0,never,47,q = [2] mod 3
+y^2 - x^7,76,"q = [2, 3, 4, 5, 6] mod 7",0,never
+y^2 - x^8,0,never,48,q = [3] mod 4
+y^2 - x^9,47,q = [2] mod 3,0,never
+y^2 - x^10,0,never,69,"q = [2, 3, 4] mod 5"
+y^2 - x^11,82,"q = [0, 2, 3, 4, 5, 6, 7, 8, 9, 10] mod 11",0,never
+y^2 - x^12,0,never,25,q = [11] mod 12
+y^2 - D_2(x),0,never,91,always
+y^2 - D_5(x),46,"q = [2, 3] mod 5",0,never
+y^2 - D_7(x),61,"q = [2, 3, 4, 5] mod 7",0,never
+y^2 - (x^7+1x),0,never,1,q = [0] mod 13
+y^3 - x^2,47,q = [2] mod 3,0,never
+y^3 - x^3,47,q = [2] mod 3,0,never
+y^3 - x^4,47,q = [2] mod 3,0,never
+y^3 - x^5,82,"q = [2, 4, 7, 8, 11, 13, 14] mod 15",0,never
+y^3 - x^6,47,q = [2] mod 3,0,never
+y^4 - x^2,0,never,48,q = [3] mod 4
+y^4 - x^3,47,q = [2] mod 3,0,never
+y^4 - x^4,0,never,48,q = [3] mod 4
+y^4 - x^5,69,"q = [2, 3, 4] mod 5",0,never
+y^4 - x^6,0,never,25,q = [11] mod 12
+y^5 - x^2,69,"q = [2, 3, 4] mod 5",0,never
+y^5 - x^3,82,"q = [2, 4, 7, 8, 11, 13, 14] mod 15",0,never
+y^5 - x^4,69,"q = [2, 3, 4] mod 5",0,never
+y^5 - x^5,69,"q = [2, 3, 4] mod 5",0,never
+y^5 - x^6,69,"q = [2, 3, 4] mod 5",0,never
+x^2 + y^2,0,never,91,always
+x^2 + y^3,47,q = [2] mod 3,0,never
+x^2 + y^4,0,never,48,q = [3] mod 4
+x^2 + y^5,69,"q = [2, 3, 4] mod 5",0,never
+x^3 + y^3,47,q = [2] mod 3,0,never
+x^3 + y^4,47,q = [2] mod 3,0,never
+x^3 + y^5,82,"q = [2, 4, 7, 8, 11, 13, 14] mod 15",0,never
+x^4 + y^4,0,never,48,q = [3] mod 4
+x^4 + y^5,69,"q = [2, 3, 4] mod 5",0,never
+x^5 + y^5,69,"q = [2, 3, 4] mod 5",0,never
+x^2 (pushforward),0,never,91,always
+x^3 (pushforward),47,q = [2] mod 3,44,q = [1] mod 3
+x y^2 - x^2 (quartic twists),0,never,48,q = [3] mod 4
+(x^3+x) y^2 (quadratic twists),0,never,48,q = [3] mod 4
+(x^3+1) y^2 (quadratic twists),0,never,47,q = [2] mod 3
+(x^3+x+1) y^2 (quadratic twists),0,never,3,not a congruence (n=3)

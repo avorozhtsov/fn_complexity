@@ -216,3 +216,87 @@ never as "the cycle collapses".
 - The §6 cycle and the §7 `→ˢ` cycle traverse the same three signatures in
   opposite directions (correctly — `≺` and `→ˢ` are reversed). Half a sentence
   would stop it reading as an inconsistency.
+
+---
+
+## Round 2 — structural suggestions
+
+These came out of writing
+`paper_finite_fields_maps/docs/exchange_positivity_and_weil.md`. The first is
+the one that changes the paper.
+
+### R2.1 The representation theorem, and what it absorbs — RECOMMENDED
+
+Put `u_a(β) = log log Z_a(β)` (legitimate: `φ_a = log Z_a ≥ log 2 > 0`). Then
+
+```
+    -log C(a→b) = sup_β (u_b − u_a),
+    d(a,b) := -log(C(a→b) C(b→a)) = osc_β(u_a − u_b),
+    u_{a^⊗k} = u_a + log k.
+```
+
+So the whole theory is the sup-norm geometry of `C([0,∞])/R`, and Cartesian
+powers *are* the quotient by constants. This is one short proposition and it
+absorbs, as corollaries, most of open item 5.6 and more:
+
+- `C(a→a) = 1`;
+- `C(a→b)C(b→a) ≤ 1`, equality iff `u_a − u_b` is constant — which is the
+  homothety/reversibility criterion of the conclusion, now with a one-line
+  proof of the "only if";
+- **supermultiplicativity** `C(a→c) ≥ C(a→b)C(b→c)`, i.e. the triangle
+  inequality for the quasi-metric `L = −log C`. Currently absent, and it is
+  the composition law a reader expects from the word "exchange";
+- **no arbitrage**: any cycle product `C(f₁→f₂)···C(f_k→f₁) ≤ 1`.
+
+The last point is worth a numbered proposition next to §6. A reader who has
+just been shown a three-cycle will ask whether the market can be pumped. It
+cannot; the cycle is about which of the two one-sided suprema is larger, not
+about the product around a loop. Saying so converts the cycle from a curiosity
+into a precise statement: `≺` compares `sup(u_b−u_a)` against `sup(u_a−u_b)`,
+and non-transitivity is the generic behaviour of asymmetric sup-norms — not an
+accident of `{5,3}`, `{3,1,1}`, `{6,1}`. It also gives the abstract's "the
+curve, taken up to scale" its exact meaning: the invariant is the class
+`[u_a] ∈ C([0,∞])/R`, and the cycle shows no order-preserving map from that
+class to `R` exists.
+
+Verified numerically in `analysis/exchange_positivity.py`.
+
+### R2.2 The exchange metric is not of negative type
+
+`d` is a pseudometric, but *not* one that embeds in Hilbert space: an explicit
+13-signature family has `Σx_i = 0` with `x^T D x = +1.09e-3`, so
+`(C(f_i→f_j)C(f_j→f_i))^t` fails to be PSD for small `t`. Recomputed in 40-digit
+mpmath, agreeing with the solver to `3.6e-16`.
+
+This belongs in the second paper, not this one, but it is worth knowing while
+writing §6: the failure of transitivity and the failure of positivity are the
+same phenomenon — the theory is `L^∞`, not `L²`.
+
+### R2.3 Endpoint criterion (closes open item 5.2)
+
+`R = φ_g/φ_f` has `φ_a(0) = log r_a` and `φ_a'(0) = (Σ_i log a_i)/r_a`. So with
+the index
+
+```
+    I(a) = (mean of log a_i) / log(#a),
+```
+
+`R'(0) ≥ 0` iff `I(g) ≥ I(f)`: the minimum is at `β = 0` locally exactly when
+the implementer is the more "concentrated" of the two by this single number.
+The `β = ∞` end has the mirror condition. This is cheap to state, it explains
+why four of six rates in Table 1 are endpoint values, and it is honest that it
+is a *local* criterion — `{2,2} → {3,1}` has `β = 0` a local minimum and the
+global minimum at `β = ∞`. Which makes open item 7 (is `R` unimodal?) the real
+question; it is the soundness assumption behind every table in the paper and
+should be either proved or explicitly flagged as an assumption of the numerics.
+
+### R2.4 A forward pointer worth one paragraph
+
+Section "Relations to other work" classifies the monotones as `Z_a(β)`, `β ≥ 0`.
+Note which hypothesis does the work: multiplicativity and additivity force
+complete multiplicativity, and **monotonicity alone** forces the exponent to be
+real and non-negative. Drop the order and the same algebra admits `n ↦ n^s` for
+complex `s` — the Dirichlet characters. One sentence saying "the order is what
+makes the spectrum real" costs nothing here and is the hinge of the companion
+paper, where the complex spectrum is where `ζ` and Weil positivity live.
+

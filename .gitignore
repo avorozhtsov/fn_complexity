@@ -25,3 +25,6 @@ htmlcov/
 /paper_exchange_rate/*.pdf
 !/paper_exchange_rate/exchange_rates_finite_map_signatures.pdf
 /paper_exchange_rate/*.synctex.gz
+
+# Research search caches (regenerated on demand)
+/research/m_and_e_and_a_c/cache/
