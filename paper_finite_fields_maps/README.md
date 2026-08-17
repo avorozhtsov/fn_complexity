@@ -59,11 +59,22 @@ uv run --extra analysis python analysis/prime_mode_entropy_energy_curves.py --no
 rsvg-convert -f pdf \
   -o paper_finite_fields_maps/figures/prime-mode-entropy-energy-curves.pdf \
   paper_finite_fields_maps/images/prime-mode-entropy-energy-curves.svg
+
+python analysis/xi_gibbs_curve.py
+rsvg-convert -f pdf \
+  -o paper_finite_fields_maps/figures/riemann-xi-gibbs-curve.pdf \
+  paper_finite_fields_maps/images/riemann-xi-gibbs-curve.svg
 ```
 
 The physical branch exists only for inverse temperature `beta > 1`. The
 figure shows the full excluded region `beta <= 1`, including negative
 temperatures, rather than treating analytic continuation as a Gibbs state.
+The companion `riemann-xi-gibbs-curve.svg` is the same construction for the
+*completed* zeta function, where that obstruction disappears: Riemann's kernel
+makes `xi(1/2 + beta)` the Laplace transform of a positive even measure, so the
+curve exists for every real `beta` and its mirror symmetry is the functional
+equation. The two figures are a pair -- the first shows where the Gibbs reading
+of `zeta` breaks, the second what repairs it.
 The companion prime-mode figure compares the first six spectra
 `k log(p)`, for `k = 0, 1, 2, ...`.
 

@@ -1007,6 +1007,49 @@ curve.  It has only the branch \(\beta>1\): as \(\beta\to\infty\), both
   \label{fig:zeta-entropy-energy}
 \end{figure}
 
+The obstruction is the divergence of \(\sum_ne^{-\beta E_n}\), not the spectrum
+itself, and completing the zeta function removes it.  Write
+
+\[
+  \xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+\]
+
+which is entire and satisfies \(\xi(s)=\xi(1-s)\).  Riemann's kernel gives
+
+\begin{equation}
+  \xi\!\left(\tfrac12+\beta\right)=\int_{-\infty}^{\infty}\Phi(u)e^{\beta u}\,du,
+  \qquad
+  \Phi(u)=\sum_{n\ge1}\bigl(4\pi^2n^4e^{9u/2}-6\pi n^2e^{5u/2}\bigr)
+          e^{-\pi n^2e^{2u}},
+  \label{eq:polya-kernel}
+\end{equation}
+
+with \(\Phi>0\), \(\Phi(-u)=\Phi(u)\), and doubly exponential decay.  So
+\(\xi\), recentred on the critical line, is the two-sided Laplace transform of a
+\emph{positive even measure} --- a partition function in the strict sense,
+where \(\zeta\) alone was not.  Three things follow, and Figure
+\ref{fig:xi-gibbs-curve} shows them.  There is no Hagedorn point: \(\log Z\) is
+finite and convex for every real \(\beta\), so the curve exists on the whole
+line rather than on a half-line.  The excluded negative-temperature branch of
+Figure~\ref{fig:zeta-entropy-energy} is restored, and carries no new
+information, because \(\Phi\) is even: \(Z(\beta)=Z(-\beta)\), the mean energy
+is odd and the entropy even.  That mirror symmetry \emph{is} the functional
+equation.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.86\textwidth]{figures/riemann-xi-gibbs-curve.pdf}
+  \caption{The entropy--energy curve of the completed zeta function,
+  \(Z(\beta)=\xi(\tfrac12+\beta)\).  Compare
+  Figure~\ref{fig:zeta-entropy-energy}: there the curve exists only for
+  \(\beta>1\) and diverges at the Hagedorn point, here it exists for every real
+  \(\beta\) and is bounded.  The reflection about the entropy axis is the
+  functional equation \(\xi(s)=\xi(1-s)\), so negative temperatures are no
+  longer excluded --- they are the mirror image of positive ones.  Convexity of
+  \(\log Z\) was checked numerically throughout the plotted range.}
+  \label{fig:xi-gibbs-curve}
+\end{figure}
+
 If the exchange-profile formula is applied formally to two individual prime
 modes, then
 \begin{equation}
