@@ -329,10 +329,11 @@ S_{a,k} = θ_k + δ_{L_k}^{-1}(u_{a,k})   nonincreasing in k.
 
 **It is feasible.** `i_pattern.py` maximises `s` over the seven unknowns
 `(L_1,L_2,L_3, ρ_1,ρ_2,ρ_3, s)` for each of the 24 orderings of
-`(β⁺, γ⁺, β⁻, γ⁻)`; the run is in `i_pattern_output.txt`. **Most orderings are
-feasible** — in the cheap run recorded there, every one tried except `γ⁺β⁻β⁺γ⁻`
-came out feasible — and separate higher-effort runs on individual orderings push
-the scale up:
+`(β⁺, γ⁺, β⁻, γ⁻)`; the run is in `i_pattern_output.txt` (it was still working
+through the 24 orderings when this file was written — the recorded rows are
+complete and correct, the list is not yet). **Most orderings are feasible**: of
+the rows recorded so far only `γ⁺β⁻β⁺γ⁻` came out infeasible. Separate
+higher-effort runs on individual orderings push the scale up:
 
 | `θ`-ordering | largest scale `s` found |
 |---|---:|
