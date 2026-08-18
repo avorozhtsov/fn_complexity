@@ -493,8 +493,81 @@ C(a\to b)\ \le\ \frac{v(b)}{v(a)}\qquad\text{for all }a,b,
 
 so a scalar price dominating every rate always exists. What varies from family
 to family is whether that price can be made exact, equivalently whether the
-comparison \(\prec\) is a total order. Over \(\mathbb F_q\) it is; over the
-integer signatures of the companion paper it is not.
+comparison \(\prec\) is a total order. Over the quadratic and cubic map classes
+of this paper it is; over the integer signatures of the companion paper, over
+the tensor families above, and over the families of curves of the next section,
+it is not.
+
+## Cycles among families of curves, where \(\varphi\) goes blind
+
+The tensor cycles above are closed by an edge on which \(\varphi\) is *wrong*.
+Among fibrations \(f:\mathbb A^2\to\mathbb A^1\) something sharper happens:
+\(\varphi\) stops saying anything at all.
+
+Every onto \(f\) has exactly \(q\) fibers, so \(x_f=\log q\) for all of them and
+\(\varphi(f)=\log q\cdot\log\max_c N_c\) is a function of the single integer
+\(\max_c N_c\in[q,\,q+2g\sqrt q]\). Any pool of more than \(2g\sqrt q+1\)
+fibrations of genus at most \(g\) therefore contains exact \(\varphi\)-ties, and
+on a tie **both**
+endpoints of the theorem are equalities, so the endpoint regime is not merely
+left --- its hypothesis fails on every pair at once, and every strict comparison
+is decided in the interior.
+
+It cycles. Three pencils of genus-two curves over \(\mathbb F_{11}\), each with
+every fiber smooth,
+
+\[
+\begin{aligned}
+A&: y^2=x^5+3x^4+4x^3+x^2+x+c, &\sigma(A)&=\{18,16,15^2,14,12,9,6^2,5^2\},\\
+B&: y^2=x^6+9x^5+7x^4+2x^3+x+c, &\sigma(B)&=\{18^2,14,13,12,9^3,8,7,4\},\\
+C&: y^2=x^6+10x^5+8x^4+8x^3+x^2+2x+c, &\sigma(C)&=\{19,14,12,11^2,10^3,9^2,6\},
+\end{aligned}
+\]
+
+satisfy \(A\prec B\prec C\prec A\) with
+
+| edge | \(C(a\to b)\) | contact | \(C(b\to a)\) | contact | margin | vs \(\varphi\) |
+|---|---:|---|---:|---|---:|---|
+| \(A\prec B\) | \(0.990213498\) | \(\beta_*=16.51\) | \(0.994908823\) | \(\beta_*=2.96\) | \(4.7\cdot10^{-3}\) | **blind** |
+| \(B\prec C\) | \(0.981637513\) | \(\beta=\infty\) | \(0.983352120\) | \(\beta_*=4.46\) | \(1.7\cdot10^{-3}\) | consistent |
+| \(C\prec A\) | \(0.979537664\) | \(\beta_*=3.83\) | \(0.981637513\) | \(\beta=\infty\) | \(2.1\cdot10^{-3}\) | **violating** |
+
+Here \(\varphi(A)=\varphi(B)=6.9308<\varphi(C)=7.0605\): the first edge is one
+\(\varphi\) cannot see and the third is one it gets wrong. Four of the six rates
+sit at an interior temperature; the two endpoint contacts are the two rates into
+\(C\), both equal to \(\log18/\log19\) since \(A\) and \(B\) share the largest
+fiber, and the violating edge is decided by \(C(C\to A)=0.9795\) at
+\(\beta_*=3.83\) dipping below that endpoint value \(0.9816\), which is all
+\(\varphi\) reads. The cycle is *proved*, by interval arithmetic, in
+`research/curve_family_cycles/certify.py`.
+
+The search over \(\mathbb F_{11}\) and \(\mathbb F_{13}\) is exhaustive over all
+genus-two pencils \(y^2=P(x)+c\) with \(P\) monic of degree \(5\) or \(6\):
+
+| \(q\) | signatures | \(\varphi\)-blind strict pairs | \(\varphi\)-violating pairs | strict 3-cycles |
+|---:|---:|---:|---:|---:|
+| 11 | 296 | 7399 | 244 | **132** |
+| 13 | 698 | 39648 | 936 | **1475** |
+
+and of those cycles \(73\) and \(450\) respectively lie inside a single
+\(\varphi\)-class, so all three of their edges are blind --- a configuration the
+lemma above does not exclude, since a constant \(\varphi\) produces no chain to
+contradict. None has three \(\varphi\)-consistent edges, as the lemma requires.
+
+No scalar rescues the situation. Extending \(\varphi\) by the next term of the
+moment expansion gives \(\tilde\varphi(f)=\max_c(-a_c)-\tfrac{3-2\sqrt2}2 m_2(f)\),
+which is again a total order and again wrong: it decides exactly the pairs
+\(\varphi\) leaves tied, and on those it is wrong for \(90\%\) of them at
+\(q=11\), so it is a *worse* order than \(\varphi\). The reason is the same one.
+
+Why the flat regime is hospitable rather than hostile is a matter of two scales.
+Writing \(\log Z_f(\beta)=(1+\beta)\log q+\Lambda_f(\beta)\) and substituting
+\(\beta=\tau\sqrt q\) turns \(\Lambda_f\) into the cumulant generating function
+of the normalised Frobenius traces \(\alpha_c=(N_c-q)/\sqrt q\). The endpoint
+gap \(\varphi\) reads between neighbouring classes is \(\log((N+1)/N)\asymp1/q\),
+while the interior excursion is \(\Theta(1/\sqrt q)\) and sits at \(\tau\) of
+order one. The interior wins by \(\sqrt q\), and an interior tangency overturns
+largest-fiber gaps of up to \(\asymp\sqrt q\) rather than of one.
 
 ## Reproduction
 
@@ -505,3 +578,11 @@ python analysis/finite_field_exchange_matrix.py
 writes `analysis/finite_field_exchange_matrix.csv` with every rate, its contact
 temperature and the closed form where one exists, and checks the closed forms,
 the two constants \(\lambda,\kappa\) and the comparison order.
+
+```bash
+python research/curve_family_cycles/search.py
+python research/curve_family_cycles/certify.py
+```
+
+run the census of curve-family cycles and prove the \(\mathbb F_{11}\) one;
+`research/curve_family_cycles/FINDINGS.md` carries the full record.
