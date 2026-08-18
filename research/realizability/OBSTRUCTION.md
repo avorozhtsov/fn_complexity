@@ -317,19 +317,21 @@ S_{a,k} = θ_k + δ_{L_k}^{-1}(u_{a,k})   nonincreasing in k.
 
 **It is feasible.** `i_pattern.py` maximises `s` over the seven unknowns
 `(L_1,L_2,L_3, ρ_1,ρ_2,ρ_3, s)` for each of the 24 orderings of
-`(β⁺, γ⁺, β⁻, γ⁻)`; the results are in `i_pattern_output.txt`. Four orderings
-were already feasible in the first pass, the best being
+`(β⁺, γ⁺, β⁻, γ⁻)`; the run is in `i_pattern_output.txt`. **Most orderings are
+feasible** — in the cheap run recorded there, every one tried except `γ⁺β⁻β⁺γ⁻`
+came out feasible — and separate higher-effort runs on individual orderings push
+the scale up:
 
 | `θ`-ordering | largest scale `s` found |
 |---|---:|
-| `β⁺ γ⁺ β⁻ γ⁻` | 0.15480 |
-| `β⁺ γ⁺ γ⁻ β⁻` | 0.20145 |
-| `β⁺ β⁻ γ⁺ γ⁻` | 0.11174 |
-| `β⁺ β⁻ γ⁻ γ⁺` | 0.11174 |
+| `β⁺ γ⁺ β⁻ γ⁻` | 0.2619 |
+| `β⁺ γ⁺ γ⁻ β⁻` | 0.2135 |
+| `β⁺ β⁻ γ⁺ γ⁻` | 0.1117 |
+| `β⁺ β⁻ γ⁻ γ⁺` | 0.1117 |
 
-(with a wider box the same ordering `β⁺γ⁺γ⁻β⁻` reaches `0.2135` and
-`β⁺γ⁺β⁻γ⁻` reaches `0.2619`; the maximum realisable scale is not pinned down
-here — see Open.)
+Feasibility is the whole point: **any** `s > 0` gives an exact realisation, and
+the numbers only bound how large the scale can be made (see Open). The witness
+of §5.3 uses the ordering `β⁺ γ⁺ γ⁻ β⁻` at `s = 0.20198`.
 
 ### 5.3 The certified witness
 

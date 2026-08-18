@@ -13,3 +13,4 @@
             BADC     0.14715369   FEASIBLE
             BCAD     infeasible
             BCDA     0.09012088   FEASIBLE
+            BDAC     0.01234281   FEASIBLE
