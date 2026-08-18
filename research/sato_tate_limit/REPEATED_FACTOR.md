@@ -266,7 +266,14 @@ Theorem A **proves** `Jac(C_w) ∼ J_w²` (and the point counts confirm
 | 1009 | 998 | 7.596 | 151.97 | 4300.3 | 1.899 | 9.498 | 67.2 |
 | 4001 | 3992 | 7.523 | 146.08 | 4017.9 | 1.881 | 9.130 | 62.8 |
 | 16001 | 15992 | **7.9965** | **162.06** | **4589.1** | **1.9991** | **10.129** | **71.70** |
+| 32003 | 31998 | 7.9373 | 157.95 | 4429.4 | 1.9843 | 9.872 | — |
+| 64007 | 64000 | 7.9578 | 158.24 | 4393.2 | 1.9895 | 9.890 | — |
 | target | | 8 | 160 | 4480 | 2 | 10 | 70 |
+
+(the last two rows are the optional deeper sweep, `repeated_factor.py --deep`,
+which costs `O(q²)` per family and is off by default; `a_C = 2 a_J` holds on all
+31998 and all 64000 fibres, 0 mismatches, and the `m₆(J)` column was not printed
+in that run)
 
 The identification is not just a moment match. `G_geom` of the `J`-family is a
 closed subgroup of `SL₂ × SL₂` surjecting onto each factor (each elliptic

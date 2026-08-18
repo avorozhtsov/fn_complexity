@@ -50,6 +50,7 @@ from __future__ import annotations
 
 import csv
 import math
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -62,6 +63,11 @@ HERE = Path(__file__).resolve().parent
 SMALL = [11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73,
          79, 83, 89, 97, 101, 211, 401, 1009, 2003, 4001, 8009, 16001]
 BIG = [401, 1009, 4001, 16001]
+
+# The genus-four vertex is the slowest of the three to settle -- its `m2` is
+# still 7.52 at q = 4001 -- so it gets an optional deeper sweep.  ``--deep``
+# adds these; the cost is O(q^2) per family, a few minutes at q = 64007.
+DEEP = [32003, 64007]
 
 
 # --------------------------------------------------------------- the pencils
@@ -343,7 +349,7 @@ def main() -> int:
     print("3.  the three vertices of the smallest cycle of FINDINGS.md")
     print("=" * 100)
     print(HEAD)
-    for q in BIG:
+    for q in BIG + (DEEP if "--deep" in sys.argv else []):
         ws, F, G = pencil_E1sq_E2sq(q)
         aC = family_traces(q, F, 10)
         aJ = family_traces(q, G, 5)
