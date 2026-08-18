@@ -161,6 +161,18 @@ with `σ_j = log(c_j/x_j)`, and `σ_j` is strictly decreasing along the envelope
 increase of `T` along the grid is `4.5·10⁻¹⁶` and
 `max |U' − β/(β+T)| = 7.8·10⁻¹⁶`.
 
+**Remark (the conjugate picture).** `βF' − F = F*(F'(β))` is the Legendre
+transform of `F` evaluated at the slope, so `T = −F*(p)/p` with `p = F'(β)`.
+Geometrically, the tangent to `F` at `β` meets the `β`-axis at `−T(β)`, so:
+
+> `U_b − U_a` is critical exactly at those `β` where the tangents to `F_a` and
+> to `F_b` **hit the `β`-axis at the same point**,
+
+and it increases where `F_a`'s tangent-root is further left. That is the
+"tangency" formulation brief K found for the rate functions, in the form it
+takes here, and it is what makes the four-node analysis of §5 finite: `T` is
+monotone, so a step-function `T` is the general case.
+
 **Corollary 3.1 (free parametrisation).** Up to the projective scaling, an
 element of `C` with `k` pieces is *any* pair of unconstrained sequences
 
