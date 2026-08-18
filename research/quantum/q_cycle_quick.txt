@@ -1,0 +1,26 @@
+  r=2 restart 0: margin +0.00351139
+  r=2 restart 1: margin +0.00000000
+  r=2 restart 2: margin +0.00000000
+
+--- best_r2:  r = 2 ---
+    S = diag([2.90152645 8.3890561 ])
+    coherence of A_i in S's basis: [0.49953, 0.26779, 0.15831]
+    quantum  midranges A(1,2), A(2,3), A(3,1): ['+0.003511424', '+0.003513481', '+0.003509281']
+    shadow   midranges A(1,2), A(2,3), A(3,1): ['+0.030053734', '+0.025607506', '-0.055204706']
+    quantum cycle margin      = +0.0035092811
+    shadow acyclicity margin  = +0.0300537344
+    verdict: QUANTUM 3-CYCLE WITH TRANSITIVE SHADOW
+  r=3 restart 0: margin +0.00409875
+  r=3 restart 1: margin +0.00659742
+  r=3 restart 2: margin +0.00499946
+
+--- best_r3:  r = 3 ---
+    S = diag([1.0705969  1.04978707 1.06235328])
+    coherence of A_i in S's basis: [0.48533, 0.47737, 0.69552]
+    quantum  midranges A(1,2), A(2,3), A(3,1): ['+0.006598955', '+0.006597398', '+0.006597422']
+    shadow   midranges A(1,2), A(2,3), A(3,1): ['+0.039148634', '-0.072993115', '+0.033844481']
+    quantum cycle margin      = +0.0065973983
+    shadow acyclicity margin  = +0.0391486341
+    verdict: QUANTUM 3-CYCLE WITH TRANSITIVE SHADOW
+
+wrote q_cycle.json
