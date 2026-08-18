@@ -189,7 +189,9 @@ def main():
                   f"NOT FOUND (best LP margin {m:.2e})  {time.time()-t1:.0f}s")
             rows.append([code, scores, "no", "", ""])
             continue
-        err, ks = rationalise(c)
+        # the realised flow is  psi_b - psi_a + D_ab + log(k_b/k_a), so the
+        # powers must absorb the base potential: log k_a = c_a - psi_a.
+        err, ks = rationalise(c - ps[list(idx)])
         fam = [power(sigs[i], k) for i, k in zip(idx, ks)]
         Ac = np.zeros((n, n))
         e = 0.0
