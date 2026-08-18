@@ -170,101 +170,137 @@ gives:
 
 The exchange comparison is not transitive. Over `F_11` there are 132 strict
 3-cycles among genus-two pencils `y² = P(x)+c` in a complete enumeration, 1475
-over `F_13`, and certified witnesses exist over `F_11` and `F_101` with margins
-`10⁻³`–`10⁻⁴` verified three ways [curve_family_cycles, session D]. Substantial
-effort in this programme went into finding and certifying them. **Are they
-worth it?**
+over `F_13`, with certified witnesses over `F_11` and `F_101` verified three ways
+[curve_family_cycles, session D]. Substantial effort went into finding and
+certifying them. **Are they worth it?** Three results weaken the obvious reading,
+one strengthens it, and one bounds how much can be claimed.
 
-The case against has to be stated first, because three separate results weaken
-the obvious reading.
+**Against: cycles are not arithmetic.** A random pool of signatures matched to a
+curve pool in the only things that matter (`q` fibers, `Σ N_c = q²`, matched
+trace distribution) has the *same* curl, and the tightest control has slightly
+more. Over 108 pools, `‖curl‖/‖A‖` is a function of the trace spread to
+`R² = 0.93` [flux_arithmetic]. Cycles are a property of near-flat signature
+*shape*, not of the arithmetic that produced the signature.
 
-* **Cycles are not arithmetic.** A random pool of signatures matched to a curve
-  pool in the only things that matter (`q` fibers, `Σ N_c = q²`, matched trace
-  distribution) has the *same* curl, and the tightest control has slightly more.
-  Over 108 pools, `‖curl‖/‖A‖` is a function of the trace spread to `R² = 0.93`
-  [flux_arithmetic]. Cycles are a property of near-flat signature *shape*, not of
-  the arithmetic that produced the signature.
-* **Cycles are weak.** Corollary C caps the asymmetry around any cycle at a
-  geometric-mean factor of 2, and every 3-cycle has `ψ`-spread below `log 2`.
-* **Cycles are a zero-temperature phenomenon.** Soften both extrema over a
-  density `ρ` on `s = log β`:
-  `A_λ = ½(softmax_λ + softmin_λ)` of `u_a − u_b`. Then `A_λ → A` as `λ → ∞`,
-  and as `λ → 0` **both** soft-extrema tend to `∫(u_a−u_b)ρ`, so
+**Against: cycles mostly do not descend to the maps.** The `F_3` tensor
+three-cycles are cycles of *signatures*, and since `C_aff` is not a signature
+invariant (§1) the question is only well posed after choosing affine orbits. The
+seven signature cycles lift to twelve orbit triples, and **eight of the twelve
+are refuted under `C_aff`** [affine_rate] — in each case because one vertex is
+affinely implementable from another, forcing the opposite comparison on that
+edge. The remaining four are undecided. Where the descent can be tested, it
+mostly fails.
 
-  ```
-  A_0(a,b) = Ψ(a) − Ψ(b),      Ψ(a) = ∫ u_a ρ,
-  ```
+**For, and this replaces an argument I had wrong.** An earlier draft claimed that
+cycles are a zero-temperature artefact — that averaging over temperature destroys
+them. That is false [maslov]. Write `c_β(a→b) = F_a(β)/F_b(β)` for the
+fixed-`β` exchange rate and let `M_λ` be the `λ`-power mean over a temperature
+prior `ρ`. Then the whole comparison is
 
-  an **exact potential difference for every `ρ`** — hence a total order with no
-  cycles. Measured on the standard 3-cycle: no cycle below `λ ≈ 200`, cycle above
-  `λ ≈ 300` [maslov]. **The framework supplies a continuum of perfectly good
-  scalar complexities, one per temperature prior, and the tropical limit is the
-  unique member that fails to be one.**
+```
+A_λ(a,b) = ½ log( C_λ(a→b) / C_λ(b→a) ),   C_λ(a→b) = M_{−λ}(c_·(a→b)),    (6)
+```
 
-**Where the cycles actually come from.** There is a clean answer, and it arrived
-from the quantum side [quantum]. Brandão–Horodecki–Ng–Oppenheim–Wehner govern
-state conversion under thermal operations by a continuum of Rényi `α`-free
-energies, all of which must decrease — the same `β`-indexed family this framework
-infimises over. Their scalar is an infimum of a **difference** of free energies;
-ours is an infimum of a **ratio**. A difference-based comparison is a partial
-order, hence acyclic by construction. A ratio-based one is a tournament, and a
-tournament can cycle. So non-transitivity is not exotic: it is what taking a
-ratio does.
+with `λ = ∞` the framework's infimum, **`λ = 1` the plain arithmetic average of
+the transition rates**, and `λ = 0` the geometric mean. Two facts:
 
-And the ratio is **forced**, not chosen: these resources are unnormalised, so the
-difference of the corresponding quantities diverges like `β(Λ_a − Λ_b)`, and the
-ratio is the only finite scalar available. Cycles are the price of comparing
-resources that have no common normalisation — which is exactly the situation for
+* At a *single* temperature the comparison is the total order of the scalar
+  `F_·(β)`, since `c_β(a→b)·c_β(b→a) = 1`. **No pool cycles at any one
+  temperature.** All non-scalar content comes from the `β`-dependence of the
+  argmin.
+* Cycles survive averaging. There are certified 3-cycles of **flat** signatures —
+  which brief G *proves* cannot cycle at `λ = ∞` — living in bounded bands
+  `λ ∈ (1.5211, 2.5376)` and `(0.8032, 1.3139)`, the second **a cycle at `λ = 1`
+  exactly**. Cycles need `λ ≠ 0`; they do not need `λ` large, and some exist only
+  at finite `λ`.
+
+The comparison is a potential **iff** `λ = 0`, for a one-line reason: the
+geometric mean is the unique power mean commuting with reciprocals, so
+`C_0(a→b)C_0(b→a) = 1` — the trade becomes reversible. But the same identity
+gives `S_λ = λ·Var_ρ/2 + O(λ³)`, so at `λ = 0` **every distance is zero and every
+pair freely interconvertible**. The scalar complexity available there is the
+potential of an empty theory.
+
+> So non-scalarity is not an artefact of the infimum. It is a consequence of
+> **irreversibility**: the comparison fails to be a potential exactly because a
+> power mean of order `λ ≠ 0` does not commute with reciprocals. The infimum is
+> the extreme case, not the source.
+
+**Where the cycles come from, mechanically.** Brandão–Horodecki–Ng–Oppenheim–
+Wehner govern conversion under thermal operations by a continuum of Rényi
+`α`-free energies — the same `β`-indexed family. Their scalar is an infimum of a
+**difference**, hence a partial order, acyclic by construction; ours is an
+infimum of a **ratio**, hence a tournament, which can cycle [quantum]. And the
+ratio is *forced*: these resources are unnormalised, so the difference diverges
+like `β(Λ_a − Λ_b)` and the ratio is the only finite scalar. **Cycles are the
+price of comparing resources with no common normalisation** — the situation for
 maps, where nothing plays the role of a fixed particle number.
 
-That third point looks fatal and is not, for one reason: **the infimum in (2) is
-not a modelling choice.** It is what the asymptotic conversion rate *is* — the
-constraint is that *every* temperature's monotone be satisfied simultaneously, and
-the entropy method's theorem is that the operational limit equals the infimum.
-The soft family `A_λ` for `λ < ∞` currently has no operational reading at all.
+**The hedge, and it is the number to quote.** A single *unfitted* temperature
+prior — uniform in `s = log β` on `[0,6]` — reproduces **99.39 %** of the tropical
+order on the `F_11` arithmetic pool and **99.51 %** on `F_13`; a fitted prior
+reaches **99.62 %** and transfers across `q` without loss, against an
+information-theoretic ceiling of `99.90 %` (at least 42 edge-disjoint 3-cycles
+must be misordered). Both beat the HodgeRank potential `ψ_opt` at 98.31 %
+[maslov]. So the irreducibly non-scalar part of the comparison is **about four
+parts in a thousand**, not the 1.7 % an earlier estimate suggested.
 
-So the defensible claim, and the only one I would put in a paper, is:
+**The defensible claim, and the only one I would put in a paper:**
 
-> **Asymptotic convertibility is not governed by any scalar complexity — and the
-> failure is bounded: rates around any preference cycle differ by a geometric-mean
-> factor of at most two.** The non-scalarity is a property of *worst-case*
-> conversion, which is what conversion means; averaged readings of the same data
-> are scalar and cycle-free, but do not describe conversion.
+> Asymptotic convertibility is governed by no scalar complexity, because the
+> comparison is a non-reversible aggregation over temperature. The failure is
+> real but small: a single temperature prior recovers `99.4 %` of the order, and
+> at `λ = ∞` rates around any preference cycle differ by a geometric-mean factor
+> of at most two.
 
-That is a complete narrative — promise, obstruction, sharp bound on the
-obstruction — and it is the narrative I would continue. What it does **not**
-support is the stronger story the cycle hunt was implicitly aimed at: that cycles
-reveal something arithmetic. They do not; that reading is refuted.
+What this does **not** support is the story the cycle hunt was implicitly aimed
+at — that cycles reveal something arithmetic. They do not; that reading is
+refuted, and so is the "signature cycles descend to maps" reading, in eight of
+the twelve cases where it can be tested.
 
 **One genuinely quantum instance exists.** Replacing `Tr A^β` by a sandwiched
-Rényi divergence against a background operator gives a non-spectral rate, under
+Rényi divergence against a background operator gives a non-spectral rate under
 which three qubit states form a certified 3-cycle (`|curl A|/Σ|A| = 1` exactly,
 40 digits) **whose decohered shadow is transitive** [quantum]. Two caveats keep
 it honest: the plain quantisation `Tr A^β` is *empty* — it factors through the
 spectrum identically, so a quantum cycle without a classical shadow cannot exist
-— and every sandwiched profile still lies in the classical cone, so the
-configuration is reproduced by ordinary integer signatures. What is certified is
-the narrower physical statement that decoherence of that state destroys the
+— and every sandwiched profile still lies in the classical cone. What is
+certified is the narrower physical statement that decoherence destroys that
 cycle, not that the geometry is new.
 
-**What would raise their status.** Two concrete things, both open. (i) A cycle in
-`C_aff` rather than `C`: every certified cycle so far is a cycle of the signature
-shadow, and by (3) it need not survive. (ii) An operational meaning for some
-`λ < ∞` — average-case conversion, or conversion with error — which would turn
-the `λ`-family from a deformation into a physical phase diagram, and `λ_c` into
-a real transition rather than an artefact of the prior.
+**What would raise their status.** (i) A cycle in `C_aff` itself, on affine
+orbits rather than signatures — the eight refutations above make this look harder
+than it did. (ii) An operational reading of some `λ < ∞`, which would turn (6)
+from a deformation into a physical phase diagram.
 
 ---
 
 ## 5. Status
 
 Proved and independently re-verified: Propositions 1–2, Theorems A–B,
-Corollary C, the flatness/permutation-polynomial theorem, the invisibility of the
-smallest fiber and of symmetry type, superadditivity of `C` and `C_aff` under
-Cartesian products. Computed and certified: the cycle censuses and their
-witnesses. **Open and load-bearing:** the size of the gap in (3); whether
-`C_aff` cycles; whether any `λ < ∞` is operational.
+Corollary C, the power-mean identity (6) and its `λ = 0` reversibility, the
+flatness/permutation-polynomial theorem, the invisibility of the smallest fiber
+and of symmetry type, superadditivity of `C` and `C_aff` under Cartesian
+products — and, for `C_aff`, **strict** superadditivity, witnessed by
+`x² ⊗ x → x²+y` over `F_3` with a gap of at least `1/2` [affine_rate]. That
+settles the one form of the synergy question no variational formula could have
+decided: one affine processor draws a degree-2 part from `x²` and a linear part
+from `x`, which neither factor supplies alone.
 
-Earlier drafts of this material claimed an obstruction — that the exchange
-metrics do not fill `MET` — on the strength of a stalled search. `C_4` is
-realisable exactly, and that claim is withdrawn.
+The first exact affine rates are in hand — `1/2` for `x² → x`, `x² → xy`,
+`x² → x²+y²`, and `2/3` for `x²+y² → x` — and in the last the Fekete supremum is
+attained at no `r ≤ 2`, so **no single-shot computation determines `C_aff`**.
+
+Computed and certified: the cycle censuses and their witnesses; the flat-signature
+band-cycles; the qubit cycle.
+
+**Open and load-bearing:** whether `C_aff` cycles on affine orbits; whether any
+`λ < ∞` is operational; the sharp finite-`λ` cycle constant off the flat locus
+(there is no finite universal one — the flat-locus value grows like
+`0.149·log(width of ρ)`); six of the twenty-five affine brackets over `F_3`.
+
+**Withdrawn.** Three claims of earlier drafts. That the exchange metrics do not
+fill `MET` — `C_4` is realisable exactly, and the obstruction rested on a stalled
+search. That `C_aff ≤ C` — false, with the singular-processor counterexample now
+in §1. And that cycles are a zero-temperature artefact — false, with certified
+cycles at `λ = 1` now in §4. Each was refuted by the session sent to verify it.

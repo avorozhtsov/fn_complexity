@@ -12,8 +12,6 @@ As L -> infinity, A_L -> mid.  As L -> 0, BOTH soft-extrema tend to INT f rho, s
     A_0(a,b) = INT (u_a - u_b) rho = Psi(a) - Psi(b),   Psi(a) = INT u_a rho,
 
 an exact potential difference -- hence a total order with no cycles, for any rho.
-So every cycle in this framework lives above a critical L, and averaging over
-temperature restores a scalar complexity.
 """
 import numpy as np
 
