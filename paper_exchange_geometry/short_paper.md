@@ -48,20 +48,37 @@ Here `β` is an inverse temperature and `Z` a partition function with energy
 levels `−log n_i`; (2) is a theorem about the operational limit, not a second
 definition. **Throughout, `C` means (2) and `C_aff` means (1).**
 
-**The two are not the same, and the gap is the framework's main unaudited
-liability.** Affine implementation forces signature implementation, so
+**The two are not the same, and they are not even ordered.** An earlier draft
+asserted that affine implementation forces signature implementation, hence
+`C_aff ≤ C`. **That is false** [affine_rate]. Over `F_3` take `g = x²+y`,
+`f = x²`; then `f = g ∘ a` with the **singular** affine processor
+`a(x,y) = (x,0)`, so `C_aff(g→f) = 1`, while `σ(g) = (3,3,3)`, `σ(f) = (6,3)`
+give
 
 ```
-C_aff ≤ C          always,                                            (3)
+C(σ(g) → σ(f)) = log 3 / log 6 = 0.6131471927654584… < 1 = C_aff(g→f).   (3)
 ```
 
-and no computation in this programme has measured the slack. It is not a
-formality: over `F_11`, 1744 genus-two pencils `y² = P(x)+c` fall onto only 296
-signatures, and **every one of the 209 signatures realised by more than one
-pencil is realised by pencils with different fiberwise isogeny data**
-(419 of 420 at `F_13`) [flux_arithmetic]. The signature is a genuinely lossy
-shadow. Every arithmetic statement below is a statement about `C`, and the word
-"signature" belongs in each of them.
+**The mechanism.** Singular input processors are explicitly permitted. Here `a`
+is `3`-to-`1`: it collapses the nine-point source onto a three-point line, and
+pulling back through it *manufactures* a fiber of size `6` from a map all of
+whose fibers have size `3`. Signature implementation injects each target fiber
+into an assigned source fiber and cannot enlarge. Neither rate bounds the other:
+of the 25 ordered pairs of non-constant quadratic classes over `F_3`, nine have
+`C_aff < C` and four have `C_aff > C`.
+
+Worse, **`C_aff` is not a function of the signature at all**: `x` and `x²+y`
+share `(3,3,3)`, so their signature rates against `x²` agree to 40 digits, but
+`C_aff(x → x²) = 0` and `C_aff(x²+y → x²) = 1`. No functor between the two
+processor categories exists in either direction.
+
+That the signature loses information was already visible arithmetically: over
+`F_11`, 1744 genus-two pencils `y² = P(x)+c` fall onto only 296 signatures, and
+every one of the 209 multiply-realised signatures comes from pencils with
+different fiberwise isogeny data (419 of 420 at `F_13`) [flux_arithmetic]. But
+the affine counterexample is stronger than lossiness: `C` is not an
+approximation to `C_aff` from either side. **Every statement below is about `C`,
+and the word "signature" belongs in each of them.**
 
 ---
 
