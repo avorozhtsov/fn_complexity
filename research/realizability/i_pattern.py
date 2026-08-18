@@ -66,7 +66,7 @@ def delta_inv(u, L):
         hi += 2.0 + abs(hi)
         if hi > 1e4:
             return 1e4
-    for _ in range(200):
+    for _ in range(80):
         mid = 0.5 * (lo + hi)
         if delta_L(mid, L) > u:
             lo = mid
@@ -108,14 +108,14 @@ def feasibility(z, T):
     return -s
 
 
-def best_for_order(perm, seed=0, restarts=3, maxiter=250):
+def best_for_order(perm, seed=0, restarts=2, maxiter=160):
     T = T0[:, list(perm)]
     b = [(-4.0, 4.0)] * 3 + [(-3.0, 3.0)] * 3 + [(-9.0, 1.0)]
     best_z, best = None, math.inf
     for t in range(restarts):
         z, f = differential_evolution(feasibility, b, args=(T,),
                                       seed=seed + 613 * t, maxiter=maxiter,
-                                      popsize=30, F=(0.3, 1.2), CR=0.9)
+                                      popsize=16, F=(0.3, 1.2), CR=0.9)
         for step in (0.4, 0.1, 0.03, 0.01, 3e-3, 1e-3, 3e-4, 1e-4, 3e-5, 1e-5,
                      3e-6, 1e-6):
             z, f = pattern_search(feasibility, z, args=(T,), step=step,

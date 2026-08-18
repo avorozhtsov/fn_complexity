@@ -1,0 +1,4 @@
+=== self-check: the C_4 pattern through the same routine ===
+  C_4: REALISABLE, s = 0.07346380
+
+=== uniform K_n, identity ansatz (n nodes, Y = I) ===

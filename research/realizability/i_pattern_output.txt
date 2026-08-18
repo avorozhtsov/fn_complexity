@@ -3,3 +3,11 @@
   realisable by a cone element  (feasible <=> s > 0):
 
      theta-order          max s
+            ABCD     0.06218937   FEASIBLE
+            ABDC     0.02642664   FEASIBLE
+            ACBD     0.05957314   FEASIBLE
+            ACDB     0.06410334   FEASIBLE
+            ADBC     0.02105642   FEASIBLE
+            ADCB     0.02390053   FEASIBLE
+            BACD     0.05702010   FEASIBLE
+            BADC     0.14715369   FEASIBLE

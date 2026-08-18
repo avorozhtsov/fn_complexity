@@ -1,4 +1,0 @@
-/Users/artemvorozhtsov/projects/fn_complexity/.claude/worktrees/agent-a552092f6bafaf90b/research/realizability/i_deep.py:43: RuntimeWarning: divide by zero encountered in log
-  return np.log((F - b * Fp) / Fp)
-  C_4  m=4  distortion = 1.261848807079
-  C_4  m=5  distortion = 1.261828357403

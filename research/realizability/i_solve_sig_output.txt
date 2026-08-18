@@ -8,3 +8,4 @@
    atoms only  start  max|res| = 2.854e-03  dist = 1.014787029718
    atoms only  final  max|res| = 6.224e-04  dist = 1.005950670722518
    all 40 par  start  max|res| = 2.854e-03  dist = 1.014787029718
+   all 40 par  final  max|res| = 6.224e-04  dist = 1.005942711588889

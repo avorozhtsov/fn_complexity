@@ -463,6 +463,42 @@ constraint on the three `(P, Q)` pairs.
 
 ---
 
+## 8. The other targets of §4.3 — a first pass *(computed)*
+
+The `C_4` argument is a **sufficient test for any target**, and it is cheap:
+
+1. find an isometric copy of `δ` in the oscillation norm on `m+1` nodes, i.e.
+   `Y ∈ ℝ^{n×(m+1)}` with `osc_k (Y[b,k] − Y[a,k]) = δ_ab`;
+2. test the node system of §5.2 for that `Y`.
+
+A feasible point realises `δ` **exactly** in the cone, hence with distortion
+`1 + O(1/log r)` by signatures (Theorem 1). `i_targets.py` runs it; it
+reproduces `C_4` as a self-check. For the uniform metric step 1 is free: any
+**antichain of subsets** works, since `osc(1_{A_b} − 1_{A_a}) = 2` whenever
+neither set contains the other — in particular `Y = I_n` (the singletons) and
+the `k`-subsets of an `m`-set.
+
+Results so far (each "REALISABLE" is a *proof*; each "infeasible" is only a
+statement about that ansatz):
+
+| target | ansatz | verdict | brief G §4.3 |
+|---|---|---|---|
+| `C_4` | forced 4-node pattern | **REALISABLE** | 1.2557 |
+| `K_4` | `Y = I_4` | **REALISABLE** | 1.0002 |
+| `K_5` | `Y = I_5` | this ansatz infeasible | not tested |
+| `K_5` | 2-subsets of 4 nodes | **REALISABLE**, `s = 0.0372` | not tested |
+| `K_6` | `Y = I_6` | this ansatz infeasible | 1.4500 |
+
+**`K_5` is realisable**, and it is realisable on *four* nodes although the
+singleton ansatz on five nodes is not — so the node count, not the number of
+points, is what binds, and FINDINGS §4.3's "an `n`-point equilateral set in
+`ℓ∞^k` needs `n ≤ 2^k`, and the effective dimension here is 2–3" is not the
+right heuristic. `K_6` also has an antichain embedding on four nodes (the six
+2-subsets of a 4-set); whether it is feasible was still running when this file
+was written — see `i_targets_output.txt` for the completed table.
+
+---
+
 ## Corrections
 
 1. **FINDINGS §4.3 is wrong: `C_4` is realisable.** "Only the 4-point
@@ -471,12 +507,13 @@ constraint on the three `(P, Q)` pairs.
    withdrawn. `1.255692` was a stalled 24-parameter search, and this session's
    very first *integer* rung already beats it (`1.2254`). **The obstruction was
    inadequate search, not geometry.**
-2. **The other §4.3 verdicts are now unsafe too.** `C_5`, `K_{2,3}`, `K_{3,3}`,
-   `K_6`, `K_8`, Petersen and Wagner `V_8` were declared unrealisable by the same
-   search on the same objective. None of them has been re-examined in the cone.
-   They should be treated as *open*, not as negative results. (`K_6` and `K_8`,
-   for instance, embed isometrically in `ℓ_∞^n/ℝ1` — put `f_i = 1_{\{i\}}` — so the
-   `osc` structure does not forbid them either.)
+2. **The other §4.3 verdicts are now unsafe too, and one of them is already
+   contradicted.** `C_5`, `K_{2,3}`, `K_{3,3}`, `K_6`, `K_8`, Petersen and
+   Wagner `V_8` were declared unrealisable by the same search on the same
+   objective. §8 shows `K_5` (untested by brief G, and the natural companion of
+   its `K_6 = 1.4500`) **is** realisable, on four nodes. The rest should be
+   treated as *open*, not as negative results, and §4.3's `ℓ∞`-dimension
+   heuristic should be dropped.
 3. **"`ε ≤ log(1+e^{−Δ})` because one of `P, Q` is always zero" — the conclusion
    is right, the reason is wrong.** `min(P,Q)` is *not* always zero: a hill-climb
    in the cone reaches `max min(P,Q) = 0.2231435513 = log(5/4)`, stably at
@@ -540,14 +577,15 @@ still the recommended one-sentence claim.
   `s ≥ 0.2619`; Theorem 5 gives `s ≤ log φ = 0.4812`. More nodes should raise the
   lower bound. Closing the gap would give a genuinely sharp constant.
 * **Which metrics *are* realisable?** With Corollary 1.1 and Corollary 3.1 this
-  is now a finite feasibility question for each target: force the contact
-  pattern, then test the monotone-`S` system. `C_5`, `K_{2,3}`, `K_{3,3}`,
-  `K_6`, `K_8`, Petersen, Wagner `V_8` — all currently mis-recorded as negative
-  results — should be run through `i_pattern.py`'s machinery. My conjecture,
-  on the strength of `C_4` and of the `ℓ_∞^n/ℝ1` embeddings, is that **every**
-  finite metric is realisable up to distortion `1 + O(1/log r)`, i.e. that the
-  exchange metric is universal in the closure. That would replace §4.3
-  entirely.
+  is a finite feasibility question for each target (§8), and `i_targets.py`
+  runs it. `C_5`, `K_{2,3}`, `K_{3,3}`, `K_6`, `K_8`, Petersen and Wagner `V_8`
+  should all be pushed through it, with several oscillation embeddings and
+  several node counts each. The evidence so far (`C_4`, `K_4`, `K_5` all
+  realisable; `K_5` and `K_6` infeasible only for the *singleton* ansatz) points
+  towards the exchange metric being **universal in the closure**, but that is a
+  conjecture, not a result, and the right way to settle it is a proof that every
+  oscillation embedding can be re-timed into a monotone `S` — or a target for
+  which no `Y` at all is feasible.
 * **Prove `max |curl A| = (log 2)/2`** (§7). The missing ingredient is a joint
   constraint on the three `(P,Q)` pairs of a triangle.
 * **Is the `4.54` in `1 + 4.54/log r` intrinsic?** It should be
@@ -570,7 +608,7 @@ All under `research/realizability/`.
 | `i_constants.py`, `_output` | hill-climbs in the cone: `sup ε`, `max min(P,Q)`, `sup|D|`, `sup|curl|` |
 | `i_check_g2.py`, `_output` | audit of FINDINGS §4.3's `1.255692` against certified extrema |
 | `i_nodes.py` | the exact finite (common-node) model of the cone; `dmat` from a nonincreasing step scale function |
-| `i_deep.py` | basin-hopping search in the node model, seeded from brief G's own best `C_4` signatures |
+| `i_deep.py` | basin-hopping search in the node model, seeded from brief G's own best `C_4` signatures; it stalls at `1.2618` at four nodes, which is why the *forced pattern* of `i_pattern.py` was needed |
 | `i_c4.py`, `i_search.py` | earlier searches in the `(centres, breakpoints)` and `(intercept, slope)` parametrisations; kept because they show where the naive searches stall (`1.2558–1.2624`) |
 | `i_pattern.py`, `_output` | the forced four-node pattern of §5.1 and its feasibility over all 24 orderings — **the proof that `C_4` is realisable** |
 | `i_certify.py`, `i_certify.json` | the witness rebuilt at 60 digits and certified at 40: `‖d − s·C_4‖_∞ = 6.6·10⁻⁴¹`, all margins |
@@ -578,6 +616,7 @@ All under `research/realizability/`.
 | `i_logsig.py` | signatures held as `(log multiplicity, log atom)`, so the ladder can run to `r = 10^{11118}` |
 | `i_copeaked.py`, `_output` | the co-peaked relaxation realises `C_4` exactly — §6 |
 | `i_solve_sig.py`, `_output` | damped Gauss–Newton on the five scale-free equations: the "is distortion `1` attained by an actual signature family?" test |
+| `i_targets.py`, `_output` | §8: the general sufficient test — oscillation embedding, then the monotone-`S` node system — applied to the uniform metrics and the graph metrics of §4.3 |
 
 Reproduce in order: `i_validate_cone.py`, `i_verify.py`, `i_constants.py`,
 `i_check_g2.py`, `i_pattern.py`, `i_certify.py`, `i_witness.py`,
