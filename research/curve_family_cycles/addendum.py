@@ -25,6 +25,7 @@ Five parts, in the addendum's own order.
     C.  the rate formula against measured rates        (section 6, first check)
     D.  the histogram of contact temperatures          (section 4(c))
     E.  the multiplicity term                          (section 4(b))
+    F.  is phi~ right on any subpopulation?            (it is not, provably)
 
     python research/curve_family_cycles/addendum.py
 """
@@ -45,6 +46,7 @@ sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(HERE))
 
 from common import Engine, beta_grid, build_pool, superelliptic_counts  # noqa: E402
+from search import exhaustive_pool, three_cycles  # noqa: E402
 from fn_complexity import exchange_rate_result  # noqa: E402
 
 PSI_MIN = (3.0 - 2.0 * math.sqrt(2.0)) / 2.0  # 0.08578644, |psi_2| at beta* = sqrt2 - 1
@@ -108,10 +110,60 @@ def part_b(rows: list) -> None:
     print("B --- phi~ as an order on large pools  (addendum section 6)")
     print("=" * 78)
     print(
-        f"\n  {'q':>5}{'signatures':>12}{'strict pairs':>14}{'phi errors':>12}"
-        f"{'phi~ errors':>13}{'phi~ error rate':>17}"
+        "\n  phi~ differs from phi only in breaking phi's ties, and phi's ties are\n"
+        "  exactly the pairs of equal largest fiber, on which phi~ reduces to\n"
+        "  'the larger m2 precedes'.  So the sharp test is that subpopulation ---\n"
+        "  which is also where every cycle of the census lives.\n"
     )
-    for q in (31, 101, 211):
+    print(
+        f"  {'q':>5}{'strict pairs':>14}{'phi wrong':>11}{'phi blind':>11}"
+        f"{'phi~ wrong':>12}{'tie pairs':>11}{'phi~ wrong there':>18}"
+    )
+    for q, signatures in pools():
+        rates, _ = Engine(signatures, beta_grid(q, points=20_000)).rate_matrix(chunk=64)
+        strict = (rates - rates.T) < -TOLERANCE
+        identity = np.eye(len(signatures), dtype=bool)
+        phi = np.array([math.log(len(s)) * math.log(max(s)) for s in signatures])
+        tilde = np.array([phi_tilde(s, q) for s in signatures])
+        tops = np.array([max(s) for s in signatures])
+        moments = np.array([second_moment(s, q) for s in signatures])
+        gap_phi = phi[:, None] - phi[None, :]
+        gap_tilde = tilde[:, None] - tilde[None, :]
+        # pairs phi cannot separate but phi~ does: equal largest fiber, distinct m2
+        decided = (
+            (tops[:, None] == tops[None, :])
+            & (np.abs(moments[:, None] - moments[None, :]) > 1e-12)
+            & ~identity
+        )
+        total = int(strict.sum())
+        wrong_phi = int((strict & (gap_phi > 1e-12)).sum())
+        blind_phi = int((strict & (np.abs(gap_phi) <= 1e-12)).sum())
+        wrong_tilde = int((strict & (gap_tilde > 1e-12)).sum())
+        on_ties = int((strict & decided).sum())
+        wrong_on_ties = int((strict & decided & (gap_tilde > 1e-12)).sum())
+        print(
+            f"  {q:>5}{total:>14}{wrong_phi:>11}{blind_phi:>11}{wrong_tilde:>12}"
+            f"{on_ties:>11}{100 * wrong_on_ties / max(on_ties, 1):>17.1f}%"
+        )
+        rows.append([q, len(signatures), total, wrong_phi, wrong_tilde, on_ties, wrong_on_ties])
+    print(
+        "\n  On the pairs it is meant to decide, phi~ is not merely inexact: it is\n"
+        "  anti-predictive, wrong on about nine in ten.  The rule it encodes is\n"
+        "  'larger m2 precedes'; the truth is the opposite about that often, because\n"
+        "  a signature whose Psi rises faster at small tau must flatten before the\n"
+        "  common endpoint, and the later excursion is usually the deeper one.\n"
+        "  So phi~ is a worse order than phi overall, despite being one term deeper:\n"
+        "  it converts phi's honest ties into confident errors."
+    )
+
+
+def pools():
+    """Signature pools: exhaustive genus-two at small q, sampled at larger q."""
+
+    for q in (11, 13):
+        pool, _ = exhaustive_pool(q)
+        yield q, sorted(pool)
+    for q in (101,):
         pool = build_pool(
             q,
             budget=dict(hyperelliptic=1500, superelliptic=600, twist=600, additive=600, dense=600),
@@ -119,29 +171,7 @@ def part_b(rows: list) -> None:
         by_max: dict[int, list] = collections.defaultdict(list)
         for entry in pool:
             by_max[entry.max_fiber].append(entry)
-        chosen = [entry for members in by_max.values() for entry in members[:12]]
-        signatures = [entry.signature for entry in chosen]
-        rates, _ = Engine(signatures, beta_grid(q, points=20_000)).rate_matrix(chunk=64)
-        difference = rates - rates.T
-        strict = difference < -TOLERANCE
-        phi = np.array([math.log(len(s)) * math.log(max(s)) for s in signatures])
-        tilde = np.array([phi_tilde(s, q) for s in signatures])
-        errors = {}
-        for name, scalar in (("phi", phi), ("phi~", tilde)):
-            gap = scalar[:, None] - scalar[None, :]
-            errors[name] = int((strict & (gap > 1e-12)).sum())
-        total = int(strict.sum())
-        print(
-            f"  {q:>5}{len(signatures):>12}{total:>14}{errors['phi']:>12}"
-            f"{errors['phi~']:>13}{100 * errors['phi~'] / total:>16.2f}%"
-        )
-        rows.append([q, len(signatures), total, errors["phi"], errors["phi~"]])
-    print(
-        "\n  phi~ is a strict improvement on phi and still wrong on a percent of\n"
-        "  pairs, which is far above the 1e-10 tie floor.  Every such pair is a\n"
-        "  cycle candidate, and the census in FINDINGS.md shows the candidates\n"
-        "  close triangles."
-    )
+        yield q, [entry.signature for members in by_max.values() for entry in members[:12]]
 
 
 def part_c() -> None:
@@ -150,55 +180,62 @@ def part_c() -> None:
     print("=" * 78)
     print(
         "\n  D(f,g) = (C(f->g) - 1) * q log q, measured against the addendum's\n"
-        "  min(-0.0858 dm2, dM), over pairs of 20 genus-2 pencils with dm2 > 0.\n"
+        "  min(-0.0858 dm2, dM), over pairs of 40 genus-2 pencils with dm2 > 0,\n"
+        "  split by whether the largest fibers differ.\n"
     )
     print(
-        f"  {'q':>6}{'pairs':>7}{'median |D|':>13}{'median |pred|':>15}"
-        f"{'median error':>14}{'error/sqrt(q)':>15}"
+        f"  {'q':>6}{'population':>17}{'pairs':>7}{'median |D|':>13}"
+        f"{'median rel. error':>19}{'1/sqrt(q)':>11}{'median beta*/sqrt(q)':>22}"
     )
     for q in (211, 1009):
         rng = np.random.default_rng(11)
         signatures = []
-        while len(signatures) < 20:
+        while len(signatures) < 40:
             coefficients = [int(v) for v in rng.integers(0, q, size=5)] + [1]
             counts = superelliptic_counts(q, 2, coefficients)
             if counts.min() == 0:
                 continue
             signatures.append(tuple(sorted((int(v) for v in counts), reverse=True)))
-        # The package solver costs O(grid * q) Python operations per pair, which
-        # is prohibitive at q = 1009; the grid engine gives the same numbers to
-        # 1e-9 (checked in search.py) and one pair is spot-checked below.
-        rates, _ = Engine(signatures, beta_grid(q, points=30_000)).rate_matrix(chunk=32)
-        measured, predicted = [], []
-        for i, first in enumerate(signatures):
-            for j, second in enumerate(signatures):
-                if i == j:
-                    continue
-                dm2 = second_moment(first, q) - second_moment(second, q)
-                if dm2 <= 0:
-                    continue
-                dM = largest_deviation(first, q) - largest_deviation(second, q)
-                measured.append((rates[i, j] - 1.0) * q * math.log(q))
-                predicted.append(min(-PSI_MIN * dm2, float(dM)))
+        # The package solver costs O(grid * q) Python operations per pair, which is
+        # prohibitive at q = 1009; the grid engine agrees with it to 1e-13 here.
+        rates, contacts = Engine(signatures, beta_grid(q, points=30_000)).rate_matrix(chunk=32)
         exact = exchange_rate_result(
             implementer=signatures[0], implemented=signatures[1], grid_size=16384
         ).rate
-        spot = abs(exact - rates[0, 1])
-        measured = np.array(measured)
-        predicted = np.array(predicted)
-        error = np.abs(measured - predicted)
+        tops = np.array([max(s) - q for s in signatures], dtype=float)
+        moments = np.array([second_moment(s, q) for s in signatures])
+        deviation = (rates - 1.0) * q * math.log(q)
+        gap_top = tops[:, None] - tops[None, :]
+        gap_m2 = moments[:, None] - moments[None, :]
+        predicted = np.minimum(-PSI_MIN * gap_m2, gap_top)
+        base = (gap_m2 > 0) & ~np.eye(len(signatures), dtype=bool)
+        for label, mask in (
+            ("largest differ", base & (gap_top != 0)),
+            ("largest tie", base & (gap_top == 0)),
+        ):
+            if not mask.any():
+                continue
+            error = np.abs(deviation[mask] - predicted[mask]) / np.abs(deviation[mask])
+            finite = contacts[mask]
+            finite = finite[np.isfinite(finite) & (finite > 0)]
+            print(
+                f"  {q:>6}{label:>17}{int(mask.sum()):>7}"
+                f"{np.median(np.abs(deviation[mask])):>13.4f}"
+                f"{np.median(error):>18.1%}{1 / math.sqrt(q):>11.4f}"
+                f"{float(np.median(finite)) / math.sqrt(q):>22.3f}"
+            )
         print(
-            f"  {q:>6}{len(measured):>7}{np.median(np.abs(measured)):>13.4f}"
-            f"{np.median(np.abs(predicted)):>15.4f}{np.median(error):>14.4f}"
-            f"{np.median(error) / math.sqrt(q):>15.4f}"
-            f"   [engine vs package on one pair: {spot:.1e}]"
+            f"         (grid engine against the package solver on one pair: "
+            f"{abs(exact - rates[0, 1]):.1e})"
         )
     print(
-        "\n  The error is not O(q^-1/2) relative, as the addendum predicts; it is\n"
-        "  of the same size as D itself and grows like sqrt(q) in these units.\n"
-        "  That is the missing term: in the addendum's own normalisation the\n"
-        "  crossover contributes D ~ sqrt(q), so it dominates both terms kept,\n"
-        "  each of which is O(1) or an integer times one."
+        "\n  Where the largest fibers differ the formula is a fair description and its\n"
+        "  error is roughly flat in q at about 10%.  Where they tie --- the only\n"
+        "  pairs that can carry a cycle --- the error GROWS with q, 15% to 95%, and\n"
+        "  the contact walks out from beta* to beta of order sqrt(q).  The addendum\n"
+        "  predicts an O(1/sqrt(q)) relative error in both cases; on the population\n"
+        "  that matters the error moves the other way, because the term it drops\n"
+        "  grows like sqrt(q) against the terms it keeps."
     )
 
 
@@ -258,7 +295,7 @@ def part_e() -> None:
     print(
         "\n  Two signatures identical except that the largest fiber is attained\n"
         "  twice instead of once, so log(max) ties and the multiplicity is the\n"
-        "  leading endpoint datum.  Prediction: (R(beta) - 1) * beta * log Z_g\n"
+        "  leading endpoint datum.  Prediction: (R(beta) - 1) * beta * log(max)\n"
         "  tends to log(mu_f) - log(mu_g) = log 2 = 0.693147.\n"
     )
     q = 11
@@ -273,11 +310,12 @@ def part_e() -> None:
         top = logs.max()
         return beta * top + math.log(float(np.exp(beta * (logs - top)).sum()))
 
-    print(f"    {'beta':>10}{'(R-1) beta log Z':>20}")
+    print(f"    {'beta':>10}{'(R-1) beta log(max)':>24}")
+    top = math.log(max(single))
     for beta in (10.0, 100.0, 1000.0, 10_000.0, 100_000.0):
         first, second = log_z(doubled, beta), log_z(single, beta)
-        print(f"    {beta:>10.0f}{(first / second - 1.0) * beta * second:>20.6f}")
-    print(f"    {'limit':>10}{math.log(2.0):>20.6f}")
+        print(f"    {beta:>10.0f}{(first / second - 1.0) * beta * top:>24.6f}")
+    print(f"    {'limit':>10}{math.log(2.0):>24.6f}")
     print(
         "\n  Confirmed, and it decays like 1/beta, so at the crossover beta ~ sqrt(q)\n"
         "  it contributes ~ log 2 / sqrt(q) to (R - 1) log Z --- the same\n"
@@ -287,6 +325,118 @@ def part_e() -> None:
     )
 
 
+def part_f() -> None:
+    print("\n" + "=" * 78)
+    print("F --- is there a subpopulation on which phi~ works?")
+    print("=" * 78)
+    print(
+        "\n  Stratifying the pairs phi~ decides that phi cannot --- equal largest\n"
+        "  fiber, distinct m2 --- three ways.  No stratum is good, and the third\n"
+        "  stratification shows the failure is systematic rather than noisy.\n"
+    )
+    for q in (11, 13):
+        pool, _ = exhaustive_pool(q)
+        signatures = sorted(pool)
+        rates, _ = Engine(signatures, beta_grid(q, points=30_000)).rate_matrix(chunk=64)
+        strict = (rates - rates.T) < -TOLERANCE
+        tops = np.array([max(s) - q for s in signatures])
+        moments = np.array([second_moment(s, q) for s in signatures])
+        mult = np.array([s.count(max(s)) for s in signatures])
+        gap = moments[:, None] - moments[None, :]
+        decided = (
+            (tops[:, None] == tops[None, :])
+            & (np.abs(gap) > 1e-12)
+            & ~np.eye(len(signatures), dtype=bool)
+        )
+        selected = strict & decided
+        correct = selected & (gap > 0)  # phi~ says the larger m2 precedes
+        print(
+            f"  q = {q}: {int(selected.sum())} such pairs, phi~ correct on "
+            f"{100 * correct.sum() / selected.sum():.1f}%"
+        )
+        print(f"    {'by largest fiber':>22}{'pairs':>9}{'phi~ correct':>15}")
+        for value in sorted(set(tops.tolist())):
+            block = (tops[:, None] == value) & (tops[None, :] == value)
+            count = int((selected & block).sum())
+            if count < 20:
+                continue
+            print(
+                f"    {'N_max = ' + str(q + value):>22}{count:>9}"
+                f"{100 * (correct & block).sum() / count:>14.1f}%"
+            )
+        print(f"    {'by |dm2| quintile':>22}{'pairs':>9}{'phi~ correct':>15}")
+        values = np.abs(gap[selected])
+        edges = [0.0] + list(np.percentile(values, [20, 40, 60, 80])) + [values.max() + 1]
+        for low, high in zip(edges[:-1], edges[1:]):
+            block = selected & (np.abs(gap) >= low) & (np.abs(gap) < high)
+            count = int(block.sum())
+            if count < 20:
+                continue
+            print(
+                f"    {f'[{low:.3f}, {high:.3f})':>22}{count:>9}"
+                f"{100 * (correct & block).sum() / count:>14.1f}%"
+            )
+        print(f"    {'by multiplicity':>22}{'pairs':>9}{'phi~ correct':>15}")
+        for label, condition in (
+            ("mu equal", mult[:, None] == mult[None, :]),
+            ("mu differs", mult[:, None] != mult[None, :]),
+        ):
+            block = selected & condition
+            count = int(block.sum())
+            if count < 20:
+                continue
+            print(
+                f"    {label:>22}{count:>9}"
+                f"{100 * (correct & block).sum() / count:>14.1f}%"
+            )
+        print()
+    print(
+        "  The accuracy falls monotonically as |dm2| grows, to 0.1% in the top\n"
+        "  quintile.  That is the signature of a reversed sign, not of a missing\n"
+        "  correction: the term phi~ keeps dominates exactly where phi~ is most\n"
+        "  wrong.  The correct leading rule on these pairs is the opposite one,\n"
+        "  smaller m2 precedes.\n"
+    )
+    print(
+        "  But no rule of that shape can be right either, and this is a proof and\n"
+        "  not a statistic: there are cycles inside a single largest-fiber class\n"
+        "  whose three m2 are distinct.  On such a triple every scalar F(M, m2) is\n"
+        "  a function of m2 alone, hence a total order, hence not the comparison.\n"
+    )
+    for q in (11, 13):
+        pool, _ = exhaustive_pool(q)
+        signatures = sorted(pool)
+        rates, _ = Engine(signatures, beta_grid(q, points=30_000)).rate_matrix(chunk=64)
+        tops = [max(s) - q for s in signatures]
+        moments = [second_moment(s, q) for s in signatures]
+        cycles = [
+            entry
+            for entry in three_cycles(rates)
+            if len({tops[t] for t in entry[1:]}) == 1
+            and len({round(moments[t], 12) for t in entry[1:]}) == 3
+        ]
+        print(f"  q = {q}: {len(cycles)} such cycles.  The widest:")
+        margin, *triple = cycles[0]
+        for position, index in enumerate(triple):
+            print(
+                f"      {'ABC'[position]}:  M = {tops[index]}, m2 = {moments[index]:.6f},"
+                f"  sigma = {signatures[index]}"
+            )
+        for position in range(3):
+            first, second = triple[position], triple[(position + 1) % 3]
+            forward = exchange_rate_result(
+                implementer=signatures[first], implemented=signatures[second], grid_size=16384
+            ).rate
+            backward = exchange_rate_result(
+                implementer=signatures[second], implemented=signatures[first], grid_size=16384
+            ).rate
+            print(
+                f"      {'ABC'[position]} < {'ABC'[(position + 1) % 3]}:"
+                f"  margin {backward - forward:+.4e}  (package solver)"
+            )
+        print()
+
+
 def main() -> int:
     rows: list = []
     part_a()
@@ -294,9 +444,20 @@ def main() -> int:
     part_c()
     part_d()
     part_e()
+    part_f()
     with (HERE / "addendum.csv").open("w", newline="", encoding="utf-8") as stream:
         writer = csv.writer(stream)
-        writer.writerow(["q", "signatures", "strict_pairs", "phi_errors", "phi_tilde_errors"])
+        writer.writerow(
+            [
+                "q",
+                "signatures",
+                "strict_pairs",
+                "phi_errors",
+                "phi_tilde_errors",
+                "largest_fiber_tie_pairs",
+                "phi_tilde_errors_on_ties",
+            ]
+        )
         writer.writerows(rows)
     print("\nwritten: addendum.csv")
     return 0
