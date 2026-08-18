@@ -1,0 +1,56 @@
+=== (1) an exact family with curl -> (log 2)/2 ===
+  Phi_1 = max(1, beta)      (the tropical corner: (r,1,...,1))
+  Phi_2 = 1 + beta          (flat, sigma = 0)
+  Phi_3 = 1 + e^T beta      (flat, sigma = -T)
+  D_12 = (log 2)/2 exactly, D_23 = 0 (two flats), D_31 = -log(1+e^-T)/2,
+  so   curl = ( log 2 - log(1 + e^{-T}) ) / 2 .
+       T                        exact curl, 40 digits     cone computation     |diff|
+       1   0.1899427465208612376841183132451604630801    0.189942746520861   0.00e+00
+       5   0.3432159160354136204004077168627672464803    0.343215916035414   1.11e-16
+      20   0.3465735892493958445514257091095968845988    0.346573589249396   2.78e-16
+     100   0.3465735902799726547086160607290882840378    0.346573590279973   0.00e+00
+     300   0.3465735902799726547086160607290882840378    0.346573590279973   0.00e+00
+  limit = (log 2)/2 = 0.346573590279973   -- so sup |curl| >= (log 2)/2 is PROVED,
+  and it is a supremum, not a maximum.
+
+=== (2) curl A = (1/2) log Omega, Omega the cycle asymmetry ratio ===
+  max | curl - (1/2)(sum_fwd L - sum_bwd L) | over 200000 triples = 8.882e-16
+  max Omega over the same sample = 1.888944480  (conjecture: <= 2)
+  Both cycle sums are >= 0 (the quasi-metric triangle inequality), so
+  'max curl = (log 2)/2' says: the forward arbitrage around a 3-cycle
+  exceeds the backward one by at most a factor 2.
+
+=== (3) the circulation identity  2 curl = J(p) + J(q) ===
+  J(x) = [U_1(x_2)-U_1(x_3)] + [U_2(x_3)-U_2(x_1)] + [U_3(x_1)-U_3(x_2)]
+       = int_{x_3}^{x_2} u_1 + int_{x_1}^{x_3} u_2 + int_{x_2}^{x_1} u_3,
+  u_i = U_i' nondecreasing from 0 to 1 (Theorems 2, 3 of OBSTRUCTION.md).
+  40000 triples: max residual = 1.887e-15
+
+=== (4) the upper-bound search, pushed ===
+   k lines       sup |curl|    /(log2/2)   /(3log2/2)
+         2      0.346573590    1.0000000    0.3333333
+         3      0.346573590    1.0000000    0.3333333
+         4      0.346573590    1.0000000    0.3333333
+         6      0.346573590    1.0000000    0.3333333
+         8      0.346573590    1.0000000    0.3333333
+
+=== (5) where the extremum lives ===
+  (a) restricted to the equal-sigma slice (all three sigma = 0):
+   k lines       sup |curl|    /(log2/2)
+         2      0.111571774    0.3219281
+         3      0.143839123    0.4150320
+         4      0.143790186    0.4148908
+         5      0.143750192    0.4147754
+         6      0.143773758    0.4148434
+  (b) the exact family of (1) has sigma = (0, 0, -T): the extremum
+      needs one point pushed to sigma = -infinity.
+
+=== (6) candidate joint constraints ===
+  random sample of 400000 triples:
+    max |curl| / max_e |D_e|   = 2.606644555   (3 is the trivial bound)
+    max |curl| / max_e eps_e   = 0.999777294   (1.5 is the trivial bound)
+  hill-climb k=2: max |curl|/max|D| = 3.0000000000   max |curl|/max eps = 1.0000000000
+  hill-climb k=3: max |curl|/max|D| = 3.0000000000   max |curl|/max eps = 1.0000000000
+  => |curl| <= max_e |D_e| is REFUTED (ratio 3 is attained).
+  => |curl| <= max_e eps_e survives; it would give |curl| <= log 2,
+     still a factor 2 above the computed supremum.
