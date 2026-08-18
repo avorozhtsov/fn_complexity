@@ -44,35 +44,75 @@ from g1_mine import all_classes, perm_index, canon_batch  # noqa: E402
 HERE = Path(__file__).resolve().parent
 
 
-def lp_margin(Dsub, S, iters=3000):
-    """max over c of min_{i<j} S_ij (c_j - c_i + D_ij), by subgradient ascent."""
+def min_mean_cycle(W):
+    """Minimum mean weight over directed cycles of the digraph with weights W
+    (W[i,j] finite when the edge i->j is present).  Karp's algorithm.
+
+    The realisability criterion: the constraints  c_j - c_i >= m - D_ij  along
+    the edges of the tournament T are feasible iff every directed cycle of T
+    has  sum D_e >= m * (cycle length).  So the largest achievable margin is
+    exactly the minimum mean cycle weight of D over T's directed cycles, and
+    T is realisable from D iff that minimum is > 0.
+    """
+    n = W.shape[0]
+    INF = np.inf
+    F = np.full((n + 1, n), INF)
+    F[0, :] = 0.0                      # allow starting anywhere
+    for k in range(1, n + 1):
+        prev = F[k - 1]
+        M = prev[:, None] + W
+        F[k] = M.min(axis=0)
+    best = INF
+    for v in range(n):
+        if not np.isfinite(F[n, v]):
+            continue
+        worst = -INF
+        for k in range(n):
+            if np.isfinite(F[k, v]):
+                worst = max(worst, (F[n, v] - F[k, v]) / (n - k))
+        best = min(best, worst)
+    return best
+
+
+def lp_margin(Dsub, S, iters=0):
+    """Largest achievable margin, exactly, plus a potential attaining it.
+
+    T is read off S:  edge i->j present iff S[i,j] > 0.  Weight of i->j is
+    D_ij (== -D_ji).  See min_mean_cycle.
+    """
     n = Dsub.shape[0]
+    W = np.where(S > 0, Dsub, np.inf)
+    np.fill_diagonal(W, np.inf)
+    m = min_mean_cycle(W)
+    if not np.isfinite(m):
+        m = float(np.min(np.abs(Dsub[np.triu_indices(n, 1)])))
+    if m <= 0:
+        return float(m), np.zeros(n)
+    # Bellman-Ford potential for the feasible system c_j - c_i >= 0.5*m - D_ij
+    mm = 0.5 * m
     c = np.zeros(n)
-    best = -math.inf
-    iu = np.triu_indices(n, 1)
-    for t in range(iters):
-        M = S * (c[None, :] - c[:, None] + Dsub)
-        v = M[iu]
-        k = int(np.argmin(v))
-        best = max(best, float(v[k]))
-        i, j = iu[0][k], iu[1][k]
-        step = 0.5 / (1 + t) ** 0.5
-        g = S[i, j] * step
-        c[j] += g
-        c[i] -= g
-        c -= c.mean()
+    for _ in range(4 * n + 40):
+        upd = False
+        for i in range(n):
+            for j in range(n):
+                if i != j and S[i, j] > 0 and c[j] < c[i] + mm - Dsub[i, j]:
+                    c[j] = c[i] + mm - Dsub[i, j]
+                    upd = True
+        if not upd:
+            break
+    c -= c.mean()
     M = S * (c[None, :] - c[:, None] + Dsub)
-    return float(M[iu].min()), c
+    return float(M[np.triu_indices(n, 1)].min()), c
 
 
-def anneal(D, T, n, rng, rounds=40, steps=700):
+def anneal(D, T, n, rng, rounds=25, steps=1500):
     N = D.shape[0]
     S = np.where(T, 1.0, -1.0)
     S = np.triu(S, 1) - np.triu(S, 1).T
     best = (-math.inf, None, None)
     for _ in range(rounds):
         idx = list(rng.choice(N, n, replace=False))
-        m, c = lp_margin(D[np.ix_(idx, idx)], S, iters=400)
+        m, c = lp_margin(D[np.ix_(idx, idx)], S)
         for t in range(steps):
             k = int(rng.integers(0, n))
             new = int(rng.integers(0, N))
@@ -80,21 +120,21 @@ def anneal(D, T, n, rng, rounds=40, steps=700):
                 continue
             cand = list(idx)
             cand[k] = new
-            m2, c2 = lp_margin(D[np.ix_(cand, cand)], S, iters=250)
+            m2, c2 = lp_margin(D[np.ix_(cand, cand)], S)
             temp = 0.02 * (1 - t / steps) + 1e-4
             if m2 > m or rng.random() < math.exp((m2 - m) / temp):
                 idx, m, c = cand, m2, c2
             if m > best[0]:
                 best = (m, list(idx), c.copy())
-        if best[0] > 5e-4:
+        if best[0] > 5e-3:
             break
     return best
 
 
-def rationalise(c, kmax=40):
+def rationalise(c, kmax=250):
     """Integers k_a with log(k_a/k_b) ~ c_a - c_b."""
     best = None
-    for N in range(1, 400):
+    for N in range(1, 1200):
         ks = [max(1, int(round(N * math.exp(t - max(c))))) for t in c]
         if max(ks) > kmax or min(ks) < 1:
             continue
