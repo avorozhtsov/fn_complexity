@@ -201,6 +201,22 @@ the obvious reading.
   scalar complexities, one per temperature prior, and the tropical limit is the
   unique member that fails to be one.**
 
+**Where the cycles actually come from.** There is a clean answer, and it arrived
+from the quantum side [quantum]. Brandão–Horodecki–Ng–Oppenheim–Wehner govern
+state conversion under thermal operations by a continuum of Rényi `α`-free
+energies, all of which must decrease — the same `β`-indexed family this framework
+infimises over. Their scalar is an infimum of a **difference** of free energies;
+ours is an infimum of a **ratio**. A difference-based comparison is a partial
+order, hence acyclic by construction. A ratio-based one is a tournament, and a
+tournament can cycle. So non-transitivity is not exotic: it is what taking a
+ratio does.
+
+And the ratio is **forced**, not chosen: these resources are unnormalised, so the
+difference of the corresponding quantities diverges like `β(Λ_a − Λ_b)`, and the
+ratio is the only finite scalar available. Cycles are the price of comparing
+resources that have no common normalisation — which is exactly the situation for
+maps, where nothing plays the role of a fixed particle number.
+
 That third point looks fatal and is not, for one reason: **the infimum in (2) is
 not a modelling choice.** It is what the asymptotic conversion rate *is* — the
 constraint is that *every* temperature's monotone be satisfied simultaneously, and
@@ -219,6 +235,17 @@ That is a complete narrative — promise, obstruction, sharp bound on the
 obstruction — and it is the narrative I would continue. What it does **not**
 support is the stronger story the cycle hunt was implicitly aimed at: that cycles
 reveal something arithmetic. They do not; that reading is refuted.
+
+**One genuinely quantum instance exists.** Replacing `Tr A^β` by a sandwiched
+Rényi divergence against a background operator gives a non-spectral rate, under
+which three qubit states form a certified 3-cycle (`|curl A|/Σ|A| = 1` exactly,
+40 digits) **whose decohered shadow is transitive** [quantum]. Two caveats keep
+it honest: the plain quantisation `Tr A^β` is *empty* — it factors through the
+spectrum identically, so a quantum cycle without a classical shadow cannot exist
+— and every sandwiched profile still lies in the classical cone, so the
+configuration is reproduced by ordinary integer signatures. What is certified is
+the narrower physical statement that decoherence of that state destroys the
+cycle, not that the geometry is new.
 
 **What would raise their status.** Two concrete things, both open. (i) A cycle in
 `C_aff` rather than `C`: every certified cycle so far is a cycle of the signature
