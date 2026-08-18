@@ -3,6 +3,12 @@
 Answer to session brief F. **Yes — but not where the brief and its seed looked,
 and not for the reason either expected.**
 
+> **Amended by [`TRANSITIVITY.md`](TRANSITIVITY.md).** "Transitive inside a
+> genus" is right for every library built below (genus `≤ 6`) and is a theorem
+> for genus `≤ 6`, but it fails from **genus 13**: same-genus 3-cycles exist,
+> and multiplicity-free ones. Read "non-transitive *exactly* across genera" as a
+> statement about genus `≤ 12`.
+
 The limiting comparison is **transitive inside a genus** and **non-transitive
 across genera**. That is the exact reverse of the seed's diagnosis, which
 concluded "cycles cannot come from mixing genera — fix `α_max` and vary the
@@ -387,15 +393,24 @@ factor**, `k·G` with `k ≥ 2` — a family whose Jacobian is isogenous to `A^k
 > curves over `F_q`, of the genera listed, whose Jacobians have an isogeny factor
 > of multiplicity `k ≥ 2` with non-isotrivial monodromy.
 
+**The "iff" is false, twice over.**
+
 > **Corrected — see [`GENUS4_WITNESSES.md`](GENUS4_WITNESSES.md).** The
 > multiplicity-free transitivity above, and hence this reduction, is an artefact
-> of the `α_max ≤ 12` cutoff. The same search at `α_max ≤ 14` gives 44
-> multiplicity-free measures, 26488 oriented triangles and **one** 3-cycle,
-> `SU(2)⁵ ≺ USp(14) ≺ USp(6)×USp(6)`, margin `4.0116·10⁻²` — precisely the
-> near-miss above with the middle vertex moved up one genus. All three vertices
-> have explicit pencils over every odd `q`, with no repeated isogeny factor and
-> no congruence condition, so the `q → ∞` non-transitivity needs **no** repeated
-> isogeny factor at all.
+> of the `α_max ≤ 12` cutoff and not of the genus. The same search at
+> `α_max ≤ 14` gives 44 multiplicity-free measures, 26488 oriented triangles and
+> **one** 3-cycle, `SU(2)⁵ ≺ USp(14) ≺ USp(6)×USp(6)` at genus `5/7/6`, margin
+> `4.0116·10⁻²` — precisely the near-miss above with the middle vertex moved up
+> one genus. All three vertices have **explicit pencils** over every odd `q`,
+> with no repeated isogeny factor and no congruence condition. So the `q → ∞`
+> non-transitivity is a theorem with witnesses at genus 7, needing no repeated
+> factor.
+
+> **Corrected also — see [`TRANSITIVITY.md`](TRANSITIVITY.md) §5.** The
+> *same-genus* half of the dichotomy also fails, at genus 13, again on
+> multiplicity-free vertices. Those vertices have no pencils yet; the arithmetic
+> input they need is a Jacobian splitting into four or five distinct independent
+> factors of prescribed dimensions.
 
 For the mildest case — `k = 2` with `A` elliptic, i.e. `Jac ∼ E²` for a genus-two
 family, the classical locus in `M₂` — a cycle already exists,
@@ -658,9 +673,22 @@ on the larger libraries.
   proof. A genuine theorem would need a total-positivity argument controlling the
   sign changes of `∫e^{τα}d(μ−ν)` together with a bound on how far the extrema of
   the three differences can separate.
+
+  > **Settled — see [`TRANSITIVITY.md`](TRANSITIVITY.md).** It is a theorem for
+  > genus `≤ 6` (pointwise domination along the dominance order on partitions,
+  > modulo one verified inequality) and **false from genus 13**:
+  > `USp14×USp4²×SU2² ≺ USp10×USp8×USp4² ≺ USp12×USp8×SU2³ ≺ …`, margin
+  > `8.0·10⁻³`, **multiplicity-free at every vertex**. The lexicographic rule
+  > has no repair — `sign mid` is not a function of `(m₂, t)` at all — and the
+  > level lemma, although now proved, has a hypothesis the library violates.
 * **Higher genus.** The library stops at genus 6 because `USp(12)` costs 200
   digits and half a second per `τ`. Cycle margins grow with the genus span, so
   genus 7–10 should give wider cycles and possibly a multiplicity-free one.
+
+  > **Confirmed at genus 13, not 7–10 — see [`TRANSITIVITY.md`](TRANSITIVITY.md).**
+  > Exhaustive over every partition of every genus to 15: no same-genus cycle at
+  > genus `≤ 12`, two at genus 13, three at 14, six at 15, all
+  > multiplicity-free.
 
 ---
 
