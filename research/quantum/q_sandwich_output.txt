@@ -1,0 +1,58 @@
+==========================================================================
+PART 2 -- the sandwiched (background-relative) exchange rate
+==========================================================================
+Admissible ensemble  A >= S >= I,  r = 2..6,  600 draws.
+Each draw is checked on its own widest double-precision beta grid,
+[beta_safe, 3000], 3001 log-spaced points.
+
+Q1-Q2  worst violation over the ensemble (negative = claim holds)
+    F >= R                                     -6.216e-04
+    F >= beta*Lam                              -2.785e-02
+    F <= R + beta*Lam                          -2.175e-05
+    F nondecreasing                            -3.064e-06
+    F - beta*Lam nonincreasing  (F' <= Lam)    -2.728e-12
+    F convex in beta                           +1.443e-06
+    U' >= 0                                    -2.429e-04
+    U' <= 1                                    -2.962e-06
+    U convex in s                              -1.203e-08
+    w >= 0                                     -2.955e-06
+    w <= log(1+e^{-|s-sigma|})                 -8.231e-06
+    max bump height w                          0.692101   (log 2 = 0.693147)
+    max |argmax w - sigma|                     2.413e-03
+    draws whose sigma lay inside the grid      600/600
+    coherence sampled: median 0.2986, max 0.6704
+
+    Noise floor for the two second-difference statistics: the same
+    numbers on the PINCHED profiles, where convexity is a theorem.
+    F convex (pinched)  +1.177e-06      U convex (pinched)  -5.442e-10
+
+Q0  the two endpoints, on 5 fresh draws
+      log Tr S      F(beta_safe)     F(2000)/2000        Lam
+      2.14076503    2.27326017    3.1018165903  3.1016026008   (beta_safe 0.0712)
+      1.96152664    2.08454731    3.1251394024  3.1249191298   (beta_safe 0.0543)
+      2.34010253    2.55060840    3.1552989830  3.1549319476   (beta_safe 0.0698)
+      2.39260926    2.44202291    3.0426530679  3.0422044956   (beta_safe 0.0200)
+      2.44936298    2.59846882    3.1544812972  3.1539615117   (beta_safe 0.0496)
+
+Q3  pinching: sign(F_(A,S) - F_(P_S A,S)) = sign(beta - 1)?
+    worst positive value of F-F_pinched on 1/2<=beta<1 : +0.000e+00
+    worst negative value of F-F_pinched on beta>1      : -0.000e+00
+    max |F(1) - F_pinched(1)|                          : 2.665e-15
+    (both are log Tr A exactly; the shear is pinned at beta = 1)
+
+Q4  non-spectrality.  Fix S and rotate A by a random O(r):
+    spec(A) and spec(S) unchanged; the profile is not.
+      max|dU|       d(base,rot)   Ct(base->rot)  Ct(rot->base)
+      1.081964e-03  1.882979e-03  0.9989186213  0.9991993127
+      8.879313e-02  9.791033e-02  0.9149992133  0.9909628495
+      8.048345e-02  8.941193e-02  0.9226357021  0.9911482905
+      3.452411e-02  3.663798e-02  0.9660478450  0.9979061334
+      6.708340e-02  7.608949e-02  0.9350877960  0.9910655201
+      9.074598e-03  1.057699e-02  0.9985033461  0.9909618791
+    Every row has the same two spectra.  A nonzero d is a quantity
+    the spectral rate of Part 1 cannot see.
+
+Q5  the commuting case really is classical.
+    For [A,S] = 0, F(b) = log sum_i m_i x_i^b with m_i = s_i,
+    x_i = A_ii/s_i -- a cone point of OBSTRUCTION.md Theorem 1.
+    max |F_pinched - classical log-sum-exp| = 1.956e-10

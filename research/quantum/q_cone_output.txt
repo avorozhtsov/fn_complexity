@@ -1,0 +1,42 @@
+==========================================================================
+PART 4 -- the sandwiched profile lies in the CLASSICAL cone
+==========================================================================
+All metrics are osc over beta in [0.5, oo].
+
+(1) tangent-line cone membership, 200 random admissible (A,S)
+    min tangent intercept c_j over the ensemble = +7.071250e-02
+    (c_j >= 0 is exactly 'Phi in C'; it follows from F >= b*Lam)
+    max sup|Phi_tangent - F| with 60 tangents   = 3.597e-03
+
+(2) Hilbert metric of the cone approximant against the quantum d
+    (10 random pairs, 400 tangents each)
+        d_quantum      d_cone         |diff|
+       0.115489527   0.115489724  1.963e-07
+       0.266437271   0.266437263  7.341e-09
+       0.194647464   0.194647420  4.343e-08
+       0.098458207   0.098458208  9.408e-10
+       0.078662840   0.078665016  2.176e-06
+       0.081604240   0.081607157  2.917e-06
+       0.053379271   0.053379301  2.998e-08
+       0.034686638   0.034688899  2.261e-06
+       0.019929457   0.019932034  2.577e-06
+       0.077912441   0.077913275  8.345e-07
+
+(3) quantum pair -> cone -> INTEGER signatures: the O(1/K) ladder
+    d_quantum = 0.2652007621   d_cone = 0.2652007504   |diff| = 1.170e-08
+        K     log10 r        d_signature     |d_sig - d_cone|   K*gap
+         25        28.44      0.2689857771       3.785e-03     0.095
+         50        55.30      0.2673799549       2.179e-03     0.109
+        100       109.24      0.2664098586       1.209e-03     0.121
+        200       217.56      0.2658538460       6.531e-04     0.131
+        400       434.89      0.2655459838       3.452e-04     0.138
+        800       869.77      0.2653798422       1.791e-04     0.143
+       1600      1739.54      0.2652920392       9.129e-05     0.146
+       3200      3479.08      0.2652464801       4.573e-05     0.146
+
+    The multiplicities are e^{K c_j} and the atoms e^{K x_j}: honest
+    integer signatures with r = 10^(log10 r) fibers.  d converges to
+    the cone value at the predicted O(1/K), so the quantum pair is
+    realised by classical signatures to distortion 1 + O(1/log r).
+
+wrote q_cone.json

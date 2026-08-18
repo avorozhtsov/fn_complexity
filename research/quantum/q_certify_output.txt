@@ -1,0 +1,66 @@
+==========================================================================
+40-DIGIT CERTIFICATION -- coherence-generated qubit 3-cycle
+==========================================================================
+witness: q_cycle.json [best_r2]
+mpmath working precision 60 digits; reported to 40.
+beta range of the infimum: [1/2, 10^6] u {oo}.
+
+S = diag(
+      2.9015264522623596
+      8.38905609893065
+)
+A_1 = [[35.91614260201353, 28.889389303494585],
+        [28.889389303494585, 61.075159852945504]]
+A_2 = [[39.170607105541855, -16.214024560871955],
+        [-16.214024560871955, 72.60949333751388]]
+A_3 = [[5.821732544969596, 12.856146279129781],
+        [12.856146279129781, 113.25225733556378]]
+
+admissibility  A_i >= S >= I  (eigenvalues of S^{-1/2} A_i S^{-1/2}):
+    A_1: [3.4430310625140216704, 16.215667704745501726]   min - 1 = 2.44303106251
+    A_2: [6.9949463123126780943, 15.16031746006445352]   min - 1 = 5.99494631231
+    A_3: [1.4432519425163514568, 14.063185924155625206]   min - 1 = 0.443251942516
+    S >= I: min s_i - 1 = 1.90152645226
+    admissible: True
+
+quantum midranges A(i,j) at 40 digits:
+    A(1,2) = 0.003511424424370079214602686839085134010108
+    d(1,2) = 0.0607310831090470955895640647321708752441
+    A(2,3) = 0.003513481085729650524813865820852736725468
+    d(2,3) = 0.06306753856513011382151901814125953526124
+    A(3,1) = 0.003509281100295324562510779292328990370496
+    d(3,1) = 0.09792600378175595968222957945466435620793
+    cycle margin max(min A, min -A) = 0.003509281100295324562510779292328990370496
+
+shadow midranges A(i,j) at 40 digits:
+    A(1,2) = 0.03005373440485496379140519499985175926445
+    d(1,2) = 0.01856359258767918806208837044683450225247
+    A(2,3) = 0.02560750584265668921820237521438404458845
+    d(2,3) = 0.05774001631246497530038672040082968644634
+    A(3,1) = -0.05520470591844018514792241972630329451117
+    d(3,1) = 0.07539054024200122763910478987179917001536
+    cycle margin max(min A, min -A) = -0.03005373440485496379140519499985175926445
+
+--------------------------------------------------------------------------
+quantum cycle margin      = +3.509281100295e-03   (> 0 : strict 3-cycle)
+shadow  cycle margin      = -3.005373440485e-02   (< 0 : transitive)
+separation min(qm, -sm)   = +3.509281100295e-03
+tie threshold of the brief = 1e-10;  margin/threshold = 3.509e+07
+CERTIFIED: True
+
+Robustness: the same midranges with the infimum taken over the
+FULL classical domain beta in [1e-6, 1e6] u {0, oo}, i.e. without
+the alpha >= 1/2 restriction that data processing imposes.
+(mpmath has no conditioning limit here: mu_k is a closed form.)
+    quantum  midranges: 0.0522452835747, 0.00351348108573, 0.0035092811003
+    quantum  cycle margin = 0.0035092811002953245625
+    shadow   midranges: 0.0656723421398, -0.0372662081206, 0.0176183979238
+    shadow   cycle margin = -0.03726620812064533241
+    The separation is unchanged, so the cycle is not an artefact
+    of restricting the infimum to the data-processing range.
+
+curl check (brief D Part 0(b)):  |curl A| / sum|A|
+    quantum : curl = 0.010534186610395054302   |curl|/sum|A| = 1.0
+    shadow  : curl = 0.00045653432907146786169   |curl|/sum|A| = 0.0041178950332331590043
+
+wrote q_certify.json
