@@ -1,3 +1,4 @@
+# PARTIAL RUN (--quick): stopped after the rows below; each recorded row is complete.
 === self-check: the C_4 pattern through the same routine ===
   C_4: REALISABLE, s = 0.07346380
 

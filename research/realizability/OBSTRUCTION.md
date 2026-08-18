@@ -329,10 +329,9 @@ S_{a,k} = θ_k + δ_{L_k}^{-1}(u_{a,k})   nonincreasing in k.
 
 **It is feasible.** `i_pattern.py` maximises `s` over the seven unknowns
 `(L_1,L_2,L_3, ρ_1,ρ_2,ρ_3, s)` for each of the 24 orderings of
-`(β⁺, γ⁺, β⁻, γ⁻)`; the run is in `i_pattern_output.txt` (it was still working
-through the 24 orderings when this file was written — the recorded rows are
-complete and correct, the list is not yet). **Most orderings are feasible**: of
-the rows recorded so far only `γ⁺β⁻β⁺γ⁻` came out infeasible. Separate
+`(β⁺, γ⁺, β⁻, γ⁻)`; the run is in `i_pattern_output.txt` (a partial run: 15 of the 24
+orderings, each recorded row complete). **Most orderings are feasible**: of the
+15 recorded, 14 are feasible and only `γ⁺β⁻β⁺γ⁻` is not. Separate
 higher-effort runs on individual orderings push the scale up:
 
 | `θ`-ordering | largest scale `s` found |
@@ -513,6 +512,9 @@ statement about that ansatz):
 | `K_5` | `Y = I_5` | this ansatz infeasible | not tested |
 | `K_5` | 2-subsets of 4 nodes | **REALISABLE**, `s = 0.0372` | not tested |
 | `K_6` | `Y = I_6` | this ansatz infeasible | 1.4500 |
+
+(the `K_6` singleton row is from a separate earlier run; `i_targets_output.txt`
+holds a partial re-run of the same sweep.)
 
 **`K_5` is realisable**, and it is realisable on *four* nodes although the
 singleton ansatz on five nodes is not — so the node count, not the number of

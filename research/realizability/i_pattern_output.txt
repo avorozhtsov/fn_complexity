@@ -1,3 +1,4 @@
+# PARTIAL RUN: stopped after the rows below; each recorded row is complete.
   ordering of (beta+, gamma+, beta-, gamma-) along theta,
   and the largest scale s for which the forced 4-node pattern is
   realisable by a cone element  (feasible <=> s > 0):
