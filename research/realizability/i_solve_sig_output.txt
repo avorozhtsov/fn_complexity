@@ -1,0 +1,10 @@
+=== Gauss-Newton on the five scale-free equations ===
+  --- rung B = 100 ---
+   atoms only  start  max|res| = 7.213e-03  dist = 1.054737077931
+   atoms only  final  max|res| = 1.773e-03  dist = 1.015858787543783
+   all 40 par  start  max|res| = 7.213e-03  dist = 1.054737077931
+   all 40 par  final  max|res| = 1.773e-03  dist = 1.015858994785104
+  --- rung B = 300 ---
+   atoms only  start  max|res| = 2.854e-03  dist = 1.014787029718
+   atoms only  final  max|res| = 6.224e-04  dist = 1.005950670722518
+   all 40 par  start  max|res| = 2.854e-03  dist = 1.014787029718

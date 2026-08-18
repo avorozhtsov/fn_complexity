@@ -1,0 +1,5 @@
+  ordering of (beta+, gamma+, beta-, gamma-) along theta,
+  and the largest scale s for which the forced 4-node pattern is
+  realisable by a cone element  (feasible <=> s > 0):
+
+     theta-order          max s
