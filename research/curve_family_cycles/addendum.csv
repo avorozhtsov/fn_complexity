@@ -1,4 +1,4 @@
-q,signatures,strict_pairs,phi_errors,phi_tilde_errors
-31,333,55278,617,1916
-101,528,139128,1778,3727
-211,732,267546,3017,5580
+q,signatures,strict_pairs,phi_errors,phi_tilde_errors,largest_fiber_tie_pairs,phi_tilde_errors_on_ties
+11,296,43660,244,6006,6371,5762
+13,698,243253,936,31399,34184,30463
+101,528,139128,1778,3727,2414,1949

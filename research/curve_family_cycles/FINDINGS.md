@@ -261,6 +261,83 @@ order of magnitude, which is `√q` and not `1`.)
 
 ---
 
+## Addendum 1, checked
+
+`research/session_briefs/B_cycles_among_curve_families_add_1.md` was written in a
+later session and asks (§6) to be verified before it steers anything. It is,
+by `addendum.py`. Its diagnosis of *where* to look is right and its conclusion
+about *what would be found there* is wrong.
+
+**§4(c) is the finding, in its own words.** The addendum names the crossover
+`β ~ √q` as the one region neither of its expansions covers, and says: histogram
+the argmin `β` of every rate, and "if the histogram has mass anywhere other than
+`{0} ∪ [0,1] ∪ {∞}`, that is the finding". Inside a class of equal largest
+fiber — the only pairs that can carry a cycle — the histogram is
+
+| `q` | rates | `β = 0` | `0 < β ≤ 1` | `1 < β < √q/3` | `√q/3 ≤ β ≤ 3√q` | `β > 3√q` | `β = ∞` | median `β/√q` |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 31 | 14280 | 0 | 4738 | 462 | **6316** | 2764 | 0 | 1.376 |
+| 101 | 14280 | 0 | 4213 | 329 | **5584** | 4154 | 0 | 1.671 |
+| 211 | 14280 | 0 | 3546 | 378 | **5254** | 5102 | 0 | 2.055 |
+| 401 | 14280 | 0 | 3813 | 367 | **4401** | 5699 | 0 | 2.292 |
+
+Not one contact at either endpoint, and the mass at `β ≍ √q`.
+
+**§3 is false.** The addendum derives
+`φ̃(f) = M_f − ((3−2√2)/2)·m₂(f)`, `M = max_c(−a_c)`, and concludes "this is
+still a total order, so it still forbids cycles". On the certified cycle
+`φ̃(A) = 6.8284 < φ̃(B) = 6.8596 < φ̃(C) = 7.9220`, a chain, and the edge
+`C ≺ A` contradicts it — the same edge `φ` gets wrong, and for the same reason.
+
+**And φ̃ is anti-predictive where it adds anything.** `φ̃` differs from `φ` only
+on pairs of equal largest fiber, where it reduces to *the larger `m₂` precedes*.
+On exactly those pairs:
+
+| `q` | strict pairs | `φ` wrong | `φ` blind | `φ̃` wrong | pairs `φ̃` decides that `φ` cannot | `φ̃` wrong there |
+|---:|---:|---:|---:|---:|---:|---:|
+| 11 | 43660 | 244 | 7399 | 6006 | 6371 | **90.4%** |
+| 13 | 243253 | 936 | 39648 | 31399 | 34184 | **89.1%** |
+| 101 | 139128 | 1778 | 2475 | 3727 | 2414 | **80.7%** |
+
+Independently confirmed with the package solver on 300 random such pairs at
+`q = 11`: the larger `m₂` precedes in 14% of them. So `φ̃` is a *worse* order
+than `φ` — 13.8% of strict pairs wrong against `φ`'s 0.56% at `q = 11` — because
+it converts `φ`'s honest ties into confident errors. The reason is visible in the
+`Ψ` picture: a signature whose `Ψ` rises faster at small `τ` (larger `m₂`) must
+flatten before the common endpoint `α_max`, and the later, negative excursion is
+usually the deeper one.
+
+**§6, first check.** `D = (C(f→g) − 1)·q log q` against
+`min(−0.0858 Δm₂, ΔM)`, over pairs of 40 genus-two pencils with `Δm₂ > 0`:
+
+| `q` | population | pairs | median `\|D\|` | median rel. error | `1/√q` | median `β*/√q` |
+|---:|---|---:|---:|---:|---:|---:|
+| 211 | largest fibers differ | 712 | 0.0198 | 12.4% | 0.0688 | 0.029 |
+| 211 | largest fibers tie | 52 | 0.0239 | 15.4% | 0.0688 | 0.029 |
+| 1009 | largest fibers differ | 738 | 0.3119 | 10.0% | 0.0315 | 0.015 |
+| 1009 | largest fibers tie | 30 | 0.1183 | **94.6%** | 0.0315 | **3.306** |
+
+Where the largest fibers differ the formula is a fair description and its error
+is roughly flat in `q`. Where they tie the error *grows* with `q` and the contact
+walks out from `β*` to `3.3√q`. The predicted `O(q^{−1/2})` relative accuracy
+holds nowhere and fails in the wrong direction exactly where cycles live,
+because the dropped crossover term grows like `√q` against the terms kept.
+
+**§4(b) confirmed and placed.** With the largest fiber attained twice instead of
+once, `(R(β) − 1)·β·log(max)` converges to `log 2 = 0.693147` — 0.693139 already
+at `β = 100`. It decays like `1/β`, so at `β ≍ √q` it contributes `≈ log 2/√q`:
+the same order as the crossover itself and `√q` above the moment terms. It is
+one contribution to the crossover, not a separate regime.
+
+**§7 is moot, and brief C is safe.** The fallback statement was to be "no scalar
+invariant *beyond the `φ̃` truncation*". Cycles exist, `φ̃` is refuted directly,
+and it is refuted on nine tenths of the pairs it was introduced to decide — so
+the unqualified statement stands for curve families.
+
+Reproduce: `python research/curve_family_cycles/addendum.py`.
+
+---
+
 ## Traps, learned here
 
 * **The package can report a spurious interior contact.** For a pair whose
@@ -291,7 +368,10 @@ order of magnitude, which is `√q` and not `1`.)
 
 ## What this settles, and what it does not
 
-Settled: the exchange comparison **does** cycle among families of curves, the
+Settled: the exchange comparison **does** cycle among families of curves, no
+scalar invariant reproduces it — not `φ`, and not the next-order `φ̃` of
+addendum 1, which is wrong on nine tenths of the pairs it was introduced to
+decide — the
 smallest witness is over `F_11`, the phenomenon is not rare (132 cycles in a
 complete enumeration of one genus at one small field), and the margins are wide:
 the narrowest edge of the certified cycle is `1.7·10⁻³`, five times the
@@ -310,4 +390,5 @@ census, so that is evidence and not a theorem.
 | `search.py` | the census; writes `cycles.csv`, `headline_cycle.json` |
 | `certify.py` | interval-arithmetic proof of the `F_11` cycle |
 | `regime.py` | the two scales; writes `regime.csv` |
+| `addendum.py` | the checks addendum 1 asks for; writes `addendum.csv` |
 | `plot_oscillations.py` | `curve_family_cycle_f11.svg`, the picture of `mid Δ` |
