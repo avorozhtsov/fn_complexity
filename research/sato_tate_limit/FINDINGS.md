@@ -393,13 +393,24 @@ factor**, `k·G` with `k ≥ 2` — a family whose Jacobian is isogenous to `A^k
 > curves over `F_q`, of the genera listed, whose Jacobians have an isogeny factor
 > of multiplicity `k ≥ 2` with non-isotrivial monodromy.
 
-**The "iff" is false — see [`TRANSITIVITY.md`](TRANSITIVITY.md) §5.** It is
-correct for the `α_max ≤ 12` library searched here, but at genus 13 there is a
-**multiplicity-free** 3-cycle, all of whose vertices are products of *distinct*
-symplectic blocks. A repeated isogeny factor is needed only if one insists on
-genus `≤ 12`; beyond that the arithmetic input required is instead a Jacobian
-splitting into four or five distinct independent factors of prescribed
-dimensions.
+**The "iff" is false, twice over.**
+
+> **Corrected — see [`GENUS4_WITNESSES.md`](GENUS4_WITNESSES.md).** The
+> multiplicity-free transitivity above, and hence this reduction, is an artefact
+> of the `α_max ≤ 12` cutoff and not of the genus. The same search at
+> `α_max ≤ 14` gives 44 multiplicity-free measures, 26488 oriented triangles and
+> **one** 3-cycle, `SU(2)⁵ ≺ USp(14) ≺ USp(6)×USp(6)` at genus `5/7/6`, margin
+> `4.0116·10⁻²` — precisely the near-miss above with the middle vertex moved up
+> one genus. All three vertices have **explicit pencils** over every odd `q`,
+> with no repeated isogeny factor and no congruence condition. So the `q → ∞`
+> non-transitivity is a theorem with witnesses at genus 7, needing no repeated
+> factor.
+
+> **Corrected also — see [`TRANSITIVITY.md`](TRANSITIVITY.md) §5.** The
+> *same-genus* half of the dichotomy also fails, at genus 13, again on
+> multiplicity-free vertices. Those vertices have no pencils yet; the arithmetic
+> input they need is a Jacobian splitting into four or five distinct independent
+> factors of prescribed dimensions.
 
 For the mildest case — `k = 2` with `A` elliptic, i.e. `Jac ∼ E²` for a genus-two
 family, the classical locus in `M₂` — a cycle already exists,
