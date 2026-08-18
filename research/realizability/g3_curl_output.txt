@@ -1,0 +1,36 @@
+=== 1. seed reproduction: Hodge split of a random integer pool ===
+  n=  8  |grad|/|A|=0.9997  |curl|/|A|=0.0224  3-cycles=0 of 56
+  n= 16  |grad|/|A|=0.9997  |curl|/|A|=0.0234  3-cycles=0 of 560
+  n= 24  |grad|/|A|=0.9991  |curl|/|A|=0.0413  3-cycles=0 of 2024
+
+=== 2. extremal |D| and eps = P+Q for a single pair (3 atoms) ===
+  max |D| found = 0.165261015   bound (log2)/2 = 0.346573590   (47.7% of the bound)   10s
+    a = ['148.413']  b = ['148.413', '1']
+  max eps found = 0.330522031   crude bound 2 log 2 = 1.386294361   Lipschitz bound 1.1252
+
+=== 3. the largest triangle curl ===
+    r   max |curl A|   / (3 log2/2)     sum|A|/3
+    2    0.128797258         0.1239  0.606504102   cycle=False  18s
+    3    0.165261015         0.1589  0.670587221   cycle=False  35s
+    4    0.184841501         0.1778  0.634150838   cycle=False  20s
+    5    0.197565055         0.1900  0.423462212   cycle=False  28s
+    6    0.206698402         0.1988  0.610572651   cycle=False  38s
+
+=== 4. the largest Hodge residual ||curl||/||A|| ===
+    n   r    max ratio   3-cycles
+    3   4     1.000000      1/1      36s
+    4   4     1.000000      2/4      51s
+    5   4     1.000000      4/10     72s
+    6   4     0.312484      0/20     133s
+    8   4     0.307472      0/56     145s
+   12   4     0.324840      0/220    554s
+   16   4     0.329920      0/560    837s
+   24   4     0.322984      0/2024   1219s
+
+=== 5. no arbitrage and the sharpened bound, on the known cycle ===
+  |curl A|           = 0.015813994
+  sum S              = 0.201397799      (brief D(d), slack x12.7)
+  sum S - spread(sigma) = 0.118866069  (sharpened, slack x7.5)
+  3 (log2)/2         = 1.039720771      (universal, slack x65.7)
+
+wrote /Users/artemvorozhtsov/projects/fn_complexity/.claude/worktrees/agent-a8cfd2828b776c898/research/realizability/g3_curl.csv
