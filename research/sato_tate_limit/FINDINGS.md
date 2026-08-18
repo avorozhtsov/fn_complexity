@@ -387,6 +387,16 @@ factor**, `k·G` with `k ≥ 2` — a family whose Jacobian is isogenous to `A^k
 > curves over `F_q`, of the genera listed, whose Jacobians have an isogeny factor
 > of multiplicity `k ≥ 2` with non-isotrivial monodromy.
 
+> **Corrected — see [`GENUS4_WITNESSES.md`](GENUS4_WITNESSES.md).** The
+> multiplicity-free transitivity above, and hence this reduction, is an artefact
+> of the `α_max ≤ 12` cutoff. The same search at `α_max ≤ 14` gives 44
+> multiplicity-free measures, 26488 oriented triangles and **one** 3-cycle,
+> `SU(2)⁵ ≺ USp(14) ≺ USp(6)×USp(6)`, margin `4.0116·10⁻²` — precisely the
+> near-miss above with the middle vertex moved up one genus. All three vertices
+> have explicit pencils over every odd `q`, with no repeated isogeny factor and
+> no congruence condition, so the `q → ∞` non-transitivity needs **no** repeated
+> isogeny factor at all.
+
 For the mildest case — `k = 2` with `A` elliptic, i.e. `Jac ∼ E²` for a genus-two
 family, the classical locus in `M₂` — a cycle already exists,
 `2·SU2 × 2·SU2 ≺ USp(12) ≺ SU(2)²×USp(6)`, verified the same three ways at

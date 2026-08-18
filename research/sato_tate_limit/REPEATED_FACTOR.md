@@ -559,6 +559,16 @@ is not a proof of same-genus transitivity**, which remains open.
   whether `E` varies on it, is a finite computation this session did not run.
   Non-hyperelliptic genus-4 curves were not examined at all. **This is the
   natural next session.**
+
+  > **Answered — see [`GENUS4_WITNESSES.md`](GENUS4_WITNESSES.md).** The route
+  > works for `SU(2) × 3·SU(2)`: the locus is *rational*, `p = n + i ± 1/n` with
+  > `B₃ = {±i, ±n, ±1/n}`, and `J₂ ≅ E` over the base field with no twist (the
+  > pullback constant is a perfect square). `E` varies. Verified on 50548
+  > fibres over 32 primes `q ≡ 1 (mod 4)`, zero mismatches; cycles 8 and 9 are
+  > now theorems. For `4·SU(2)` the answer is negative on this route: all 60
+  > splitting/branch pairs give a **zero-dimensional** locus, bounded by 18
+  > solutions over a hundredfold range of `q`. The curves produced here are
+  > already non-hyperelliptic.
 * **Whether same-genus transitivity is a theorem** — still open; the
   characterisation above narrows the target to four pairs but is not a proof.
 * **How large is `q₀`?** Unchanged from `FINDINGS.md`: the honest way to find
@@ -569,6 +579,13 @@ is not a proof of same-genus transitivity**, which remains open.
   so a `k ≤ 2` search to genus 8 could produce a cycle with a much larger margin
   — and therefore a much smaller `q₀`. The cost is `USp(16)`, a few hundred
   digits per `τ`.
+
+  > **Done — see [`GENUS4_WITNESSES.md`](GENUS4_WITNESSES.md).** The `k ≤ 2`
+  > search at `α_max ≤ 14` gives `SU(2) × 2·SU(2) × USp(4) ≺ USp(14) ≺
+  > USp(6) × USp(6)` at margin `6.1583·10⁻²`, **5.1 times** the cycle above and
+  > with all three vertices witnessed. And the `k ≤ 1` search at the same
+  > `α_max` is **not transitive** either: `SU(2)⁵ ≺ USp(14) ≺ USp(6)×USp(6)`,
+  > margin `4.0116·10⁻²`, no repeated isogeny factor anywhere.
 * **Multiplicity `k ≥ 4` at all.** `3·SU(2)` is now arithmetic; nothing here
   says whether `4·SU(2)` is, in any construction. A negative answer would be as
   interesting as a positive one, since it would cap the six widest cycles
