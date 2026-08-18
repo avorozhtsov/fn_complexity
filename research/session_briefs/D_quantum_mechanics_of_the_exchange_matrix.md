@@ -282,6 +282,15 @@ Five stages, ordered by certainty of payoff. Stages 1–3 are safe and will
 produce publishable propositions; stage 4 is a restatement whose value is
 unknown; stage 5 is the only one aimed at RH and is a multi-session programme.
 
+**Stage 1 — the gauge decomposition. DONE, and it answered brief B.**
+Feeding `|curl A|/Σ|A|` into brief B's search found a certified strict 3-cycle
+among genus-2 hyperelliptic pencils over `F_101` — 9 of them among 117480
+triangles, margins to `1.16·10⁻⁴` against a `10⁻¹⁰` floor, verified three ways,
+and cycles again at `q = 211`. Record:
+`research/session_briefs/B_cycles_among_curve_families_add_2.md`,
+`analysis/certify_curve_family_cycle.py`. The write-up below is still owed to
+the second paper. Original text of the stage:
+
 **Stage 1 — write up the gauge decomposition (certain, one session).**
 Proposition: `L = S + A` with `S` the half-range and `A` the midrange of
 `u_b − u_a`; `a ≺ b ⟺ A > 0`; strict 3-cycle `⟺ |curl A| = Σ|A|` with
@@ -294,12 +303,28 @@ search immediately** — they replace the `φ`-violation heuristic with a
 continuous, differentiable one and they say precisely how far a family is from
 the regime that forbids what brief B is looking for.
 
+**Stage 2 — the phase diagram. DONE.** `t1_2_phase_diagram.py`: one sign change
+of `λ_min(t)` per family on a 400-point log grid over `[10⁻³, 10³]`, `t*` marked
+against the Szegedy point `t = ½`, CSV and figure written. The `t* = 0.124`
+error in FINDINGS T1.3 is fixed. Original text:
+
 **Stage 2 — the phase diagram (certain, one session).** Fix the `t* = 0.124`
 error in FINDINGS T1.3. Plot `λ_min(t)` for the minimal certificate, the greedy
 families and the random ensemble; state the single-sign-change observation as
 the conjecture it is; identify `t*` as a critical inverse temperature and
 `λ_min` as an order parameter. *Success criterion:* one figure and a paragraph
 that survives a referee asking "so what is `t*`".
+
+**Stage 3 — the Szegedy quantisation. DONE, and negatively.** With the lazy
+chain `P_ab ∝ C(a→b)^θ` the discriminant is exactly a positive diagonal
+congruence of the Gibbs kernel, `√(P_ab P_ba) = Δ_a Δ_b e^{−θd(a,b)/2}` to
+`10⁻¹⁶`, so by Sylvester's law its inertia — in particular whether it is a Gram
+matrix — is the Schoenberg question at `t = θ/2` and does not involve `A` at all.
+Flipping `A ↦ −A` moves the discriminant spectrum by `3.5·10⁻⁵` and its inertia
+by zero signs. The walk is unitary to `6.7·10⁻¹⁶` and the chain is *not*
+reversible, so Szegedy is genuinely the right tool and it still cannot see the
+comparison; `A` reaches it only through the row sums, i.e. as a potential.
+Record: `szegedy_walk.py`. Original text:
 
 **Stage 3 — the Szegedy quantisation (one to two sessions).** Choose a
 stochastic matrix from `M` and defend the choice; build `W(P)`; compute the
@@ -318,6 +343,18 @@ is a manifestation of the critical line". The impossibility argument of T1.5 is
 unaffected — it needs only that the two invariance groups are transverse, and
 both invariances are now unconditional, which if anything strengthens it. See
 Part 1 above for what replaced it.
+
+**Stage 5 — first checkpoint DONE.** `primon_gas_hagedorn.py`: `β = 1` is the
+**Hagedorn temperature** of the primon gas, not a coordinate artefact. The mean
+energy is `U = −ζ'/ζ = Σ Λ(n)n^{−β}` (verified against direct summation to the
+tail bound), and as `β → 1⁺`, `U·(β−1) → 1` and `S/U → 1`, so the entropy–energy
+curve tends to the line `S = U` and the supporting line of slope 1 has no finite
+contact point. That is exactly why `C(ξ→P) = C(P→ξ) = 0` unrestricted and why
+the companion paper had to impose a temperature window. Every finite portfolio
+is Hagedorn-free; only the infinite tensor product acquires the transition —
+the same sentence as "the zeros of `ζ` are a phenomenon of the infinite tensor
+product", now with a temperature attached. The KMS classification below `β = 1`
+is the remaining programme. Original text:
 
 **Stage 5 — the KMS route (a programme, not a session).** Below `β = 1` the
 monotone diverges and `C(a→b)` is undefined. Ask what replaces it. Concretely:
