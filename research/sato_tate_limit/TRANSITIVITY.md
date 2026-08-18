@@ -394,7 +394,13 @@ are the first that exist.
 (6,4,1,1,1) = USp12 × USp8 × SU2 × SU2 × SU2
 ```
 
-all of genus 13, `α_max = 26`, `m₂ = 5, 4, 5`, `t = 64.5, 55.5, 60.5`.
+all of genus 13, `α_max = 26`, `m₂ = 5, 4, 5` and `t = Σλ² + 13/2 =
+65.5, 55.5, 61.5`. Two of the three edges are `(m₂, t)`-comonotone and cross for
+that reason; the third, `(6,4,1,1,1)` against `(7,2,2,1,1)`, is an **`m₂`-tie**
+(`Δm₂ = 0`, `Δt = −4`), one of the 185 crossing ties of §3.2. That is exactly
+the configuration of the certified `F_101` finite-`q` witness, where two of the
+three pencils share largest fibre, `m₂` and `ν(P)` and the edge is decided by
+the multiplicity alone — the limit reproduces the finite-`q` mechanism.
 
 | edge | `mid`, search grid | `mid`, independent grid + polished extrema | `sup` at `τ` | `inf` at `τ` |
 |---|---:|---:|---|---|
