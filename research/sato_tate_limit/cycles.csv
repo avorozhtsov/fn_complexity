@@ -1,0 +1,9 @@
+tier,measure_1,measure_2,measure_3,alpha_max,m2,edge_exponent,margin_coarse,margin_fine
+symplectic + torus,3.U1,SU2 x SU2 x 2.SU2,U1 x CM x CM x CM,6/8/8,18/6/5,0.5/4.5/2,1.811759e-02,1.811762e-02
+symplectic + torus,CM x CM x CM,SU2 x SU2 x U1,USp8,6/6/8,3/4/1,1.5/3.5/18,6.156759e-04,6.158071e-04
+everything (incl. orthogonal),3.SU2,U1 x USp6,SU2 x U1 x SO3,6/8/7,9/3/4,1.5/11/3.5,5.315912e-02,5.316006e-02
+everything (incl. orthogonal),CM x 2.U1,U1 x USp6,CM x CM x SO3,6/8/7,9/3/3,1/11/2.5,4.737343e-02,4.737410e-02
+everything (incl. orthogonal),3.SU2,U1 x USp6,CM x CM x SO3,6/8/7,9/3/3,1.5/11/2.5,4.737343e-02,4.737410e-02
+everything (incl. orthogonal),SU2 x 2.U1,U1 x USp6,CM x CM x SO3,6/8/7,9/3/3,2/11/2.5,4.737343e-02,4.737410e-02
+everything (incl. orthogonal),SO3 x 2.U1,U1 x U1 x USp4,SU2 x CM x CM x CM,7/8/8,9/5/4,2/6/3,4.415269e-02,4.415185e-02
+everything (incl. orthogonal),SO3 x 2.U1,U1 x U1 x SO4,CM x CM x CM x CM,7/8/8,9/5/4,2/4/2,4.386350e-02,4.386527e-02
