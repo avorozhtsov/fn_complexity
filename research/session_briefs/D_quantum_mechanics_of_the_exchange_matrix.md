@@ -344,6 +344,68 @@ unaffected — it needs only that the two invariance groups are transverse, and
 both invariances are now unconditional, which if anything strengthens it. See
 Part 1 above for what replaced it.
 
+**Stage 5 — checkpoints 1 and 2 DONE; the shape of the answer is now known.**
+The question was: is there a comparison of resources built from KMS states
+rather than from partition functions, continuing below `β = 1`? The answer
+splits three ways, and the split is the useful part.
+
+*Known, no work needed.* Bost–Connes has a unique KMS state for `0 < β ≤ 1` and
+extremal states parametrised by embeddings for `1 < β ≤ ∞`; the low-temperature
+ones are type `I_∞`, the `β ≤ 1` one is type `III₁`. **So `β = 1` is a transition
+in the *type* of the algebra.** In type III there is no trace — hence no density
+matrix, no entropy, no partition function, and no thermomajorisation, so the
+"second laws" of quantum thermodynamics have no formulation there at all. What
+does survive is everything relative: Araki's relative entropy, the Connes
+cocycle, and the Araki–Masuda `L^p` spaces, which *are* the sandwiched Rényi
+divergences at `α = p/2` and satisfy data processing for `α ≥ ½` over arbitrary
+von Neumann algebras (Berta–Scholz–Tomamichel; Jenčová). Separately, in
+reversible resource theories the asymptotic conversion rate is known to be a
+*ratio of regularised relative entropies* — the same shape as
+`C(a→b) = inf_β log Z_a/log Z_b`.
+
+> **The comparison does continue below `β = 1`, but only in relative form: the
+> value of a resource is gone, the rate between two of them is not.** That is
+> the project's own methodological choice — exchange rates primitive, no scalar
+> value — arriving as a structure theorem instead of a taste.
+
+*Derivable in a session — done, in `kms_comparison.py`.*
+
+1. **The first paper's monotones are divergences against the trace.** Put `H_a`
+   with eigenvalues `−log a_i`, so `Tr e^{−βH_a} = Z_a(β)`; then
+   `D_α(ρ_a(β)‖tr) = (log Z_a(αβ) − α log Z_a(β))/(α−1)`, verified to `10⁻³⁰`,
+   and the whole family `{Z_a(β)}` is recoverable from it. The trace is explicit,
+   which is exactly why the construction cannot cross into type III.
+2. **Between two primon-gas KMS states the Rényi divergence is exactly the
+   convexity defect of `log ζ` along a chord:** with `L = log ζ` and
+   `β_α = αβ₁ + (1−α)β₂`,
+   `D_α(ω_{β₁}‖ω_{β₂}) = (L(β_α) − αL(β₁) − (1−α)L(β₂))/(α−1)`. Confirmed
+   against direct summation to the truncation tail.
+3. **The Hagedorn wall truncates the `α`-family.** `D_α` is finite exactly while
+   `β_α > 1`, i.e. for `α < α* = (β₂−1)/(β₂−β₁)`; verified sharp to `±0.002` in
+   `α` at three parameter pairs. So above the transition **only finitely many of
+   the second laws are available**. `β = 1` is not merely a boundary in
+   temperature — it cuts the family of monotones that governs conversion.
+
+*Requires a theorem — the hard part, and it is one obstacle, not several.*
+There is no asymptotic-interconversion (Strassen / Stein) theorem in type III,
+so `D_α` there is a monotone without operational meaning. And the reason is
+sharper than "nobody has done it": **the operational definition of the exchange
+rate, `C(g→f) = lim max{k : f^k is implemented by g^n}/n`, is a counting
+statement, and counting is a trace.** Type III has no trace, so the definition
+does not merely fail to converge — it fails to parse. Any KMS comparison will be
+a divergence first and a *rate* only if someone proves a coding theorem for it.
+That is the same gap already recorded for `C_ζ` in §5B of the two-positivities
+note, now located precisely.
+
+*Literature caution.* Targeted searches found the ingredients (Araki–Masuda in
+type III, ratio-of-relative-entropies conversion rates, the generalised quantum
+Stein's lemma settled in finite dimensions by Hayashi–Yamasaki and Lami, 2024)
+but nothing at the intersection of Bost–Connes and resource conversion. Absence
+of search results is not absence of literature; check properly before claiming
+novelty.
+
+*Superseded planning text.*
+
 **Stage 5 — first checkpoint DONE.** `primon_gas_hagedorn.py`: `β = 1` is the
 **Hagedorn temperature** of the primon gas, not a coordinate artefact. The mean
 energy is `U = −ζ'/ζ = Σ Λ(n)n^{−β}` (verified against direct summation to the
