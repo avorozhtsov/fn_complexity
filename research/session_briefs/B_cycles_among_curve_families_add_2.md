@@ -1,14 +1,29 @@
-# Addendum 2 to brief B — the cycle exists
+# Addendum 2 to brief B — an independent confirmation, and the `q`-scaling
 
-**Status: the question of brief B is answered, affirmatively and with a
-certificate.** Arithmetic families of curves do run in circles.
+**The primary record for brief B is `research/curve_family_cycles/FINDINGS.md`**,
+produced in a parallel session and stronger than this note in two respects: its
+`F_11` search is *exhaustive* (132 strict 3-cycles among all 296 genus-two
+signatures; 1475 over `F_13`) and its certificate is interval arithmetic rather
+than agreeing floating-point methods. Read that first.
 
-Read with `B_cycles_among_curve_families.md` and its addendum 1. Reproduce with
-`analysis/certify_curve_family_cycle.py`.
+This note is a **blind independent confirmation** of the same phenomenon, found
+by a different route in a different worktree, plus two things it adds: a
+certificate at `q = 101` in which the predicted `(M, m₂)` degeneracy is exact,
+and the scaling of the margins with `q`.
+
+**The two sessions agree on the mechanism, having derived it separately.** That
+note writes `Δ = u_a − u_b` and `a ≺ b ⟺ mid Δ < 0`; this one writes
+`L = S + A` with `A` the midrange of `u_b − u_a`, so `A = −mid Δ` and
+`a ≺ b ⟺ A > 0`. Same decomposition, opposite sign convention, arrived at
+independently. That is the strongest evidence either note has that the
+decomposition is the right one.
+
+Reproduce this note with `analysis/certify_curve_family_cycle.py` and
+`research/m_and_e_and_a_c/curl_on_curve_families.py`.
 
 ---
 
-## The certificate
+## The certificate at `q = 101`
 
 Three hyperelliptic pencils `f_i : A² → A¹`, `f_i(x,y) = y² − P_i(x)`, over
 `F_101`, whose fibers over `c ∈ F_101` are the genus-2 curves `y² = P_i(x) + c`:
@@ -122,13 +137,26 @@ has a margin an order lower than genus 2 (`6.68·10⁻⁶` against `7.50·10⁻�
 point, but it suggests higher genus shrinks the window and should be checked
 before being relied on.
 
+## Cross-check against the exhaustive `F_11` search
+
+The parallel session certifies three margins over `F_11`:
+`4.70, 1.71, 2.10 ·10⁻³`. The law fitted here on `q = 101…1009` —
+`margin ≈ 0.0618/(q ln q)`, never having seen `q = 11` — predicts `2.34·10⁻³`
+there. The ratios are `2.01, 0.73, 0.90`, inside the same ±factor-2 scatter the
+fit shows against its own points. **Two independent searches, a 90-fold range in
+`q`, one scale.**
+
 ## What this does and does not establish
 
-**Does.** The success criterion of the parent brief is met: three explicit
-families over an explicit `F_q`, with rates, contact temperatures, margins and
-independent verification. The endpoint regime does not swallow curve families,
-and the `√q` dominance argument of addendum 1 is defeated exactly where that
-addendum said it could be — at `(M, m₂)` degeneracies, at small `q`.
+**Does.** Three explicit families over an explicit `F_q`, with rates, contact
+temperatures, margins and independent verification, and the margin law above.
+The endpoint regime does not swallow curve families, and the `√q` dominance
+argument of addendum 1 is defeated exactly where that addendum said it could be
+— at `(M, m₂)` degeneracies, at small `q`. (The parallel session explains *why*
+more sharply than this note does: flatness does not put these families into the
+endpoint regime, it destroys the endpoint data, so inside a `φ`-class both
+endpoints tie and every comparison is decided by an interior tangency. That
+inversion is theirs, and it is the better framing.)
 
 **Does not.** This is a cycle among **signatures**. The signature merges families
 the geometry separates, so it is not yet a cycle among the underlying pencils in
