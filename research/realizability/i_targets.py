@@ -159,20 +159,22 @@ def antichain(n, m, k):
     return Y
 
 
-def main():
+def main(quick=False):
     print("=== self-check: the C_4 pattern through the same routine ===")
     f = test(P.T0[:, [0, 1, 3, 2]], seed=5, restarts=2, maxiter=200)
     print("  C_4: " + (f"REALISABLE, s = {-f:.8f}" if f < 0
                        else "infeasible (BUG: it must be feasible)"), flush=True)
 
     print("\n=== uniform K_n, identity ansatz (n nodes, Y = I) ===")
-    for n in (4, 5, 6, 8):
+    for n in ((4, 5, 6) if quick else (4, 5, 6, 8)):
         f = test(np.eye(n), seed=31 * n, restarts=2, maxiter=200)
         print(f"  K_{n}: " + (f"REALISABLE, s = {-f:.8f}" if f < 0
                              else "this ansatz infeasible"), flush=True)
 
     print("\n=== uniform K_n, antichain ansatz (k-subsets of m nodes) ===")
-    for n, m, k in ((5, 4, 2), (6, 4, 2), (8, 5, 2), (6, 5, 2), (8, 6, 3)):
+    combos = ((5, 4, 2), (6, 4, 2)) if quick else (
+        (5, 4, 2), (6, 4, 2), (8, 5, 2), (6, 5, 2), (8, 6, 3))
+    for n, m, k in combos:
         Y = antichain(n, m, k)
         if Y is None:
             continue
@@ -181,6 +183,8 @@ def main():
               + (f"REALISABLE, s = {-f:.8f}" if f < 0
                  else "this ansatz infeasible"), flush=True)
 
+    if quick:
+        return
     print("\n=== graph metrics: an oscillation embedding, then the node test ===")
     for name, (delta, _) in TARGETS.items():
         n = delta.shape[0]
@@ -202,4 +206,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(quick="--quick" in sys.argv)

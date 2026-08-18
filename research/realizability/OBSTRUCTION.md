@@ -630,4 +630,6 @@ All under `research/realizability/`.
 
 Reproduce in order: `i_validate_cone.py`, `i_verify.py`, `i_constants.py`,
 `i_check_g2.py`, `i_pattern.py`, `i_certify.py`, `i_witness.py`,
-`i_copeaked.py`.
+`i_copeaked.py`, `i_solve_sig.py`, `i_targets.py --quick`. The last two and
+`i_pattern.py` are the slow ones (tens of minutes each); `i_targets.py` without
+`--quick` adds `K_8` and the graph metrics and runs for hours.
