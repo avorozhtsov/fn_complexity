@@ -1,0 +1,73 @@
+======================================================================================
+5a.  The Gibbs data and F = S + beta E   (an identity; shown to check the code)
+======================================================================================
+    max |log Z - (S + beta E)| over 20 (signature, beta) = 1.421e-14
+
+======================================================================================
+5b.  c_beta(a->b) c_beta(b->a) = 1: the fixed-beta trade is reversible
+======================================================================================
+    max |c(a->b) c(b->a) - 1| = 2.220e-16
+    => at a single temperature the comparison is the total order of F_.(beta):
+       no 3-cycles at any beta, for any pool, by construction.
+
+======================================================================================
+5c.  A_lambda is the lambda-power mean of the fixed-beta rates
+======================================================================================
+     C_lambda(a->b) = (INT c_beta(a->b)^-lambda rho)^-1/lambda ;  A_lambda = 1/2 log(C_lambda(a->b)/C_lambda(b->a))
+      pair    lambda   A_lambda (soft mid)    via power means       diff
+         0      0.25    -0.029723328297587    -0.029723328298   1.04e-17
+         0         1    -0.029714350009563    -0.029714350010   3.12e-17
+         0         4    -0.029571627955381    -0.029571627955   6.94e-18
+         0       100    -0.008228383533126    -0.008228383533   3.47e-17
+         1      0.25     0.029599851315312     0.029599851315   9.71e-17
+         1         1     0.029595917833150     0.029595917833   8.33e-17
+         1         4     0.029533200749332     0.029533200749   1.73e-17
+         1       100     0.015036613252634     0.015036613253   1.21e-17
+         2      0.25    -0.011224148589574    -0.011224148590   3.82e-17
+         2         1    -0.011224218343567    -0.011224218344   6.94e-17
+         2         4    -0.011225333342075    -0.011225333342   7.98e-17
+         2       100    -0.011690237970434    -0.011690237970   3.64e-17
+         3      0.25    -0.000724697787732    -0.000724697788   3.20e-17
+         3         1    -0.000724707236498    -0.000724707236   6.19e-17
+         3         4    -0.000724858421404    -0.000724858421   3.24e-17
+         3       100    -0.000827247027346    -0.000827247027   2.20e-17
+
+     lambda = 1 is literally the arithmetic average of the rates:
+       A_1 = -0.029714350   E[c(a->b)] - E[c(b->a)] = -0.059518948   signs agree: True
+       A_1 = +0.029595918   E[c(a->b)] - E[c(b->a)] = +0.059272548   signs agree: True
+       A_1 = -0.011224218   E[c(a->b)] - E[c(b->a)] = -0.022450639   signs agree: True
+       A_1 = -0.000724707   E[c(a->b)] - E[c(b->a)] = -0.001449420   signs agree: True
+
+     evenness in lambda (harmonic vs arithmetic mean give the same comparison):
+       max |A_lambda - A_-lambda| = 2.047e-16
+
+======================================================================================
+5d.  At lambda = 0 the trade is lossless: the metric collapses
+======================================================================================
+      lambda   S_lambda(known cycle edge 1)    S_lambda/lambda    Var_rho(f)/2
+      0.0001             1.370579282411e-07       0.0013705793    0.0013705828
+       0.001             1.370582692254e-06       0.0013705827    0.0013705828
+        0.01             1.370582768238e-05       0.0013705828    0.0013705828
+         0.1             1.370579877737e-04       0.0013705799    0.0013705828
+           1             1.370290923883e-03       0.0013702909    0.0013705828
+          10             1.342665667266e-02       0.0013426657    0.0013705828
+         100             6.615419102283e-02       0.0006615419    0.0013705828
+       1e+04             8.758229350453e-02       0.0000087582    0.0013705828
+    S_lambda -> (lambda/2) Var_rho(f) as lambda -> 0   [proved: S_lambda = (K(lam)+K(-lam))/(2 lam)]
+    S_infinity = osc(f)/2 = 0.087920932
+
+======================================================================================
+5e.  Averaging the VERDICTS instead: the Condorcet rule, a third construction
+======================================================================================
+    Condorcet V on the F_11 pool: 0 directed 3-cycles  (tropical A_inf has 132)
+    V and A_inf disagree on 29267 of 43660 pairs (67.0339%)
+    V curl energy 4.0942e-01   (A_inf: 8.2513e-03)
+
+    V is not A_lambda for any lambda -- V depends on f only through sign(f):
+       lambda=   0.5: equal-V pairs with opposite A_lambda: yes (-0.8219960721299768, -0.007137851405819966, 1.0282929133776774e-05)
+       lambda=     2: equal-V pairs with opposite A_lambda: yes (-0.8219960721299768, -0.007138078730148802, 1.031342657367056e-05)
+       lambda=    10: equal-V pairs with opposite A_lambda: yes (-0.8219960721299768, -0.007143877076528179, 1.1094378747913623e-05)
+       lambda=  1000: equal-V pairs with opposite A_lambda: yes (-0.8644884841992502, -0.009384980780590474, 0.0014608575800350212)
+       lambda=   inf: equal-V pairs with opposite A_lambda: yes (-0.8727013033386896, -0.007946360807996822, 1.6048159793058403e-05)
+
+wrote m5_kernel.csv
