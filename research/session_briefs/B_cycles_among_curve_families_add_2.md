@@ -92,13 +92,35 @@ potential `ψ`. Hence:
 Scanning `r` over pools of 90 hyperelliptic signatures found the cycle
 immediately. `research/m_and_e_and_a_c/curl_on_curve_families.py`:
 
-| `q` | genus | `n` | triangles | max `r` | max `|curl A|` | median `|A|` | margin |
+| `q` | genus | max `r` | max `|curl A|` | median `|A|` | margin | `margin·q·ln q` | `med·√q·ln q` |
 |---:|---:|---:|---:|---:|---:|---:|---:|
-| 101 | 2 | 90 | 117480 | **1.000000** | 3.051·10⁻³ | 2.835·10⁻³ | 1.165·10⁻⁴ |
-| 211 | 2 | 90 | 117480 | **1.000000** | 1.811·10⁻³ | 1.527·10⁻³ | 7.499·10⁻⁵ |
+| 101 | 2 | **1.000000** | 3.051·10⁻³ | 2.835·10⁻³ | 1.165·10⁻⁴ | 0.0543 | 0.1315 |
+| 211 | 2 | **1.000000** | 1.811·10⁻³ | 1.527·10⁻³ | 7.499·10⁻⁵ | 0.0847 | 0.1187 |
+| 211 | 3 | **1.000000** | 1.925·10⁻³ | 1.821·10⁻³ | 6.677·10⁻⁶ | 0.0075 | 0.1416 |
+| 503 | 2 | **1.000000** | 7.148·10⁻⁴ | 6.897·10⁻⁴ | 1.953·10⁻⁵ | 0.0611 | 0.0962 |
+| 1009 | 2 | **1.000000** | 5.128·10⁻⁴ | 5.076·10⁻⁴ | 6.773·10⁻⁶ | 0.0473 | 0.1115 |
 
-At `q = 101` there are **9 strict 3-cycles among the 117480 triangles**, with
-margins from `1.165·10⁻⁴` down. Cycles are not rare and not marginal.
+(90 signatures, 117480 triangles, at every row.) **A cycle at every `q` tested,
+and at genus 3 as well as genus 2.** At `q = 101` there are 9 strict 3-cycles
+among the 117480 triangles. Cycles are not rare and not marginal.
+
+**The two scales of addendum 1 are visible in the last two columns, and they are
+the ones it predicted.** The typical edge sits at the endpoint scale
+`median|A| ≈ 0.115/(√q·ln q)` — the last column is constant to ±20% over a
+tenfold range of `q` — because `ΔM = O(√q)`. The cycle margins sit at the
+interior scale `≈ 0.062/(q·ln q)`, a factor `√q` below, which is exactly
+addendum 1's "the endpoint is larger by a factor `√q` unless the maxima
+coincide". The genus-2 constant `0.0618` is the same order as the predicted
+interior coefficient `(3−2√2)/2 = 0.0858`; over four points it scatters ±35%,
+which identifies the scale and does not establish a constant.
+
+**Where the phenomenon stops being observable.** Extrapolating
+`margin ≈ 0.062/(q ln q)` to the `10⁻¹⁰` tie floor gives `q ≈ 3·10⁷`. Below that
+the cycles are measurable with the present solver; above it they would still be
+there and simply could not be certified this way. Genus 3 at `q = 211` already
+has a margin an order lower than genus 2 (`6.68·10⁻⁶` against `7.50·10⁻⁵`) — one
+point, but it suggests higher genus shrinks the window and should be checked
+before being relied on.
 
 ## What this does and does not establish
 
@@ -126,8 +148,9 @@ Specifically, open:
 
 ## Next
 
-* Certify the `q = 211` cycle (same script, new constants).
-* Run the scan at `q = 503, 1009` — the margin should fall like `1/(q log q)`,
-  and the point at which it crosses `10⁻¹⁰` is where the phenomenon becomes
-  unobservable rather than absent. That crossover is worth reporting.
+* Certify the `q = 211`, `503` and `1009` cycles to the `q = 101` standard —
+  three methods, explicit polynomials, recomputed signatures. Only `q = 101` has
+  that today; the rest are grid-solver results from the scan.
+* Check the genus dependence properly. One genus-3 point is not a trend, and if
+  the margin really falls with genus that changes where to look.
 * Hand items 1–3 above to brief C, which now has content.
