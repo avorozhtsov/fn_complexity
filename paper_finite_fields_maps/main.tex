@@ -20,6 +20,7 @@
 \theoremstyle{plain}
 \newtheorem{proposition}[definition]{Proposition}
 \newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
 \newtheorem{lemma}[definition]{Lemma}
 \theoremstyle{remark}
 \newtheorem{remark}[definition]{Remark}
@@ -78,7 +79,12 @@ the polynomial classes in this paper.  Independently of that formula,
 composition of any operational exchange rates proves
 \(M_{ij}M_{jk}\le M_{ik}\), so every closed conversion cycle has return at
 most one.  We explain what cycle geometric means can measure and why this
-no-arbitrage property does not imply positive semidefiniteness.
+no-arbitrage property does not imply positive semidefiniteness.  One pair of
+nondegenerate binary forms is settled exactly: over \(\R\) the inertia
+monotone gives \(\caff(x^2-y^2\to x^2+y^2)=1/2\), while an explicit
+three-copies-for-two identity gives \(\caff(x^2+y^2\to x^2-y^2)\ge2/3\), so
+that pair is certified one-way with a round trip that loses at least a factor
+two.
 
 Evaluating the same observer on fibrations of the affine plane over \(\F_q\)
 gives closed forms for both directed rates against a linear map: the forward
@@ -762,6 +768,7 @@ Cartesian products multiply the partition functions, and the functions
 energy--entropy regions.
 
 \begin{remark}[No silent identification with the affine rate]
+\label{rem:no-silent-identification}
 The affine and signature processors are not the same.  An affine input may be
 singular, while the signature model preserves fibers by injections; conversely,
 the signature model forgets all algebraic restrictions.  Therefore
@@ -888,6 +895,276 @@ Thus cycle means have three defensible uses:
 They do not by themselves supply a scalar complexity, a Hasse order, a
 positive-semidefinite form, or an affine coding theorem.
 
+\section{A certified fractional affine rate}
+\label{sec:definite-hyperbolic}
+
+Every affine rate quoted so far has been either an interval or a
+signature-observer value, which Remark~\ref{rem:no-silent-identification}
+keeps separate from \(\caff\).  This section proves an exact operational value
+strictly between zero and one for a pair of nondegenerate binary forms, and
+gives an explicit conversion in the opposite direction that is strictly
+better.  The pair is
+\[
+  g_+(x,y)=x^2+y^2,
+  \qquad
+  g_-(x,y)=x^2-y^2 .
+\]
+Over \(\R\) these are the definite and the indefinite class of
+Section~\ref{sec:fields}; over \(\F_q\) with \(q\equiv3\pmod4\) they are the
+anisotropic and the split class of Section~\ref{sec:quadratic-normal-forms}.
+Both have rank two, so the rank monotone separates neither direction from
+rate one, and the content of the section is which finer monotone does.
+
+\subsection{Block implementation is a span condition}
+
+\begin{lemma}[Homogeneous necessary condition]
+\label{lem:span-condition}
+Let \(f,g\colon K^2\to K\) be quadratic forms with symmetric matrices \(F,G\),
+and let \(N_j\) denote the matrix of the \(j\)-th target block
+\(f(z_{2j-1},z_{2j})\), viewed as a form on \(K^{2k}\).  If
+\(f^{\times k}\impl_{\rm aff}g^{\times r}\), then there are matrices
+\(A_i\in\operatorname{Mat}_{2\times2k}(K)\) and scalars \(B_{ji}\) with
+\begin{equation}
+  N_j=\sum_{i=1}^{r}B_{ji}M_i,
+  \qquad
+  M_i=A_i^{\mathsf T}GA_i,
+  \qquad
+  1\le j\le k.
+  \label{eq:span-condition}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Write the input processor as \(a(z)=(A_1z+t_1,\ldots,A_rz+t_r)\) and the
+output processor as \(b(u)=Bu+u_0\).  Then
+\[
+  g(A_iz+t_i)=z^{\mathsf T}M_iz+\text{(linear in \(z\))}+\text{(constant)},
+\]
+so comparing the degree-two homogeneous parts of
+\(f^{\times k}=b\circ g^{\times r}\circ a\) gives
+\eqref{eq:span-condition}.  Translations move only the lower-degree parts, so
+the condition is necessary whether or not the processors are linear.
+\end{proof}
+
+Every target block must therefore lie in the span of the \(r\) pullbacks.  The
+rate question becomes: how many pullbacks does such a span cost?
+
+\begin{lemma}[Pullback monotones]
+\label{lem:pullback-monotones}
+Let \(M=A^{\mathsf T}GA\).  Then \(\rank M\le\rank G\) over any field, and over
+\(\R\) the inertia indices satisfy \(n_\pm(M)\le n_\pm(G)\).
+\end{lemma}
+
+\begin{proof}
+The rank statement is standard.  If \(S\) is a subspace on which \(M\) is
+positive definite, then \(A\) is injective on \(S\), because \(Az=0\) forces
+\(z^{\mathsf T}Mz=0\), and \(G\) is positive definite on \(A(S)\).  Hence
+\(n_+(M)\le n_+(G)\), and \(n_-\) follows by negating.
+\end{proof}
+
+\begin{proposition}[Additive rate bounds]
+\label{prop:additive-bounds}
+Let \(f,g\) be nonzero binary quadratic forms.  Then
+\begin{equation}
+  \caff(g\to f)\le\frac{\rank g}{\rank f},
+  \label{eq:rank-bound}
+\end{equation}
+and over \(\R\),
+\begin{equation}
+  \caff(g\to f)
+  \le\frac{\max\bigl(n_+(g),n_-(g)\bigr)}{\max\bigl(n_+(f),n_-(f)\bigr)}.
+  \label{eq:inertia-bound}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Sum \eqref{eq:span-condition} over \(j\).  The left-hand side becomes the
+orthogonal sum of \(k\) copies of \(f\) on \(K^{2k}\), of rank
+\(k\rank f\) and, over \(\R\), of inertia
+\(\bigl(kn_+(f),kn_-(f)\bigr)\).  The right-hand side is
+\(\sum_id_iM_i\) with \(d_i=\sum_jB_{ji}\).  Rank is subadditive under matrix
+addition, and so is \(n_+\): if \(X+Y\) is positive definite on \(S\) while
+\(X\preceq0\) on \(K_X\) and \(Y\preceq0\) on \(K_Y\), then
+\(S\cap K_X\cap K_Y=0\), whence
+\(\dim S\le n_+(X)+n_+(Y)\).  Each summand obeys
+\(\rank(d_iM_i)\le\rank G\) and
+\(n_+(d_iM_i)\le\max\bigl(n_+(M_i),n_-(M_i)\bigr)\), the second because a
+negative \(d_i\) exchanges the two indices; Lemma~\ref{lem:pullback-monotones}
+then bounds both by the corresponding invariant of \(g\).  Therefore
+\(k\rank f\le r\rank g\) and \(k\max(n_+(f),n_-(f))\le r\max(n_+(g),n_-(g))\)
+for every admissible pair \((k,r)\), and \eqref{eq:affine-rate} passes to the
+limit.
+\end{proof}
+
+\subsection{The hyperbolic form pays double}
+
+\begin{theorem}[An exact fractional rate]
+\label{thm:hyperbolic-to-definite}
+Over \(\R\),
+\[
+  \caff(x^2-y^2\to x^2+y^2)=\frac12 .
+\]
+\end{theorem}
+
+\begin{proof}
+For the upper bound apply \eqref{eq:inertia-bound}: the source has inertia
+\((1,1)\) and the target \((2,0)\), so \(\caff\le1/2\).  For the lower bound,
+two source copies restricted to \((x,0)\) and \((0,y)\) produce \(x^2\) and
+\(-y^2\); the output processor \(u_1-u_2\) returns \(x^2+y^2\).  Hence
+\(k_{g_-\to g_+}(2)\ge1\) and \(\caff\ge1/2\).
+\end{proof}
+
+The rank bound \eqref{eq:rank-bound} gives only \(\caff\le1\) here.  The
+fractional value is produced by the inertia refinement, which exists over
+\(\R\) and has no counterpart over \(\F_q\) or \(\Q_p\); this is exactly the
+gap that leaves the pair of Section~\ref{sec:q2-rates} open.
+
+\subsection{Three copies for two in the other direction}
+
+\begin{proposition}[A three-to-two certificate]
+\label{prop:three-for-two}
+Let the three input processors read the coordinate pairs \((y_1,y_2)\),
+\((x_1,x_2)\), \((x_1,y_2)\) of \(z=(x_1,y_1,x_2,y_2)\) and let the output
+processor be \(B=\begin{psmallmatrix}-1&0&1\\0&1&-1\end{psmallmatrix}\).  Then
+\begin{equation}
+  \begin{aligned}
+    (x_1^2+y_2^2)-(y_1^2+y_2^2)&=x_1^2-y_1^2,\\
+    (x_1^2+x_2^2)-(x_1^2+y_2^2)&=x_2^2-y_2^2,
+  \end{aligned}
+  \label{eq:three-for-two}
+\end{equation}
+so \(g_-^{\times2}\impl_{\rm aff}g_+^{\times3}\) over every commutative ring
+and
+\[
+  \caff(g_+\to g_-)\ge\frac23 .
+\]
+\end{proposition}
+
+The processors are linear, so \eqref{eq:three-for-two} is a single polynomial
+identity, valid over \(\R\), over \(\F_q\), and over \(\Q_p\) alike.  Its
+shape explains the saving.  Read each of the three pullbacks as the unordered
+pair of coordinates it uses; the three pairs form the path
+\[
+  y_1-y_2-x_1-x_2 ,
+\]
+a spanning tree of the four coordinates in which the two coordinates of each
+target block sit at even distance.  Even distance is what lets an alternating
+difference of the tree edges cancel one coordinate and reverse the sign of
+another, which is precisely what turns definite pullbacks into hyperbolic
+blocks.  A tree on the \(2m\) coordinates of \(m\) blocks has \(2m-1\) edges, and a
+single block cannot stand alone, since its own edge would put its two
+coordinates at odd distance.  Splitting \(k\) blocks into pairs therefore
+costs \(3k/2\) copies, and no other component size is cheaper, because
+\((2m-1)/m\) is smallest at \(m=2\).  This is what the construction offers;
+whether the span condition itself is that expensive is the open part.
+
+\begin{corollary}[A certified one-way pair]
+\label{cor:one-way-pair}
+Over \(\R\),
+\[
+  \frac12=\caff(g_-\to g_+)
+  \;<\;\frac23\le\caff(g_+\to g_-)\le1 ,
+\]
+so the two classes are asymptotically interconvertible at positive rates in
+both directions while the round trip loses at least a factor two:
+\[
+  \frac13\le
+  R=\caff(g_+\to g_-)\,\caff(g_-\to g_+)\le\frac12 .
+\]
+\end{corollary}
+
+This is the first pair of nondegenerate binary classes in this paper with a
+proved strictly fractional affine rate, and the first certified strict
+asymmetry between two classes that the one-shot poset of
+Section~\ref{sec:fields} leaves incomparable.  Compare
+Section~\ref{sec:cycles}: here the cycle mean bound is not an observer
+artifact but a proved property of the affine resources.
+
+\subsection{What the searches say}
+
+Neither \eqref{eq:rank-bound} nor \eqref{eq:inertia-bound} bounds
+\(\caff(g_+\to g_-)\) below one, so the exact value in that direction is not
+settled by the monotones above.  Two searches probe it.  Both test the span
+condition \eqref{eq:span-condition} directly, and neither is promoted to a
+proof.
+
+Over \(\R\), a multistart minimization of the distance from the target blocks
+to the span of \(r\) pullbacks gives residuals that vanish exactly at the
+block sizes the constructions reach:
+
+\begin{center}
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+source & target & \(k\) & \(r\) & span condition\\
+\midrule
+definite & hyperbolic & 1 & 1 & no solution found\\
+definite & hyperbolic & 1 & 2 & solved\\
+definite & hyperbolic & 2 & 2 & no solution found\\
+definite & hyperbolic & 2 & 3 & solved\\
+definite & hyperbolic & 3 & 4 & no solution found\\
+definite & hyperbolic & 4 & 5 & no solution found\\
+definite & hyperbolic & 5 & 7 & no solution found\\
+definite & hyperbolic & 4 & 6 & solved\\
+\midrule
+hyperbolic & definite & 1 & 1 & no solution found\\
+hyperbolic & definite & 1 & 2 & solved\\
+hyperbolic & definite & 2 & 3 & no solution found\\
+hyperbolic & definite & 2 & 4 & solved\\
+hyperbolic & definite & 3 & 5 & no solution found\\
+hyperbolic & definite & 3 & 6 & solved\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The hyperbolic source is solved exactly at \(k/r=1/2\), as
+Theorem~\ref{thm:hyperbolic-to-definite} requires.  The definite source is
+solved at \(2/3\) and at nothing larger: the three probes with
+\(k/r>2/3\) fail, including \(k/r=5/7\), which the paired-tree construction
+does not reach.
+
+Over \(\F_3\), where \(g_+\) is anisotropic and \(g_-\) is split, the same
+question is finite and was settled exhaustively for \(r=k+1\):
+
+\begin{center}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+source & target & \(k\) & \(r\) & pullbacks & conversion\\
+\midrule
+anisotropic & split & 2 & 3 & 861 & exists\\
+anisotropic & split & 3 & 4 & 66{,}795 & none\\
+split & anisotropic & 2 & 3 & 1{,}641 & none\\
+split & anisotropic & 3 & 4 & 132{,}861 & none\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The \(k=2\) row recovers \eqref{eq:three-for-two}, now by exhaustion rather
+than by hand; the \(k=3\) rows exclude the rate \(3/4\) at that block size in
+both directions.
+
+\begin{remark}[Why the finite search is exhaustive]
+With \(r=k+1\) the span \(W\) of the pullbacks has dimension at most \(k+1\)
+and contains the \(k\)-dimensional span \(V\) of the target blocks.  The
+program first verifies that \(V\) contains no nonzero pullback, which excludes
+\(W=V\); hence \(W=V\oplus\langle P\rangle\) for every generator \(P\).  Over
+\(\F_q\) a nonzero multiple of a pullback is again a pullback, since a binary
+form is determined by its rank and discriminant class, so each generator
+normalizes to \(P+v\) with \(v\in V\) without changing \(W\).  The search then
+only has to ask whether some pullback \(P\) has
+\(\{v\in V:P+v\text{ is a pullback}\}\) spanning \(V\), and it enumerates
+every pullback.
+\end{remark}
+
+Both searches are consistent with
+\(\caff(g_+\to g_-)=2/3\), over \(\R\) and over \(\F_3\) alike, and neither
+proves it.  An upper bound below one has to leave the additive monotones of
+Proposition~\ref{prop:additive-bounds} behind, since rank and inertia are both
+already spent in that direction.  This is
+Question~\ref{q:definite-hyperbolic}.
+
+Regenerate the certificate check and both searches with
+\path{analysis/definite_hyperbolic_affine_rates.py}.
+
 \section{The unresolved \texorpdfstring{\(2\)-adic}{2-adic} affine rates}
 \label{sec:q2-rates}
 
@@ -902,7 +1179,10 @@ implement one copy of the other: restrict two source blocks to \((x,0)\) and
   \caff(q_1\to q_2),\ \caff(q_2\to q_1)\ge\frac12.
 \]
 An equal-block \(n\)-to-\(n\) conversion is impossible for distinct
-determinant square classes, but this does not exclude rates approaching one.
+determinant square classes, but this does not exclude rates approaching one.  What is missing here is the
+monotone that settles the real pair of Section~\ref{sec:definite-hyperbolic}:
+over \(\Q_2\) there is no inertia, and rank and discriminant stop at rate
+one.
 The current rigorous bounds remain
 \[
   \frac12\le\caff(q_1\to q_2)\le1,
@@ -1831,6 +2111,11 @@ from the affine operational rate\\[2pt]
 cycle return & cycle means and max--plus algorithms are classical & apply them
 to map-class exchange matrices as round-trip-loss and observer-resolution
 diagnostics\\[2pt]
+certified fractional affine rate & Sylvester's law and the behaviour of rank
+and inertia under pullback are classical & the exact operational value
+\(\caff(x^2-y^2\to x^2+y^2)=1/2\), the three-copies-for-two certificate in
+the opposite direction, and the resulting certified one-way pair; elementary
+ingredients, but we have not seen the statement in operational form\\[2pt]
 signature rates of curve fibrations & the extreme trace, the second moment,
 permutation polynomials, and the \(USp(2g)\) edge law are classical & no new
 arithmetic: the rates are monotone functions of statistics already studied, and
@@ -1868,6 +2153,17 @@ constraint on every rate matrix generated by the framework.
 Can \(\caff(g\to f)\) be characterized by a complete family of algebraic or
 analytic monotones, analogous to the partition functions that solve the
 finite-signature theory?
+\end{question}
+
+\begin{question}[The definite-to-hyperbolic rate]
+\label{q:definite-hyperbolic}
+Is \(\caff(x^2+y^2\to x^2-y^2)=2/3\)?  Corollary~\ref{cor:one-way-pair}
+proves \(2/3\le\caff\le1\) over \(\R\), and searches over \(\R\) and
+\(\F_3\) find nothing above \(2/3\), but rank and inertia are both spent:
+an upper bound below one requires a monotone that is not simply subadditive
+under sums of pullbacks.  Is the paired spanning-tree construction of
+Proposition~\ref{prop:three-for-two} optimal, and does the same value hold
+over every field on which the two classes are distinct?
 \end{question}
 
 \begin{question}[The seven \(2\)-adic anisotropic classes]
@@ -2043,6 +2339,9 @@ main regeneration commands are:
   \item \path{cli/cubic_map_poset_cli} for the cubic processor comparisons;
   \item \path{analysis/polynomial_map_exchange_examples.py} for the exchange
   matrices and cycle means used here;
+  \item \path{analysis/definite_hyperbolic_affine_rates.py} for the
+  three-to-two certificate, the exhaustive \(\F_3\) searches, and the real
+  feasibility scan of Section~\ref{sec:definite-hyperbolic};
   \item \path{analysis/frobenius_bottleneck.py} and\\
   \path{analysis/frobenius_exchange_rates.py} for the closed forms, the
   bottleneck temperature, and the flatness check of
