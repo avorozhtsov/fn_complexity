@@ -3,3 +3,4 @@
 
 === uniform K_n, identity ansatz (n nodes, Y = I) ===
   K_4: REALISABLE, s = 0.06806139
+  K_5: this ansatz infeasible
