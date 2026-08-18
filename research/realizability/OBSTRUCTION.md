@@ -630,7 +630,7 @@ All under `research/realizability/`.
 | `i_cone.py` | the tropical cone `C`: `Trop` (max of lines), exact Hilbert metric, `from_centers` (the free parametrisation of Cor. 3.1), tropical → signature translation |
 | `i_validate_cone.py`, `_output` | `d = osc log(F_b/F_a)` on genuine signatures; the `O(1/K)` tropical limit |
 | `i_verify.py`, `_output` | numerical verification of Theorems 2, 3, 4 and of the Theorem 5 constants; the sharpness ladder for Theorem 4 |
-| `i_constants.py`, `_output` | hill-climbs in the cone: `sup ε`, `max min(P,Q)`, `sup|D|`, `sup|curl|` |
+| `i_constants.py`, `_output` | hill-climbs in the cone: `sup ε`, `max min(P,Q)`, `sup \|D\|`, `sup \|curl\|` |
 | `i_check_g2.py`, `_output` | audit of FINDINGS §4.3's `1.255692` against certified extrema |
 | `i_nodes.py` | the exact finite (common-node) model of the cone; `dmat` from a nonincreasing step scale function |
 | `i_deep.py` | basin-hopping search in the node model, seeded from brief G's own best `C_4` signatures; it stalls at `1.2618` at four nodes, which is why the *forced pattern* of `i_pattern.py` was needed |
