@@ -1,0 +1,20 @@
+kind,a,b,c,d,e
+cycle,2.SU2 x 2.SU2,USp12,SU2 x SU2 x USp6,1.204117e-02,False
+cycle,SU2 x 3.SU2,USp12,SU2 x USp4 x USp4,1.049878e-02,False
+cycle,SU2 x 3.SU2,USp12,SU2 x SU2 x USp6,1.049878e-02,False
+cycle,4.SU2,USp6 x USp6,SU2 x 2.USp4,7.450673e-02,False
+cycle,4.SU2,USp4 x USp8,SU2 x 2.USp4,6.911975e-02,False
+cycle,4.SU2,USp6 x USp6,SU2 x SU2 x SU2 x SU2 x SU2,4.009378e-02,False
+cycle,4.SU2,USp4 x USp8,SU2 x SU2 x SU2 x SU2 x SU2,6.911975e-02,False
+cycle,4.SU2,USp6 x USp6,SU2 x 2.SU2 x USp4,2.841300e-02,False
+cycle,4.SU2,USp4 x USp8,SU2 x 2.SU2 x USp4,2.841300e-02,False
+class,4,3,2,0,-3.617068e-01
+class,6,5,20,0,-3.617068e-01
+class,8,11,330,0,-9.066060e-02
+class,10,17,1360,0,-9.066060e-02
+class,12,34,11968,0,-8.050704e-02
+mult-free,29,7308,0,-7.935688e-02,
+lex-rule,,745,765,,
+coset-mixture,435,27248690,3091,1.685698e-01,
+swap-coset,35,13090,0,-7.935688e-02,
+free-mixture,6,29,-5.305841e-02,True,
