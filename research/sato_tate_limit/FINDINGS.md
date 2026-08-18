@@ -623,6 +623,14 @@ on the larger libraries.
   transitive and the answer to brief F is negative. For `k = 2` with `A` elliptic
   the relevant locus in `M₂` is classical, so this looks like a matter of writing
   down a pencil rather than of existence.
+
+  > **Settled — see [`REPEATED_FACTOR.md`](REPEATED_FACTOR.md).** `y² = f(x)`
+  > with `f` even *and* palindromic of degree `2m`, `m` odd, has `Jac ∼ J²`;
+  > `m = 3` gives `y² = (x²+1)(x⁴+cx²+1)` with `Jac ∼ E_c²`,
+  > `j(E_c) = 256(c+1)³/(c+2)` non-constant, and `a_c(C) = 2a_c(E)` verified on
+  > 32721 fibres over 29 primes with zero exceptions. The genus-4/5/6 vertices
+  > of the `1.206·10⁻²` cycle are all witnessed, so that cycle is now a theorem.
+  > `4·SU(2)` and `SU(2)×3·SU(2)`, hence the other six cycles, are still open.
 * **How large is "sufficiently large"?** The cycle margins are `10⁻²` in `Ψ`
   units while `sup|Ψ_f − Ψ_μ|` is `0.28` at genus two and `1.52` at genus three at
   `q = 4·10⁵`. Extrapolating the fitted edge law, genus-6 families need `q` of

@@ -1,0 +1,33 @@
+same-genus pairs: 765;  lexicographic rule holds on 745, fails on 20
+
+the exceptions:
+  mu                          nu                            g   dm2      dt         mid
+  2.USp4                      2.SU2 x USp4                  4    -1    -1.5     0.04026
+  SU2 x SU2 x SU2 x USp4      2.SU2 x USp6                  5    -1    -2.5     0.08371
+  SU2 x 2.USp4                SU2 x 2.SU2 x USp4            5    -1    -1.5     0.04026
+  SU2 x 2.SU2 x 2.SU2         USp4 x 3.SU2                  5    -1    -2.0     0.20194
+  2.USp6                      2.SU2 x USp8                  6    -1    -9.0     0.60980
+  SU2 x SU2 x USp4 x USp4     2.SU2 x USp8                  6    -1    -6.5     0.37035
+  SU2 x SU2 x SU2 x USp6      2.SU2 x USp8                  6    -1    -4.5     0.19699
+  USp4 x 2.USp4               2.SU2 x USp4 x USp4           6    -1    -1.5     0.04026
+  USp4 x 2.USp4               SU2 x 2.SU2 x USp6            6    -1    -3.5     0.21401
+  SU2 x SU2 x SU2 x SU2 x USp4SU2 x 2.SU2 x USp6            6    -1    -2.5     0.08371
+  SU2 x SU2 x 2.USp4          SU2 x SU2 x 2.SU2 x USp4      6    -1    -1.5     0.04026
+  2.SU2 x 2.USp4              2.SU2 x 2.SU2 x USp4          6    -1    -1.5     0.04026
+  2.SU2 x 2.USp4              3.SU2 x USp6                  6    -2    -5.5     0.41666
+  SU2 x SU2 x SU2 x SU2 x 2.SU23.SU2 x USp6                  6    -2    -4.5     0.29140
+  3.USp4                      SU2 x SU2 x 2.SU2 x 2.SU2     6    -1    -1.0     0.06322
+  3.USp4                      3.SU2 x USp6                  6    -1    -7.0     0.80727
+  3.USp4                      SU2 x USp4 x 3.SU2            6    -2    -3.0     0.26599
+  2.SU2 x 2.SU2 x USp4        3.SU2 x USp6                  6    -1    -4.0     0.36352
+  SU2 x SU2 x 2.SU2 x 2.SU2   SU2 x USp4 x 3.SU2            6    -1    -2.0     0.20194
+  SU2 x 2.SU2 x 3.SU2         USp4 x 4.SU2                  6    -3    -2.0     0.06814
+
+  pairs with dm2 != 0: 735
+  best single-threshold rule  sign(mid) = sign(dm2 - kappa dt):
+      kappa = 0.66800   correct on 731 of 735  (99.46%)
+  (kappa = 0 is the plain m2 rule: 715 of 735)
+
+  pairs tied in m2: 30;  larger t precedes on 30 (100.00%)
+
+written: lex_exceptions.csv
