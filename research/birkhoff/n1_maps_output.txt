@@ -1,0 +1,85 @@
+=== (1) dictionary: resource operation  ->  action on F = log Z ===
+  a (x) b        F_a + F_b            max error 1.364e-12
+  a^(x)3         3 F_a                max error 2.728e-12
+  a^[2]          F_a(2 beta)          max error 0.000e+00
+  a + b          log(e^F_a + e^F_b)   max error 4.547e-13
+  (40 random integer signature pairs, beta grid [0, 10^3])
+
+=== (2) linearity audit on the cone: T(Phi+Psi) = T Phi + T Psi ?   T(lam Phi) = lam T Phi ? ===
+  operation                        rel. additivity defect  rel. homogeneity defect
+  tensor with a fixed c                         4.640e-01                1.782e+00
+  Cartesian power k=3                           4.601e-16                4.438e-16
+  fibre power m=2                               4.393e-16                4.322e-16
+  dilation mixture                              4.668e-16                6.124e-16
+  flattening L                                  4.257e-16                4.279e-16
+  corner N                                      1.815e-03                3.256e-16
+  disjoint union with a fixed c                 5.000e-01                2.305e+00
+  (a defect at machine precision means LINEAR; O(1) means not)
+
+=== (3) does the map contract d?   e = d(Ta,Tb) - d(a,b),  kappa = sup d(Ta,Tb)/d(a,b) ===
+  200000 random cone triples (1-4 lines each)
+  map                           max e        min e    sup ratio
+  tensor with fixed c       +1.730849    -7.565534 2255.814215258
+  fibre power m=2.7         +0.000000    -0.000000  1.000000000
+  Cartesian power k=3       +0.000000    -0.000000  1.000000000
+  dilation mixture          +0.000000    -0.212291  1.000000000
+  flattening L              +0.000000    -0.664981  1.000000000
+  corner N                  +0.000000    -0.664981  1.000000000
+  tensoring restricted to the 101644 mutually non-dominating pairs (both rates <= 1): max e = -2.546e-04
+  disjoint union with c: max e = +1.517391   (3000 triples, beta in [e^-30, e^30])
+
+=== (3b) the same maps in Thompson's part metric ===
+  tensor with a fixed c:  max d_T(Ta,Tb) - d_T(a,b) = -7.188e-04   (100000 triples)   NONEXPANSIVE
+  disjoint union with c:  max d_T(Ta,Tb) - d_T(a,b) = +0.000000   (3000 triples)
+
+=== (4) tensoring expands d without bound: a and a^(x)k are at d = 0, their tensors with c are not ===
+  Phi_a = max(1, beta),  Phi_{a^k} = k Phi_a  (so d = 0 exactly),
+  Phi_c = N + eps*beta  (a flat resource).  Exact:
+    d = log[ (k+eps)(1+N) / ((1+eps)(k+N)) ]  ->  log k .
+     k          N        eps   d(a,a^k)                  d(a(x)c, a^k(x)c)    log k - d
+     2        1e2       1e-2   0.00e+00   0.678332094774804670003305257032    1.482e-02
+     2       1e10      1e-10   0.00e+00   0.693147180409945309435982121456    1.500e-10
+     2       1e40      1e-40   0.00e+00   0.693147180559945309417232121458    1.500e-40
+     3        1e2       1e-2   0.00e+00    1.07238127651923995780959294174    2.623e-02
+     3       1e10      1e-10   0.00e+00    1.09861228840144302477302301469    2.667e-10
+     3       1e40      1e-40   0.00e+00    1.09861228866810969139524523692    2.667e-40
+     8        1e2       1e-2   0.00e+00    2.00372971994413952808810606083    7.571e-02
+     8       1e10      1e-10   0.00e+00     2.0794415408923359285716182392    7.875e-10
+     8       1e40      1e-40   0.00e+00    2.07944154167983592825169636437    7.875e-40
+  the disjoint union does the same, on genuine signatures:
+    k=2 log r_c= 10: d(a, a^(x)k) = 3.55e-15,  d(a+c, a^(x)k+c) = 0.691246473,  log k = 0.693147181
+    k=2 log r_c= 30: d(a, a^(x)k) = 3.55e-15,  d(a+c, a^(x)k+c) = 0.693147181,  log k = 0.693147181
+    k=2 log r_c= 60: d(a, a^(x)k) = 3.55e-15,  d(a+c, a^(x)k+c) = 0.693147181,  log k = 0.693147181
+    k=3 log r_c= 10: d(a, a^(x)k) = 1.78e-15,  d(a+c, a^(x)k+c) = 1.063862390,  log k = 1.098612289
+    k=3 log r_c= 30: d(a, a^(x)k) = 1.78e-15,  d(a+c, a^(x)k+c) = 1.098612289,  log k = 1.098612289
+    k=3 log r_c= 60: d(a, a^(x)k) = 1.78e-15,  d(a+c, a^(x)k+c) = 1.098612289,  log k = 1.098612289
+  Trop cross-check k=3, N=1e6, eps=1e-6:  d = 1.098609622005888   exact = 1.098609622005887
+
+  hill-climb of the expansion over NON-DOMINATING pairs (Prop. 2.3 says it must be <= 0):
+    max expansion found = +0.000000000000   (k = 3 lines each)
+
+=== (6) the Birkhoff projective diameters ===
+  dilation mixture: sigma(T Phi) - sigma(Phi) is constant = -0.773189888233; max deviation over 2000 draws = 1.110e-15
+  hence d(T Phi, T Psi) >= |sigma_Phi - sigma_Psi|, unbounded on C:
+         W    d(T flat_0, T flat_W)    tanh(Delta/4) bound
+         1              1.000000000        1 (Delta = inf)
+        10             10.000000000        1 (Delta = inf)
+       100            100.000000000        1 (Delta = inf)
+       600            600.000000000        1 (Delta = inf)
+
+=== (5) the finite-field map classes ===
+
+  --- F_3 quadratic: 4 classes [(6, 3), (5, 2, 2), (4, 4, 1), (3, 3, 3)] ---
+    triples (a<b, c): 24   dominating pairs used 0, non-dominating 24
+    max d(a(x)c, b(x)c) - d(a,b) = -0.064935573
+      at a=(5, 2, 2), b=(4, 4, 1), c=(3, 3, 3):  0.152657 -> 0.087721   (one resource dominates: False)
+
+  --- F_3 cubic: 5 classes [(7, 1, 1), (6, 3), (5, 2, 2), (4, 4, 1), (3, 3, 3)] ---
+    triples (a<b, c): 50   dominating pairs used 0, non-dominating 50
+    max d(a(x)c, b(x)c) - d(a,b) = -0.064935573
+      at a=(5, 2, 2), b=(4, 4, 1), c=(3, 3, 3):  0.152657 -> 0.087721   (one resource dominates: False)
+
+  --- F_5 quadratic: 4 classes [(10, 10, 5), (9, 4, 4, 4, 4), (6, 6, 6, 6, 1), (5, 5, 5, 5, 5)] ---
+    triples (a<b, c): 24   dominating pairs used 0, non-dominating 24
+    max d(a(x)c, b(x)c) - d(a,b) = -0.060137533
+      at a=(6, 6, 6, 6, 1), b=(5, 5, 5, 5, 5), c=(5, 5, 5, 5, 5):  0.123090 -> 0.062953   (one resource dominates: False)

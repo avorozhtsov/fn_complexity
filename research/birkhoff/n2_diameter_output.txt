@@ -1,0 +1,58 @@
+=== (1) C_0 is a subcone; its Hilbert diameter is log 2 ===
+  Phi, Psi in C_0  =>  Phi + Psi in C_0:  max |sigma| = 4.441e-16
+  extreme pair  d(max(1,beta), 1+beta) = 0.693147180559945   log 2 = 0.693147180559945
+  200000 random pairs in C_0: max d = 0.686751121470 (= 0.990772437 log 2)
+  hill-climb, k = 2 lines: sup d over C_0 = 0.693147180449  (0.9999999998 log 2)
+  hill-climb, k = 3 lines: sup d over C_0 = 0.693147180449  (0.9999999998 log 2)
+  hill-climb, k = 5 lines: sup d over C_0 = 0.693147180449  (0.9999999998 log 2)
+
+=== (2) the naive order-interval bound is 2 log 2 ===
+  Phi in C_0  =>  max(1,beta) <= Phi <= 1+beta pointwise, and the generic
+  order-interval bound gives diam <= 2 log(sup ratio) = 1.386294361.
+  max over samples of d(Phi_min,Phi) + d(Phi,Phi_max) = 0.810050527  (a triangle-inequality witness that the fibre is 'thin')
+
+=== (3) the two-fibre law  sup{d : Dsigma = D} = D + log(1+e^-D) ===
+       D                        exact D + log(1+e^-D)    hill-climb in C
+    0.00   0.6931471805599453094172321214581765680755     0.693147180449
+    0.25   0.8259394198788435622078361316583179420902     0.825939419768
+    0.50   0.9740769841801066808729973550811707497556     0.974076984069
+    1.00    1.313261687518222834048995494967855641915     1.313261687407
+    2.00    2.126928011042972496443726806358304431434     2.126928010932
+
+=== (4) the Birkhoff constants, 40 digits ===
+  log 2                     = 0.6931471805599453094172321214581765680755
+  (log 2)/2                 = 0.3465735902799726547086160607290882840378
+  tanh((log 2)/4)           = 0.1715728752538099023966225515806038428607
+  closed form 3 - 2 sqrt 2  = 0.1715728752538099023966225515806038428607
+  difference                = -1.75162308e-46
+       D                   diam of the pair of fibres                                    tanh(./4)
+    0.00   0.6931471805599453094172321214581765680755   0.1715728752538099023966225515806038428607
+    0.50   0.9740769841801066808729973550811707497556   0.2388170580593377450681477670977123544075
+    1.00    1.313261687518222834048995494967855641915   0.3170062972766159255366224322283277893893
+    2.00    2.126928011042972496443726806358304431434   0.4867039291082240606400828758290226337349
+    5.00    5.006715348489118068616416687732642075115   0.8487537409179255078654386107568449098983
+
+=== (5) why Delta must be the diameter of T(K), not of T(domain) ===
+  If the domain-restricted form were valid one could take K' = C_W =
+  {Phi in C : |sigma| <= W}, a subcone of finite d-diameter
+  <= 2W + log 2, and T = identity, whose Lipschitz constant is 1 but
+  whose 'tanh(diam/4)' would be < 1.  Explicitly, with W = 0:
+    diam C_0 = 0.693147180560,  tanh(diam/4) = 0.171572875254,
+    but d(Id Phi_min, Id Phi_max)/d(Phi_min,Phi_max) = 1.
+  So Birkhoff's Delta is the diameter of the image of the WHOLE cone
+  whose order defines the metric.  (This is the step brief N warned
+  was easy to wave at.)
+
+=== (6) a positive linear map with image in C_0 really does contract by tanh((log 2)/4) = 3 - 2 sqrt 2 = 0.17157... ===
+  T Phi = Phi(b1) * max(1,beta) + Phi(b2) * (1+beta):  R(T Phi) = Lam(T Phi)
+  for every Phi, so T(K) is contained in C_0 and Delta(T) <= log 2.
+  Delta(T) computed = 0.693147180560   (log 2 = 0.693147180560)
+  Birkhoff ratio tanh(Delta/4) = 0.171572875254
+  empirical Lipschitz ratio over 100000 random pairs of C: 0.140033465671   (<= tanh(log2/4) = 0.171573 required)
+
+=== (7) the beta-dilation action: sigma is equivariant, orbits are geodesic lines ===
+  max |sigma(Phi(c.)) - sigma(Phi) + log c| = 1.776e-15
+  max |d(Phi, Phi(c.)) - |log c||           = 8.882e-16
+  (so every dilation orbit is an isometric copy of the line, and
+   sigma : (C,d) -> (R,|.|) is 1-Lipschitz with fibres of diameter log 2)
+  quasi-isometry check: max(|Dsigma| - d) = 8.882e-16, max(d - |Dsigma| - log 2) = 0.000e+00
