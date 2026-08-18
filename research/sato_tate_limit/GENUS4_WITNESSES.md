@@ -569,6 +569,135 @@ on `q`**.
 
 ---
 
+## Addendum — brief K's genus-13 cycle, and which of its vertices has a curve
+
+`TRANSITIVITY.md` (brief K, finished while this session was running) settles
+same-genus transitivity: it holds to genus 6, fails from genus 13, and its
+genus-13 counterexample
+
+```
+USp14×USp4²×SU2²   ≺   USp10×USp8×USp4²   ≺   USp12×USp8×SU2³
+   (7,2,2,1,1)             (5,4,2,2)             (6,4,1,1,1)
+```
+
+margin `7.998·10⁻³`, is **multiplicity-free** — the same conclusion this session
+reaches independently and one genus span lower. The coordinator asked whether to
+switch to realising those vertices. **This session did not switch**, for a
+reason that the computation below makes concrete, and instead spent a bounded
+effort answering the realisability question directly.
+
+**Two elementary constraints** *(proved)*.
+
+**Lemma 2.** For a `(ℤ/2)^r`-cover of `P¹` of genus `g` (Lemma 1) the number of
+branch points is `B = (2g − 2 + 2^{r+1})/2^{r−1}`, there are at most `2^r − 1`
+non-zero blocks, and every block has genus at most `⌊B/2⌋ − 1`. `B` *shrinks*
+as `r` grows, so many blocks and one large block are incompatible:
+
+| genus | `r = 2` | `r = 3` | `r = 4` |
+|---:|---|---|---|
+| 13 | `B = 16`, ≤ 3 blocks, genus ≤ 7 | `B = 10`, ≤ 7 blocks, genus ≤ 4 | `B = 7`, ≤ 15 blocks, genus ≤ 2 |
+| 14 | `B = 17`, ≤ 3 blocks, genus ≤ 7 | — | — |
+| 15 | `B = 18`, ≤ 3 blocks, genus ≤ 8 | `B = 11`, ≤ 7 blocks, genus ≤ 4 | — |
+
+**Lemma 3.** If `C → X` is a double cover with `g(X) = h`, then
+`Jac(C) ∼ Jac(X) × Prym`, `dim Prym = g − h`, and Riemann–Hurwitz gives
+`2g − 2 = 2(2h − 2) + #branch ≥ 4h − 4`, i.e. `g ≥ 2h − 1`. **The new block is
+at least the genus of the base minus one.** Recursively: a partition is
+reachable by a tower of double covers only if its largest part is at least the
+sum of the others minus one, and that condition then has to hold again on the
+remainder.
+
+**Lemma 4.** In a `(ℤ/2)^r`-cover of `P¹`, **at most one character can have
+`B_χ` equal to the whole branch locus.** If `χ₁ ≠ χ₂` both did, then
+`χ₁χ₂(v_P) = 1` for every `P`, and the `v_P` span `G`, so `χ₁χ₂ = 1`. ∎
+
+**The verdict on the six vertices** *(computed, `realisable_partitions.py`)*.
+Closing up the three rules — generic hyperelliptic pencil, `(ℤ/2)^r`-cover of
+`P¹` for `r ≤ 4`, and the Prym of a double cover of an already-realised base —
+gives, at genus 13, 57 realisable partitions out of 101. `TRANSITIVITY.md` lists
+two genus-13 cycles; of their six vertices:
+
+| cycle | vertex | blocks | largest | realisable? |
+|---|---|---:|---:|---|
+| A, margin `8.0·10⁻³` | `(7,2,2,1,1)` | 5 | 7 | **no** |
+| | `(5,4,2,2)` | 4 | 5 | **no** |
+| | `(6,4,1,1,1)` | 5 | 6 | yes — Prym tower `13 → 7 → 3` |
+| B, margin `4.4·10⁻⁴` | `(8,1,1,1,1,1)` | 6 | 8 | yes — Prym `13 → 5` over the `SU(2)⁵` curve above |
+| | `(4,4,4,1)` | 4 | 4 | **no** |
+| | `(6,3,2,2)` | 4 | 6 | yes — Prym `13 → 7` over a `(ℤ/2)²`-cover with genera `(3,2,2)` |
+
+The three failures each have a one-line reason.
+
+* `(5,4,2,2)`: `5 < 4+2+2−1`, so no Prym step; four blocks needs `r ≥ 3`, and at
+  genus 13 an `r = 3` cover has `B = 10`, so no block can exceed genus 4.
+* `(7,2,2,1,1)`: the Prym step is allowed (`7 ≥ 6−1`) but leaves `(2,2,1,1)` at
+  genus 6, and genus 6 admits **no** `(ℤ/2)³`- or `(ℤ/2)⁴`-cover of `P¹` at all
+  (`B` is not an integer), its `(ℤ/2)²`-covers give three blocks, and the Prym
+  rule there would need `2 ≥ 3`.
+* `(4,4,4,1)`: no Prym step (`4 < 4+4+1−1`), and an `r = 3` cover at genus 13
+  has `B = 10`, so three blocks of genus 4 would need `|B_χ| = 10 = B` for three
+  different characters — impossible by **Lemma 4**.
+
+**So each of the two genus-13 cycles is missing at least one vertex, and each
+missing vertex is missing for a structural reason, not for want of trying.**
+Realising them needs a genuinely different mechanism — an Ekedahl–Serre style
+curve with several independent low-genus quotients that do *not* come from an
+abelian 2-group action, or a non-abelian group action with the right Kani–Rosen
+idempotents. That is a research project, not a session. Encouragingly, two of
+the three vertices of cycle B *are* reachable, and one of them is built directly
+on the genus-5 `SU(2)⁵` curve constructed above — so cycle B, at margin
+`4.4·10⁻⁴`, is the one to attack, and the single obstruction is `(4,4,4,1)`.
+
+**Why this session stayed with its own cycle.** The
+`SU(2)⁵ ≺ USp(14) ≺ USp(6)×USp(6)` cycle found above already delivers the
+headline that brief K's genus-13 cycle delivers — *the `q → ∞` non-transitivity
+needs no repeated isogeny factor* — and delivers it strictly better on every
+axis that matters:
+
+| | this session's cycle | brief K's genus-13 cycle |
+|---|---|---|
+| repeated factor | none | none |
+| margin | `4.0116·10⁻²` | `7.998·10⁻³` |
+| genus span | 5 / 7 / 6 | 13 / 13 / 13 |
+| vertices with an explicit pencil | **3 of 3** | 1 of 3 |
+| congruence on `q` | none | — |
+
+What brief K's cycle has and this one does not is that it is **same-genus**,
+which is a genuinely different and important statement. But a *witnessed*
+same-genus cycle is out of reach of every construction enumerated here, and the
+cheapest honest next step is not to attack genus 13 head-on but to ask the
+restricted question: **is there a same-genus 3-cycle among the realisable
+partitions at all?**
+
+> **Corollary (proved, given `TRANSITIVITY.md`'s exhaustive search).** There is
+> **no** same-genus 3-cycle all of whose vertices are realisable, at any genus
+> `≤ 13`. `TRANSITIVITY.md` §4.3 is exhaustive over every partition of every
+> genus to 15 and finds 0 cycles at genus `≤ 12` and exactly 2 at genus 13; the
+> table above shows each of those 2 has an unrealisable vertex. ∎
+
+So the arithmetic input `TRANSITIVITY.md` asks for is not merely unfound: at the
+first genus where a same-genus cycle exists at all, **no** cycle is within reach
+of the constructions catalogued here. The `α_max ≤ 14` cross-genus cycle above
+remains the only witnessed non-transitivity that needs no repeated factor.
+
+`realisable_partitions.py` also runs the restricted search directly, genus by
+genus, which both re-derives `TRANSITIVITY.md`'s zero counts and measures how
+much of the cone a cover construction actually reaches:
+
+| genus | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| partitions | 2 | 3 | 5 | 7 | 11 | 15 | 22 | 30 | 42 | 56 |
+| realisable | 2 | 3 | 4 | 7 | 8 | 14 | 12 | 27 | 20 | 33 |
+| 3-cycles, all | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 3-cycles, realisable | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+
+(the realisable fraction is much larger at odd genus, where a `(ℤ/2)³`-cover of
+`P¹` exists and a `(ℤ/2)²`-cover's three blocks can be broken up further). Genus
+14 and 15, where `TRANSITIVITY.md` reports 3 and 6 cycles without listing them
+individually, are not settled here.
+
+---
+
 ## Corrections
 
 * **To `FINDINGS.md`, and to `REPEATED_FACTOR.md` which inherits it.**
@@ -644,7 +773,23 @@ on `q`**.
   rational for every `q` would remove it; the `V`-symmetric sextics cannot do
   this (the special orbit that must lie in the branch set is
   `Fix(x ↦ −1/x) = {±i}`), so it would need elliptic subcovers of degree > 2.
-* **Same-genus transitivity**, unchanged from `REPEATED_FACTOR.md`.
+* **A witnessed same-genus cycle.** By the Corollary above none exists at genus
+  `≤ 13` within the constructions catalogued here, and the single obstruction at
+  genus 13 is the vertex `(4,4,4,1)` of `TRANSITIVITY.md`'s second cycle — the
+  other two vertices of that cycle *are* reachable, one of them directly on top
+  of this session's genus-5 `SU(2)⁵` curve. A genus-13 curve family with
+  `Jac ∼ A₄ × B₄ × C₄ × E` and independent monodromy would close it and would be
+  the strongest result in this line: it removes the genus constraint entirely.
+  Lemma 4 says no elementary abelian 2-cover of `P¹` can supply it, so the
+  construction has to come from somewhere else — a non-abelian group action, or
+  an Ekedahl–Serre style curve with three independent genus-4 quotients.
+  Genus 14 and 15 (3 and 6 cycles in `TRANSITIVITY.md`, not listed there
+  individually) are not settled here and may well contain a realisable one:
+  appending a common block to `(7,2,2,1,1)` gives `(7,2,2,1,1,1)`, whose Prym
+  step leaves `(2,2,1,1,1)` at genus 7 — and that *is* within the `r = 3` range,
+  `B = 7`, max block genus 2. **That is the cheapest next computation in this
+  direction.**
+* **Same-genus transitivity below genus 13**, settled by `TRANSITIVITY.md`.
 
 ---
 
@@ -656,7 +801,9 @@ on `q`**.
 | `genus4_witness.py` | the `SU(2)×3·SU(2)` pencil verified fibre by fibre over 32 primes with an independent `(ℤ/2)²` point count; the branch controls showing the half-twisted mixture; the 60-branch `4·SU(2)` locus count over five primes; the genus-5 `SU(2)×USp(4)×USp(4)` pencil. Writes `genus4_witness.csv` |
 | `genus4_cycles.py` | cycles 8 and 9 at 40 digits through the independent Bessel determinant, with cycle 7 as control; `--wide` runs the capped cone search at `α_max ≤ 12, 14, 16` and `k ≤ 1, 2, 3`. Writes `genus4_cycles.csv` |
 | `wide_cycle.py` | the four vertices of the `α_max = 14` cycles: `SU(2)⁵` (with the direct `(ℤ/2)³` point count and the `S₃`-coincidence trap), `SU(2)×2·SU(2)×USp(4)`, `USp(14)`, `USp(6)×USp(6)`. Writes `wide_cycle.csv` |
-| `*_output.txt` | console output of the four scripts, kept verbatim |
+| `realisable_partitions.py` | which multiplicity-free partitions an elementary abelian 2-cover of `P¹` or a Prym tower can supply (Lemmas 2 and 3, enumerated to closure), the verdict on the three vertices of `TRANSITIVITY.md`'s genus-13 cycle, and the same-genus cycle search restricted to the realisable set. Writes `realisable_partitions.csv` |
+| `*_output.txt` | console output of the five scripts, kept verbatim |
 | `REPEATED_FACTOR.md` | the session this answers |
+| `TRANSITIVITY.md` | brief K, whose genus-13 cycle the addendum addresses |
 | `FINDINGS.md` | brief F, corrected above |
 | `curve_lib.py`, `st_lib.py`, `witness_search.py` | libraries used unchanged |
