@@ -9,9 +9,9 @@ concluded "cycles cannot come from mixing genera — fix `α_max` and vary the
 measure". Every `α_max` class tested is a total order: 0 cycles among 330, 8990
 and 190568 oriented triangles at `α_max = 4, 6, 8` in a 149-measure library, and
 0 among 11968 at `α_max = 12` in the symplectic one. Every cycle found — 9 among
-the symplectic measures to genus six, 2 more once torus factors are admitted, 44
-more once orthogonal ones are — crosses genus classes, and does so because the
-endpoint gap `Ψ_μ(∞) − Ψ_ν(∞) = α_max(μ) − α_max(ν)` is the third level a
+the symplectic measures to genus six, and, in the separate `α_max ≤ 8` library,
+2 once torus factors are admitted and 44 more once orthogonal ones are — crosses
+genus classes, and does so because the endpoint gap `Ψ_μ(∞) − Ψ_ν(∞) = α_max(μ) − α_max(ν)` is the third level a
 midrange 3-cycle needs and a fixed genus cannot supply.
 
 The widest is
@@ -315,8 +315,8 @@ does". Three tiers, and only the third survives.
 
 **Orthogonal measures are not `H¹` of a curve family** *(proved)*. `H¹` of a
 curve is symplectically self-dual, so `G_geom ⊆ Sp(2g)`. The `SO(n)` trace
-measures are in the library for the contrast the brief asked for; they supply 44
-of the 55 cycles and must be discarded.
+measures are in the library for the contrast the brief asked for; they supply
+all 44 cycles of the `α_max ≤ 8` library's widest tier and must be discarded.
 
 **Torus measures — `U(1)` (arcsine) and `CM = ½δ₀ + ½·arcsine` — are not
 vertical Sato–Tate measures** *(proved, modulo the cited theorem)*. By Deligne
@@ -555,7 +555,7 @@ on the larger libraries.
   content of the seed run is correct and reproduces exactly, but this conclusion
   is backwards. Fixing `α_max` is provably the case with *no* cycles (0 among
   330, 8990, 190568, 11968 oriented triangles across four `α_max` classes in two
-  libraries); mixing genera is where all 55 cycles live.
+  libraries); mixing genera is where every cycle found lives.
 * **To the seed's library.** `U(1)` (arcsine) and `CM = ½δ₀ + ½·arcsine` are
   *horizontal* Sato–Tate measures. As vertical limits — fixed family, `q → ∞` —
   they are excluded by Deligne's semisimplicity theorem. Seven of the ten
