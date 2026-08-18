@@ -1,0 +1,23 @@
+kind,a,b,c,d,e,f
+exception,2.USp4,2.SU2 x USp4,4.0,-1.0,-1.5,0.04026024
+exception,SU2 x SU2 x SU2 x USp4,2.SU2 x USp6,5.0,-1.0,-2.5,0.08370556
+exception,SU2 x 2.USp4,SU2 x 2.SU2 x USp4,5.0,-1.0,-1.5,0.04026024
+exception,SU2 x 2.SU2 x 2.SU2,USp4 x 3.SU2,5.0,-1.0,-2.0,0.20193536
+exception,2.USp6,2.SU2 x USp8,6.0,-1.0,-9.0,0.60979669
+exception,SU2 x SU2 x USp4 x USp4,2.SU2 x USp8,6.0,-1.0,-6.5,0.37035289
+exception,SU2 x SU2 x SU2 x USp6,2.SU2 x USp8,6.0,-1.0,-4.5,0.19699097
+exception,USp4 x 2.USp4,2.SU2 x USp4 x USp4,6.0,-1.0,-1.5,0.04026024
+exception,USp4 x 2.USp4,SU2 x 2.SU2 x USp6,6.0,-1.0,-3.5,0.21401223
+exception,SU2 x SU2 x SU2 x SU2 x USp4,SU2 x 2.SU2 x USp6,6.0,-1.0,-2.5,0.08370556
+exception,SU2 x SU2 x 2.USp4,SU2 x SU2 x 2.SU2 x USp4,6.0,-1.0,-1.5,0.04026024
+exception,2.SU2 x 2.USp4,2.SU2 x 2.SU2 x USp4,6.0,-1.0,-1.5,0.04026024
+exception,2.SU2 x 2.USp4,3.SU2 x USp6,6.0,-2.0,-5.5,0.41666444
+exception,SU2 x SU2 x SU2 x SU2 x 2.SU2,3.SU2 x USp6,6.0,-2.0,-4.5,0.29139540
+exception,3.USp4,SU2 x SU2 x 2.SU2 x 2.SU2,6.0,-1.0,-1.0,0.06321537
+exception,3.USp4,3.SU2 x USp6,6.0,-1.0,-7.0,0.80726947
+exception,3.USp4,SU2 x USp4 x 3.SU2,6.0,-2.0,-3.0,0.26598888
+exception,2.SU2 x 2.SU2 x USp4,3.SU2 x USp6,6.0,-1.0,-4.0,0.36352274
+exception,SU2 x SU2 x 2.SU2 x 2.SU2,SU2 x USp4 x 3.SU2,6.0,-1.0,-2.0,0.20193536
+exception,SU2 x 2.SU2 x 3.SU2,USp4 x 4.SU2,6.0,-3.0,-2.0,0.06813654
+threshold,0.668000,731,735,,,
+m2-ties,30,30,,,,
