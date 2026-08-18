@@ -28,6 +28,7 @@ being a ratio of affine functions).  The certificate reports
 from __future__ import annotations
 
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -173,6 +174,31 @@ def main():
     }
     (HERE / "i_certify.json").write_text(json.dumps(out, indent=1))
     print("\n  written: i_certify.json")
+
+    # independent cross-check: a dense grid in log beta, double precision,
+    # sharing no code with the exact evaluation above
+    import numpy as np
+    cc = np.array([[float(v) for v in data[a][0]] for a in range(4)])
+    xx = np.array([[float(v) for v in data[a][1]] for a in range(4)])
+    th = np.linspace(-40.0, 40.0, 4000001)
+    bb = np.exp(th)
+    Y = np.array([np.log(np.max(cc[a][None, :] + np.outer(bb, xx[a]), axis=1))
+                  for a in range(4)])
+    Dg = np.zeros((4, 4))
+    for i in range(4):
+        for j in range(i + 1, 4):
+            v = Y[j] - Y[i]
+            e0 = math.log(cc[j].max()) - math.log(cc[i].max())
+            e1 = math.log(xx[j].max()) - math.log(xx[i].max())
+            Dg[i, j] = Dg[j, i] = (max(v.max(), e0, e1)
+                                   - min(v.min(), e0, e1))
+    C4a = np.array(C4, dtype=float)
+    iu = np.triu_indices(4, 1)
+    rr = Dg[iu] / C4a[iu]
+    print("\n  independent double-precision cross-check on a 4e6-point grid:")
+    print(f"   max |d - s C_4| = {np.abs(Dg - float(s)*C4a).max():.3e}"
+          "   (grid resolution, not an error in the witness)")
+    print(f"   distortion      = {rr.max()/rr.min():.10f}")
 
 
 if __name__ == "__main__":

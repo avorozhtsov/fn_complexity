@@ -14,9 +14,10 @@ because the relaxation it uses already realises `C_4`.
 * **`C_4` is realisable** *(proved; certified to `6.6·10⁻⁴¹` at 40 digits)*.
   Explicitly, `d = s·C_4` with
   `s = 0.201980198313297395324406847972…`, realised by four points of the cone
-  that is the projective closure of `{F_a = log Z_a}`, every structural
-  inequality of the construction holding with margin `≥ 6.757·10⁻³`
-  (`i_certify.py`, `i_certify.json`).
+  that is the projective closure of `{F_a = log Z_a}`. Every *strict*
+  inequality of the construction holds with margin `≥ 6.757·10⁻³` (one
+  monotonicity constraint is met with equality — two lines of `Φ_1` merge,
+  which is legal); `i_certify.py`, `i_certify.json`.
 * **Consequently the infimum of the `C_4` distortion over signature 4-tuples is
   exactly `1`** *(proved)*, approached as `1 + 4.54/log r`. An explicit integer
   family with `log₁₀ r ≈ 10.9` already gives certified distortion **`1.2254`**,
@@ -347,6 +348,12 @@ S_3   = 8.92527974788611096, 5.25556557243888581, 5.24880825574554980, 1.1386774
 d     = s · C_4   with   max_ij | d_ij − s·(C_4)_ij |  =  6.60·10⁻⁴¹
 ```
 
+An **independent cross-check** inside the same script recomputes the whole
+`d` matrix in double precision on a `4·10⁶`-point grid in `log β`, sharing no
+code with the exact breakpoint evaluation: it returns distortion `1.0000055`,
+the residual `2.2·10⁻⁶` being the grid's own resolution at the one contact that
+sits exactly on a breakpoint.
+
 Margins of every strict inequality the construction uses: `min(u, L−u) ≥
 9.917·10⁻³`, node gaps `≥ 1.390`, `min_ij d_ij = 0.2020`, and the monotonicity
 gaps `S_{a,k} − S_{a,k+1} ≥ 6.757·10⁻³` **except** for the single pair
@@ -558,8 +565,9 @@ framework *can* do: it can realise `C_4`, and the price is `log r`. The honest
 headline for the metric side is therefore **not** an obstruction theorem but a
 rate:
 
-> `C_4` is realisable with distortion `1 + Θ(1/log r)`, and cannot be realised
-> at any scale above `log φ`.
+> `C_4` is realisable with distortion `1 + O(1/log r)` — measured constant
+> `4.54` — and cannot be realised at any scale above `log φ`. (Whether the rate
+> is also a lower bound is open.)
 
 The `A`-side conclusions of FINDINGS (§2, §3) are untouched, and §3.4's
 "geometric-mean rate asymmetry at most 2 around any cycle" is unchanged and
@@ -611,7 +619,7 @@ All under `research/realizability/`.
 | `i_deep.py` | basin-hopping search in the node model, seeded from brief G's own best `C_4` signatures; it stalls at `1.2618` at four nodes, which is why the *forced pattern* of `i_pattern.py` was needed |
 | `i_c4.py`, `i_search.py` | earlier searches in the `(centres, breakpoints)` and `(intercept, slope)` parametrisations; kept because they show where the naive searches stall (`1.2558–1.2624`) |
 | `i_pattern.py`, `_output` | the forced four-node pattern of §5.1 and its feasibility over all 24 orderings — **the proof that `C_4` is realisable** |
-| `i_certify.py`, `i_certify.json` | the witness rebuilt at 60 digits and certified at 40: `‖d − s·C_4‖_∞ = 6.6·10⁻⁴¹`, all margins |
+| `i_certify.py`, `_output`, `i_certify.json` | the witness rebuilt at 60 digits and certified at 40: `‖d − s·C_4‖_∞ = 6.6·10⁻⁴¹`, all margins, plus an independent double-precision cross-check on a `4·10⁶`-point grid |
 | `i_witness.py`, `_output`, `i_witness.json` | cone witness → signatures: the `1 + 4.54/log r` ladder and an exact integer family with certified distortion `1.2254` |
 | `i_logsig.py` | signatures held as `(log multiplicity, log atom)`, so the ladder can run to `r = 10^{11118}` |
 | `i_copeaked.py`, `_output` | the co-peaked relaxation realises `C_4` exactly — §6 |

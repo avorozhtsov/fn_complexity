@@ -11,3 +11,5 @@
             ADCB     0.02390053   FEASIBLE
             BACD     0.05702010   FEASIBLE
             BADC     0.14715369   FEASIBLE
+            BCAD     infeasible
+            BCDA     0.09012088   FEASIBLE
