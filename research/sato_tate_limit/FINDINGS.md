@@ -10,8 +10,8 @@ measure". Every `α_max` class tested is a total order: 0 cycles among 330, 8990
 and 190568 oriented triangles at `α_max = 4, 6, 8` in a 149-measure library, and
 0 among 11968 at `α_max = 12` in the symplectic one. Every cycle found — 9 among
 the symplectic measures to genus six, and, in the separate `α_max ≤ 8` library,
-2 once torus factors are admitted and 44 more once orthogonal ones are — crosses
-genus classes, and does so because the endpoint gap `Ψ_μ(∞) − Ψ_ν(∞) = α_max(μ) − α_max(ν)` is the third level a
+2 once torus factors are admitted and 42 more once orthogonal ones are (44 in
+all) — crosses genus classes, and does so because the endpoint gap `Ψ_μ(∞) − Ψ_ν(∞) = α_max(μ) − α_max(ν)` is the third level a
 midrange 3-cycle needs and a fixed genus cannot supply.
 
 The widest is
@@ -42,14 +42,16 @@ reduces to one arithmetic input**: is there a one-parameter family of curves ove
    genus 4              genus 6             genus 5
 ```
 
-margin `1.204·10⁻²`.
+margin `1.206·10⁻²` (polished; `1.204·10⁻²` on the search grid).
 
 **And the limit is silent about the certified finite-`q` cycles.** All three
 pencils of the `F_101` witness are generic genus-two hyperelliptic pencils, so
 all three have the *same* limiting measure `USp(4)`; `Ψ_u − Ψ_v → 0` and the
 limiting comparison makes no prediction about them at all. A transitive limit
-could never have killed them. Measured: the same-genus cycling fraction is flat
-in `q` over a 260-fold range (`3.2·10⁻⁵` to `3.0·10⁻⁴`, no trend, `q = 31…8009`).
+could never have killed them. Measured: the same-genus cycling fraction shows no
+decline over a 260-fold range of `q` — it runs `3.2·10⁻⁵, 2.1·10⁻⁴, 6.3·10⁻⁵,
+3.0·10⁻⁴, 1.8·10⁻⁴, 1.6·10⁻⁴, 2.2·10⁻⁴, 2.4·10⁻⁴` at `q = 31…8009`, noisy and if
+anything rising.
 **There is no `q` at which the census collapses**, and brief F's step 5, as
 posed, has no answer because its premise is false. What does die is the *mixing*
 of genera, and that is predicted and tested below: genus 2 and genus 3 stop
@@ -141,8 +143,12 @@ Three independent checks, `validate_library.py`:
   | `USp(8)` | 1 | 3 | 15 | 105 |
   | `U(1)` | 2 | 6 | 20 | 70 |
 
-  reproduced to `≤ 1.1·10⁻⁹`, with `E[tr²] = 1` for `SO(3..7)` and `E[tr] = 0`
-  for every group by central difference;
+  reproduced to `≤ 1.1·10⁻⁹` (the finite-difference scheme is second order on the
+  symmetric weights; on `SO(3)`, whose weight is asymmetric, it is first order
+  and the error is `10⁻⁶`), with `E[tr²] = 1` for `SO(3..7)`. The mean-zero
+  constraint `E[α] = 0`, which every limit measure of a fibration of `A²`
+  satisfies exactly because `Σ_c a_c = 0`, holds to `≤ 1.7·10⁻²¹` by central
+  difference for all ten groups;
 * **the edge exponent**, fitted from `τ(α_max − Ψ(τ))` at `τ = 2·10³…1.6·10⁴`
   against the closed form derived here — for a weight behaving like `(1−x)^a` at
   the top edge the density `∏(u_i−u_j)²∏u_i^a` is homogeneous of degree
@@ -212,11 +218,12 @@ gap. In particular:
 
 * **335 pairs of the full library are matched in `α_max` *and* `m₂`** — the
   configuration of the certified `F_101` witness, where two of the three pencils
-  share max fibre, `m₂` and `ν(P)`. In every one the comparison follows the
-  **edge exponent** (larger `t` precedes), and none of them crosses. That is the
-  limiting form of brief E's finding that `log μ`, the multiplicity of the
-  largest fibre, predicts the certified edge where the moment ladder does not;
-  the identification is made exact below.
+  share max fibre, `m₂` and `ν(P)`. 16 of them also tie in `t`; of the remaining
+  319, **302 (94.7%) follow the edge exponent**, larger `t` preceding, and 42 of
+  the 335 cross. So `t` is the decider on a matched pair but not an infallible
+  one — which is the limiting form of brief E's finding that `log μ`, the
+  multiplicity of the largest fibre, predicts the certified edge where the moment
+  ladder does not. The identification of `log μ` with `t` is made exact below.
 * The limit reproduces brief E's **sign**: larger `m₂` *follows*. Brief B's
   addendum 1 has it the other way, and is wrong.
 
@@ -286,6 +293,10 @@ multiplicities and `α_max ≤ 12` (genus 1–6): **114310 oriented triangles, 9
 | `SU2×3·SU2 ≺ USp12 ≺ SU2×USp4×USp4` | `1.050·10⁻²` |
 | `SU2×3·SU2 ≺ USp12 ≺ SU2²×USp6` | `1.050·10⁻²` |
 
+(margins on the 1201-point search grid of `symplectic_search.py`; the two
+verified in `verify_cycle.py` move by `2·10⁻⁵` and `2·10⁻⁵` when the extrema are
+polished.)
+
 The widest, verified three ways in `verify_cycle.py` (search grid `10⁻⁴…10⁵`
 3001 points; independent grid `10⁻⁵…10⁶` 1501 points; extrema polished by golden
 section on `log τ` to `10⁻¹³`, so the grid discretisation drops out):
@@ -298,6 +309,23 @@ section on `log τ` to `10⁻¹³`, so the grid discretisation drops out):
 
 Four interior contacts and two endpoint contacts — the same signature as the
 certified `F_11` cycle, one regime up.
+
+Two more are verified the same way in `verify_cycle.py`. The one that puts the
+least weight on the unproved arithmetic is
+
+```
+4·SU2   ≺   USp(4) × USp(8)   ≺   SU(2)⁵   ≺   4·SU2
+```
+
+midranges `−0.06910, −0.07936, −0.14261`, smallest margin `6.910·10⁻²`: **two of
+its three vertices are multiplicity-free**, so it needs a repeated isogeny factor
+at only one vertex. And the one that needs only multiplicity two,
+
+```
+2·SU2 × 2·SU2   ≺   USp(12)   ≺   SU(2)² × USp(6)
+```
+
+midranges `−0.07503, −0.15003, −0.01206`, smallest margin `1.206·10⁻²`.
 
 **The mechanism.** `4·SU2` has `α_max = 8` but `m₂ = 16`, so its `Ψ` rises
 fastest and then stalls; `USp6×USp6` has `α_max = 12` but `m₂ = 2` and `t = 21`,
@@ -315,8 +343,8 @@ does". Three tiers, and only the third survives.
 
 **Orthogonal measures are not `H¹` of a curve family** *(proved)*. `H¹` of a
 curve is symplectically self-dual, so `G_geom ⊆ Sp(2g)`. The `SO(n)` trace
-measures are in the library for the contrast the brief asked for; they supply
-all 44 cycles of the `α_max ≤ 8` library's widest tier and must be discarded.
+measures are in the library for the contrast the brief asked for; they take the
+`α_max ≤ 8` library from 2 cycles to 44, and must be discarded.
 
 **Torus measures — `U(1)` (arcsine) and `CM = ½δ₀ + ½·arcsine` — are not
 vertical Sato–Tate measures** *(proved, modulo the cited theorem)*. By Deligne
@@ -331,8 +359,8 @@ coset of its normaliser (whose elements have trace `0` and are semisimple), so
 unipotent acts irreducibly and is `SL₂`. If `j` is constant the family is
 isotrivial and `G_geom` is finite, giving an atomic measure, not the arcsine.
 **The arcsine is a horizontal (vary the prime) Sato–Tate measure, not a vertical
-one.** Discarding it and the `CM` mixture removes 2 further cycles and 7 of the
-seed's 10 genus-two measures.
+one.** Discarding it and the `CM` mixture removes the remaining 2 cycles of that
+library and 7 of the seed's 10 genus-two measures.
 
 **Symplectic measures.** Explicit witnesses:
 
@@ -360,7 +388,8 @@ factor**, `k·G` with `k ≥ 2` — a family whose Jacobian is isogenous to `A^k
 
 For the mildest case — `k = 2` with `A` elliptic, i.e. `Jac ∼ E²` for a genus-two
 family, the classical locus in `M₂` — a cycle already exists,
-`2·SU2 × 2·SU2 ≺ USp(12) ≺ SU(2)²×USp(6)` at margin `1.204·10⁻²`, needing a
+`2·SU2 × 2·SU2 ≺ USp(12) ≺ SU(2)²×USp(6)`, verified the same three ways at
+midranges `−0.07503, −0.15003, −0.01206` (smallest margin `1.206·10⁻²`), needing a
 genus-4 family with `Jac ∼ E₁²×E₂²`, a generic genus-6 pencil, and a genus-5
 family splitting as `E₃ × E₄ × A₃`. **I have not exhibited any multiplicity-`k`
 family explicitly, and that is the single open point of this session.** Two
@@ -493,9 +522,10 @@ the only pairs that can carry a cycle:
 | 4001 | 80 | 158080 | 34 | `2.2·10⁻⁴` | 0.0391 |
 | 8009 | 80 | 158080 | 38 | `2.4·10⁻⁴` | 0.0353 |
 
-Over a 260-fold range of `q` the cycling fraction has no trend. The scaled margin
-drifts down like `q^{−0.13}`, consistent with an edge-driven rather than
-bulk-driven fluctuation, but the *count* does not fall. **Brief F's step 5
+Over a 260-fold range of `q` the cycling fraction does not decline; it is noisy
+(the counts are 5 to 47 out of 158080) and if anything rises. The scaled margin
+does drift down, like `q^{−0.13}`, consistent with an edge-driven rather than
+bulk-driven fluctuation — but the *count* does not fall. **Brief F's step 5
 presumes a collapse that does not happen**, because it implicitly assumed the
 three families would have different limits.
 

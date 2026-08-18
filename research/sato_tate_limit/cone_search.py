@@ -380,15 +380,21 @@ def main() -> int:
                 sc = S.sign_changes(d, tol=1e-9 * max(np.abs(d).max(), 1e-300))
                 print(f"  {lib[i].label + ' | ' + lib[j].label:<52}"
                       f"{tail[i]:>6.1f}/{tail[j]:<5.1f}{mid[i, j]:>14.7f}{sc:>13}")
-    follows = sum(
-        1
-        for a in (4.0, 6.0, 8.0)
-        for i, j in itertools.combinations(np.where(np.abs(amax - a) < 1e-9)[0], 2)
-        if abs(var[i] - var[j]) <= 1e-9
-        and ((tail[i] > tail[j]) == (mid[i, j] < 0) or abs(tail[i] - tail[j]) < 1e-9)
-    )
-    print(f"\n  {matched} such pairs in the library; in {follows} of them the")
-    print("  comparison follows the edge exponent t -- larger t precedes.")
+    follows = ties = crossing = 0
+    for a in (4.0, 6.0, 8.0):
+        for i, j in itertools.combinations(np.where(np.abs(amax - a) < 1e-9)[0], 2):
+            if abs(var[i] - var[j]) > 1e-9:
+                continue
+            if S.sign_changes(psis[i] - psis[j]) >= 1:
+                crossing += 1
+            if abs(tail[i] - tail[j]) < 1e-9:
+                ties += 1
+            elif (tail[i] > tail[j]) == (mid[i, j] < 0):
+                follows += 1
+    print(f"\n  {matched} such pairs in the library; {ties} of them also tie in t,")
+    print(f"  and of the remaining {matched - ties}, {follows} follow the edge")
+    print(f"  exponent -- larger t precedes.  {crossing} of the {matched} cross.")
+    rows.append(["matched-m2-detail", matched, ties, follows, crossing, ""])
     rows.append(["matched-m2", "", matched, "", "", ""])
 
     with (HERE / "cone_summary.csv").open("w", newline="", encoding="utf-8") as fh:

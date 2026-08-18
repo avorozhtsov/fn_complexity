@@ -292,9 +292,35 @@ def main() -> int:
           f"{labels[best_t[2]]}")
     rows.append(["coset-mixture", m, tm, n_cyc, f"{best_s:.6e}", ""])
 
+    # the one coset construction with an arithmetic witness: a Jacobian whose
+    # two halves are exchanged by the geometric monodromy.  The non-identity
+    # coset consists of [[0, X], [Y, 0]], whose trace vanishes identically, so
+    # the measure is (1/2)(mu * mu) + (1/2) delta_0.
+    print("\n  the swap construction, 1/2 (mu * mu) + 1/2 delta_0, added to the")
+    print("  multiplicity-free products:")
+    swap_K = []
+    swap_a = []
+    swap_lab = []
+    for i, mm in enumerate(sub):
+        if 2 * mm.alpha_max > CAP + 1e-9:
+            continue
+        swap_K.append(np.logaddexp(math.log(0.5), math.log(0.5) + 2 * atom_K[i]))
+        swap_a.append(2 * mm.alpha_max)
+        swap_lab.append(f"swap({mm.label})")
+    allK2 = np.vstack([atom_K, np.array(swap_K)])
+    allA2 = np.concatenate([amax_sub, np.array(swap_a)])
+    mid2 = mid_matrix(allK2 / TAU, allA2)
+    t3, c3 = count_cycles(mid2, tol)
+    s3, tri3 = worst_triangle(mid2)
+    lab2 = [x.label for x in sub] + swap_lab
+    print(f"    members {mid2.shape[0]}   oriented triangles {t3}   "
+          f"3-cycles {len(c3)}   closest approach {s3:+.6e}")
+    print(f"      {lab2[tri3[0]]} -> {lab2[tri3[1]]} -> {lab2[tri3[2]]}")
+    rows.append(["swap-coset", mid2.shape[0], t3, len(c3), f"{s3:.6e}", ""])
+
     rng = np.random.default_rng(3)
     best = (math.inf, None)
-    tries = 40
+    tries = 25
     for _ in range(tries):
         x0 = rng.normal(0.0, 4.0, size=3 * n)
         res = minimize(objective, x0, args=(atom_K, amax_sub), method="Powell",

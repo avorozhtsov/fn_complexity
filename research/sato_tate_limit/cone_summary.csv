@@ -16,4 +16,5 @@ cycles,symplectic + torus,2,2,,
 cycles,everything (incl. orthogonal),44,44,,
 seed-table,cycles,0,240,6.779222e-02,3
 crossing-criterion,,3954,4009,,
+matched-m2-detail,335,16,302,42,
 matched-m2,,335,,,
