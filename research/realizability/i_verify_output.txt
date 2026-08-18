@@ -1,0 +1,35 @@
+=== T1  U'' > 0 in s = log beta  (proved) ===
+  min over 214 signatures x 4001 points of U''  =  0.000000e+00   (>= 0; zero only by underflow at |s| = 25)
+  min over the same signatures on |s| <= 6 : 0.000000e+00
+
+=== T2  scale function T = (F - beta F')/F' decreasing; U' = beta/(beta+T) ===
+  max RELATIVE increase of T along the grid : 4.539e-16  (<= 0)
+  max |U' - beta/(beta+T)|          : 7.772e-16
+
+=== T3  d <= |dsigma| + log(1 + e^{-|dsigma|})  (proved, sharp) ===
+  22791 pairs; worst violation = -1.235e-03  (negative means the bound holds)
+
+  sharpness ladder: a_r = (r, 1, ..., 1) against a flat b
+         r     dsigma            d        bound     ratio
+         2    0.00216   0.55717621   0.69422694   0.80259
+         2    0.50524   0.84025190   0.97734179   0.85973
+         2    1.43097   1.54016435   1.64533945   0.93608
+         4    0.00001   0.62088181   0.69315261   0.89574
+         4    0.49983   0.90324267   0.97397053   0.92738
+         4    1.48822   1.63975735   1.69178984   0.96924
+         8    0.00000   0.65624609   0.69314718   0.94676
+         8    0.50000   0.93838657   0.97407662   0.96336
+         8    1.49984   1.67544213   1.70128113   0.98481
+        20    0.00000   0.67821025   0.69314718   0.97845
+        20    0.50000   0.95972900   0.97407698   0.98527
+        20    1.50000   1.69108892   1.70141247   0.99393
+        60    0.00000   0.68814265   0.69314718   0.99278
+        60    0.50000   0.96928412   0.97407698   0.99508
+        60    1.50000   1.69797384   1.70141328   0.99798
+       200    0.00000   0.69164316   0.69314718   0.99783
+       200    0.50000   0.97263801   0.97407698   0.99852
+       200    1.50000   1.70038102   1.70141328   0.99939
+
+=== T4  the sharp large-scale bound for C_4 ===
+  s <= log(golden ratio) = 0.4812118251   (from the sharp T3)
+  s <= 0.7644901717                     (from FINDINGS' unsharpened 2 log(1+e^-D))

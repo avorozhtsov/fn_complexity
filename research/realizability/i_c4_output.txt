@@ -1,0 +1,4 @@
+  C_4  k=2  distortion = 1.2607753615
+  C_4  k=3  distortion = 1.2614421230
+  C_4  k=4  distortion = 1.2623176887
+  C_4  k=5  distortion = 1.2622331261

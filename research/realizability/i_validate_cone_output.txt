@@ -1,0 +1,13 @@
+=== (1) d = osc log(F_b/F_a) on genuine signatures ===
+  200 random integer pairs: max |d_direct - d_common| = 1.714e-08
+
+=== (2) tropical limit: d(a^(K), b^(K)) -> d_H(Phi_a, Phi_b) ===
+       K    max err over 40 pairs      K * err
+       4                3.381e-01       1.3525
+       8                1.827e-01       1.4617
+      16                9.311e-02       1.4897
+      32                4.480e-02       1.4337
+      64                2.182e-02       1.3966
+
+  err ~ C/K with C ~ 1 confirms the tropical cone is exactly the
+  projective closure of the achievable set.

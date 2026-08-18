@@ -408,9 +408,12 @@ factor**, `k·G` with `k ≥ 2` — a family whose Jacobian is isogenous to `A^k
 
 > **Corrected also — see [`TRANSITIVITY.md`](TRANSITIVITY.md) §5.** The
 > *same-genus* half of the dichotomy also fails, at genus 13, again on
-> multiplicity-free vertices. Those vertices have no pencils yet; the arithmetic
-> input they need is a Jacobian splitting into four or five distinct independent
-> factors of prescribed dimensions.
+> multiplicity-free vertices. **But those cycles are not reachable**:
+> `GENUS4_WITNESSES.md` proves three of their six vertices — `(7,2,2,1,1)`,
+> `(5,4,2,2)` and `(4,4,4,1)` — admit no curve family, each for a structural
+> reason, so with `TRANSITIVITY.md`'s exhaustive search **no same-genus 3-cycle
+> has all vertices realisable at any genus `≤ 13`**. The witnessed
+> non-transitivity is therefore cross-genus, at genus `5/7/6`.
 
 For the mildest case — `k = 2` with `A` elliptic, i.e. `Jac ∼ E²` for a genus-two
 family, the classical locus in `M₂` — a cycle already exists,
