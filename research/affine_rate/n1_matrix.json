@@ -1,0 +1,394 @@
+{
+ "classes": [
+  {
+   "key": "constant",
+   "representative": "0",
+   "signature": [
+    9
+   ],
+   "degree": 0,
+   "size": 3,
+   "atoms_k1": 1
+  },
+  {
+   "key": "linear",
+   "representative": "x",
+   "signature": [
+    3,
+    3,
+    3
+   ],
+   "degree": 1,
+   "size": 24,
+   "atoms_k1": 27
+  },
+  {
+   "key": "rank1",
+   "representative": "x^2",
+   "signature": [
+    6,
+    3
+   ],
+   "degree": 2,
+   "size": 72,
+   "atoms_k1": 14
+  },
+  {
+   "key": "split",
+   "representative": "xy",
+   "signature": [
+    5,
+    2,
+    2
+   ],
+   "degree": 2,
+   "size": 324,
+   "atoms_k1": 183
+  },
+  {
+   "key": "anisotropic",
+   "representative": "x^2+y^2",
+   "signature": [
+    4,
+    4,
+    1
+   ],
+   "degree": 2,
+   "size": 162,
+   "atoms_k1": 105
+  },
+  {
+   "key": "parabolic",
+   "representative": "x^2+y",
+   "signature": [
+    3,
+    3,
+    3
+   ],
+   "degree": 2,
+   "size": 144,
+   "atoms_k1": 135
+  },
+  {
+   "key": "cubic-711",
+   "representative": "xy+xy^2",
+   "signature": [
+    7,
+    1,
+    1
+   ],
+   "degree": 3,
+   "size": 216,
+   "atoms_k1": 123
+  },
+  {
+   "key": "cubic-63",
+   "representative": "y+y^2+x^2y",
+   "signature": [
+    6,
+    3
+   ],
+   "degree": 3,
+   "size": 432,
+   "atoms_k1": 98
+  },
+  {
+   "key": "cubic-522-a",
+   "representative": "y^2+x^2y",
+   "signature": [
+    5,
+    2,
+    2
+   ],
+   "degree": 3,
+   "size": 1296,
+   "atoms_k1": 291
+  },
+  {
+   "key": "cubic-522-b",
+   "representative": "xy^2",
+   "signature": [
+    5,
+    2,
+    2
+   ],
+   "degree": 3,
+   "size": 648,
+   "atoms_k1": 291
+  },
+  {
+   "key": "cubic-441-a",
+   "representative": "xy+y^2+x^2y",
+   "signature": [
+    4,
+    4,
+    1
+   ],
+   "degree": 3,
+   "size": 1296,
+   "atoms_k1": 291
+  },
+  {
+   "key": "cubic-441-b",
+   "representative": "y+xy+xy^2",
+   "signature": [
+    4,
+    4,
+    1
+   ],
+   "degree": 3,
+   "size": 432,
+   "atoms_k1": 195
+  },
+  {
+   "key": "cubic-333-a",
+   "representative": "y+x^2y",
+   "signature": [
+    3,
+    3,
+    3
+   ],
+   "degree": 3,
+   "size": 648,
+   "atoms_k1": 291
+  },
+  {
+   "key": "cubic-333-b",
+   "representative": "x+y+y^2+x^2y",
+   "signature": [
+    3,
+    3,
+    3
+   ],
+   "degree": 3,
+   "size": 864,
+   "atoms_k1": 531
+  }
+ ],
+ "n1": {
+  "constant": {
+   "constant": 0,
+   "linear": null,
+   "rank1": null,
+   "split": null,
+   "anisotropic": null,
+   "parabolic": null,
+   "cubic-711": null,
+   "cubic-63": null,
+   "cubic-522-a": null,
+   "cubic-522-b": null,
+   "cubic-441-a": null,
+   "cubic-441-b": null,
+   "cubic-333-a": null,
+   "cubic-333-b": null
+  },
+  "linear": {
+   "constant": 0,
+   "linear": 1,
+   "rank1": null,
+   "split": null,
+   "anisotropic": null,
+   "parabolic": null,
+   "cubic-711": null,
+   "cubic-63": null,
+   "cubic-522-a": null,
+   "cubic-522-b": null,
+   "cubic-441-a": null,
+   "cubic-441-b": null,
+   "cubic-333-a": null,
+   "cubic-333-b": null
+  },
+  "rank1": {
+   "constant": 0,
+   "linear": 2,
+   "rank1": 1,
+   "split": 2,
+   "anisotropic": 2,
+   "parabolic": 3,
+   "cubic-711": null,
+   "cubic-63": null,
+   "cubic-522-a": null,
+   "cubic-522-b": null,
+   "cubic-441-a": null,
+   "cubic-441-b": null,
+   "cubic-333-a": null,
+   "cubic-333-b": null
+  },
+  "split": {
+   "constant": 0,
+   "linear": 1,
+   "rank1": 1,
+   "split": 1,
+   "anisotropic": 2,
+   "parabolic": 2,
+   "cubic-711": null,
+   "cubic-63": null,
+   "cubic-522-a": null,
+   "cubic-522-b": null,
+   "cubic-441-a": null,
+   "cubic-441-b": null,
+   "cubic-333-a": null,
+   "cubic-333-b": null
+  },
+  "anisotropic": {
+   "constant": 0,
+   "linear": 2,
+   "rank1": 1,
+   "split": 2,
+   "anisotropic": 1,
+   "parabolic": 2,
+   "cubic-711": null,
+   "cubic-63": null,
+   "cubic-522-a": null,
+   "cubic-522-b": null,
+   "cubic-441-a": null,
+   "cubic-441-b": null,
+   "cubic-333-a": null,
+   "cubic-333-b": null
+  },
+  "parabolic": {
+   "constant": 0,
+   "linear": 1,
+   "rank1": 1,
+   "split": 2,
+   "anisotropic": 2,
+   "parabolic": 1,
+   "cubic-711": null,
+   "cubic-63": null,
+   "cubic-522-a": null,
+   "cubic-522-b": null,
+   "cubic-441-a": null,
+   "cubic-441-b": null,
+   "cubic-333-a": null,
+   "cubic-333-b": null
+  },
+  "cubic-711": {
+   "constant": 0,
+   "linear": 1,
+   "rank1": 1,
+   "split": 2,
+   "anisotropic": 2,
+   "parabolic": 2,
+   "cubic-711": 1,
+   "cubic-63": 2,
+   "cubic-522-a": 2,
+   "cubic-522-b": 2,
+   "cubic-441-a": 2,
+   "cubic-441-b": 2,
+   "cubic-333-a": 2,
+   "cubic-333-b": 3
+  },
+  "cubic-63": {
+   "constant": 0,
+   "linear": 2,
+   "rank1": 1,
+   "split": 2,
+   "anisotropic": 2,
+   "parabolic": 2,
+   "cubic-711": 2,
+   "cubic-63": 1,
+   "cubic-522-a": 2,
+   "cubic-522-b": 2,
+   "cubic-441-a": 2,
+   "cubic-441-b": 2,
+   "cubic-333-a": 2,
+   "cubic-333-b": 2
+  },
+  "cubic-522-a": {
+   "constant": 0,
+   "linear": 1,
+   "rank1": 1,
+   "split": 2,
+   "anisotropic": 2,
+   "parabolic": 2,
+   "cubic-711": 2,
+   "cubic-63": 2,
+   "cubic-522-a": 1,
+   "cubic-522-b": 2,
+   "cubic-441-a": 2,
+   "cubic-441-b": 2,
+   "cubic-333-a": 2,
+   "cubic-333-b": 2
+  },
+  "cubic-522-b": {
+   "constant": 0,
+   "linear": 1,
+   "rank1": 1,
+   "split": 2,
+   "anisotropic": 2,
+   "parabolic": 2,
+   "cubic-711": 2,
+   "cubic-63": 2,
+   "cubic-522-a": 2,
+   "cubic-522-b": 1,
+   "cubic-441-a": 2,
+   "cubic-441-b": 2,
+   "cubic-333-a": 2,
+   "cubic-333-b": 2
+  },
+  "cubic-441-a": {
+   "constant": 0,
+   "linear": 1,
+   "rank1": 1,
+   "split": 2,
+   "anisotropic": 2,
+   "parabolic": 2,
+   "cubic-711": 2,
+   "cubic-63": 2,
+   "cubic-522-a": 2,
+   "cubic-522-b": 2,
+   "cubic-441-a": 1,
+   "cubic-441-b": 2,
+   "cubic-333-a": 2,
+   "cubic-333-b": 2
+  },
+  "cubic-441-b": {
+   "constant": 0,
+   "linear": 1,
+   "rank1": 1,
+   "split": 2,
+   "anisotropic": 2,
+   "parabolic": 2,
+   "cubic-711": 2,
+   "cubic-63": 3,
+   "cubic-522-a": 2,
+   "cubic-522-b": 2,
+   "cubic-441-a": 2,
+   "cubic-441-b": 1,
+   "cubic-333-a": 2,
+   "cubic-333-b": 2
+  },
+  "cubic-333-a": {
+   "constant": 0,
+   "linear": 1,
+   "rank1": 1,
+   "split": 2,
+   "anisotropic": 2,
+   "parabolic": 2,
+   "cubic-711": 2,
+   "cubic-63": 2,
+   "cubic-522-a": 2,
+   "cubic-522-b": 2,
+   "cubic-441-a": 2,
+   "cubic-441-b": 2,
+   "cubic-333-a": 1,
+   "cubic-333-b": 2
+  },
+  "cubic-333-b": {
+   "constant": 0,
+   "linear": 1,
+   "rank1": 1,
+   "split": 2,
+   "anisotropic": 2,
+   "parabolic": 2,
+   "cubic-711": 2,
+   "cubic-63": 2,
+   "cubic-522-a": 2,
+   "cubic-522-b": 2,
+   "cubic-441-a": 2,
+   "cubic-441-b": 2,
+   "cubic-333-a": 2,
+   "cubic-333-b": 1
+  }
+ }
+}

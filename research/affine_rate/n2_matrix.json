@@ -1,0 +1,19 @@
+{
+ "limit": 4,
+ "n2": {
+  "linear": {
+   "linear": "2",
+   "rank1": ">4",
+   "split": ">4",
+   "anisotropic": ">4",
+   "parabolic": ">4"
+  },
+  "rank1": {
+   "linear": "4",
+   "rank1": "2",
+   "split": "4",
+   "anisotropic": "4",
+   "parabolic": ">4"
+  }
+ }
+}
