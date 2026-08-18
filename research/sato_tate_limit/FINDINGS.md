@@ -11,8 +11,9 @@ and 190568 oriented triangles at `α_max = 4, 6, 8` in a 149-measure library, an
 0 among 11968 at `α_max = 12` in the symplectic one. Every cycle found — 9 among
 the symplectic measures to genus six, and, in the separate `α_max ≤ 8` library,
 2 once torus factors are admitted and 42 more once orthogonal ones are (44 in
-all) — crosses genus classes, and does so because the endpoint gap `Ψ_μ(∞) − Ψ_ν(∞) = α_max(μ) − α_max(ν)` is the third level a
-midrange 3-cycle needs and a fixed genus cannot supply.
+all) — crosses genus classes, and does so because the endpoint gap
+`Ψ_μ(∞) − Ψ_ν(∞) = α_max(μ) − α_max(ν)` is the third level a midrange 3-cycle
+needs and a fixed genus cannot supply.
 
 The widest is
 
@@ -402,11 +403,13 @@ Convex combinations of *arbitrary* pairs of library measures do cycle, and
 abundantly — **3091 3-cycles** among the 435 measures obtained by adding all
 uniform averages of pairs of multiplicity-free measures, widest margin
 `1.686·10⁻¹`, the widest being
-`SU2⁵ ≺ ½(SU2×USp4×USp4) + ½USp12 ≺ ½SU2 + ½(USp6×USp6)`. But a uniform average
-of two prescribed measures corresponds to a monodromy group whose two cosets have
-exactly those trace measures, and I can exhibit no such group beyond the swap
-construction above. **These are a statement about the convex hull, not about
-curves.**
+`SU2⁵ ≺ ½(SU2×USp4×USp4) + ½USp12 ≺ ½SU2 + ½(USp6×USp6)`; free (non-uniform)
+weights do the same, `−5.306·10⁻²` from a six-restart Powell spot check. But a
+prescribed average of two prescribed measures corresponds to a monodromy group
+whose cosets have exactly those trace measures with exactly those weights, and I
+can exhibit no such group beyond the swap construction above. **These are a
+statement about the convex hull, not about curves** — and the contrast is sharp:
+mixtures of multiplicity-free measures cycle, while *products* of them do not.
 
 ---
 

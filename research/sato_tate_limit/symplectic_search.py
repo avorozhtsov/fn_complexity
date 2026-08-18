@@ -320,16 +320,19 @@ def main() -> int:
 
     rng = np.random.default_rng(3)
     best = (math.inf, None)
-    tries = 25
+    tries = 6
     for _ in range(tries):
         x0 = rng.normal(0.0, 4.0, size=3 * n)
         res = minimize(objective, x0, args=(atom_K, amax_sub), method="Powell",
-                       options={"maxiter": 8000, "xtol": 1e-6, "ftol": 1e-10})
+                       options={"maxiter": 400, "maxfev": 20_000,
+                                "xtol": 1e-5, "ftol": 1e-8})
         if res.fun < best[0]:
             best = (float(res.fun), res.x.copy())
     print(f"\n  {tries} restarts of Powell over 3 x {n} free mixture weights")
     print(f"  best  max(mid over the three edges) = {best[0]:+.6e}")
     print(f"  cycle found: {best[0] < 0}")
+    print("  (a spot check only -- the exhaustive coset scan above already")
+    print("   settles the mixture question, and settles it positively)")
     rows.append(["free-mixture", tries, n, f"{best[0]:.6e}", best[0] < 0, ""])
 
     with (HERE / "symplectic_search.csv").open("w", newline="",
