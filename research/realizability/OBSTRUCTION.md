@@ -411,6 +411,9 @@ An **exact integer family** at `B = 25` (five distinct atoms each, atoms of 7 to
 
 certified distortion **`1.225424`**, already better than brief G's `1.255692`
 with a fraction of the search effort — and it is the *first rung* of the ladder.
+(It differs slightly from the ladder's `1.2317` because flooring the
+multiplicities and rounding the atoms moves the configuration; here it happens
+to move it downhill.)
 
 *Not settled:* whether distortion exactly `1` is attained by an actual signature
 family rather than only in the closure. A damped Gauss–Newton on the five
