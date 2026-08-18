@@ -1,0 +1,66 @@
+
+q=11: pool has 296 signatures; using n=280
+  arithmetic         curl=0.090772 +-0.001059   cycles=  118.7   m2=1.310+-0.451
+  loose              curl=0.125826 +-0.008061   cycles= 1898.7   m2=4.174+-1.345
+  m2matched          curl=0.081069 +-0.003676   cycles=  124.3   m2=1.351+-0.484
+  marginal           curl=0.092963 +-0.003618   cycles=  103.0   m2=1.260+-0.513
+  sigshuffle         curl=0.079504 +-0.005664   cycles=   64.3   m2=1.345+-0.340
+  maxmatched         curl=0.096156 +-0.000982   cycles=  145.3   m2=1.315+-0.487
+
+q=13: pool has 698 signatures; using n=280
+  arithmetic         curl=0.087260 +-0.003465   cycles=  143.7   m2=1.291+-0.432
+  loose              curl=0.133168 +-0.003403   cycles= 2103.3   m2=4.605+-1.318
+  m2matched          curl=0.080850 +-0.003741   cycles=   70.7   m2=1.343+-0.430
+  marginal           curl=0.083317 +-0.000464   cycles=   64.0   m2=1.172+-0.417
+  sigshuffle         curl=0.071756 +-0.002250   cycles=   29.3   m2=1.301+-0.278
+  maxmatched         curl=0.093650 +-0.002590   cycles=  102.3   m2=1.297+-0.504
+
+q=17: pool has 3078 signatures; using n=280
+  arithmetic         curl=0.083743 +-0.004516   cycles=   60.3   m2=1.103+-0.347
+  loose              curl=0.146079 +-0.005346   cycles= 2316.7   m2=4.961+-1.190
+  m2matched          curl=0.079153 +-0.001722   cycles=   68.3   m2=1.094+-0.327
+  marginal           curl=0.083077 +-0.002453   cycles=  113.3   m2=1.030+-0.330
+  sigshuffle         curl=0.069820 +-0.000920   cycles=   10.0   m2=1.089+-0.214
+  maxmatched         curl=0.092364 +-0.003700   cycles=  171.7   m2=1.122+-0.358
+
+q=19: pool has 4394 signatures; using n=280
+  arithmetic         curl=0.088299 +-0.002063   cycles=  114.3   m2=1.073+-0.328
+  loose              curl=0.142505 +-0.004087   cycles= 1791.7   m2=5.035+-1.079
+  m2matched          curl=0.073018 +-0.003893   cycles=   50.0   m2=1.074+-0.311
+  marginal           curl=0.089515 +-0.001925   cycles=   93.3   m2=1.013+-0.305
+  sigshuffle         curl=0.065446 +-0.001626   cycles=    6.3   m2=1.054+-0.173
+  maxmatched         curl=0.097902 +-0.001032   cycles=  193.0   m2=1.080+-0.317
+
+q=23: pool has 8203 signatures; using n=280
+  arithmetic         curl=0.084274 +-0.003364   cycles=  163.0   m2=0.980+-0.268
+  loose              curl=0.134578 +-0.003885   cycles= 1238.0   m2=5.111+-1.044
+  m2matched          curl=0.073677 +-0.003032   cycles=   78.0   m2=0.983+-0.265
+  marginal           curl=0.078987 +-0.003399   cycles=   96.7   m2=0.954+-0.273
+  sigshuffle         curl=0.060548 +-0.003325   cycles=    8.0   m2=0.987+-0.153
+  maxmatched         curl=0.087086 +-0.004392   cycles=  141.7   m2=1.029+-0.285
+
+q=29: pool has 11254 signatures; using n=280
+  arithmetic         curl=0.083598 +-0.001657   cycles=  205.7   m2=0.972+-0.261
+  loose              curl=0.131559 +-0.003503   cycles= 1094.7   m2=5.101+-0.936
+  m2matched          curl=0.068338 +-0.004117   cycles=  109.0   m2=0.964+-0.254
+  marginal           curl=0.080621 +-0.005423   cycles=  168.3   m2=0.949+-0.242
+  sigshuffle         curl=0.061042 +-0.004575   cycles=   14.3   m2=0.953+-0.120
+  maxmatched         curl=0.093285 +-0.002757   cycles=  295.0   m2=0.958+-0.257
+
+==========================================================================
+regression of curl/|A| on the spread statistics, over all 108 pools (arithmetic and control alike)
+  R2 = 0.9309, residual sd = 0.00592
+    const          +0.141024
+    mean_m2        -0.012674
+    sd_m2          +0.151778
+    sd_alpha_max   -0.209591
+    sd_logloger    +0.023504
+
+  where the arithmetic pools sit, in residual standard deviations:
+    q= 11   +0.42  +0.30  +0.62
+    q= 13   +0.31  +0.17  +1.24
+    q= 17   -0.53  -0.08  -0.28
+    q= 19   +0.66  +0.41  -0.06
+    q= 23   -0.24  +0.63  +0.07
+    q= 29   +0.13  +0.39  +0.78
+    controls: mean -0.06, sd 1.07, range -2.45..+2.95

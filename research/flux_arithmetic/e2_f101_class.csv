@@ -1,0 +1,13 @@
+q,model,R2
+101,m2,0.5626814474474102
+101,log mult,0.17038080508519693
+101,m3,0.09751635666473413
+101,"m2, m3",0.8290072466562121
+101,"m2, m3, m4",0.9321685512726251
+101,"m2, m3, m4, log mult",0.947023215480007
+101,[witness edge] m2,0.0
+101,[witness edge] log mult,1.0
+101,[witness edge] m3,0.0
+101,"[witness edge] m2, m3",0.0
+101,"[witness edge] m2, m3, m4",0.0
+101,"[witness edge] m2, m3, m4, log mult",0.0

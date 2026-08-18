@@ -1,0 +1,12 @@
+q= 11 arithmetic           n= 296  max r=1.000000  max|curl|=2.893e-02  rms|curl|=3.911e-03  median|A|=1.725e-02  cycles=132
+q= 11 control:loose        n= 296  max r=1.000000  max|curl|=3.532e-02  rms|curl|=5.014e-03  median|A|=1.658e-02  cycles=1953
+q= 11 control:m2matched    n= 296  max r=1.000000  max|curl|=2.132e-02  rms|curl|=3.481e-03  median|A|=1.776e-02  cycles=97
+q= 11 control:marginal     n= 296  max r=1.000000  max|curl|=2.219e-02  rms|curl|=3.780e-03  median|A|=1.781e-02  cycles=104
+q= 11 control:sigshuffle   n= 296  max r=1.000000  max|curl|=1.579e-02  rms|curl|=2.697e-03  median|A|=1.067e-02  cycles=47
+q= 11 control:maxmatched   n= 296  max r=1.000000  max|curl|=2.618e-02  rms|curl|=4.053e-03  median|A|=1.723e-02  cycles=147
+q= 13 arithmetic           n= 698  max r=1.000000  max|curl|=2.058e-02  rms|curl|=3.176e-03  median|A|=1.499e-02  cycles=1475
+q= 13 control:loose        n= 698  max r=1.000000  max|curl|=3.426e-02  rms|curl|=4.569e-03  median|A|=1.335e-02  cycles=31587
+q= 13 control:m2matched    n= 698  max r=1.000000  max|curl|=1.798e-02  rms|curl|=2.815e-03  median|A|=1.524e-02  cycles=677
+q= 13 control:marginal     n= 698  max r=1.000000  max|curl|=1.983e-02  rms|curl|=3.184e-03  median|A|=1.595e-02  cycles=928
+q= 13 control:sigshuffle   n= 698  max r=1.000000  max|curl|=1.405e-02  rms|curl|=2.199e-03  median|A|=9.407e-03  cycles=740
+q= 13 control:maxmatched   n= 698  max r=1.000000  max|curl|=2.646e-02  rms|curl|=3.582e-03  median|A|=1.501e-02  cycles=2060

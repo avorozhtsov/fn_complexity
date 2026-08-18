@@ -1,0 +1,8 @@
+curl A on hyperelliptic families y^2 = P(x) + c over F_q
+r = |curl A| / sum|A|;  r = 1 exactly on a strict 3-cycle
+
+    q   g    n  triangles        max r   max |curl A|   median |A|     margin
+  101   2   90     117480     1.000000      3.051e-03    2.835e-03  1.165e-04
+  211   2   90     117480     1.000000      1.811e-03    1.527e-03  7.499e-05
+  211   3   90     117480     1.000000      1.925e-03    1.821e-03  6.677e-06
+  503   2   90     117480     1.000000      7.148e-04    6.897e-04  1.953e-05
