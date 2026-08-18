@@ -1,0 +1,15 @@
+source,target,k,r,rate,residual,feasible
+definite,hyperbolic,1,1,1.000000,1.000e+00,false
+definite,hyperbolic,1,2,0.500000,3.152e-19,true
+definite,hyperbolic,2,2,1.000000,1.000e+00,false
+definite,hyperbolic,2,3,0.666667,8.120e-17,true
+definite,hyperbolic,3,4,0.750000,2.384e-04,false
+definite,hyperbolic,4,5,0.800000,8.826e-01,false
+definite,hyperbolic,5,7,0.714286,7.097e-03,false
+definite,hyperbolic,4,6,0.666667,4.847e-16,true
+hyperbolic,definite,1,1,1.000000,1.000e+00,false
+hyperbolic,definite,1,2,0.500000,6.239e-18,true
+hyperbolic,definite,2,3,0.666667,5.008e-01,false
+hyperbolic,definite,2,4,0.500000,4.679e-17,true
+hyperbolic,definite,3,5,0.600000,5.067e-01,false
+hyperbolic,definite,3,6,0.500000,7.491e-15,true

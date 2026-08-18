@@ -1,0 +1,5 @@
+source,target,k,r,rate,pullbacks,target_span_pullback_free,best_difference_rank,conversion_found
+definite,hyperbolic,2,3,0.666667,861,true,2,true
+hyperbolic,definite,2,3,0.666667,1641,true,1,false
+definite,hyperbolic,3,4,0.750000,66795,true,2,false
+hyperbolic,definite,3,4,0.750000,132861,true,0,false

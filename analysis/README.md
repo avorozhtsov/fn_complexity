@@ -464,3 +464,41 @@ The second checks the two directions of the rate against a linear map over
 reverse has the universal bottleneck `beta* = sqrt(2) - 1` with
 `1 - C(f->L) = (3 - 2 sqrt 2) m_2 / (2 q log q)`, independent of family and
 genus; and a signature is flat exactly when `P` is a permutation polynomial.
+
+## Definite versus hyperbolic affine rates
+
+`analysis/definite_hyperbolic_affine_rates.py` backs the section *A certified
+fractional affine rate* of `paper_finite_fields_maps/main.tex`, for the pair
+`g_+ = x^2 + y^2` and `g_- = x^2 - y^2` (definite versus indefinite over `R`,
+anisotropic versus split over `F_q` with `q = 3 mod 4`):
+
+```bash
+python analysis/definite_hyperbolic_affine_rates.py
+```
+
+1. It verifies the three-source/two-target identity with linear processors,
+
+   ```text
+   (x1^2 + y2^2) - (y1^2 + y2^2) = x1^2 - y1^2
+   (x1^2 + x2^2) - (x1^2 + y2^2) = x2^2 - y2^2
+   ```
+
+   over `Z` and over `F_3, F_5, F_7, F_11`, so `C_aff(g_+ -> g_-) >= 2/3` over
+   every field.
+2. It searches exhaustively over `F_3`, for `k` target blocks out of `k+1`
+   source copies. Only `k = 2` in the direction anisotropic -> split has a
+   solution; `k = 3` has none in either direction, and split -> anisotropic has
+   none already at `k = 2`. The `k = 3` rows enumerate `3^12` input processors
+   and take a few minutes.
+3. It scans the same span condition numerically over `R`. The definite source
+   solves at `k/r = 1/2` and `2/3` and at nothing larger, including `5/7`; the
+   hyperbolic source solves exactly at `1/2`.
+
+Outputs are `definite_hyperbolic_f3_search.csv` and
+`definite_hyperbolic_real_scan.csv`.
+
+Items 1 and 2 are exact; item 3 is a search and is not promoted to a proof.
+The proved statements are `C_aff(x^2-y^2 -> x^2+y^2) = 1/2`, from the inertia
+monotone `n_+(A^T G A) <= n_+(G)` together with the two-copy construction, and
+`C_aff(x^2+y^2 -> x^2-y^2) >= 2/3` from the certificate. The exact value of the
+second rate is open: rank and inertia both stop at one in that direction.
