@@ -141,14 +141,36 @@ with `ψ = ½ log(log r · log M)`. Both constants are **sharp** and both bounds
 published bound; the sharpening is due to the obstruction session.]
 
 **Theorem B** *(proved)* [realizability/OBSTRUCTION]. `d(a,b)` is exactly the
-**Hilbert projective metric** between `F_a` and `F_b` on the cone
+**Hilbert projective metric** between `F_a` and `F_b` — of the ambient cone `K`
+of *positive functions* under the pointwise order, restricted to the achievable
+set `C = {Φ convex, nondecreasing, Φ ≥ Λ_Φ·β}`, which is the projective closure
+of that set. (The distinction matters: `d` is not the intrinsic Hilbert metric of
+`C`, and reading it that way yields a contraction theorem that does not exist
+[birkhoff §2.5].) Cartesian powers are the projective rescaling the Hilbert metric
+quotients out.
 
-```
-C = { Φ : Φ convex, nondecreasing, Φ ≥ Λ_Φ·β },
-```
+**Theorem B′** *(proved)* [birkhoff]. The constant `log 2` is a **projective
+diameter**. With `C_0 = {Φ ∈ C : Φ(0) = Λ_Φ}` the `σ = 0` fibre,
+`diam_d C_0 = log 2` exactly, attained between `max(1,β)` and `1+β`. The
+`β`-dilation group acts by isometries with geodesic orbits, `σ` is a surjective
+1-Lipschitz map to `ℝ`, and every fibre is isometric to `C_0`. Equivalently:
 
-and `C` is exactly the projective closure of the achievable set. Cartesian powers
-are the projective rescaling the Hilbert metric quotients out.
+> **the exchange geometry is the real line thickened by exactly one bit.**
+
+That is the geometric source of both sharp constants, and the attached Birkhoff
+ratio is `tanh((log 2)/4) = 3 − 2√2` exactly.
+
+**What Theorem B does *not* buy.** No processor is a Birkhoff contraction
+*(proved)*. Tensoring is a **translation** `Φ ↦ Φ + F_c`, neither linear nor
+degree-1 homogeneous; and every operation that *is* linear shifts `σ` by a
+constant, so its projective diameter is infinite and its Birkhoff ratio is
+exactly `1`, attained. Worse, tensoring **expands** `d` without bound —
+`d(a,a^{⊗k}) = 0` while `d(a⊗c, a^{⊗k}⊗c) → log k` — so `d` is a pseudometric on
+resources and `⊗` does not descend to its quotient. Any claim that conversion
+loses distinguishability at a definite rate is false. The correct positive
+statement is that all four resource operations are **nonexpansive in Thompson's
+part metric**: Hilbert and Thompson differ exactly along the projective
+direction, and the projective direction is what conversion trades in.
 
 **Everything previously observed is a corollary.** The `ℓ₂`-distortion `≈ 1.1`
 with `c₂/log n` *falling* — Bourgain's `O(log n)` is unreachable because the
@@ -163,6 +185,16 @@ gives:
 
 **Corollary C** *(proved).* The geometric mean of the rate asymmetry
 `C(b→a)/C(a→b)` around **any** preference cycle is at most **2**.
+
+Sharpness is now closed on one side. Writing `curl A = ½ log Ω` with `Ω` the
+ratio of forward to backward arbitrage around the triangle *(proved)*, the
+question "is the sharp constant `(log 2)/2`?" is exactly "**is `Ω ≤ 2`** — does
+the forward arbitrage exceed the backward by at most one bit?" The lower bound is
+proved in closed form by `Φ_1 = max(1,β)`, `Φ_2 = 1+β`, `Φ_3 = 1+e^Tβ`, giving
+`curl A = ½(log 2 − log(1+e^{−T})) ↗ (log 2)/2` — so the supremum is `≥ (log 2)/2`
+and is **not attained** [birkhoff]. The upper bound remains open between
+`(log 2)/2` and `3(log 2)/2`, and any proof must use the `σ`-spread: inside a
+single fibre the supremum is only `½ log(4/3)`.
 
 ---
 
