@@ -1,0 +1,33 @@
+  N_2(linear      -> linear      ) =   2      0.0s
+  N_2(linear      -> rank1       ) >  >3      0.1s
+  N_2(linear      -> split       ) >  >3      0.1s
+  N_2(linear      -> anisotropic ) >  >3      0.1s
+  N_2(linear      -> parabolic   ) >  >3      0.1s
+  N_2(rank1       -> linear      ) >  >3      0.1s
+  N_2(rank1       -> rank1       ) =   2      0.0s
+  N_2(rank1       -> split       ) >  >3      0.1s
+  N_2(rank1       -> anisotropic ) >  >3      0.1s
+  N_2(rank1       -> parabolic   ) >  >3      0.1s
+  N_2(split       -> linear      ) =   2      2.7s
+  N_2(split       -> rank1       ) =   2      3.0s
+  N_2(split       -> split       ) =   2      3.0s
+  N_2(split       -> anisotropic ) >  >3      5.7s
+  N_2(split       -> parabolic   ) >  >3      5.6s
+  N_2(anisotropic -> linear      ) =   3      3.2s
+  N_2(anisotropic -> rank1       ) =   2      1.6s
+  N_2(anisotropic -> split       ) =   3      2.8s
+  N_2(anisotropic -> anisotropic ) =   2      1.7s
+  N_2(anisotropic -> parabolic   ) >  >3      3.4s
+  N_2(parabolic   -> linear      ) =   2      0.7s
+  N_2(parabolic   -> rank1       ) =   2      1.7s
+  N_2(parabolic   -> split       ) >  >3      3.7s
+  N_2(parabolic   -> anisotropic ) >  >3      3.9s
+  N_2(parabolic   -> parabolic   ) =   2      1.8s
+
+N_2(g -> f) decided up to 3:
+                      linear         rank1         split   anisotropic     parabolic
+linear                     2            >3            >3            >3            >3
+rank1                     >3             2            >3            >3            >3
+split                      2             2             2            >3            >3
+anisotropic                3             2             3             2            >3
+parabolic                  2             2            >3            >3             2

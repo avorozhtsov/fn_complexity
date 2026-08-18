@@ -1,0 +1,37 @@
+{
+ "linear": {
+  "linear": "2",
+  "rank1": ">3",
+  "split": ">3",
+  "anisotropic": ">3",
+  "parabolic": ">3"
+ },
+ "rank1": {
+  "linear": ">3",
+  "rank1": "2",
+  "split": ">3",
+  "anisotropic": ">3",
+  "parabolic": ">3"
+ },
+ "split": {
+  "linear": "2",
+  "rank1": "2",
+  "split": "2",
+  "anisotropic": ">3",
+  "parabolic": ">3"
+ },
+ "anisotropic": {
+  "linear": "3",
+  "rank1": "2",
+  "split": "3",
+  "anisotropic": "2",
+  "parabolic": ">3"
+ },
+ "parabolic": {
+  "linear": "2",
+  "rank1": "2",
+  "split": ">3",
+  "anisotropic": ">3",
+  "parabolic": "2"
+ }
+}
