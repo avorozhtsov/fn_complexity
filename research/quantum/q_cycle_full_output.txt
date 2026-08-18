@@ -17,3 +17,4 @@
     quantum cycle margin      = +0.0084076199
     shadow acyclicity margin  = +0.0097523856
     verdict: QUANTUM 3-CYCLE WITH TRANSITIVE SHADOW
+  r=3 restart 0: margin +0.00608925
