@@ -359,6 +359,8 @@ def n_k_le_hull_plus_one(space: JetSpace, atoms_codes: np.ndarray,
         return rows[rows.any(axis=1)]
 
     best = cover_cost(q, atoms_inside(hull), targets.astype(np.int64), k + 1)
+    if best == k:
+        return best        # k is the absolute minimum, no need to look further
 
     # the distinct spaces H + <a> are indexed by atoms modulo H, normalised by
     # scaling the leading nonzero entry of the residual to 1
@@ -379,4 +381,6 @@ def n_k_le_hull_plus_one(space: JetSpace, atoms_codes: np.ndarray,
         cost = cover_cost(q, atoms_inside(bigger), targets.astype(np.int64), k + 1)
         if cost is not None and (best is None or cost < best):
             best = cost
+            if best == k:
+                break
     return best

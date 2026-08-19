@@ -247,10 +247,10 @@ functions on **all** `q²` resp. `q⁴` points, for `q = 3, 5, 7, 11, 13`, and
   `C_aff(Q → x) = 2/3`.
 * *`Q` isotropic and nondegenerate ⟹ `N_k(Q → x) = k` and `C_aff(Q → x) = 1`.*
 
-*Proof.* First part: Propositions A and B. Second part: an isotropic
-nondegenerate binary form is `λ·(uv)` after an invertible linear change, and
-`α_i(z) = (x_i, 1)` in those coordinates gives `Q∘α_i = λ x_i`; so `N_k ≤ k`,
-and `N_k ≥ k` because `1, x_1, …, x_k` are independent. ∎
+*Proof.* First part: Propositions A and B. Second part: a nondegenerate
+isotropic binary form is the hyperbolic plane, i.e. isometric to `uv`; in those
+coordinates `α_i(z) = (x_i, 1)` gives `Q∘α_i = x_i`, so `N_k ≤ k`, and
+`N_k ≥ k` because `1, x_1, …, x_k` are linearly independent. ∎
 
 **Corollary 1 (the congruence)** *(proved)*. *Over `F_q`, `q` odd:*
 
@@ -267,6 +267,13 @@ would make `n` a square. Apply Theorem 1. ∎
 **The hypothesis of the brief is therefore confirmed, and upgraded from a
 `q`-by-`q` computation to a single proof.** The jump is not a feature of small
 `q`; it is the definition of the square class of the discriminant.
+
+Theorem 1 also puts a number on a missing Hasse cover.
+`paper_finite_fields_maps/docs/quadratic_map_posets.md` records, for every odd
+`q`, that `[x² − ν y²]` covers `[x²]` but has **no** arrow to `[x]` — "a
+rank-one input restriction would need an isotropic direction". The arrow is
+missing, but the **rate is `2/3`**, not `0`: two copies of the anisotropic form
+already produce one copy of `x`, and three produce two.
 
 ### 1.4 Exhaustive confirmation
 
@@ -492,7 +499,8 @@ specialisation route of Proposition C is vacuous: it reduces `N_k(xy → f)` to
   quadratic pairs in the full jet model, by the argument that a four-atom
   solution has span of dimension `≤ 4` containing the three-dimensional hull,
   hence equal to `H` or to `H + ⟨a⟩` for a single atom `a`. Results in
-  `n3_le4.json`; they agree with everything proved above.
+  `n3_le4.json` and in §3.5; all `25` entries agree with everything proved
+  above.
 
 The upper bound `1` is untouched: `C_aff ≤ 1` is all that is proved, so **the
 crux question "can `C_aff = 1` without `f ⪯_aff g`?" survives exactly on these
@@ -513,6 +521,24 @@ enough to `1` that they do not decide it either.
 (`N_3` is exhaustive in row 1 (`run_split_to_sum2.py`) and forced by the proved
 formulas in rows 3, 5, 6; `≥ 5` in rows 2 and 4 is the exhaustive `N_3 > 4` of
 `run_n3.py`, and in row 4 also Theorem 2.)
+
+**The `k = 3` decision table** *(computed, exhaustive; `n3_le4.json`)*. Every
+one of the `25` entries is what the theorems above predict — an independent
+check of Theorems 1–3 that does not reuse any of their arguments:
+
+|  | `x` | `x²` | `xy` | `x²+y²` | `x²+y` |
+|---|---|---|---|---|---|
+| `x` | 3 | `>4` | `>4` | `>4` | `>4` |
+| `x²` | `>4` | 3 | `>4` | `>4` | `>4` |
+| `xy` | 3 | 3 | 3 | `>4` | `>4` |
+| `x²+y²` | `>4` | 3 | `>4` | 3 | `>4` |
+| `x²+y` | 3 | 3 | `>4` | `>4` | 3 |
+
+Reading the rows: `3` exactly where `N_1 = 1` (so `N_k = k`); `>4` in the
+`x²+y²` row against `x`, `xy` and `x²+y` because Theorem 2 forces `N_3 ≥ 5`;
+`>4` in the `x²+y` row against `xy` and `x²+y²` because Theorem 3 forces
+`N_3 = 6`; `>4` in the `x²` row throughout because `N_3 = 6` there; and `>4` in
+the `xy` row against `x²+y²` because `N_3 = 6` (§3.4).
 
 Adding these to the nine pairs already decided in `affine_rate` §2, the tally on
 the `F_3` quadratic pool is: **13 pairs with `C_aff < C_sig`, 4 with
@@ -733,8 +759,13 @@ attempt one.**
 4. **`C_aff` between anisotropic classes over `Q_p`**, `[1/2, 1]` (§6),
    equivalent in shape to item 1.
 5. **Characteristic 2.** Lemma 1 needs `|K| ≥ 3` and Lemmas 2–3 need
-   `char K ≠ 2`. `F_2`, `F_4`, `F_8` are untouched; over `F_2` the jet map is not
-   injective (`x² = x` as functions) and the whole calculus needs restating.
+   `char K ≠ 2`. `F_2`, `F_4`, `F_8`, `F_16` are untouched; over `F_2` the jet
+   map is not injective (`x² = x` as functions) and the whole calculus needs
+   restating. The question is not vacuous there:
+   `quadratic_map_posets.md` records the same missing cover
+   `[x² + xy + δy²] → [x]` for every even `q ≥ 4`, with `Tr(δ) = 1` in place of
+   the square-class condition, so there is an Artin–Schreier analogue of
+   Corollary 1 to look for.
 6. **The `⌈3k/2⌉` phenomenon.** Two different targets (`x` and `xy`) give
    literally the same `N_k` for every anisotropic resource over every odd `F_q`.
    Whether `x` and `xy` are `C_aff`-equivalent as targets in general is not
@@ -779,5 +810,7 @@ python3 research/affine_rate/run_excess_lemma.py
 python3 research/affine_rate/run_n3.py
 ```
 
-`run_n3.py` is the only slow one (about two hours; the `xy` atom set on
-`F_3^6` has `1 192 101` elements).
+`run_n3.py` is the only slow one — about two hours, because the `xy` atom set on
+`F_3^6` has `1 192 101` elements. It takes an optional list of resource rows
+(`python3 run_n3.py sum2 parabolic`) and merges into `n3_le4.json` after every
+pair, so it can be resumed.
