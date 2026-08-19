@@ -150,8 +150,9 @@ atoms(x²+y) = { ( ℓ² , L ) : ℓ, L ∈ V* }.                          (**)
 exhaustive "`N_2 ≤ 3`" decision for all `25` ordered pairs of `F_3` quadratic
 classes from the jet representation and compares them with the committed
 value-table results in `n1_matrix.json` and `n2_le3.json`. **All 50 entries
-agree.** The jet form is a faithful, and much smaller, model: for `k = 3` the
-value-table space has `3^729` functions, the jet space has `3^27` vectors.
+agree.** The jet form is a faithful, and much smaller, model: at `k = 3` the
+value-table model works with vectors in `F_3^{729}` and the jet model with
+vectors in `F_3^{27}`.
 
 **Lemma 2 (support).** *Let `Q` be anisotropic, `ℓ, m ∈ V*`, `W = span{ℓ,m}`,
 `π = (ℓ,m) : V → K²`, `q = Q∘π`. Then `rad q = W^⊥` and `rank q = dim W`. In
@@ -204,9 +205,10 @@ Matching linear parts, `z_i = Σ_j λ_j L_j` with `L_j ∈ W_j = span{ℓ_j,m_j}
 `dim W ≤ 2·dim span{q_j} ≤ 2(r−k)`. Therefore `k ≤ 2(r−k)`, i.e. `r ≥ 3k/2`. ∎
 
 The brief asked whether Proposition 2 "generalises verbatim". It does more than
-that: the proof never uses finiteness of `K`, never uses `n = 2` copies of
-anything, and never uses a residue field. It uses exactly one arithmetic fact,
-Lemma 2, and that fact is the definition of anisotropy.
+that: the proof never uses finiteness of `K`, never uses that `V` has dimension
+`2k` (any `V` and any independent `z_i` will do — which is what makes
+Proposition C work), and never uses a residue field. It uses exactly one
+arithmetic fact, Lemma 2, and that fact is the definition of anisotropy.
 
 ### 1.2 The matching witness
 
@@ -499,14 +501,18 @@ enough to `1` that they do not decide it either.
 
 ### 3.5 Where that leaves the conjecture
 
-| pair | `N_1` | `N_2` | `C_aff` | `C_sig` | verdict |
-|---|---:|---:|---|---|---|
-| `xy → x²+y²` | 2 | 4 | `[1/2, 1]` | `0.9966000` | open |
-| `xy → x²+y` | 2 | 4 | `[1/2, 1]` | `0.9840188` | open |
-| `x²+y² → xy` | 2 | 3 | **`2/3`** | `0.8613531` | `C_aff < C_sig` |
-| `x²+y² → x²+y` | 2 | 4 | `[1/2, 2/3]` | `0.9753011` | `C_aff < C_sig` |
-| `x²+y → xy` | 2 | 4 | **`1/2`** | `0.6826062` | `C_aff < C_sig` |
-| `x²+y → x²+y²` | 2 | 4 | **`1/2`** | `0.7924813` | `C_aff < C_sig` |
+| pair | `N_1` | `N_2` | `N_3` | `C_aff` | `C_sig` | verdict |
+|---|---:|---:|---:|---|---|---|
+| `xy → x²+y²` | 2 | 4 | **6** | `[1/2, 1]` | `0.9966000` | open |
+| `xy → x²+y` | 2 | 4 | `≥ 5` | `[1/2, 1]` | `0.9840188` | open |
+| `x²+y² → xy` | 2 | 3 | 5 | **`2/3`** | `0.8613531` | `C_aff < C_sig` |
+| `x²+y² → x²+y` | 2 | 4 | `≥ 5` | `[1/2, 2/3]` | `0.9753011` | `C_aff < C_sig` |
+| `x²+y → xy` | 2 | 4 | 6 | **`1/2`** | `0.6826062` | `C_aff < C_sig` |
+| `x²+y → x²+y²` | 2 | 4 | 6 | **`1/2`** | `0.7924813` | `C_aff < C_sig` |
+
+(`N_3` is exhaustive in row 1 (`run_split_to_sum2.py`) and forced by the proved
+formulas in rows 3, 5, 6; `≥ 5` in rows 2 and 4 is the exhaustive `N_3 > 4` of
+`run_n3.py`, and in row 4 also Theorem 2.)
 
 Adding these to the nine pairs already decided in `affine_rate` §2, the tally on
 the `F_3` quadratic pool is: **13 pairs with `C_aff < C_sig`, 4 with
@@ -544,8 +550,9 @@ that is *exactly* linear, or exactly `ceil(3k/2)`, from `k = 1` on:
 `g = x²` the atoms are `(ℓ², αℓ)`, the quadratic parts are rank one, and Lemma 3
 degenerates to `dim Σ⟨ℓ_j⟩ ≤ dim span{ℓ_j²}`. For `x² → x`, `Σλ_jℓ_j² = 0` costs
 `k` dimensions and `x_i ∈ Σ⟨ℓ_j⟩` costs `k` more, so `N_k = 2k`. The same
-argument gives the new bound `N_k(x² → x²+y) ≥ 2k`, i.e.
-`C_aff(x² → x²+y) ≤ 1/2`, consistent with the committed bracket `[1/3, 1/2]`.)
+argument gives `N_k(x² → x²+y) ≥ 2k`, i.e. `C_aff(x² → x²+y) ≤ 1/2` — the same
+upper bound brief O recorded for that row, now with the proof written out; its
+bracket `[1/3, 1/2]` is untouched.)
 
 `ceil(3k/2)` is not linear, but it is linear on each residue class mod `2` and
 `inf_k N_k/k = 3/2` is attained on the even ones, which is all Fekete needs. So:
@@ -620,9 +627,10 @@ ask:
 > containing `k` copies of a form `q_e` on disjoint two-dimensional blocks?
 
 with the trivial bounds `k+1 ≤ N_k ≤ 2k` from §3.4 and Attempt 1 respectively.
-**Beating `k+1` asymptotically in either setting would settle the other's
-shape.** That, and not a numerical experiment, is what the `p`-adic version
-needs.
+Over `F_3` the upper bound `2k` is attained exhaustively at `k = 1, 2, 3`
+(§3.4); over `Q_2` nothing beyond `k+1 ≤ N_k ≤ 2k` is known. **Beating `k+1`
+asymptotically in either setting would settle the other's shape.** That, and not
+a numerical experiment, is what the `p`-adic version needs.
 
 **One lever that exists over `Q_p` and not over `F_q`.** The rank-one atoms of a
 form `Q` are `a·ℓ²` with `a` a value represented by `Q`. Over `F_q` the norm map
@@ -647,8 +655,9 @@ attempt one.**
    that the findings live in a session report. This document therefore
    reconstructs the reduction lemma and the support monotone from
    `affine_atoms.py` (whose docstring states the lemma) and from
-   `run_n2_small.py` / `run_summary.py`, and re-derives Propositions 1–2 rather
-   than citing them. **Recommendation: commit the brief-O body.** Everything in
+   `run_n2_small.py` / `run_summary.py`, and re-derives every proposition it
+   needs rather than citing them. **Recommendation: commit the brief-O body.**
+   Everything in
    it that could be checked here checked out — the `N_1`/`N_2` matrices, the
    `2/3` for `x²+y² → x`, the `1/2` values for the `x²` row, `N_2 = 3 < 4 = 2N_1`,
    and the `C_sig` matrix.
@@ -678,9 +687,48 @@ attempt one.**
    first pair would force `C_aff ≥ 2/3` and is decidable by
    `run_split_to_sum2.py` if its `act` step is vectorised (the `k = 4` product
    set has about `10^7` elements).
+
+   **Both would follow from one clean linear-algebra statement**, which this
+   session isolates but does not prove. For a subspace `S` of quadratic forms on
+   `V` spanned by `s` independent forms `q_1,…,q_s` of rank `≤ 2` with supports
+   `W_j`, write the *excess* `ψ(S) = 2s − dim Σ_j W_j ≥ 0`.
+
+   > **Conjecture E1.** If `S` contains `k` independent forms of **rank one**
+   > with independent supports, then `ψ(S) ≥ k`, i.e.
+   > `dim supp(S) ≤ 2·dim S − k`.
+   >
+   > **Conjecture E2.** If the `q_j` are products of linear forms and `S`
+   > contains `k` independent **anisotropic rank-two** forms with independent
+   > supports, then `ψ(S) ≥ 2k`, i.e. `dim supp(S) ≤ 2·dim S − 2k`.
+
+   *Why it closes the brackets.* Write `S` for the span of the quadratic parts
+   of the *product* atoms, `s = dim S`, `w = dim supp(S)`, and `r_0` for the
+   number of purely affine atoms `(0, L)`.
+   For `xy → x²+y`: `S ∋ x_i²`, so E1 gives `w ≤ 2s − k`; since `X* ⊆ supp(S)`
+   and the linear parts of the product atoms lie in `supp(S)`, the `k`
+   independent `y_i` force `r_0 ≥ k − (w − k) ≥ 3k − 2s`, whence
+   `r ≥ s + max(0, 3k − 2s) ≥ ceil(3k/2)` and `C_aff ≤ 2/3 < 0.9840`.
+   For `xy → x²+y²`: `S ∋ F_i` anisotropic of rank `2`, so E2 gives
+   `w ≤ 2s − 2k`; and `w = 2k` because the supports of the `F_i` fill `V*`,
+   whence `s ≥ 2k` and, with `N_k ≤ 2k`, `C_aff = 1/2` exactly.
+
+   *Evidence.* The one-step case is proved: for a subset `S_i` carrying `F_i`,
+   `dim Σ_{j∈S_i} W_j ≤ 2|S_i| − 1` in the rank-one case (independent supports
+   would make the rank additive) and, over `F_3`, `≤ 2|S_i| − 2` in the
+   anisotropic rank-two case — the latter checked exhaustively at `|S_i| = 2`
+   by `run_excess_lemma.py`: **no two products of linear forms whose supports
+   span three dimensions combine to an anisotropic rank-two form over `F_3`.**
+   What is missing is the
+   passage from the individual `S_i` to their union; the excess function is
+   supermodular and monotone, which is not by itself enough when the `S_i`
+   overlap.
 2. **`C_aff(x²+y² → x²+y)` exactly**, in `[1/2, 2/3]`. `N_3 ∈ {5,6}` decides
-   `≥ 3/5` versus consistency with `N_k = 2k`; the exhaustive `N_k ≤ k+2`
-   decision needs a symmetry-reduced pair search that was not implemented.
+   `≥ 3/5` versus consistency with `N_k = 2k`. The method of
+   `run_split_to_sum2.py` applies in principle, but the target has a linear part
+   so the search cannot be pushed down into `Sym²`, and the stabiliser of the
+   hull `span{(x_i², y_i)}` is only the block-monomial group of order `2^k k!`,
+   leaving of the order of `10^4` orbit representatives among the `596 779`
+   `Q`-atom jets on `F_3^6` — perhaps a day of compute as written.
 3. **Rationality of `C_aff` in general** (§4).
 4. **`C_aff` between anisotropic classes over `Q_p`**, `[1/2, 1]` (§6),
    equivalent in shape to item 1.
@@ -707,6 +755,7 @@ attempt one.**
 | `run_isotropy_summary.py` | the §3.5 bracket table, regenerated from `n1_matrix.json` and `csig_matrix.json` with the proved upper bounds folded in |
 | `run_diagonal_ansatz.py` | brute-force check of the two diagonal-ansatz minima of §3.4 (`2k` and `ceil(3k/2)`) at `k = 1,2,3` |
 | `run_split_to_sum2.py` | symmetry-reduced exhaustive `N_k(xy → x²+y²) ≤ k+2` decision in `Sym²`; gives `N_2 = 4` and `N_3 = 6` |
+| `run_excess_lemma.py` | exhaustive check of the one-step case of Conjecture E2 (§8) over `F_3` |
 | `isotropy_family.csv` | the `q`-by-`q` congruence table of §1.4 |
 | `isotropy_csig.csv` | 40-digit `C_sig(Q → x)` for the three families at `q ≤ 47` |
 | `isotropy_csig_gap.csv` | the `C_sig` gap and the amplification factor of §2 |
@@ -726,6 +775,7 @@ python3 research/affine_rate/run_isotropy_csig.py
 python3 research/affine_rate/run_isotropy_summary.py
 python3 research/affine_rate/run_diagonal_ansatz.py
 python3 research/affine_rate/run_split_to_sum2.py
+python3 research/affine_rate/run_excess_lemma.py
 python3 research/affine_rate/run_n3.py
 ```
 
