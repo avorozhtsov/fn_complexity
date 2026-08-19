@@ -810,7 +810,8 @@ python3 research/affine_rate/run_excess_lemma.py
 python3 research/affine_rate/run_n3.py
 ```
 
-`run_n3.py` is the only slow one — about two hours, because the `xy` atom set on
+`run_n3.py` is the slow one — about an hour, because the `xy` atom set on
 `F_3^6` has `1 192 101` elements. It takes an optional list of resource rows
 (`python3 run_n3.py sum2 parabolic`) and merges into `n3_le4.json` after every
-pair, so it can be resumed.
+pair, so a long run can be resumed; delete `n3_le4.json` first for a run from
+scratch. `run_split_to_sum2.py` takes about three minutes.
