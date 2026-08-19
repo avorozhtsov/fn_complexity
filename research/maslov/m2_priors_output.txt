@@ -1,0 +1,59 @@
+/Users/artemvorozhtsov/projects/fn_complexity/.claude/worktrees/agent-a8a5f726a60e7a1be/research/maslov/m2_priors.py:160: RuntimeWarning: overflow encountered in exp
+  g = -sgn * mask / (1.0 + np.exp(m))  # d softplus(-m)/d d
+==============================================================================
+F_11 pool: 296 signatures, 43660 unordered pairs
+  grad energy 0.991749   curl energy 0.008251   3-cycles 132
+==============================================================================
+
+(a) endpoint prior  rho = (delta_{-inf} + delta_{+inf})/2
+    max |Psi_rho - (1/2) log phi| = 1.110e-16   (an identity, shown only to confirm the code)
+    order agreement: 0.82494
+
+(b) energy gauge  a -> (a_i^t):  u_{a^(t)}(s) = u_a(s + log t)
+    t=2:  max|A_inf(a^t) - A_inf(a)| = 2.060e-08    agreement of 1/2 log phi on the gauged pool: 0.82494
+    t=3:  max|A_inf(a^t) - A_inf(a)| = 2.225e-08    agreement of 1/2 log phi on the gauged pool: 0.82494
+    t=5:  max|A_inf(a^t) - A_inf(a)| = 1.585e-08    agreement of 1/2 log phi on the gauged pool: 0.82494
+
+(c) single temperatures  rho = delta_s  (the fixed-beta orders)
+    best single temperature: s = +2.9750 (beta = 19.59)   agreement 0.98005
+    s = -inf (order by r):   0.00000
+    s = +inf (order by M):   0.82494
+    agreement(s):  s=-4:0.3274  s=-2:0.3220  s=+0:0.0000  s=+2:0.9426  s=+4:0.9782  s=+6:0.9216  s=+8:0.8716
+
+(c2) named priors
+    uniform s in [-4,4]              0.98454
+    uniform s in [-8,8]              0.98518
+    uniform s in [-14,14]            0.98516
+    uniform s in [-24,24]            0.98516
+    uniform s in [0,6]               0.99391
+    uniform s in [-2,4]              0.98646
+    gaussian mu=0.0 sd=1.0           0.90037
+    gaussian mu=0.0 sd=2.0           0.97455
+    gaussian mu=0.0 sd=4.0           0.98834
+    gaussian mu=1.0 sd=2.0           0.98646
+    gaussian mu=2.0 sd=2.0           0.99411
+    uniform in beta on (0,10]        0.92746
+    uniform in beta on (0,100]       0.98374
+    uniform in beta on (0,1000]      0.98374
+    empirical sigma of the pool      0.28887
+
+(c3) optimised prior on a 561-atom grid  s in [-6, 12]
+    after mirror descent: 0.99478
+    sweep 1: 0.99521
+    sweep 2: 0.99615
+    sweep 3: 0.99620
+    sweep 4: 0.99622
+    sweep 5: 0.99622
+    optimised prior agreement: 0.99622
+    top atoms (s, weight): (+0.01, 0.491), (-5.23, 0.113), (-5.97, 0.111), (-5.87, 0.090), (-6.00, 0.074), (-5.49, 0.020), (+1.55, 0.008), (+1.52, 0.007)
+
+==============================================================================
+benchmarks on the same pool
+==============================================================================
+    1/2 log phi   (= endpoint prior)      0.82494
+    best single temperature delta_s       0.98005
+    best optimised Psi_rho                0.99622
+    HodgeRank psi_opt (not of Psi_rho form) 0.98314
+    ceiling from 42 edge-disjoint cycles   0.99904
+
+wrote m2_priors.csv, m2_best_prior.npy

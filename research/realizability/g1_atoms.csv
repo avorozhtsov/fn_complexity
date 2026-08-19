@@ -1,0 +1,8 @@
+what,range,signatures,triples,cycles/value,extra
+r=2 sweep,"x in [0.25,4.0]",3600,7769521200,2493,0
+r=2 sweep,"x in [0.05,1.2]",2500,2601042500,750,0
+r=2 sweep,"x in [1.0,12.0]",2500,2601042500,875,0
+r=2 hodge,,1600,,0.031287321479228705,0.12374852727657748
+cycle hunt,r=2,-0.11715729210074577,False,,
+cycle hunt,r=3,-0.2809272262257868,False,,
+cycle hunt,r=4,0.01177629124508861,True,,

@@ -1,0 +1,21 @@
+pool n = 702, 20 classes of equal largest fiber
+whole-pool curl/|A| = 0.079218
+the witness edge: A(f_1, f_2) = -1.619720e-04  (negative: f_2 precedes f_1)
+19 classes with 3 or more members; within-class curl/|A| = 0.085342
+pooled within-class slope of psi on m2: +0.00419153
+
+within-class regressions
+  R2 = 0.562681   m2
+  R2 = 0.170381   log mult
+  R2 = 0.097516   m3
+  R2 = 0.829007   m2, m3
+  R2 = 0.932169   m2, m3, m4
+  R2 = 0.947023   m2, m3, m4, log mult
+
+out-of-sample check on the witness pair (class max fiber = 123, 59 members)
+  m2                       predicts psi(f_2) - psi(f_1) = +0.000e+00  -> wrong
+  log mult                 predicts psi(f_2) - psi(f_1) = -4.452e-04  -> RIGHT
+  m3                       predicts psi(f_2) - psi(f_1) = +9.768e-05  -> wrong
+  m2, m3                   predicts psi(f_2) - psi(f_1) = +4.601e-04  -> wrong
+  m2, m3, m4               predicts psi(f_2) - psi(f_1) = +4.392e-04  -> wrong
+  m2, m3, m4, log mult     predicts psi(f_2) - psi(f_1) = +2.116e-04  -> wrong

@@ -1,0 +1,79 @@
+q,pool,n,model,R2
+11,exhaustive genus 2,296,M,0.9753816424158952
+11,exhaustive genus 2,296,log maxN,0.9886406976220768
+11,exhaustive genus 2,296,(1/2) log phi,0.9901056639228905
+11,exhaustive genus 2,296,m2,0.42319973845229
+11,exhaustive genus 2,296,"M, m2  (addendum phi~)",0.9823515977628664
+11,exhaustive genus 2,296,"M, m2, log mult",0.9828620742293399
+11,exhaustive genus 2,296,"M, m2, m3, m4, log mult",0.9917016307578288
+11,exhaustive genus 2,296,"(1/2) log phi, m2",0.9954465577257465
+11,exhaustive genus 2,296,"(1/2) log phi, log mult",0.9929109363788956
+11,exhaustive genus 2,296,"(1/2) log phi, m2, m3, m4, log mult",0.998061844105252
+11,exhaustive genus 2,296,"(1/2) log phi, log minN",0.9903565258642696
+11,exhaustive genus 2,296,[ceiling] any function of maxN,0.9902252015915166
+11,exhaustive genus 2,296,"[ceiling] any function of (maxN, mult)",0.9955218438284247
+13,exhaustive genus 2,698,M,0.9816482397516537
+13,exhaustive genus 2,698,log maxN,0.9916321754216105
+13,exhaustive genus 2,698,(1/2) log phi,0.9925214748181724
+13,exhaustive genus 2,698,m2,0.4102266544405714
+13,exhaustive genus 2,698,"M, m2  (addendum phi~)",0.9861430511065554
+13,exhaustive genus 2,698,"M, m2, log mult",0.9863122594954891
+13,exhaustive genus 2,698,"M, m2, m3, m4, log mult",0.993346142842744
+13,exhaustive genus 2,698,"(1/2) log phi, m2",0.9961488090179993
+13,exhaustive genus 2,698,"(1/2) log phi, log mult",0.994690665401199
+13,exhaustive genus 2,698,"(1/2) log phi, m2, m3, m4, log mult",0.9981962113190943
+13,exhaustive genus 2,698,"(1/2) log phi, log minN",0.9927317970141489
+13,exhaustive genus 2,698,[ceiling] any function of maxN,0.9926921365723002
+13,exhaustive genus 2,698,"[ceiling] any function of (maxN, mult)",0.9960880364370956
+17,sampled genus 2,600,M,0.9848188105743323
+17,sampled genus 2,600,log maxN,0.9902305323057401
+17,sampled genus 2,600,(1/2) log phi,0.9905608392677389
+17,sampled genus 2,600,m2,0.3343096603329212
+17,sampled genus 2,600,"M, m2  (addendum phi~)",0.9904088451532174
+17,sampled genus 2,600,"M, m2, log mult",0.9904755872434388
+17,sampled genus 2,600,"M, m2, m3, m4, log mult",0.9949387867022691
+17,sampled genus 2,600,"(1/2) log phi, m2",0.9958385246767628
+17,sampled genus 2,600,"(1/2) log phi, log mult",0.9925388723954156
+17,sampled genus 2,600,"(1/2) log phi, m2, m3, m4, log mult",0.9978058919926222
+17,sampled genus 2,600,"(1/2) log phi, log minN",0.9912106904265269
+17,sampled genus 2,600,[ceiling] any function of maxN,0.9906796845208269
+17,sampled genus 2,600,"[ceiling] any function of (maxN, mult)",0.9935008582293076
+19,sampled genus 2,600,M,0.9820813177279106
+19,sampled genus 2,600,log maxN,0.9878973058982065
+19,sampled genus 2,600,(1/2) log phi,0.9881950593446099
+19,sampled genus 2,600,m2,0.3440084406181312
+19,sampled genus 2,600,"M, m2  (addendum phi~)",0.9899465340126643
+19,sampled genus 2,600,"M, m2, log mult",0.9902841603503886
+19,sampled genus 2,600,"M, m2, m3, m4, log mult",0.9947948864819768
+19,sampled genus 2,600,"(1/2) log phi, m2",0.995173717830707
+19,sampled genus 2,600,"(1/2) log phi, log mult",0.9912862799085765
+19,sampled genus 2,600,"(1/2) log phi, m2, m3, m4, log mult",0.9979178801369044
+19,sampled genus 2,600,"(1/2) log phi, log minN",0.9887374339144728
+19,sampled genus 2,600,[ceiling] any function of maxN,0.988357335089931
+19,sampled genus 2,600,"[ceiling] any function of (maxN, mult)",0.9928933599766667
+23,sampled genus 2,600,M,0.9877511479286938
+23,sampled genus 2,600,log maxN,0.9905478348495692
+23,sampled genus 2,600,(1/2) log phi,0.9908039867825783
+23,sampled genus 2,600,m2,0.38169827803643797
+23,sampled genus 2,600,"M, m2  (addendum phi~)",0.9931366673143129
+23,sampled genus 2,600,"M, m2, log mult",0.9939202036671375
+23,sampled genus 2,600,"M, m2, m3, m4, log mult",0.99564882089798
+23,sampled genus 2,600,"(1/2) log phi, m2",0.9959755512646773
+23,sampled genus 2,600,"(1/2) log phi, log mult",0.9932921468201727
+23,sampled genus 2,600,"(1/2) log phi, m2, m3, m4, log mult",0.9982778045009506
+23,sampled genus 2,600,"(1/2) log phi, log minN",0.9914996541508391
+23,sampled genus 2,600,[ceiling] any function of maxN,0.9908574393017947
+23,sampled genus 2,600,"[ceiling] any function of (maxN, mult)",0.9941981480496076
+13,sampled genus 2-4,600,M,0.9839664626823952
+13,sampled genus 2-4,600,log maxN,0.9914829615537345
+13,sampled genus 2-4,600,(1/2) log phi,0.9921925935507248
+13,sampled genus 2-4,600,m2,0.42277846186911017
+13,sampled genus 2-4,600,"M, m2  (addendum phi~)",0.9891919600172667
+13,sampled genus 2-4,600,"M, m2, log mult",0.9892050509836059
+13,sampled genus 2-4,600,"M, m2, m3, m4, log mult",0.9948371535916345
+13,sampled genus 2-4,600,"(1/2) log phi, m2",0.996217111392174
+13,sampled genus 2-4,600,"(1/2) log phi, log mult",0.9944440110543821
+13,sampled genus 2-4,600,"(1/2) log phi, m2, m3, m4, log mult",0.998700786637684
+13,sampled genus 2-4,600,"(1/2) log phi, log minN",0.9923179077263214
+13,sampled genus 2-4,600,[ceiling] any function of maxN,0.9923164954881852
+13,sampled genus 2-4,600,"[ceiling] any function of (maxN, mult)",0.9956429709525243

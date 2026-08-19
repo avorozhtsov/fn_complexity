@@ -1,0 +1,22 @@
+two-fiber sweep: 200 three-cycles listed (of the full count)
+best grid margin: 1.320111e-03
+after refinement:  margin = 1.382452670e-03
+   atoms = (4.295754110, 4.191717160)
+   atoms = (5.538197538, 1.000000000)
+   atoms = (4.878051038, 2.237876272)
+
+power p = 34.301780; integer signatures:
+   (5180584820303422554112, 2234356748607932858368)
+   (31539938692971208223227904, 1)
+   (405578209186060584353792, 1000000000000)
+
+certified at 40 digits (max |double - mpmath| = 7.29e-17):
+   A(1,2) = +0.001382452670
+   A(2,3) = +0.001382452701
+   A(3,1) = +0.001382452672
+   directed 3-cycle = True;  margin = 1.382453e-03;  |curl| = 0.004147358 = sum|A| = 0.004147358
+   sigma = ['-4.278520', '-4.439179', '-4.362134']   spread 0.160659
+   psi   = ['1.772747', '1.853077', '1.814554']   spread 0.080330   (bound for a 3-cycle: log 2 = 0.693147)
+   mean |A| = 0.001382453   (bound (log2)/2 = 0.346573590)
+
+wrote /Users/artemvorozhtsov/projects/fn_complexity/.claude/worktrees/agent-a8cfd2828b776c898/research/realizability/g1_r2_witness.json

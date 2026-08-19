@@ -1,0 +1,40 @@
+smoke test -- random integer signatures, 10 seeds
+  n=  8  curl/|A| = 0.0153..0.0491 (median 0.0263)   3-cycles 0..0
+  n= 16  curl/|A| = 0.0250..0.0641 (median 0.0389)   3-cycles 0..1
+  n= 24  curl/|A| = 0.0283..0.0491 (median 0.0363)   3-cycles 0..2
+
+q=11 arithmetic  n=296  grad=0.995866 curl=0.090837  cycles=132  agree=0.98314
+  control loose       curl=0.114991 +-0.004256   cycles=1688.2
+  control m2matched   curl=0.078960 +-0.002523   cycles=89.6
+  control marginal    curl=0.089606 +-0.002044   cycles=75.2
+  control sigshuffle  curl=0.079671 +-0.002649   cycles=84.2
+  control maxmatched  curl=0.097009 +-0.002268   cycles=144.6
+
+q=13 arithmetic  n=698  grad=0.996367 curl=0.085165  cycles=1475  agree=0.98651
+  control loose       curl=0.130682 +-0.001368   cycles=31277.6
+  control m2matched   curl=0.081403 +-0.003812   cycles=1222.8
+  control marginal    curl=0.085660 +-0.002251   cycles=1112.2
+  control sigshuffle  curl=0.074572 +-0.001983   cycles=628.0
+  control maxmatched  curl=0.094114 +-0.002355   cycles=1820.2
+
+n-scaling of curl/|A|  (mean over 8 replicates)
+  q=11
+    n         arithmetic         loose     m2matched      marginal    sigshuffle    maxmatched
+      8        0.1116        0.1141        0.0848        0.1129        0.0719        0.0985
+     16        0.0696        0.1325        0.0814        0.0931        0.0801        0.0972
+     24        0.0935        0.1168        0.0809        0.0801        0.0898        0.0980
+     50        0.0930        0.1184        0.0774        0.0889        0.0788        0.0936
+    100        0.0921        0.1226        0.0811        0.0912        0.0805        0.0976
+    200        0.0912        0.1209        0.0781        0.0904        0.0840        0.0949
+    296        0.0908        0.1212        0.0784        0.0931        0.0816        0.0952
+  q=13
+    n         arithmetic         loose     m2matched      marginal    sigshuffle    maxmatched
+      8        0.0769        0.1031        0.0645        0.0911        0.0821        0.0934
+     16        0.0925        0.1160        0.0800        0.0827        0.0650        0.0893
+     24        0.0827        0.1128        0.0740        0.0767        0.0730        0.1006
+     50        0.0930        0.1303        0.0865        0.0894        0.0692        0.0934
+    100        0.0842        0.1372        0.0804        0.0898        0.0722        0.0895
+    200        0.0781        0.1355        0.0768        0.0857        0.0743        0.0915
+    296        0.0842        0.1356        0.0784        0.0888        0.0741        0.0954
+    500        0.0865        0.1316        0.0815        0.0859        0.0740        0.0881
+    698        0.0852        0.1310        0.0812        0.0864        0.0792        0.0916

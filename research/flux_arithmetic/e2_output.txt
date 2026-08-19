@@ -1,0 +1,168 @@
+
+=== q=11 (exhaustive genus 2), n=296 ===
+  |grad|/|A| = 0.995866   |curl|/|A| = 0.090837
+  psi_opt regressions
+    R2 = 0.975382   M
+    R2 = 0.988641   log maxN
+    R2 = 0.990106   (1/2) log phi
+    R2 = 0.423200   m2
+    R2 = 0.982352   M, m2  (addendum phi~)
+    R2 = 0.982862   M, m2, log mult
+    R2 = 0.991702   M, m2, m3, m4, log mult
+    R2 = 0.995447   (1/2) log phi, m2
+    R2 = 0.992911   (1/2) log phi, log mult
+    R2 = 0.998062   (1/2) log phi, m2, m3, m4, log mult
+    R2 = 0.990357   (1/2) log phi, log minN
+    R2 = 0.990225   [ceiling] any function of maxN
+    R2 = 0.995522   [ceiling] any function of (maxN, mult)
+  unfitted endpoint potential: ||A - grad psi_end||/||A|| = 0.138675  (best scalar multiple 0.134402; least squares 0.090837)
+  slope of psi_opt on psi_end = 0.966677
+  addendum: phi~ with its own coefficient -0.08578644 scores R2 = 0.971797; the free fit of (M, m2) puts the ratio at +0.401802
+  order agreement (fraction of ordered pairs given the right sign)
+    0.824943   M  (= any function of max fiber)
+    0.824943   log maxN
+    0.824943   (1/2) log phi
+    0.838891   phi~ = M - 0.0858 m2
+    0.956917   (1/2) log phi + fitted m2
+    0.983142   psi_opt (least squares)
+    of the 15286 ordered pairs phi gets wrong, 14798 are exact phi-ties and 488 are genuine violations
+
+=== q=13 (exhaustive genus 2), n=698 ===
+  |grad|/|A| = 0.996367   |curl|/|A| = 0.085165
+  psi_opt regressions
+    R2 = 0.981648   M
+    R2 = 0.991632   log maxN
+    R2 = 0.992521   (1/2) log phi
+    R2 = 0.410227   m2
+    R2 = 0.986143   M, m2  (addendum phi~)
+    R2 = 0.986312   M, m2, log mult
+    R2 = 0.993346   M, m2, m3, m4, log mult
+    R2 = 0.996149   (1/2) log phi, m2
+    R2 = 0.994691   (1/2) log phi, log mult
+    R2 = 0.998196   (1/2) log phi, m2, m3, m4, log mult
+    R2 = 0.992732   (1/2) log phi, log minN
+    R2 = 0.992692   [ceiling] any function of maxN
+    R2 = 0.996088   [ceiling] any function of (maxN, mult)
+  unfitted endpoint potential: ||A - grad psi_end||/||A|| = 0.124236  (best scalar multiple 0.121150; least squares 0.085165)
+  slope of psi_opt on psi_end = 0.973028
+  addendum: phi~ with its own coefficient -0.08578644 scores R2 = 0.979254; the free fit of (M, m2) puts the ratio at +0.383453
+  order agreement (fraction of ordered pairs given the right sign)
+    0.833161   M  (= any function of max fiber)
+    0.833161   log maxN
+    0.833161   (1/2) log phi
+    0.848458   phi~ = M - 0.0858 m2
+    0.958393   (1/2) log phi + fitted m2
+    0.986508   psi_opt (least squares)
+    of the 81168 ordered pairs phi gets wrong, 79296 are exact phi-ties and 1872 are genuine violations
+
+=== q=17 (sampled genus 2), n=600 ===
+  |grad|/|A| = 0.996327   |curl|/|A| = 0.085629
+  psi_opt regressions
+    R2 = 0.984819   M
+    R2 = 0.990231   log maxN
+    R2 = 0.990561   (1/2) log phi
+    R2 = 0.334310   m2
+    R2 = 0.990409   M, m2  (addendum phi~)
+    R2 = 0.990476   M, m2, log mult
+    R2 = 0.994939   M, m2, m3, m4, log mult
+    R2 = 0.995839   (1/2) log phi, m2
+    R2 = 0.992539   (1/2) log phi, log mult
+    R2 = 0.997806   (1/2) log phi, m2, m3, m4, log mult
+    R2 = 0.991211   (1/2) log phi, log minN
+    R2 = 0.990680   [ceiling] any function of maxN
+    R2 = 0.993501   [ceiling] any function of (maxN, mult)
+  unfitted endpoint potential: ||A - grad psi_end||/||A|| = 0.130968  (best scalar multiple 0.129237; least squares 0.085629)
+  slope of psi_opt on psi_end = 0.979049
+  addendum: phi~ with its own coefficient -0.08578644 scores R2 = 0.982720; the free fit of (M, m2) puts the ratio at +0.524018
+  order agreement (fraction of ordered pairs given the right sign)
+    0.835537   M  (= any function of max fiber)
+    0.835537   log maxN
+    0.835537   (1/2) log phi
+    0.852554   phi~ = M - 0.0858 m2
+    0.956661   (1/2) log phi + fitted m2
+    0.990440   psi_opt (least squares)
+    of the 59108 ordered pairs phi gets wrong, 57454 are exact phi-ties and 1654 are genuine violations
+
+=== q=19 (sampled genus 2), n=600 ===
+  |grad|/|A| = 0.996199   |curl|/|A| = 0.087103
+  psi_opt regressions
+    R2 = 0.982081   M
+    R2 = 0.987897   log maxN
+    R2 = 0.988195   (1/2) log phi
+    R2 = 0.344008   m2
+    R2 = 0.989947   M, m2  (addendum phi~)
+    R2 = 0.990284   M, m2, log mult
+    R2 = 0.994795   M, m2, m3, m4, log mult
+    R2 = 0.995174   (1/2) log phi, m2
+    R2 = 0.991286   (1/2) log phi, log mult
+    R2 = 0.997918   (1/2) log phi, m2, m3, m4, log mult
+    R2 = 0.988737   (1/2) log phi, log minN
+    R2 = 0.988357   [ceiling] any function of maxN
+    R2 = 0.992893   [ceiling] any function of (maxN, mult)
+  unfitted endpoint potential: ||A - grad psi_end||/||A|| = 0.139854  (best scalar multiple 0.138933; least squares 0.087103)
+  slope of psi_opt on psi_end = 0.984078
+  addendum: phi~ with its own coefficient -0.08578644 scores R2 = 0.979936; the free fit of (M, m2) puts the ratio at +0.711946
+  order agreement (fraction of ordered pairs given the right sign)
+    0.831870   M  (= any function of max fiber)
+    0.831870   log maxN
+    0.831870   (1/2) log phi
+    0.850885   phi~ = M - 0.0858 m2
+    0.954669   (1/2) log phi + fitted m2
+    0.990562   psi_opt (least squares)
+    of the 60426 ordered pairs phi gets wrong, 58698 are exact phi-ties and 1728 are genuine violations
+
+=== q=23 (sampled genus 2), n=600 ===
+  |grad|/|A| = 0.996555   |curl|/|A| = 0.082929
+  psi_opt regressions
+    R2 = 0.987751   M
+    R2 = 0.990548   log maxN
+    R2 = 0.990804   (1/2) log phi
+    R2 = 0.381698   m2
+    R2 = 0.993137   M, m2  (addendum phi~)
+    R2 = 0.993920   M, m2, log mult
+    R2 = 0.995649   M, m2, m3, m4, log mult
+    R2 = 0.995976   (1/2) log phi, m2
+    R2 = 0.993292   (1/2) log phi, log mult
+    R2 = 0.998278   (1/2) log phi, m2, m3, m4, log mult
+    R2 = 0.991500   (1/2) log phi, log minN
+    R2 = 0.990857   [ceiling] any function of maxN
+    R2 = 0.994198   [ceiling] any function of (maxN, mult)
+  unfitted endpoint potential: ||A - grad psi_end||/||A|| = 0.127285  (best scalar multiple 0.126530; least squares 0.082929)
+  slope of psi_opt on psi_end = 0.986238
+  addendum: phi~ with its own coefficient -0.08578644 scores R2 = 0.986300; the free fit of (M, m2) puts the ratio at +0.716772
+  order agreement (fraction of ordered pairs given the right sign)
+    0.856016   M  (= any function of max fiber)
+    0.856016   log maxN
+    0.856016   (1/2) log phi
+    0.872204   phi~ = M - 0.0858 m2
+    0.961074   (1/2) log phi + fitted m2
+    0.990456   psi_opt (least squares)
+    of the 51748 ordered pairs phi gets wrong, 49514 are exact phi-ties and 2234 are genuine violations
+
+=== q=13 (sampled genus 2-4), n=600 ===
+  |grad|/|A| = 0.996267   |curl|/|A| = 0.086330
+  psi_opt regressions
+    R2 = 0.983966   M
+    R2 = 0.991483   log maxN
+    R2 = 0.992193   (1/2) log phi
+    R2 = 0.422778   m2
+    R2 = 0.989192   M, m2  (addendum phi~)
+    R2 = 0.989205   M, m2, log mult
+    R2 = 0.994837   M, m2, m3, m4, log mult
+    R2 = 0.996217   (1/2) log phi, m2
+    R2 = 0.994444   (1/2) log phi, log mult
+    R2 = 0.998701   (1/2) log phi, m2, m3, m4, log mult
+    R2 = 0.992318   (1/2) log phi, log minN
+    R2 = 0.992316   [ceiling] any function of maxN
+    R2 = 0.995643   [ceiling] any function of (maxN, mult)
+  unfitted endpoint potential: ||A - grad psi_end||/||A|| = 0.126496  (best scalar multiple 0.123296; least squares 0.086330)
+  slope of psi_opt on psi_end = 0.972303
+  addendum: phi~ with its own coefficient -0.08578644 scores R2 = 0.981364; the free fit of (M, m2) puts the ratio at +0.409605
+  order agreement (fraction of ordered pairs given the right sign)
+    0.843940   M  (= any function of max fiber)
+    0.843940   log maxN
+    0.843940   (1/2) log phi
+    0.858959   phi~ = M - 0.0858 m2
+    0.961007   (1/2) log phi + fitted m2
+    0.984847   psi_opt (least squares)
+    of the 56088 ordered pairs phi gets wrong, 54406 are exact phi-ties and 1682 are genuine violations

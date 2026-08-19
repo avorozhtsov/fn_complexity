@@ -1,0 +1,49 @@
+=== short random integer signatures (2-7 entries, values 1-40) ===
+  random short, n=8          n=8    ratio=0.0240  rms|A|=0.3341  sd(psi)=0.2233  sd(sigma)=0.3424
+      bounds  B1=  0.0338  B2=  0.7742  B3=  1.0374   (B3 = (log2/2)/rms|A| = 1.0374)
+      |D| <= B1 violation +1.11e-16   |D| <= B2 violation -1.48e-01
+  random short, n=16         n=16   ratio=0.0383  rms|A|=0.1600  sd(psi)=0.1115  sd(sigma)=0.2160
+      bounds  B1=  0.0655  B2=  1.8385  B3=  2.1665   (B3 = (log2/2)/rms|A| = 2.1665)
+      |D| <= B1 violation +1.11e-16   |D| <= B2 violation -2.01e-01
+  random short, n=24         n=24   ratio=0.0309  rms|A|=0.2686  sd(psi)=0.1868  sd(sigma)=0.3031
+      bounds  B1=  0.0389  B2=  1.0368  B3=  1.2903   (B3 = (log2/2)/rms|A| = 1.2903)
+      |D| <= B1 violation +1.67e-16   |D| <= B2 violation -1.43e-01
+  random short, n=48         n=48   ratio=0.0287  rms|A|=0.3225  sd(psi)=0.2280  sd(sigma)=0.3271
+      bounds  B1=  0.0413  B2=  0.8406  B3=  1.0747   (B3 = (log2/2)/rms|A| = 1.0747)
+      |D| <= B1 violation +1.67e-16   |D| <= B2 violation -1.35e-01
+  random short, n=96         n=96   ratio=0.0387  rms|A|=0.2605  sd(psi)=0.1840  sd(sigma)=0.2930
+      bounds  B1=  0.0575  B2=  1.0867  B3=  1.3304   (B3 = (log2/2)/rms|A| = 1.3304)
+      |D| <= B1 violation +2.22e-16   |D| <= B2 violation -1.23e-01
+
+=== q-entry near-flat signatures (brief E shape) ===
+  arithmetic q=11            n=60   ratio=0.0780  rms|A|=0.0256  sd(psi)=0.0183  sd(sigma)=0.0366
+      bounds  B1=  0.1567  B2= 13.1709  B3= 13.5502   (B3 = (log2/2)/rms|A| = 13.5502)
+      |D| <= B1 violation +1.11e-16   |D| <= B2 violation -2.94e-01
+  control q=11               n=60   ratio=0.1031  rms|A|=0.0217  sd(psi)=0.0157  sd(sigma)=0.0313
+      bounds  B1=  0.2270  B2= 15.5354  B3= 15.9345   (B3 = (log2/2)/rms|A| = 15.9345)
+      |D| <= B1 violation +1.11e-16   |D| <= B2 violation -3.11e-01
+  arithmetic q=13            n=60   ratio=0.0913  rms|A|=0.0199  sd(psi)=0.0142  sd(sigma)=0.0284
+      bounds  B1=  0.1752  B2= 17.0515  B3= 17.4400   (B3 = (log2/2)/rms|A| = 17.4400)
+      |D| <= B1 violation +1.11e-16   |D| <= B2 violation -3.11e-01
+  control q=13               n=60   ratio=0.0881  rms|A|=0.0178  sd(psi)=0.0129  sd(sigma)=0.0257
+      bounds  B1=  0.1599  B2= 19.0507  B3= 19.4487   (B3 = (log2/2)/rms|A| = 19.4487)
+      |D| <= B1 violation +1.11e-16   |D| <= B2 violation -3.20e-01
+  arithmetic q=17            n=60   ratio=0.0876  rms|A|=0.0174  sd(psi)=0.0124  sd(sigma)=0.0248
+      bounds  B1=  0.1680  B2= 19.5573  B3= 19.9420   (B3 = (log2/2)/rms|A| = 19.9420)
+      |D| <= B1 violation +2.22e-16   |D| <= B2 violation -3.10e-01
+  control q=17               n=60   ratio=0.0898  rms|A|=0.0154  sd(psi)=0.0110  sd(sigma)=0.0220
+      bounds  B1=  0.1608  B2= 22.0757  B3= 22.4663   (B3 = (log2/2)/rms|A| = 22.4663)
+      |D| <= B1 violation +2.22e-16   |D| <= B2 violation -3.16e-01
+
+=== focused pools (r and M fixed: sigma and psi exactly tied) ===
+  bucket r=6,M=12            n=60   ratio=0.0636  rms|A|=0.0428  sd(psi)=0.0000  sd(sigma)=0.0000
+      bounds  B1=  1.0400  B2=  8.0981  B3=  8.0981   (B3 = (log2/2)/rms|A| = 8.0981)
+      |D| <= B1 violation +0.00e+00   |D| <= B2 violation -2.27e-01
+  bucket r=5,M=12            n=60   ratio=0.0544  rms|A|=0.0459  sd(psi)=0.0000  sd(sigma)=0.0000
+      bounds  B1=  1.0210  B2=  7.5493  B3=  7.5493   (B3 = (log2/2)/rms|A| = 7.5493)
+      |D| <= B1 violation +0.00e+00   |D| <= B2 violation -2.28e-01
+  bucket r=7,M=12            n=60   ratio=0.0766  rms|A|=0.0390  sd(psi)=0.0000  sd(sigma)=0.0000
+      bounds  B1=  1.0541  B2=  8.8760  B3=  8.8760   (B3 = (log2/2)/rms|A| = 8.8760)
+      |D| <= B1 violation +0.00e+00   |D| <= B2 violation -2.28e-01
+
+wrote /Users/artemvorozhtsov/projects/fn_complexity/.claude/worktrees/agent-a8cfd2828b776c898/research/realizability/g3_bound.csv

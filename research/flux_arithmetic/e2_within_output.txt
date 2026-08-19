@@ -1,0 +1,60 @@
+
+=== q=11 (exhaustive), n=296, 11 classes of equal largest fiber ===
+  9 classes with 3 or more members
+  within-class curl/|A| = 0.094469   (whole pool: 0.090837)
+  the addendum's rule 'the larger m2 precedes' is right on 9.6% of the 12742 ordered within-class pairs it decides
+  regressions of the WITHIN-CLASS potential
+    R2 = 0.765253   m2
+    R2 = 0.036164   m3
+    R2 = 0.401043   log mult
+    R2 = 0.120112   log minN
+    R2 = 0.958741   m2, m3
+    R2 = 0.973071   m2, m3, m4
+    R2 = 0.975369   m2, m3, m4, log mult
+    R2 = 0.978334   m2, m3, m4, log mult, log minN
+  pooled within-class slope of psi on m2: +0.008850 (the addendum requires it to be negative)
+
+=== q=13 (exhaustive), n=698, 14 classes of equal largest fiber ===
+  11 classes with 3 or more members
+  within-class curl/|A| = 0.103679   (whole pool: 0.085165)
+  the addendum's rule 'the larger m2 precedes' is right on 10.9% of the 68368 ordered within-class pairs it decides
+  regressions of the WITHIN-CLASS potential
+    R2 = 0.732081   m2
+    R2 = 0.040422   m3
+    R2 = 0.362490   log mult
+    R2 = 0.114970   log minN
+    R2 = 0.951275   m2, m3
+    R2 = 0.978202   m2, m3, m4
+    R2 = 0.983979   m2, m3, m4, log mult
+    R2 = 0.985301   m2, m3, m4, log mult, log minN
+  pooled within-class slope of psi on m2: +0.008229 (the addendum requires it to be negative)
+
+=== q=17 (sampled), n=1200, 16 classes of equal largest fiber ===
+  11 classes with 3 or more members
+  within-class curl/|A| = 0.093051   (whole pool: 0.081322)
+  the addendum's rule 'the larger m2 precedes' is right on 14.0% of the 192692 ordered within-class pairs it decides
+  regressions of the WITHIN-CLASS potential
+    R2 = 0.683579   m2
+    R2 = 0.008803   m3
+    R2 = 0.362492   log mult
+    R2 = 0.084337   log minN
+    R2 = 0.934221   m2, m3
+    R2 = 0.972602   m2, m3, m4
+    R2 = 0.980122   m2, m3, m4, log mult
+    R2 = 0.980644   m2, m3, m4, log mult, log minN
+  pooled within-class slope of psi on m2: +0.008304 (the addendum requires it to be negative)
+
+=== q=19 (sampled), n=1200, 11 classes of equal largest fiber ===
+  11 classes with 3 or more members
+  within-class curl/|A| = 0.084910   (whole pool: 0.088664)
+  the addendum's rule 'the larger m2 precedes' is right on 12.7% of the 198028 ordered within-class pairs it decides
+  regressions of the WITHIN-CLASS potential
+    R2 = 0.706601   m2
+    R2 = 0.006162   m3
+    R2 = 0.306738   log mult
+    R2 = 0.105935   log minN
+    R2 = 0.938740   m2, m3
+    R2 = 0.973144   m2, m3, m4
+    R2 = 0.980340   m2, m3, m4, log mult
+    R2 = 0.980893   m2, m3, m4, log mult, log minN
+  pooled within-class slope of psi on m2: +0.008172 (the addendum requires it to be negative)

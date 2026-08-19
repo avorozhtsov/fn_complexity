@@ -1,0 +1,45 @@
+q,pool,scope,model,R2
+11,exhaustive,within-class,m2,0.765253053037239
+11,exhaustive,within-class,m3,0.03616379483063048
+11,exhaustive,within-class,log mult,0.4010434655632418
+11,exhaustive,within-class,log minN,0.12011181781475821
+11,exhaustive,within-class,"m2, m3",0.9587406551196068
+11,exhaustive,within-class,"m2, m3, m4",0.9730714425052996
+11,exhaustive,within-class,"m2, m3, m4, log mult",0.9753688424916269
+11,exhaustive,within-class,"m2, m3, m4, log mult, log minN",0.9783339736081849
+11,exhaustive,within-class,[curl/|A| within class],0.09446872550191089
+11,exhaustive,within-class,[larger m2 precedes: fraction right],0.09558938942081306
+11,exhaustive,within-class,[pooled slope of psi on m2],0.008849768682711
+13,exhaustive,within-class,m2,0.7320808599831343
+13,exhaustive,within-class,m3,0.040421530470735045
+13,exhaustive,within-class,log mult,0.36248960591888935
+13,exhaustive,within-class,log minN,0.11497005998178322
+13,exhaustive,within-class,"m2, m3",0.9512745132208582
+13,exhaustive,within-class,"m2, m3, m4",0.9782024745324925
+13,exhaustive,within-class,"m2, m3, m4, log mult",0.9839794497346748
+13,exhaustive,within-class,"m2, m3, m4, log mult, log minN",0.9853014184964621
+13,exhaustive,within-class,[curl/|A| within class],0.10367852848371317
+13,exhaustive,within-class,[larger m2 precedes: fraction right],0.10885209454715657
+13,exhaustive,within-class,[pooled slope of psi on m2],0.008228626177539842
+17,sampled,within-class,m2,0.683579401833897
+17,sampled,within-class,m3,0.008802866450803082
+17,sampled,within-class,log mult,0.36249208900270824
+17,sampled,within-class,log minN,0.08433670869655374
+17,sampled,within-class,"m2, m3",0.9342210282004816
+17,sampled,within-class,"m2, m3, m4",0.9726018391306183
+17,sampled,within-class,"m2, m3, m4, log mult",0.9801224934114446
+17,sampled,within-class,"m2, m3, m4, log mult, log minN",0.9806436289987958
+17,sampled,within-class,[curl/|A| within class],0.09305133147355679
+17,sampled,within-class,[larger m2 precedes: fraction right],0.13983974425508064
+17,sampled,within-class,[pooled slope of psi on m2],0.008303999386966722
+19,sampled,within-class,m2,0.7066008149634698
+19,sampled,within-class,m3,0.0061620200633015765
+19,sampled,within-class,log mult,0.306737845331541
+19,sampled,within-class,log minN,0.10593467631234676
+19,sampled,within-class,"m2, m3",0.9387398913381321
+19,sampled,within-class,"m2, m3, m4",0.9731436412542859
+19,sampled,within-class,"m2, m3, m4, log mult",0.9803400400310308
+19,sampled,within-class,"m2, m3, m4, log mult, log minN",0.9808926442369856
+19,sampled,within-class,[curl/|A| within class],0.08491031256286714
+19,sampled,within-class,[larger m2 precedes: fraction right],0.1268406487971398
+19,sampled,within-class,[pooled slope of psi on m2],0.008172035306905072

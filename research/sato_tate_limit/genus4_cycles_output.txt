@@ -1,0 +1,159 @@
+================================================================================================
+1.  cross-check of the two independent implementations of K
+================================================================================================
+    SU2    tau=0.7    st_lib     0.235740426668   Bessel     0.235740426668   diff 0.000e+00
+    SU2    tau=3      st_lib     3.017851443984   Bessel     3.017851443984   diff 0.000e+00
+    SU2    tau=40     st_lib    73.196451572769   Bessel    73.196451572769   diff 0.000e+00
+    USp4   tau=0.7    st_lib     0.244846319587   Bessel     0.244846319587   diff 0.000e+00
+    USp4   tau=3      st_lib     4.122071212245   Bessel     4.122071212245   diff 0.000e+00
+    USp4   tau=40     st_lib   139.414219149537   Bessel   139.414219149537   diff 0.000e+00
+    USp6   tau=0.7    st_lib     0.244998638728   Bessel     0.244998638728   diff 0.000e+00
+    USp6   tau=3      st_lib     4.433702770340   Bessel     4.433702770340   diff 0.000e+00
+    USp6   tau=40     st_lib   199.857150082117   Bessel   199.857150082117   diff 0.000e+00
+    USp12  tau=0.7    st_lib     0.245000000000   Bessel     0.245000000000   diff 0.000e+00
+    USp12  tau=3      st_lib     4.499969002706   Bessel     4.499969002706   diff 0.000e+00
+    USp12  tau=40     st_lib   353.028009739864   Bessel   353.028009739864   diff 0.000e+00
+
+================================================================================================
+2.  the cycles the new genus-four witness unlocks, at 40 digits
+================================================================================================
+
+  cycle 8
+    SU2 x 3.SU2  ->  USp12                           -0.0104701004980744175618332104908580629417
+        sup 3.979059799003851164876334 at tau = 3.07724367279
+        inf -4.0 at tau = +inf
+    USp12  ->  SU2 x USp4 x USp4                     -0.3193781676625367999674667509788347439026
+        sup 2.0 at tau = +inf
+        inf -2.638756335325073599934934 at tau = 5.30645669409
+    SU2 x USp4 x USp4  ->  SU2 x 3.SU2              -0.06941755115942186712576370555007774238776
+        sup 2.0 at tau = +inf
+        inf -2.138835102318843734251527 at tau = 1.48199767447
+    strict 3-cycle: True;  smallest margin 0.0104701004980744175618332104909
+
+  cycle 9
+    SU2 x 3.SU2  ->  USp12                           -0.0104701004980744175618332104908580629417
+        sup 3.979059799003851164876334 at tau = 3.07724367279
+        inf -4.0 at tau = +inf
+    USp12  ->  SU2 x SU2 x USp6                      -0.1500338202737787826586997664872715993093
+        sup 2.0 at tau = +inf
+        inf -2.3000676405475575653174 at tau = 5.2675460763
+    SU2 x SU2 x USp6  ->  SU2 x 3.SU2                -0.1187123632823770305842286959426434046775
+        sup 2.0 at tau = +inf
+        inf -2.237424726564754061168457 at tau = 1.69213439713
+    strict 3-cycle: True;  smallest margin 0.0104701004980744175618332104909
+
+  cycle 7 (control)
+    2.SU2 x 2.SU2  ->  USp12                        -0.07502532855469174755865859708565165487046
+        sup 3.849949342890616504882683 at tau = 3.24530107607
+        inf -4.0 at tau = +inf
+    USp12  ->  SU2 x SU2 x USp6                      -0.1500338202737787826586997664872715993093
+        sup 2.0 at tau = +inf
+        inf -2.3000676405475575653174 at tau = 5.2675460763
+    SU2 x SU2 x USp6  ->  2.SU2 x 2.SU2             -0.01206057421855458525935346125780578377559
+        sup 2.0 at tau = +inf
+        inf -2.024121148437109170518707 at tau = 1.89687046085
+    strict 3-cycle: True;  smallest margin 0.0120605742185545852593534612578
+
+  wide, multiplicity <= 2
+    SU2 x 2.SU2 x USp4  ->  USp14                    -0.1196695279279056449131927908347005053983
+        sup 3.760660944144188710173614 at tau = 4.5297841704
+        inf -4.0 at tau = +inf
+    USp14  ->  USp6 x USp6                           -0.1106336225035651869285581462721661558688
+        sup 2.0 at tau = +inf
+        inf -2.221267245007130373857116 at tau = 6.94894235492
+    USp6 x USp6  ->  SU2 x 2.SU2 x USp4             -0.06158309201661860434628612187902857294081
+        sup 2.0 at tau = +inf
+        inf -2.123166184033237208692572 at tau = 2.5397147474
+    strict 3-cycle: True;  smallest margin 0.061583092016618604346286121879
+
+  wide, MULTIPLICITY-FREE
+    SU2^5  ->  USp14                                 -0.1051934832886848774201778453478543527828
+        sup 3.789613033422630245159644 at tau = 4.64737846031
+        inf -4.0 at tau = +inf
+    USp14  ->  USp6 x USp6                           -0.1106336225035651869285581462721661558688
+        sup 2.0 at tau = +inf
+        inf -2.221267245007130373857116 at tau = 6.94894235492
+    USp6 x USp6  ->  SU2^5                          -0.04011641219619069839997652842636065515779
+        sup 2.0 at tau = +inf
+        inf -2.080232824392381396799953 at tau = 2.78447363788
+    strict 3-cycle: True;  smallest margin 0.0401164121961906983999765284264
+
+================================================================================================
+3.  the second front: the capped cone search pushed to genus 8
+================================================================================================
+  K_ranks (one Bessel table, all ranks) against K_usp:
+    worst absolute difference over 16 probes: 0.000e+00
+
+  alpha_max <= 12, multiplicity <= 1: 29 measures, 7308 oriented triangles, 0 distinct 3-cycles
+
+  alpha_max <= 12, multiplicity <= 2: 52 measures, 44200 oriented triangles, 1 distinct 3-cycles, widest margin 1.2041e-02
+      2.SU2 x 2.SU2              < USp12                < SU2 x SU2 x USp6           margin 1.2041e-02   genus 4/6/5
+
+  alpha_max <= 12, multiplicity <= 3: 63 measures, 79422 oriented triangles, 3 distinct 3-cycles, widest margin 1.2041e-02
+      2.SU2 x 2.SU2              < USp12                < SU2 x SU2 x USp6           margin 1.2041e-02   genus 4/6/5
+      SU2 x 3.SU2                < USp12                < SU2 x SU2 x USp6           margin 1.0499e-02   genus 4/6/5
+      SU2 x 3.SU2                < USp12                < SU2 x USp4 x USp4          margin 1.0499e-02   genus 4/6/5
+
+  alpha_max <= 14, multiplicity <= 1: 44 measures, 26488 oriented triangles, 1 distinct 3-cycles, widest margin 4.0050e-02
+      SU2 x SU2 x SU2 x SU2 x SU2 < USp14                < USp6 x USp6                margin 4.0050e-02   genus 5/7/6
+
+  alpha_max <= 14, multiplicity <= 2: 83 measures, 183762 oriented triangles, 7 distinct 3-cycles, widest margin 6.1513e-02
+      SU2 x 2.SU2 x USp4         < USp14                < USp6 x USp6                margin 6.1513e-02   genus 5/7/6
+      2.SU2 x USp8               < SU2 x USp12          < USp4 x USp4 x USp4         margin 4.1344e-02   genus 6/7/6
+      SU2 x 2.SU2 x 2.SU2        < SU2 x USp12          < USp4 x USp4 x USp4         margin 4.1344e-02   genus 5/7/6
+      SU2 x SU2 x SU2 x SU2 x SU2 < USp14                < USp6 x USp6                margin 4.0050e-02   genus 5/7/6
+      2.SU2 x 2.SU2              < USp12                < SU2 x SU2 x USp6           margin 1.2041e-02   genus 4/6/5
+      SU2 x 2.SU2 x 2.SU2        < SU2 x USp12          < SU2 x SU2 x SU2 x USp6     margin 1.2041e-02   genus 5/7/6
+      2.SU2 x USp10              < SU2 x SU2 x SU2 x SU2 x SU2 x SU2 < SU2 x SU2 x 2.SU2 x USp4   margin 8.5844e-04   genus 7/6/6
+
+  alpha_max <= 14, multiplicity <= 3: 105 measures, 374920 oriented triangles, 18 distinct 3-cycles, widest margin 9.5196e-02
+      2.SU2 x 3.SU2              < SU2 x SU2 x USp10    < USp4 x 2.USp4              margin 9.5196e-02   genus 5/7/6
+      2.SU2 x USp10              < SU2 x SU2 x 2.USp4   < 3.SU2 x USp6               margin 8.0508e-02   genus 7/6/6
+      2.SU2 x USp10              < USp4 x USp4 x USp6   < 3.SU2 x USp6               margin 6.9416e-02   genus 7/7/6
+      SU2 x 2.SU2 x USp4         < USp14                < USp6 x USp6                margin 6.1513e-02   genus 5/7/6
+      2.SU2 x USp8               < SU2 x USp12          < USp4 x USp4 x USp4         margin 4.1344e-02   genus 6/7/6
+      SU2 x 2.SU2 x 2.SU2        < SU2 x USp12          < USp4 x USp4 x USp4         margin 4.1344e-02   genus 5/7/6
+      SU2 x USp12                < USp4 x USp4 x USp4   < USp4 x 3.SU2               margin 4.1344e-02   genus 7/6/5
+      SU2 x SU2 x SU2 x SU2 x SU2 < USp14                < USp6 x USp6                margin 4.0050e-02   genus 5/7/6
+      3.SU2 x 3.SU2              < SU2 x 2.SU2 x 2.SU2 x USp4 < SU2 x 2.SU2 x 2.USp4       margin 2.2098e-02   genus 6/7/7
+      2.SU2 x 2.SU2              < USp12                < SU2 x SU2 x USp6           margin 1.2041e-02   genus 4/6/5
+      SU2 x 2.SU2 x 2.SU2        < SU2 x USp12          < SU2 x SU2 x SU2 x USp6     margin 1.2041e-02   genus 5/7/6
+      2.SU2 x USp10              < SU2 x SU2 x SU2 x SU2 x SU2 x SU2 < 3.SU2 x USp6               margin 1.0843e-02   genus 7/6/6
+      ... and 6 more
+
+  alpha_max <= 16, multiplicity <= 1: 66 measures, 91520 oriented triangles, 3 distinct 3-cycles, widest margin 4.0050e-02
+      SU2 x SU2 x SU2 x SU2 x SU2 x SU2 < SU2 x USp14          < SU2 x USp6 x USp6          margin 4.0050e-02   genus 6/8/7
+      SU2 x SU2 x SU2 x SU2 x SU2 < USp14                < USp6 x USp6                margin 4.0050e-02   genus 5/7/6
+      SU2 x SU2 x SU2 x SU2 x SU2 x USp4 < SU2 x SU2 x SU2 x USp10 < USp4 x USp6 x USp6         margin 8.5844e-04   genus 7/8/8
+
+  alpha_max <= 16, multiplicity <= 2: 137 measures, 838440 oriented triangles, 31 distinct 3-cycles, widest margin 7.5069e-02
+      2.SU2 x 2.SU2 x 2.SU2      < 2.SU2 x USp12        < SU2 x 2.USp6               margin 7.5069e-02   genus 6/8/7
+      2.SU2 x 2.SU2 x 2.SU2      < 2.SU2 x USp12        < SU2 x USp6 x USp8          margin 7.3099e-02   genus 6/8/8
+      2.SU2 x 2.SU2 x 2.SU2      < 2.SU2 x USp12        < SU2 x SU2 x SU2 x USp4 x USp4 margin 6.2303e-02   genus 6/8/7
+      SU2 x 2.SU2 x USp4         < USp14                < USp6 x USp6                margin 6.1513e-02   genus 5/7/6
+      SU2 x SU2 x 2.SU2 x USp4   < SU2 x USp14          < SU2 x USp6 x USp6          margin 6.1513e-02   genus 6/8/7
+      2.SU2 x USp8               < SU2 x USp12          < USp4 x USp4 x USp4         margin 4.1344e-02   genus 6/7/6
+      SU2 x 2.SU2 x 2.SU2        < SU2 x USp12          < USp4 x USp4 x USp4         margin 4.1344e-02   genus 5/7/6
+      SU2 x 2.SU2 x USp8         < SU2 x SU2 x USp12    < SU2 x USp4 x USp4 x USp4   margin 4.1344e-02   genus 7/8/7
+      SU2 x SU2 x 2.SU2 x 2.SU2  < SU2 x SU2 x USp12    < SU2 x USp4 x USp4 x USp4   margin 4.1344e-02   genus 6/8/7
+      SU2 x SU2 x SU2 x SU2 x SU2 x SU2 < SU2 x USp14          < SU2 x USp6 x USp6          margin 4.0050e-02   genus 6/8/7
+      SU2 x SU2 x SU2 x SU2 x SU2 < USp14                < USp6 x USp6                margin 4.0050e-02   genus 5/7/6
+      2.SU2 x USp10              < SU2 x USp14          < SU2 x USp6 x USp6          margin 3.3946e-02   genus 7/8/7
+      ... and 19 more
+
+  alpha_max <= 16, multiplicity <= 3: 177 measures, 1817200 oriented triangles, 126 distinct 3-cycles, widest margin 1.6403e-01
+      2.SU2 x 3.SU2              < USp16                < 2.USp6                     margin 1.6403e-01   genus 5/8/6
+      2.SU2 x 3.SU2              < USp16                < USp6 x USp8                margin 1.6132e-01   genus 5/8/7
+      2.SU2 x 3.SU2              < USp16                < SU2 x SU2 x SU2 x SU2 x USp4 margin 1.6089e-01   genus 5/8/6
+      3.SU2 x USp6               < SU2 x USp14          < SU2 x USp6 x USp6          margin 1.1059e-01   genus 6/8/7
+      SU2 x 2.SU2 x 3.SU2        < SU2 x SU2 x SU2 x USp10 < SU2 x USp4 x 2.USp4        margin 9.5196e-02   genus 6/8/7
+      2.SU2 x 3.SU2              < SU2 x SU2 x USp10    < USp4 x 2.USp4              margin 9.5196e-02   genus 5/7/6
+      2.SU2 x 3.SU2              < USp16                < USp4 x 2.USp4              margin 9.5196e-02   genus 5/8/6
+      2.SU2 x 3.SU2              < USp16                < USp4 x USp10               margin 9.3299e-02   genus 5/8/7
+      2.SU2 x 2.SU2 x USp8       < SU2 x SU2 x 2.USp6   < 2.SU2 x USp4 x 3.SU2       margin 9.1122e-02   genus 8/8/7
+      2.SU2 x USp12              < SU2 x 2.USp6         < 3.SU2 x USp8               margin 8.3813e-02   genus 8/7/7
+      2.SU2 x USp12              < SU2 x USp6 x USp8    < 3.SU2 x USp8               margin 8.3813e-02   genus 8/8/7
+      2.SU2 x USp10              < SU2 x SU2 x 2.USp4   < 3.SU2 x USp6               margin 8.0508e-02   genus 7/6/6
+      ... and 114 more
+
+written: genus4_cycles.csv

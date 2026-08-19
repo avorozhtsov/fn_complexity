@@ -1,0 +1,34 @@
+=== sup |D| over pairs, k distinct values with free multiplicity ===
+   k      max |D|   /(log2/2)     Delta  bound .5log(1+e^-D)
+   1   0.00000000      0.0000   0.89380           0.17147540   2s
+       a = {e^5.027^(e^85.3)}   r_a = 1.108e+37
+       b = {e^5.919^(e^41.09)}   r_b = 6.983e+17
+   2   0.34273769      0.9889   0.00000           0.34657359   27s
+       a = {e^6^(e^0), e^0^(e^90)}   r_a = 1.22e+39
+       b = {e^6^(e^90), e^0.38^(e^24.33)}   r_b = 1.22e+39
+   3   0.34276689      0.9890   0.00000           0.34657359   41s
+       a = {e^6^(e^90.69), e^0^(e^0)}   r_a = 2.441e+39
+       b = {e^6^(e^0), e^0^(e^90.69)}   r_b = 2.441e+39
+
+=== sup eps = P + Q ===
+   k      max eps     /log2     Delta   bound 2log(1+e^-D)
+   1   0.00000000    0.0000   3.12278           0.08618506   P=0.000000 Q=0.000000   2s
+   2   0.68547538    0.9889   0.00000           1.38629436   P=0.685475 Q=0.000000   17s
+   3   0.68547538    0.9889   0.00000           1.38629436   P=0.000000 Q=0.685475   29s
+
+=== sup |curl A| over triangles ===
+   k   max |curl|   /(3log2/2)    mean|A|
+   1   0.00000000      0.00000  0.1745084  directed cycle=False   8s
+       {e^2.477^(e^78.16)}   r = 8.83083e+33, sigma = 3.45166
+       {e^2.014^(e^56.96)}   r = 5.47543e+24, sigma = 3.34235
+       {e^3.964^(e^39.32)}   r = 1.18956e+17, sigma = 2.29449
+   2   0.34273769      0.32964  1.8020680  directed cycle=False   121s
+       {e^6^(e^90)}   r = 1.2204e+39, sigma = 2.70805
+       {e^2.6^(e^0), e^0^(e^1)}   r = 3.71828, sigma = -0.68308
+       {e^6^(e^0), e^0^(e^90)}   r = 1.2204e+39, sigma = 2.70805
+   3   0.34273769      0.32964  1.7917016  directed cycle=False   225s
+       {e^3.206^(e^0), e^0.3775^(e^0), e^0^(e^0)}   r = 3, sigma = -1.07111
+       {e^6^(e^90), e^1.644^(e^48.84), e^1.559^(e^27.34)}   r = 1.2204e+39, sigma = 2.70805
+       {e^6^(e^0), e^0^(e^90)}   r = 1.2204e+39, sigma = 2.70805
+
+wrote /Users/artemvorozhtsov/projects/fn_complexity/.claude/worktrees/agent-a8cfd2828b776c898/research/realizability/extremes.csv

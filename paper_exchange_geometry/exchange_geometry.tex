@@ -1,0 +1,521 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\F}{\mathbb F}
+\newcommand{\R}{\mathbb R}
+\newcommand{\A}{\mathbb A}
+\newcommand{\impl}{\preccurlyeq}
+\newcommand{\caff}{C_{\mathrm{aff}}}
+\newcommand{\Cone}{\mathcal C}
+\newcommand{\Kone}{\mathcal K}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\source}[1]{{\normalfont\small\textsf{[#1]}}}
+
+\title{Exchange rates as quantitative structure\\on a hierarchy of maps}
+\author{Artem Vorozhtsov\\
+\small\texttt{artem.voroztsov@gmail.com}}
+\date{Working draft, \today}
+
+\hypersetup{pdftitle={Exchange rates as quantitative structure on a hierarchy of maps},
+            pdfauthor={Artem Vorozhtsov}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Classifying a family of maps under an implementation relation produces a
+preorder and stops there.  We add the missing quantitative layer: an
+\emph{exchange rate} counting how many copies of one map a second map can
+supply per copy, and we study the geometry it induces.  The main result is a
+structure theorem --- every exchange geometry is a one-dimensional geometry plus
+a defect bounded by $\log 2$, sharply, because the underlying Hilbert projective
+metric fibres over a line with fibres of diameter exactly one bit.  We record
+what the rate reads off an arithmetic family, why the comparison it induces is
+not transitive, and how large that failure is.  One theorem here --- on the
+square class of a quadratic form --- is arithmetic the signature rate provably
+cannot see.  Every numbered claim is marked
+\emph{proved} or \emph{computed}; sources are the accompanying findings files.
+\end{abstract}
+
+\section{The framework is general, and it adds structure rather than objects}
+
+Fix any class of maps $\mathcal P$ and any notion of \textbf{implementation} ---
+a relation $f \impl g$ meaning ``$g$ can be wired up to compute $f$''.
+Classification of $\mathcal P$ under $\impl$ is the classical activity: it
+produces a preorder, and its Hasse diagram is the hierarchy.  For polynomial
+maps over a field the standard choice is \emph{affine implementation},
+$f = b \circ g \circ a$ with $a,b$ affine, and the resulting posets of quadratic
+and cubic maps over $\F_q$ are the objects this project started from.
+
+A preorder answers one question --- \emph{can $g$ do $f$ at all?} --- and is
+silent on the quantitative one.  The exchange rate supplies the missing
+structure.  Writing $f^{\times k}$ for the $k$-fold Cartesian power and
+\[
+  k_{g\ra f}(r) \;=\; \max\{\,k : f^{\times k} \impl_{\mathrm{aff}} g^{\times r}\,\},
+\]
+block-diagonal composition gives $k(r+s) \ge k(r) + k(s)$, so Fekete's lemma
+yields
+\begin{equation}\label{eq:caff}
+  \caff(g\ra f) \;=\; \lim_{r\to\infty} \frac{k_{g\ra f}(r)}{r}.
+\end{equation}
+
+\textbf{This is the object.}  It refines the hierarchy without changing it:
+$f \impl g$ already implies $\caff(g\ra f) \ge 1$, and $\caff$ grades every
+comparable pair by \emph{how many} copies, and every incomparable pair by an
+exchange ratio the preorder cannot see.  The construction is generic --- it
+needs only a monoidal product and an implementation relation --- so it applies
+verbatim to any hierarchy of maps a reader already cares about.
+
+The computable proxy is the \textbf{signature rate}.  The signature $\sigma(f)$
+is the multiset of fiber cardinalities; for Cartesian powers fiber sizes
+multiply, and the entropy method gives the closed form
+\begin{equation}\label{eq:csig}
+  C(g\ra f) \;=\; \inf_{0\le\beta\le\infty}
+  \frac{\log Z_g(\beta)}{\log Z_f(\beta)},
+  \qquad Z_a(\beta) = \sum_i a_i^{\beta}.
+\end{equation}
+Here $\beta$ is an inverse temperature and $Z$ a partition function with energy
+levels $-\log n_i$; \eqref{eq:csig} is a theorem about the operational limit,
+not a second definition.  Throughout, $C$ means \eqref{eq:csig} and $\caff$
+means \eqref{eq:caff}.
+
+\subsection{The two rates are incomparable}
+
+An earlier draft asserted that affine implementation forces signature
+implementation, hence $\caff \le C$.  \textbf{That is false}, and the
+counterexample is a one-liner \source{affine\_rate}.  Over $\F_3$ take
+$g = x^2+y$ and $f = x^2$.  Then
+\[
+  f \;=\; g \circ a \qquad\text{with the \emph{singular} affine processor }
+  a(x,y) = (x,0),
+\]
+so $f \impl_{\mathrm{aff}} g$ in one shot and $\caff(g\ra f) = 1$; while
+$\sigma(g) = (3,3,3)$ and $\sigma(f) = (6,3)$ give
+\begin{equation}\label{eq:incomparable}
+  C\bigl(\sigma(g) \ra \sigma(f)\bigr)
+  \;=\; \frac{\log 3}{\log 6} \;=\; 0.6131471927654584\ldots \;<\; 1
+  \;=\; \caff(g\ra f).
+\end{equation}
+
+\textbf{The mechanism.}  The affine model explicitly permits singular input
+processors.  Here $a$ is $3$-to-$1$: it collapses the nine-point source onto a
+three-point line, and pulling back through it \emph{manufactures} a fiber of
+size $6$ from a map all of whose fibers have size $3$.  Signature implementation
+cannot do that --- its processors inject each target fiber into an assigned
+source fiber, so fiber sizes are inherited and never enlarged.  Neither rate
+bounds the other: on the five non-constant affine classes of quadratic maps
+$\F_3^2 \ra \F_3$, nine ordered pairs have $\caff < C$ and four have
+$\caff > C$.
+
+Worse, $\caff$ is not a function of the signature at all.  The maps $x$ and
+$x^2+y$ share the signature $(3,3,3)$, so their signature rates against $x^2$
+agree to all $40$ digits; but $\caff(x \ra x^2) = 0$ (the $x$-atoms are affine
+functions and span nothing of degree $2$) and $\caff(x^2+y \ra x^2) = 1$.  Two
+pairs, identical $C$, affine rates at the two ends of the range.  \emph{No
+functor between the two processor categories exists in either direction.}
+
+That the signature loses information was already visible on the arithmetic side:
+over $\F_{11}$, $1744$ genus-two pencils $y^2 = P(x)+c$ fall onto only $296$
+signatures, and every one of the $209$ multiply-realised signatures comes from
+pencils with different fiberwise isogeny data ($419$ of $420$ at $\F_{13}$)
+\source{flux\_arithmetic}.  But the affine counterexample is stronger than
+lossiness: $C$ is not an approximation to $\caff$ from either side.
+\textbf{Every statement below is a statement about $C$, and the word
+``signature'' belongs in each of them.}
+
+This looks like a liability, and \S\ref{sub:isotropy} shows it is the
+opposite: the difference between the two rates is exactly where the arithmetic
+that $C$ cannot see is kept.
+
+\section{What the rate reads off an arithmetic family}
+
+Let $f : \A^2 \ra \A^1$ over $\F_q$ have geometrically irreducible fibers,
+$N_c = \#f^{-1}(c)$, $a_c = q - N_c$ the Frobenius traces,
+$m_2 = q^{-2}\sum_c a_c^2$, and let $L = (q,\dots,q)$ be the flat signature of a
+linear map \source{m\_and\_e\_and\_a\_c}.
+
+\begin{proposition}[proved]\label{prop:endpoint}
+$C(L\ra f) = \log q / \log \max_c N_c$, attained at $\beta = \infty$.
+\end{proposition}
+
+\begin{proposition}[proved]\label{prop:bottleneck}
+$1 - C(f\ra L) = (3-2\sqrt2)\,m_2/(2q\log q) + O(q^{-3/2})$, with the infimum at
+\[
+  \beta^{*} \;=\; \sqrt2 - 1 \;=\; 0.414213562\ldots
+\]
+independent of family, genus and $q$.
+\end{proposition}
+
+So the two ends of the temperature axis read two classical statistics: the
+\textbf{extreme Frobenius trace} at $\beta = \infty$ and the \textbf{second
+moment} at $\beta^{*}$.  The interior carries the whole moment ladder, each
+order damped by ${\approx}\,0.6/\sqrt q$.  Flatness is equivalent to a
+permutation-polynomial condition, which subsumes the known $q \equiv 2 \bmod 3$
+result and reaches non-congruence conditions such as supersingular primes.
+
+Two things are provably invisible, for structural reasons rather than by
+accident: the \emph{smallest} fiber, because isolating it needs $\beta < 0$
+where $Z$ is no longer order-preserving; and the Katz--Sarnak symmetry type,
+because $\sum_c a_c = 0$ identically and that first moment is exactly the
+separating statistic.
+
+\begin{remark}[the objection, stated plainly]
+$C(L\ra f)$ is a strictly monotone function of $\max_c N_c$, and $1 - C(f\ra L)$
+is to leading order affine in $m_2$.  The rate is a function of the signature
+and the signature is the list $\{N_c\}$, so nothing the rate reports about
+arithmetic could fail to be computable from $\{N_c\}$ directly.  Information
+flows into the matrix, not out of it.  What survives is not a new theorem about
+curves but a statement about the \emph{comparison}: of all ways to compress
+$\{N_c\}$, resource-theoretic comparison against a linear map returns exactly
+the extreme value and the second moment, and returns them at two specific
+temperatures.  That is a consistency check on the framework, and it is how it
+should be written.
+\end{remark}
+
+\subsection{What the affine rate reads, and the signature rate cannot}
+\label{sub:isotropy}
+
+The objection above is fatal to $C$ and does not touch $\caff$.  The affine rate
+is not a function of the signature (\S1), so nothing forces its arithmetic
+content to be recoverable from $\{N_c\}$ --- and it is not.
+
+\begin{theorem}[proved]\label{thm:isotropy}
+\source{affine\_rate/ISOTROPY}
+Let $Q$ be a binary quadratic form over any field $K$ with
+$\operatorname{char}K \neq 2$.  Then
+\[
+  N_k(Q\ra x) = \bigl\lceil \tfrac{3k}{2} \bigr\rceil,\quad
+  \caff(Q\ra x)=\tfrac23 \qquad\text{if $Q$ is anisotropic;}
+\]
+\[
+  N_k(Q\ra x) = k,\quad \caff(Q\ra x)=1 \qquad\text{if $Q$ is isotropic.}
+\]
+\end{theorem}
+
+Nothing in the proof is finite-field-specific: the only arithmetic fact used is
+that anisotropy forces an atom's linear part to stay inside the support of its
+quadratic part.  The statement therefore holds over $\mathbb Q_p$ and over $\R$
+as well --- new for the seven anisotropic square classes of the $2$-adic
+quadratic-map poset --- and it puts the value $2/3$ on a Hasse arrow the
+finite-field posets record as missing.
+
+\begin{corollary}[proved]\label{cor:congruence}
+Over $\F_q$, $\caff(x^2+y^2 \ra x) = 2/3$ when $q \equiv 3 \bmod 4$ and $=1$
+when $q \equiv 1 \bmod 4$.  The uniformly anisotropic family $x^2-ny^2$ ($n$ a
+non-square) has $\caff(\cdot \ra x) = 2/3$ at every odd $q$.
+\end{corollary}
+
+So $\caff$ jumps by exactly $1/3$ across a congruence: it detects the
+\textbf{square class of the discriminant}, a genuine arithmetic invariant.  What
+$C$ does on the same pair is the point.
+
+\begin{center}
+\begin{tabular}{@{}lccl@{}}
+\toprule
+& $q=3$ & $q=47$ & behaviour \\
+\midrule
+$\caff$ separation of the two classes & $1/3$ & $1/3$ & constant \\
+$C$ separation of the same two classes & $0.0087$ & $0.0014$ & $\to 0$ \\
+amplification $\caff/C$ & $38$ & $245$ & grows in $q$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+$C$ moves in the right direction --- an isotropic form is the easier resource
+--- but its separation \emph{shrinks} as $q$ grows, while $\caff$'s is exactly
+$1/3$ for every $q$.  The signature sees $(4,4,1)$ against $(5,2,2)$ and barely
+flinches; the affine rate sees a hyperbolic plane against an anisotropic form
+and jumps.
+
+\begin{remark}[what this does and does not answer]
+This is the one place in the programme where the exchange rate carries
+arithmetic that is not a monotone relabelling of a classical statistic of the
+same object, and the reason is structural: $\caff$ is a functional of the
+\emph{maps}, and the signature is a lossy quotient of them.  It does not rescue
+the propositions above, which remain translations of $\max_c N_c$ and $m_2$.  It
+relocates the claim: the arithmetic content of this framework lives in $\caff$,
+and every computation in this project other than Theorem~\ref{thm:isotropy} has
+been performed on $C$.
+\end{remark}
+
+\section{Main result: one dimension plus a bounded defect}
+
+This is the most important thing the programme has produced, because it is the
+only statement about the \emph{framework} rather than about particular
+resources.
+
+Write $F_a = \log Z_a$, $u_a = \log F_a$, $R = \log r$ ($r$ = number of fibers),
+$\Lambda = \log(\max \text{fiber})$, $\sigma = \log(R/\Lambda)$, and
+$s = \log\beta$.
+
+\begin{theorem}[proved; verified to $3.6\cdot10^{-15}$]\label{thm:A}
+\source{realizability}
+\[
+  u_a(e^s) \;=\; \log\Lambda_a + \max(\sigma_a, s) + w_a(s),
+  \qquad 0 \le w_a \le \log\!\bigl(1 + e^{-|s-\sigma_a|}\bigr),
+\]
+with $w_a$ unimodal, peaked exactly at $s = \sigma_a$, and $1$-Lipschitz, of
+height $\le \log 2$ with equality iff $a$ is flat.  Every profile is a kink plus
+one bump.
+\end{theorem}
+
+Splitting $-\log C$ into symmetric and antisymmetric parts --- $S = d/2$ the
+exchange metric, $A$ the comparison, with $a \prec b \iff A(a,b) > 0$ ---
+Theorem~\ref{thm:A} gives
+\begin{align}
+  d(a,b) &= |\sigma_a - \sigma_b| + \varepsilon,
+  & 0 \le \varepsilon &\le \log\bigl(1+e^{-|\Delta\sigma|}\bigr) \le \log 2,
+  \label{eq:metric}\\
+  A(a,b) &= \psi(b) - \psi(a) + D,
+  & |D| &\le \tfrac12\log\bigl(1+e^{-|\Delta\sigma|}\bigr) \le \tfrac{\log 2}{2},
+  \label{eq:comparison}
+\end{align}
+with $\psi = \frac12\log(\log r \cdot \log M)$.  Both constants are
+\textbf{sharp} and both bounds are \textbf{independent of the number of points}.
+
+\begin{theorem}[proved]\label{thm:B}
+\source{realizability/OBSTRUCTION}
+$d(a,b)$ is exactly the \textbf{Hilbert projective metric} between $F_a$ and
+$F_b$ --- of the ambient cone $\Kone$ of positive functions under the pointwise
+order, restricted to the achievable set
+$\Cone = \{\Phi \text{ convex, nondecreasing}, \Phi \ge \Lambda_\Phi\beta\}$,
+which is the projective closure of that set.  Cartesian powers are the
+projective rescaling the Hilbert metric quotients out.
+\end{theorem}
+
+The distinction between the two cones matters: $d$ is \emph{not} the intrinsic
+Hilbert metric of $\Cone$, and reading it that way yields a contraction theorem
+that does not exist \source{birkhoff, \S2.5}.
+
+\begin{theorem}[proved]\label{thm:Bprime}
+\source{birkhoff}
+The constant $\log 2$ is a \textbf{projective diameter}.  With
+$\Cone_0 = \{\Phi \in \Cone : \Phi(0) = \Lambda_\Phi\}$ the $\sigma = 0$ fibre,
+$\operatorname{diam}_d \Cone_0 = \log 2$ exactly, attained between $\max(1,\beta)$
+and $1+\beta$.  The $\beta$-dilation group acts by isometries with geodesic
+orbits, $\sigma$ is a surjective $1$-Lipschitz map to $\R$, and every fibre is
+isometric to $\Cone_0$.
+\end{theorem}
+
+Equivalently: \emph{the exchange geometry is the real line thickened by exactly
+one bit.}  That is the geometric source of both sharp constants, and the
+attached Birkhoff ratio is $\tanh(\tfrac{\log 2}{4}) = 3 - 2\sqrt2$ exactly.
+
+\subsection{What Theorem \ref{thm:B} does not buy}
+
+No processor is a Birkhoff contraction \emph{(proved)}.  Tensoring is a
+\textbf{translation} $\Phi \mapsto \Phi + F_c$, neither linear nor degree-$1$
+homogeneous; and every operation that \emph{is} linear shifts $\sigma$ by a
+constant, so its projective diameter is infinite and its Birkhoff ratio is
+exactly $1$, attained.  Worse, tensoring \textbf{expands} $d$ without bound ---
+$d(a, a^{\otimes k}) = 0$ while $d(a\otimes c, a^{\otimes k}\otimes c) \to \log k$
+--- so $d$ is a pseudometric on resources and $\otimes$ does not descend to its
+quotient.  Any claim that conversion loses distinguishability at a definite rate
+is false.  The correct positive statement is that all four resource operations
+are \textbf{nonexpansive in Thompson's part metric}: Hilbert and Thompson differ
+exactly along the projective direction, and the projective direction is what
+conversion trades in.
+
+\subsection{Everything previously observed is a corollary}
+
+The $\ell_2$-distortion ${\approx}\,1.1$ with $c_2/\log n$ \emph{falling} ---
+Bourgain's $O(\log n)$ is unreachable because the non-line budget does not grow
+with $n$.  The mild pentagonal failure, and every negative-type violation,
+confined to a window of diameter $2\log 2$.  The measured $4$--$9\%$ curl of the
+comparison and its flatness in $n$ from $8$ to $698$ points --- the bounds in
+\eqref{eq:comparison} are per-edge.  The same constant reappearing in the
+$q\to\infty$ limit.
+
+\begin{corollary}[proved]\label{cor:C}
+The geometric mean of the rate asymmetry $C(b\ra a)/C(a\ra b)$ around
+\emph{any} preference cycle is at most $2$.
+\end{corollary}
+
+Sharpness is closed on one side.  Writing $\operatorname{curl} A = \frac12\log\Omega$
+with $\Omega$ the ratio of forward to backward arbitrage around the triangle
+\emph{(proved)}, the question ``is the sharp constant $(\log 2)/2$?'' is exactly
+``\emph{is $\Omega \le 2$} --- does the forward arbitrage exceed the backward by
+at most one bit?''  The lower bound is proved in closed form by
+$\Phi_1 = \max(1,\beta)$, $\Phi_2 = 1+\beta$, $\Phi_3 = 1+e^T\beta$, giving
+$\operatorname{curl} A = \frac12(\log 2 - \log(1+e^{-T})) \nearrow (\log 2)/2$ ---
+so the supremum is $\ge (\log 2)/2$ and is \emph{not attained}
+\source{birkhoff}.  The upper bound remains open between $(\log 2)/2$ and
+$3(\log 2)/2$, and any proof must use the $\sigma$-spread: inside a single fibre
+the supremum is only $\frac12\log(4/3)$.
+
+\section{Are the cycles important?}
+
+The exchange comparison is not transitive.  Over $\F_{11}$ there are $132$
+strict $3$-cycles among genus-two pencils $y^2 = P(x)+c$ in a complete
+enumeration, $1475$ over $\F_{13}$, with certified witnesses over $\F_{11}$ and
+$\F_{101}$ verified three ways.  Substantial effort went into finding and
+certifying them.  \textbf{Are they worth it?}  Three results weaken the obvious
+reading, one strengthens it, and one bounds how much can be claimed.
+
+\paragraph{Against: cycles are not arithmetic.}
+A random pool of signatures matched to a curve pool in the only things that
+matter ($q$ fibers, $\sum_c N_c = q^2$, matched trace distribution) has the
+\emph{same} curl, and the tightest control has slightly more.  Over $108$ pools,
+$\lVert\operatorname{curl}\rVert/\lVert A\rVert$ is a function of the trace
+spread to $R^2 = 0.93$ \source{flux\_arithmetic}.  Cycles are a property of
+near-flat signature \emph{shape}, not of the arithmetic that produced it.
+
+\paragraph{Against: cycles mostly do not descend to the maps.}
+The $\F_3$ tensor three-cycles are cycles of \emph{signatures}, and since
+$\caff$ is not a signature invariant (\S1) the question is only well posed after
+choosing affine orbits.  The seven signature cycles lift to twelve orbit
+triples, and \textbf{eight of the twelve are refuted under $\caff$}
+\source{affine\_rate} --- in each case because one vertex is affinely
+implementable from another, forcing the opposite comparison on that edge.  Where
+the descent can be tested, it mostly fails.
+
+\paragraph{For, and this replaces an argument we had wrong.}
+An earlier draft claimed cycles are a zero-temperature artefact --- that
+averaging over temperature destroys them.  That is false \source{maslov}.  Write
+$c_\beta(a\ra b) = F_a(\beta)/F_b(\beta)$ for the fixed-$\beta$ exchange rate and
+let $M_\lambda$ be the $\lambda$-power mean over a temperature prior $\rho$.
+Then the whole comparison is
+\begin{equation}\label{eq:powermean}
+  A_\lambda(a,b) \;=\; \tfrac12\log\frac{C_\lambda(a\ra b)}{C_\lambda(b\ra a)},
+  \qquad C_\lambda(a\ra b) = M_{-\lambda}\bigl(c_{\cdot}(a\ra b)\bigr),
+\end{equation}
+with $\lambda = \infty$ the framework's infimum, $\lambda = 1$ the plain
+arithmetic average of the transition rates, and $\lambda = 0$ the geometric
+mean.  Two facts:
+\begin{itemize}
+\item At a \emph{single} temperature the comparison is the total order of the
+  scalar $F_{\cdot}(\beta)$, since $c_\beta(a\ra b)c_\beta(b\ra a) = 1$.  No pool
+  cycles at any one temperature; all non-scalar content comes from the
+  $\beta$-dependence of the argmin.
+\item Cycles survive averaging.  There are certified $3$-cycles of \emph{flat}
+  signatures --- which Theorem~\ref{thm:A} \emph{proves} cannot cycle at
+  $\lambda = \infty$ --- living in bounded bands
+  $\lambda \in (1.5211, 2.5376)$ and $(0.8032, 1.3139)$, the second a cycle at
+  $\lambda = 1$ exactly.
+\end{itemize}
+The comparison is a potential \emph{iff} $\lambda = 0$: the geometric mean is
+the unique power mean commuting with reciprocals, so
+$C_0(a\ra b)C_0(b\ra a) = 1$ and the trade becomes reversible.  But the same
+identity gives $S_\lambda = \lambda\operatorname{Var}_\rho/2 + O(\lambda^3)$, so
+at $\lambda = 0$ every distance is zero and every pair freely interconvertible.
+The scalar complexity available there is the potential of an empty theory.
+
+\begin{remark}
+Non-scalarity is not an artefact of the infimum.  It is a consequence of
+\textbf{irreversibility}: the comparison fails to be a potential exactly because
+a power mean of order $\lambda \ne 0$ does not commute with reciprocals.  The
+infimum is the extreme case, not the source.
+\end{remark}
+
+\paragraph{Where the cycles come from, mechanically.}
+Brand\~ao--Horodecki--Ng--Oppenheim--Wehner govern conversion under thermal
+operations by a continuum of R\'enyi $\alpha$-free energies --- the same
+$\beta$-indexed family.  Their scalar is an infimum of a \textbf{difference},
+hence a partial order, acyclic by construction; ours is an infimum of a
+\textbf{ratio}, hence a tournament, which can cycle \source{quantum}.  And the
+ratio is \emph{forced}: these resources are unnormalised, so the difference
+diverges like $\beta(\Lambda_a - \Lambda_b)$ and the ratio is the only finite
+scalar.  \textbf{Cycles are the price of comparing resources with no common
+normalisation} --- the situation for maps, where nothing plays the role of a
+fixed particle number.
+
+\paragraph{The hedge, and it is the number to quote.}
+A single \emph{unfitted} temperature prior --- uniform in $s = \log\beta$ on
+$[0,6]$ --- reproduces $99.39\%$ of the tropical order on the $\F_{11}$
+arithmetic pool and $99.51\%$ on $\F_{13}$; a fitted prior reaches $99.62\%$ and
+transfers across $q$ without loss, against an information-theoretic ceiling of
+$99.90\%$ (at least $42$ edge-disjoint $3$-cycles must be misordered).  Both
+beat the HodgeRank potential $\psi_{\mathrm{opt}}$ at $98.31\%$
+\source{maslov}.  So the irreducibly non-scalar part of the comparison is about
+\textbf{four parts in a thousand}.
+
+\paragraph{The defensible claim.}
+Asymptotic convertibility is governed by no scalar complexity, because the
+comparison is a non-reversible aggregation over temperature.  The failure is
+real but small: a single temperature prior recovers $99.4\%$ of the order, and
+at $\lambda = \infty$ rates around any preference cycle differ by a
+geometric-mean factor of at most two.  What this does \emph{not} support is the
+story the cycle hunt was implicitly aimed at --- that cycles reveal something
+arithmetic.  They do not.
+
+\paragraph{One genuinely quantum instance.}
+Replacing $\operatorname{Tr}A^\beta$ by a sandwiched R\'enyi divergence against
+a background operator gives a non-spectral rate under which three qubit states
+form a certified $3$-cycle
+($|\operatorname{curl}A|/\sum|A| = 1$ exactly, $40$ digits) whose decohered
+shadow is transitive \source{quantum}.  Two caveats: the plain quantisation
+$\operatorname{Tr}A^\beta$ is \emph{empty} --- it factors through the spectrum
+identically, so a quantum cycle without a classical shadow cannot exist --- and
+every sandwiched profile still lies in the classical cone.  What is certified is
+the narrower physical statement that decoherence destroys that cycle, not that
+the geometry is new.
+
+\section{Status}
+
+Proved and independently re-verified: Propositions~\ref{prop:endpoint} and
+\ref{prop:bottleneck}, Theorems~\ref{thm:A}--\ref{thm:Bprime},
+Corollary~\ref{cor:C}, the power-mean identity \eqref{eq:powermean} and its
+$\lambda = 0$ reversibility, the flatness/permutation-polynomial theorem, the
+invisibility of the smallest fiber and of symmetry type, superadditivity of $C$
+and $\caff$ under Cartesian products --- and, for $\caff$, \textbf{strict}
+superadditivity, witnessed by $x^2 \otimes x \ra x^2+y$ over $\F_3$ with a gap of
+at least $1/2$ \source{affine\_rate}.  That settles the one form of the synergy
+question no variational formula could have decided: one affine processor draws a
+degree-$2$ part from $x^2$ and a linear part from $x$, which neither factor
+supplies alone.
+
+The first exact affine rates are in hand --- $1/2$ for $x^2\ra x$, $x^2\ra xy$,
+$x^2\ra x^2+y^2$, and $2/3$ for $x^2+y^2\ra x$ --- and in the last the Fekete
+supremum is attained at no $r \le 2$, so no single-shot computation determines
+$\caff$.  On the five non-constant quadratic classes over $\F_3$ the tally is now
+$13$ pairs with $\caff < C$, $4$ with $\caff > C$ (all one-step implementable,
+where $\caff = 1$ is forced), $6$ equal at $1$, and $2$ undetermined --- so
+\emph{off the implementable locus $\caff \le C$ holds wherever it is known}, a
+statement equivalent to the open question whether $\caff = 1$ is possible
+without $f \impl_{\mathrm{aff}} g$.
+
+\paragraph{Rationality.}
+Every $\caff$ proved here comes from an $N_k$ that is exactly linear or exactly
+$\lceil 3k/2 \rceil$, hence eventually exactly linear along arithmetic
+progressions.  Whether that is general is \textbf{open}, and is the honest
+analogue of the rationality of the matrix-multiplication exponent:
+$\caff = 1/\lim_k (N_k/k)$ is a limit of rationals with denominator $k$ and need
+not be rational a priori.
+
+Computed and certified: the cycle censuses and their witnesses; the
+flat-signature band-cycles; the qubit cycle.
+
+\paragraph{Open and load-bearing.}
+Prove $\Omega \le 2$, equivalently $|\operatorname{curl}A| \le (\log 2)/2$;
+whether $\caff$ cycles on affine orbits; whether any $\lambda < \infty$ is
+operational; the last two affine brackets over $\F_3$, both with an isotropic
+resource, now reduced to a single conjecture on the excess of a span of
+rank-$\le2$ forms; and whether $\caff$ separates distinct anisotropic square
+classes over $\mathbb Q_p$, where the norm group has index $2$ and the
+finite-field argument has no analogue.
+
+\paragraph{Withdrawn.}
+Three claims of earlier drafts.  That the exchange metrics do not fill
+$\mathrm{MET}$ --- $C_4$ is realisable exactly, and the obstruction rested on a
+stalled search.  That $\caff \le C$ --- false, with the singular-processor
+counterexample in \eqref{eq:incomparable}.  And that cycles are a
+zero-temperature artefact --- false, with certified cycles at $\lambda = 1$.
+Each was refuted by the session sent to verify it.
+
+\end{document}

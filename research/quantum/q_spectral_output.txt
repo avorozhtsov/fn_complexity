@@ -1,0 +1,27 @@
+==========================================================================
+PART 1  --  Tr A^beta sees only the spectrum
+==========================================================================
+beta grid: 1e-3 .. 1e6, 3001 log-spaced points, plus the analytic endpoints beta = 0, oo
+
+(a) C(A->B) vs C(diag spec A -> diag spec B), 300 random pairs
+    max |d_quantum - d_classical|   = 1.998e-15
+    max |A_quantum - A_classical|   = 8.882e-16
+    largest commutator norm sampled = 752.2648
+    (zero up to LAPACK eigenvalue error -- the two computations
+     are the same sum written twice)
+
+(b) conjugation invariance: d, A for U A U^T against A
+    max deviation over 50 random unitaries = 2.220e-16
+
+(c) no quantum 3-cycle without a classical shadow
+    2000 random non-commuting triples; compare the tournament of
+    the operators with the tournament of their spectra.
+    triples scanned                       : 2000
+    tournaments differing from the shadow : 0
+    3-cycles quantum / classical          : 0 / 0
+
+VERDICT: the extension of C to positive operators factors through
+the pair of spectra.  It is the classical exchange rate composed
+with A |-> spec A, which is onto the positive r-tuples, so it is
+neither a restriction nor an enlargement.  There is no quantum
+cycle without a classical shadow, and there cannot be one.

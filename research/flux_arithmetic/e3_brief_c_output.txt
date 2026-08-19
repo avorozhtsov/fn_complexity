@@ -1,0 +1,10 @@
+q = 11, n = 296: 43660 unordered pairs, 0 ties
+  energy       gradient 99.175%   curl 0.825%
+  order        psi_opt  98.314%   phi = (1/2)log phi  82.494%
+  cycles       132 strict 3-cycles of 4278680 triangles; 42 of them edge-disjoint
+  so ANY scalar misorders at least 42 of the 43660 pairs (0.0962%), and the best one found misorders 1.686%
+q = 13, n = 698: 243253 unordered pairs, 0 ties
+  energy       gradient 99.275%   curl 0.725%
+  order        psi_opt  98.651%   phi = (1/2)log phi  83.316%
+  cycles       1475 strict 3-cycles of 56434696 triangles; 214 of them edge-disjoint
+  so ANY scalar misorders at least 214 of the 243253 pairs (0.0880%), and the best one found misorders 1.349%

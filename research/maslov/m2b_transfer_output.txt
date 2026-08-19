@@ -1,0 +1,27 @@
+F_11: 296 signatures, grad energy 0.991749, curl energy 0.008251, 3-cycles 132
+F_13: 698 signatures, grad energy 0.992747, curl energy 0.007253, 3-cycles 1475
+
+====================================================================================
+fixed (unfitted) priors, scored on both pools
+====================================================================================
+  prior                              F_11       F_13
+  uniform[-8,8]                   0.98518    0.98892
+  uniform[0,6]                    0.99391    0.99511
+  uniform[-2,4]                   0.98646    0.98479
+  gaussian mu=2 sd=2              0.99411    0.99424
+  gaussian mu=0 sd=4              0.98834    0.99123
+  1/2 log phi (canonical)         0.82494    0.83316
+  HodgeRank psi_opt               0.98314    0.98651
+
+====================================================================================
+fitted priors -- in sample and transferred
+====================================================================================
+  fitted on F_11:  in sample 0.99622   transferred to F_13 0.99622
+  fitted on F_13:  in sample 0.99617   transferred to F_11 0.99585
+  support of the fit on F_11: (+0.01, 0.491), (-5.23, 0.113), (-5.97, 0.111), (-5.87, 0.090), (-6.00, 0.074), (-5.49, 0.020)
+  support of the fit on F_13: (+0.01, 0.659), (-5.97, 0.207), (-6.00, 0.082), (+2.97, 0.007), (+1.65, 0.004), (+1.62, 0.004)
+
+  ceilings (>= k edge-disjoint 3-cycles must be misordered):
+    F_11: 0.99904   F_13: 0.99912
+
+wrote m2b_transfer.csv, m2b_priors.npy

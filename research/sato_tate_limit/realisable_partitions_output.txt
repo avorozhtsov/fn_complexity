@@ -1,0 +1,52 @@
+================================================================================================
+1.  what an elementary abelian 2-cover of P^1 can split a Jacobian into
+================================================================================================
+   genus   r    B  max blocks  max block genus
+      13   2   16           3                7
+      13   3   10           7                4
+      13   4    7          15                2
+      13   5    -           -  (no such cover)
+
+      14   2   17           3                7
+      14   3    -           -  (no such cover)
+      14   4    -           -  (no such cover)
+      14   5    -           -  (no such cover)
+
+      15   2   18           3                8
+      15   3   11           7                4
+      15   4    -           -  (no such cover)
+      15   5    -           -  (no such cover)
+
+  the vertices of TRANSITIVITY.md's two genus-13 cycles:
+    cycle A, margin 8.0e-3
+      (7, 2, 2, 1, 1)      blocks 5  max 7   realisable: NO
+      (5, 4, 2, 2)         blocks 4  max 5   realisable: NO
+      (6, 4, 1, 1, 1)      blocks 5  max 6   realisable: prym
+    cycle B, margin 4.4e-4
+      (8, 1, 1, 1, 1, 1)   blocks 6  max 8   realisable: prym
+      (4, 4, 4, 1)         blocks 4  max 4   realisable: NO
+      (6, 3, 2, 2)         blocks 4  max 6   realisable: prym
+    at most ONE character can have |B_chi| = B: if two did, their
+    product would be trivial on every v_P, hence trivial, since the
+    v_P span.  That alone kills (4,4,4,1), which would need three.
+
+================================================================================================
+2.  same-genus 3-cycles restricted to the realisable partitions
+    (genus 12 and 13 are settled by the Corollary instead: TRANSITIVITY.md
+     is exhaustive over all partitions and finds 0 cycles at genus <= 12 and
+     exactly 2 at genus 13, and part 1 above shows each of those 2 has an
+     unrealisable vertex -- so 0 realisable same-genus cycles at genus <= 13)
+================================================================================================
+   genus  partitions  realisable  cycles (all)  cycles (realisable)
+       2           2           2             0                    0
+       3           3           3             0                    0
+       4           5           4             0                    0
+       5           7           7             0                    0
+       6          11           8             0                    0
+       7          15          14             0                    0
+       8          22          12             0                    0
+       9          30          27             0                    0
+      10          42          20             0                    0
+      11          56          33             0                    0
+
+written: realisable_partitions.csv

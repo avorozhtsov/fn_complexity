@@ -1,0 +1,70 @@
+============================================================================================
+the cone search with the multiplicity cap the construction supplies
+============================================================================================
+
+  multiplicity <= 1:   29 measures,   7308 oriented triangles,  0 distinct 3-cycles
+
+  multiplicity <= 2:   52 measures,  44200 oriented triangles,  1 distinct 3-cycles, widest margin 1.2041e-02
+      2.SU2 x 2.SU2              < USp12        < SU2 x SU2 x USp6     margin 1.2041e-02   genus 4/6/5
+
+  multiplicity <= 3:   63 measures,  79422 oriented triangles,  3 distinct 3-cycles, widest margin 1.2041e-02
+      2.SU2 x 2.SU2              < USp12        < SU2 x SU2 x USp6     margin 1.2041e-02   genus 4/6/5
+      SU2 x 3.SU2                < USp12        < SU2 x USp4 x USp4    margin 1.0499e-02   genus 4/6/5
+      SU2 x 3.SU2                < USp12        < SU2 x SU2 x USp6     margin 1.0499e-02   genus 4/6/5
+
+  multiplicity <= 4:   68 measures, 100232 oriented triangles,  9 distinct 3-cycles, widest margin 7.4507e-02
+      4.SU2                      < USp6 x USp6  < SU2 x 2.USp4         margin 7.4507e-02   genus 4/6/5
+      4.SU2                      < USp4 x USp8  < SU2 x 2.USp4         margin 6.9120e-02   genus 4/6/5
+      4.SU2                      < USp4 x USp8  < SU2 x SU2 x SU2 x SU2 x SU2 margin 6.9120e-02   genus 4/6/5
+      4.SU2                      < USp6 x USp6  < SU2 x SU2 x SU2 x SU2 x SU2 margin 4.0094e-02   genus 4/6/5
+      4.SU2                      < USp6 x USp6  < SU2 x 2.SU2 x USp4   margin 2.8413e-02   genus 4/6/5
+      4.SU2                      < USp4 x USp8  < SU2 x 2.SU2 x USp4   margin 2.8413e-02   genus 4/6/5
+      2.SU2 x 2.SU2              < USp12        < SU2 x SU2 x USp6     margin 1.2041e-02   genus 4/6/5
+      SU2 x 3.SU2                < USp12        < SU2 x USp4 x USp4    margin 1.0499e-02   genus 4/6/5
+      SU2 x 3.SU2                < USp12        < SU2 x SU2 x USp6     margin 1.0499e-02   genus 4/6/5
+
+  multiplicity <= 6:   71 measures, 114310 oriented triangles,  9 distinct 3-cycles, widest margin 7.4507e-02
+      4.SU2                      < USp6 x USp6  < SU2 x 2.USp4         margin 7.4507e-02   genus 4/6/5
+      4.SU2                      < USp4 x USp8  < SU2 x 2.USp4         margin 6.9120e-02   genus 4/6/5
+      4.SU2                      < USp4 x USp8  < SU2 x SU2 x SU2 x SU2 x SU2 margin 6.9120e-02   genus 4/6/5
+      4.SU2                      < USp6 x USp6  < SU2 x SU2 x SU2 x SU2 x SU2 margin 4.0094e-02   genus 4/6/5
+      4.SU2                      < USp6 x USp6  < SU2 x 2.SU2 x USp4   margin 2.8413e-02   genus 4/6/5
+      4.SU2                      < USp4 x USp8  < SU2 x 2.SU2 x USp4   margin 2.8413e-02   genus 4/6/5
+      2.SU2 x 2.SU2              < USp12        < SU2 x SU2 x USp6     margin 1.2041e-02   genus 4/6/5
+      SU2 x 3.SU2                < USp12        < SU2 x USp4 x USp4    margin 1.0499e-02   genus 4/6/5
+      SU2 x 3.SU2                < USp12        < SU2 x SU2 x USp6     margin 1.0499e-02   genus 4/6/5
+
+============================================================================================
+the surviving cycle, recomputed at 40+ digits with an independent
+Bessel determinant  E[e^{tau tr}] = det(I_{i-j}(2tau) - I_{i+j}(2tau))
+============================================================================================
+
+  cross-check against st_lib (float64), tau = 0.7, 3, 40:
+    SU2    tau=0.7    st_lib     0.235740426668   Bessel     0.235740426668   diff 0.000e+00
+    SU2    tau=3      st_lib     3.017851443984   Bessel     3.017851443984   diff 0.000e+00
+    SU2    tau=40     st_lib    73.196451572769   Bessel    73.196451572769   diff 0.000e+00
+    USp4   tau=0.7    st_lib     0.244846319587   Bessel     0.244846319587   diff 0.000e+00
+    USp4   tau=3      st_lib     4.122071212245   Bessel     4.122071212245   diff 0.000e+00
+    USp4   tau=40     st_lib   139.414219149537   Bessel   139.414219149537   diff 0.000e+00
+    USp6   tau=0.7    st_lib     0.244998638728   Bessel     0.244998638728   diff 0.000e+00
+    USp6   tau=3      st_lib     4.433702770340   Bessel     4.433702770340   diff 0.000e+00
+    USp6   tau=40     st_lib   199.857150082117   Bessel   199.857150082117   diff 0.000e+00
+    USp12  tau=0.7    st_lib     0.245000000000   Bessel     0.245000000000   diff 0.000e+00
+    USp12  tau=3      st_lib     4.499969002706   Bessel     4.499969002706   diff 0.000e+00
+    USp12  tau=40     st_lib   353.028009739864   Bessel   353.028009739864   diff 0.000e+00
+
+  edge                                                                midrange (40 digits)
+  2.SU2 x 2.SU2  ->  USp12                    -0.07502532855469174755865859708565165487046
+      sup 3.849949342890616504882683 at tau = 3.24530107607
+      inf -4.0 at tau = +inf
+  USp12  ->  SU2 x SU2 x USp6                  -0.1500338202737787826586997664872715993093
+      sup 2.0 at tau = +inf
+      inf -2.3000676405475575653174 at tau = 5.2675460763
+  SU2 x SU2 x USp6  ->  2.SU2 x 2.SU2         -0.01206057421855458525935346125780578377559
+      sup 2.0 at tau = +inf
+      inf -2.024121148437109170518707 at tau = 1.89687046085
+
+  all three midranges negative -- strict 3-cycle: True
+  smallest margin  0.0120605742185545852593534612578
+
+written: witness_search.csv

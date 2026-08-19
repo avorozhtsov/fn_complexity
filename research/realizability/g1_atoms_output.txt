@@ -1,0 +1,20 @@
+=== r = 2: dense sweep of the whole two-fiber family ===
+  (the family is 2-dimensional: (x, delta) with atoms e^x >= e^{x-delta};
+   one dimension is pure scale, so the essential family is 1-dimensional)
+  x in [0.25,4.0], 3600 signatures, 7,769,521,200 triples: 2493 three-cycles, 0 ties  (129s)
+  x in [0.05,1.2], 2500 signatures, 2,601,042,500 triples: 750 three-cycles, 0 ties  (53s)
+  x in [1.0,12.0], 2500 signatures, 2,601,042,500 triples: 875 three-cycles, 0 ties  (55s)
+
+=== r = 2: is A exact on the two-fiber family? ===
+  Hodge residual ||A - grad||/||A|| = 3.129e-02   max |A - grad| = 1.237e-01
+
+=== directed-search for a 3-cycle at each fiber count r ===
+    r   best min A around triangle
+    2                   -1.172e-01   cycle found = False   39s
+    3                   -2.809e-01   cycle found = False   66s
+    4                    1.178e-02   cycle found = True   262s
+        ['403.42879', '32.98866', '30.66033', '10.04394']
+        ['335.07083', '335.01372', '1.20166', '1.08066']
+        ['241.82136', '241.80080', '40.75302', '34.12758']
+
+wrote /Users/artemvorozhtsov/projects/fn_complexity/.claude/worktrees/agent-a8cfd2828b776c898/research/realizability/g1_atoms.csv

@@ -1,0 +1,45 @@
+==========================================================================
+PART 5 -- placement against BHNOW (arXiv:1305.5278)
+==========================================================================
+
+B1  log Z_a(beta) = beta log N + (1-beta) H_beta(p),  p = a/N
+    max RELATIVE |lhs - rhs|, 200 signatures, beta to 1e6 = 4.777e-16
+    The exchange monotone is a Renyi alpha-free energy of the
+    resource, at trivial Hamiltonian, on an UNNORMALISED state.
+    Unnormalised is what makes it strictly positive, hence what
+    makes the RATIO of two of them a rate.
+
+B2  F_(A,S)(beta) = (beta-1) * [ Dt_beta(A||gamma) - log Tr S ]
+    with gamma = S/Tr S -- BHNOW eq. (5) up to kT.
+    max RELATIVE |F - (beta-1)(Dt - log Z)| = 5.504e-16
+    So Ct = inf_beta Fh_beta(A)/Fh_beta(B): the (beta-1) cancels in
+    the ratio, and the exchange rate is exactly an infimum of a
+    ratio of BHNOW's quantum alpha-free energies.
+    Their quantum laws are NECESSARY ONLY, so Ct is an upper bound
+    on the achievable conversion rate, not the rate.
+
+B3  ratio vs difference on the certified cycle
+        pair    C(i->j)      C(j->i)     A(i,j)=mid    slope Lam_i - Lam_j
+        1->2   0.966690433  0.973503249  +0.003511424   +0.067296596
+        2->3   0.965559792  0.972368639  +0.003513481   +0.075120865
+        3->1   0.948880621  0.955563824  +0.003509281   -0.142417462
+    Every rate is < 1 both ways, so no edge of the cycle is a
+    feasible conversion and the cycle contradicts no second law:
+    BHNOW's relation 'all free energies decrease' is a partial
+    order and is acyclic by construction.  The cycle lives in
+    the RATE tournament, which is a different object.
+    Note also that F_i - F_j ~ beta (Lam_i - Lam_j) diverges, so
+    for UNNORMALISED resources the work distance inf_b(F_i - F_j)
+    is -oo whenever Lam_i < Lam_j: the difference functional is
+    degenerate here and the ratio is the only finite scalar.
+
+B4  reweighting invariance
+    Replace F(beta) by c(beta) F(beta) for a random positive c.
+    d before / after reweighting        : 0.042583151772 / 0.042583151772
+    windowed work distance (beta<=100)  : +0.294618385 / +0.203435969
+    The exchange geometry is a functional of the family of
+    monotones only up to a positive ray at each beta.  That is
+    OBSTRUCTION.md Sec. 1's Hilbert projective metric, read as a
+    statement about resource monotones.
+
+wrote q_bhnow.json
