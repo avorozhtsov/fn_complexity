@@ -80,6 +80,9 @@ the affine counterexample is stronger than lossiness: `C` is not an
 approximation to `C_aff` from either side. **Every statement below is about `C`,
 and the word "signature" belongs in each of them.**
 
+That looks like a liability. §2.3 shows it is the opposite: the difference
+between the two rates is exactly where the arithmetic `C` cannot see is kept.
+
 ---
 
 ## 2. What the rate reads off an arithmetic family
@@ -124,6 +127,53 @@ compress `{N_c}`, resource-theoretic comparison against a linear map returns
 exactly the extreme value and the second moment, and it returns them at two
 specific temperatures. That is a consistency check on the framework, and it is
 how it should be written.
+
+### 2.3 What the affine rate reads, and the signature rate cannot
+
+The objection above is fatal to `C` and does not touch `C_aff`. The affine rate
+is not a function of the signature (§1), so nothing forces its arithmetic
+content to be recoverable from `{N_c}` — and it is not.
+
+**Theorem** *(proved)* [affine_rate/ISOTROPY]**.** For a binary quadratic form
+`Q` over any field with `char K ≠ 2`:
+
+```
+Q anisotropic :  N_k(Q→x) = ⌈3k/2⌉ ,  C_aff(Q→x) = 2/3
+Q isotropic   :  N_k(Q→x) = k      ,  C_aff(Q→x) = 1
+```
+
+Nothing in the proof is finite-field-specific — the only arithmetic fact used is
+that anisotropy forces an atom's linear part to stay inside the support of its
+quadratic part. So it holds over `Q_p` and `R` too, which is new for the seven
+anisotropic square classes of the 2-adic poset, and it puts `2/3` on a Hasse
+arrow the finite-field posets record as missing.
+
+**Corollary** *(proved)*. Over `F_q`, `C_aff(x²+y² → x) = 2/3` when
+`q ≡ 3 mod 4` and `= 1` when `q ≡ 1 mod 4`; the uniformly anisotropic family
+`x² − ny²` gives `2/3` at every odd `q`.
+
+So `C_aff` jumps by exactly `1/3` across a congruence — it detects the **square
+class of the discriminant**. What `C` does on the same pair is the point:
+
+| | `q = 3` | `q = 47` | behaviour |
+|---|---:|---:|---|
+| `C_aff` separation of the two classes | `1/3` | `1/3` | constant |
+| `C` separation of the same two classes | `0.0087` | `0.0014` | `→ 0` |
+| amplification `C_aff / C` | 38 | 245 | grows in `q` |
+
+`C` moves the right way — an isotropic form is the easier resource — but its
+separation *shrinks* as `q` grows, while `C_aff`'s is exactly `1/3` for every
+`q`. The signature sees `(4,4,1)` against `(5,2,2)` and barely flinches; the
+affine rate sees a hyperbolic plane against an anisotropic form and jumps.
+
+**What this does and does not answer.** It is the one place in the programme
+where the exchange rate carries arithmetic that is not a monotone relabelling of
+a classical statistic of the same object, and the reason is structural: `C_aff`
+is a functional of the *maps*, and the signature is a lossy quotient of them. It
+does not rescue the propositions above, which remain translations of
+`max_c N_c` and `m₂`. It relocates the claim — the arithmetic content lives in
+`C_aff`, and every computation in this project other than this theorem has been
+performed on `C`.
 
 ---
 
@@ -339,6 +389,16 @@ from `x`, which neither factor supplies alone.
 The first exact affine rates are in hand — `1/2` for `x² → x`, `x² → xy`,
 `x² → x²+y²`, and `2/3` for `x²+y² → x` — and in the last the Fekete supremum is
 attained at no `r ≤ 2`, so **no single-shot computation determines `C_aff`**.
+On the five non-constant quadratic classes over `F₃` the tally is now 13 pairs
+with `C_aff < C`, 4 with `C_aff > C` (all one-step implementable, where
+`C_aff = 1` is forced), 6 equal at 1, and 2 undetermined — so *off the
+implementable locus `C_aff ≤ C` holds wherever it is known*, a statement
+equivalent to the open question whether `C_aff = 1` is possible without
+`f ⪯_aff g`.
+
+**Rationality.** Every `C_aff` proved here comes from an `N_k` that is exactly
+linear or exactly `⌈3k/2⌉`. Whether that is general is **open**, and is the
+honest analogue of the rationality of the matrix-multiplication exponent.
 
 Computed and certified: the cycle censuses and their witnesses; the flat-signature
 band-cycles; the qubit cycle.
