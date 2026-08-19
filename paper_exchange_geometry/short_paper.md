@@ -406,7 +406,11 @@ band-cycles; the qubit cycle.
 **Open and load-bearing:** whether `C_aff` cycles on affine orbits; whether any
 `λ < ∞` is operational; the sharp finite-`λ` cycle constant off the flat locus
 (there is no finite universal one — the flat-locus value grows like
-`0.149·log(width of ρ)`); six of the twenty-five affine brackets over `F_3`.
+`0.149·log(width of ρ)`); the last two affine brackets over `F₃`, both with an
+isotropic resource, now reduced to one conjecture on the excess of a span of
+rank-≤2 forms; and whether `C_aff` separates distinct anisotropic square classes
+over `Q_p`, where the norm group has index 2 and the finite-field argument has
+no analogue.
 
 **Withdrawn.** Three claims of earlier drafts. That the exchange metrics do not
 fill `MET` — `C_4` is realisable exactly, and the obstruction rested on a stalled

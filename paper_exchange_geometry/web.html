@@ -163,6 +163,23 @@ footer{border-top:1px solid var(--rule);margin-top:3.5rem;padding-top:1.6rem;col
     </div>
     <p><strong>The mechanism.</strong> Singular input processors are explicitly permitted. Here <code>a</code> is 3-to-1: it collapses the nine-point source onto a three-point line, and pulling back through it <em>manufactures</em> a fiber of size 6 from a map all of whose fibers have size 3. Signature implementation injects each target fiber into an assigned source fiber and cannot enlarge. Of the 25 ordered pairs of non-constant quadratic classes over <code>F₃</code>, nine have <code>C_aff &lt; C</code> and four have <code>C_aff &gt; C</code>.</p>
     <p>Worse, <strong><code>C_aff</code> is not a function of the signature at all</strong>: <code>x</code> and <code>x²+y</code> share <code>(3,3,3)</code>, so their signature rates against <code>x²</code> agree to 40 digits, but <code>C_aff(x → x²) = 0</code> and <code>C_aff(x²+y → x²) = 1</code>. No functor between the two processor categories exists in either direction. <span class="src">[affine_rate]</span></p>
+
+    <h3>2.3 · What the affine rate reads, and the signature rate cannot</h3>
+    <p>The objection is fatal to <code>C</code> and does not touch <code>C_aff</code>. The affine rate is not a function of the signature, so nothing forces its arithmetic content to be recoverable from <code>{N_c}</code> — and it is not.</p>
+    <div class="claim">
+      <p class="label tag-proved"><span class="dot"></span><b>Theorem · proved, over any field with char ≠ 2</b></p>
+      <div class="eq">Q anisotropic :  N_k(Q→x) = ⌈3k/2⌉ ,  C_aff(Q→x) = 2/3
+Q isotropic   :  N_k(Q→x) = k      ,  C_aff(Q→x) = 1</div>
+      <p>Hence over <code>F_q</code>: <code>C_aff(x²+y² → x) = 2/3</code> when <code>q ≡ 3 mod 4</code> and <code>1</code> when <code>q ≡ 1 mod 4</code>. Nothing in the proof is finite-field-specific, so it holds over <code>Q_p</code> and <code>R</code> too.</p>
+    </div>
+    <p><code>C_aff</code> jumps by exactly <code>1/3</code> across a congruence — it detects the <strong>square class of the discriminant</strong>. What <code>C</code> does on the same pair is the point:</p>
+    <div class="grid">
+      <div class="card"><h4>C_aff separation</h4><p><code>1/3</code> at <code>q=3</code>, <code>1/3</code> at <code>q=47</code> — constant.</p></div>
+      <div class="card"><h4>C separation</h4><p><code>0.0087</code> at <code>q=3</code>, <code>0.0014</code> at <code>q=47</code> — tends to zero.</p></div>
+      <div class="card"><h4>Amplification</h4><p>38 at <code>q=3</code>, <strong>245</strong> at <code>q=47</code>, growing in <code>q</code>.</p></div>
+    </div>
+    <p class="pull">The signature sees (4,4,1) against (5,2,2) and barely flinches; the affine rate sees a hyperbolic plane against an anisotropic form and jumps.</p>
+    <p>This is the one place in the programme where the exchange rate carries arithmetic that is <em>not</em> a monotone relabelling of a classical statistic of the same object — because <code>C_aff</code> is a functional of the <em>maps</em> and the signature is a lossy quotient of them. It does not rescue the propositions above; it relocates the claim. <span class="src">[affine_rate/ISOTROPY]</span></p>
   </section>
 
   <section class="col">
