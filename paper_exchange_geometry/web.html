@@ -1,0 +1,262 @@
+<title>Exchange Geometry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+
+<style>
+:root{
+  --ground:#F7F8FA; --panel:#FFFFFF; --ink:#14181D; --muted:#5A6472;
+  --rule:#DDE1E7; --rule-soft:#E9ECF1;
+  --accent:#10627A; --accent-soft:#E4F0F4;
+  --warn:#96442A; --warn-soft:#F6E9E4;
+  --ok:#2F6B4F;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F1317; --panel:#161B21; --ink:#E6EAEF; --muted:#98A3B2;
+    --rule:#28313B; --rule-soft:#1E252D;
+    --accent:#6FC4DE; --accent-soft:#14303B;
+    --warn:#E0977A; --warn-soft:#33211A;
+    --ok:#7FBF9C;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F1317; --panel:#161B21; --ink:#E6EAEF; --muted:#98A3B2;
+  --rule:#28313B; --rule-soft:#1E252D;
+  --accent:#6FC4DE; --accent-soft:#14303B;
+  --warn:#E0977A; --warn-soft:#33211A;
+  --ok:#7FBF9C;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  font-size:16.5px; line-height:1.62; margin:0;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:70rem;margin:0 auto;padding:clamp(2rem,5vw,4.5rem) clamp(1.1rem,4vw,2.5rem) 6rem}
+.col{max-width:41rem}
+
+/* ---- masthead ---- */
+.mast{border-bottom:1px solid var(--rule);padding-bottom:2.2rem;margin-bottom:3rem}
+.kicker{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.7rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 1.1rem
+}
+h1{
+  font-family:Newsreader,Georgia,serif;font-weight:400;
+  font-size:clamp(2.1rem,5.4vw,3.4rem);line-height:1.08;letter-spacing:-.015em;
+  margin:0 0 1rem;text-wrap:balance;max-width:22ch
+}
+.byline{color:var(--muted);font-size:.94rem;margin:0}
+.byline em{font-style:italic}
+
+/* the motif: a hairline with one thicker segment */
+.thick-rule{display:flex;align-items:center;gap:0;height:3px;margin:0 0 2.4rem;max-width:41rem}
+.thick-rule i{display:block;height:1px;background:var(--rule);flex:1}
+.thick-rule b{display:block;height:3px;width:3.2rem;background:var(--accent);border-radius:2px}
+
+/* ---- sections ---- */
+section{margin:0 0 3.4rem}
+.shead{display:flex;gap:1.1rem;align-items:baseline;margin:0 0 1.2rem}
+.snum{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.78rem;color:var(--accent);
+  padding-top:.45rem;min-width:1.6rem;font-variant-numeric:tabular-nums
+}
+h2{
+  font-family:Newsreader,Georgia,serif;font-weight:500;font-size:clamp(1.4rem,3vw,1.85rem);
+  line-height:1.2;margin:0;letter-spacing:-.01em;text-wrap:balance
+}
+h3{
+  font-family:"IBM Plex Sans",sans-serif;font-weight:600;font-size:1rem;
+  margin:2.1rem 0 .7rem;letter-spacing:.005em
+}
+p{margin:0 0 1.05rem}
+.col>p:last-child{margin-bottom:0}
+strong{font-weight:600}
+em{font-style:italic}
+a{color:var(--accent)}
+a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+/* ---- math ---- */
+code{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.88em;
+  background:var(--rule-soft);padding:.08em .32em;border-radius:3px
+}
+.eq{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.87rem;line-height:1.75;
+  background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--accent);
+  border-radius:0 5px 5px 0;padding:1rem 1.15rem;margin:1.3rem 0;
+  overflow-x:auto;white-space:pre;color:var(--ink)
+}
+.eq .tag{float:right;color:var(--muted);font-size:.8rem;padding-left:1.5rem}
+
+/* ---- typed claim chips ---- */
+.claim{
+  border:1px solid var(--rule);background:var(--panel);border-radius:6px;
+  padding:1.05rem 1.2rem;margin:1.3rem 0
+}
+.claim>p:last-child{margin-bottom:0}
+.label{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.68rem;
+  letter-spacing:.11em;text-transform:uppercase;margin:0 0 .55rem
+}
+.label b{font-weight:500}
+.tag-proved{color:var(--ok)}
+.tag-computed{color:var(--accent)}
+.tag-withdrawn{color:var(--warn)}
+.dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+.claim.withdrawn{border-color:var(--warn);background:var(--warn-soft)}
+
+.pull{
+  font-family:Newsreader,Georgia,serif;font-size:1.28rem;line-height:1.4;font-style:italic;
+  color:var(--ink);border-left:3px solid var(--accent);padding:.15rem 0 .15rem 1.15rem;
+  margin:1.6rem 0;text-wrap:balance
+}
+ul{margin:0 0 1.05rem;padding-left:1.15rem}
+li{margin:0 0 .5rem}
+.src{color:var(--muted);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem}
+
+/* ---- status grid ---- */
+.grid{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));margin:1.4rem 0;max-width:52rem}
+.card{border:1px solid var(--rule);background:var(--panel);border-radius:6px;padding:.95rem 1rem}
+.card h4{margin:0 0 .4rem;font-size:.82rem;font-family:"IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.card p{margin:0;font-size:.93rem}
+
+footer{border-top:1px solid var(--rule);margin-top:3.5rem;padding-top:1.6rem;color:var(--muted);font-size:.87rem;max-width:41rem}
+@media (prefers-reduced-motion:no-preference){a{transition:opacity .15s}}
+</style>
+
+<div class="wrap">
+  <header class="mast col">
+    <p class="kicker">Working draft · resource theory of maps</p>
+    <h1>Exchange rates as quantitative structure on a hierarchy of maps</h1>
+    <p class="byline">Artem Vorozhtsov · <em>every numbered claim is marked proved or computed</em></p>
+  </header>
+
+  <div class="col">
+    <p>Classifying a family of maps under an implementation relation produces a preorder and stops there. This adds the missing quantitative layer: an <strong>exchange rate</strong> counting how many copies of one map a second can supply per copy, and studies the geometry it induces. The main result is a structure theorem — every exchange geometry is a one-dimensional geometry plus a defect bounded by <code>log 2</code>, sharply, because the underlying Hilbert projective metric fibres over a line with fibres of diameter exactly one bit.</p>
+  </div>
+
+  <div class="thick-rule"><i></i><b></b><i></i></div>
+
+  <section class="col">
+    <div class="shead"><span class="snum">1</span><h2>The framework is general, and it adds structure rather than objects</h2></div>
+    <p>Fix any class of maps and any notion of <strong>implementation</strong> — a relation <code>f ⪯ g</code> meaning “<code>g</code> can be wired up to compute <code>f</code>”. Classification under <code>⪯</code> is the classical activity: it produces a preorder, and its Hasse diagram is the hierarchy. For polynomial maps over a field the standard choice is <em>affine implementation</em>, <code>f = b ∘ g ∘ a</code>.</p>
+    <p>A preorder answers one question — <em>can <code>g</code> do <code>f</code> at all?</em> — and is silent on the quantitative one. Writing <code>f<sup>×k</sup></code> for the Cartesian power, block-diagonal composition gives <code>k(r+s) ≥ k(r)+k(s)</code>, so Fekete’s lemma yields</p>
+    <div class="eq">C_aff(g→f) = lim  k_{g→f}(r) / r<span class="tag">(1)</span>
+             r→∞</div>
+    <p>It refines the hierarchy without changing it: <code>f ⪯ g</code> already implies <code>C_aff ≥ 1</code>, and <code>C_aff</code> grades every comparable pair by <em>how many</em> copies and every incomparable pair by a ratio the preorder cannot see. The construction needs only a monoidal product and an implementation relation, so it applies to any hierarchy of maps.</p>
+    <p>The computable proxy is the <strong>signature rate</strong>. The signature is the multiset of fiber cardinalities; fiber sizes multiply under Cartesian powers, and the entropy method gives</p>
+    <div class="eq">C(g→f) =  inf   log Z_g(β) / log Z_f(β),   Z_a(β) = Σ a_i^β<span class="tag">(2)</span>
+         0≤β≤∞</div>
+    <p>Here <code>β</code> is an inverse temperature and <code>Z</code> a partition function with energy levels <code>−log n_i</code>. Equation (2) is a theorem about the operational limit, not a second definition.</p>
+
+    <h3>The two rates are incomparable</h3>
+    <div class="claim withdrawn">
+      <p class="label tag-withdrawn"><span class="dot"></span><b>Withdrawn</b></p>
+      <p>An earlier draft asserted that affine implementation forces signature implementation, hence <code>C_aff ≤ C</code>. <strong>That is false.</strong> Over <code>F₃</code> take <code>g = x²+y</code>, <code>f = x²</code>; then <code>f = g ∘ a</code> with the <strong>singular</strong> processor <code>a(x,y) = (x,0)</code>, so <code>C_aff(g→f) = 1</code>, while</p>
+      <div class="eq">C(σ(g) → σ(f)) = log 3 / log 6 = 0.6131471927654584… &lt; 1<span class="tag">(3)</span></div>
+    </div>
+    <p><strong>The mechanism.</strong> Singular input processors are explicitly permitted. Here <code>a</code> is 3-to-1: it collapses the nine-point source onto a three-point line, and pulling back through it <em>manufactures</em> a fiber of size 6 from a map all of whose fibers have size 3. Signature implementation injects each target fiber into an assigned source fiber and cannot enlarge. Of the 25 ordered pairs of non-constant quadratic classes over <code>F₃</code>, nine have <code>C_aff &lt; C</code> and four have <code>C_aff &gt; C</code>.</p>
+    <p>Worse, <strong><code>C_aff</code> is not a function of the signature at all</strong>: <code>x</code> and <code>x²+y</code> share <code>(3,3,3)</code>, so their signature rates against <code>x²</code> agree to 40 digits, but <code>C_aff(x → x²) = 0</code> and <code>C_aff(x²+y → x²) = 1</code>. No functor between the two processor categories exists in either direction. <span class="src">[affine_rate]</span></p>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="snum">2</span><h2>What the rate reads off an arithmetic family</h2></div>
+    <p>Let <code>f : A² → A¹</code> over <code>F_q</code> have geometrically irreducible fibers, <code>N_c = #f⁻¹(c)</code>, <code>a_c = q − N_c</code> the Frobenius traces, <code>m₂ = q⁻²Σa_c²</code>, and <code>L = (q,…,q)</code> the flat signature of a linear map.</p>
+    <div class="claim">
+      <p class="label tag-proved"><span class="dot"></span><b>Proposition 1 · proved</b></p>
+      <p><code>C(L→f) = log q / log max_c N_c</code>, attained at <code>β = ∞</code>.</p>
+    </div>
+    <div class="claim">
+      <p class="label tag-proved"><span class="dot"></span><b>Proposition 2 · proved</b></p>
+      <p><code>1 − C(f→L) = (3−2√2)·m₂/(2q log q) + O(q^−3/2)</code>, with the infimum at <code>β* = √2 − 1 = 0.414213562…</code>, independent of family, genus and <code>q</code>.</p>
+    </div>
+    <p>So the two ends of the temperature axis read two classical statistics: the <strong>extreme Frobenius trace</strong> at <code>β = ∞</code> and the <strong>second moment</strong> at <code>β*</code>. The interior carries the whole moment ladder, each order damped by ≈ <code>0.6/√q</code>. Flatness is equivalent to a permutation-polynomial condition, which subsumes the known <code>q ≡ 2 mod 3</code> result and reaches supersingular primes.</p>
+    <p>Two things are provably invisible, for structural reasons: the <em>smallest</em> fiber, because isolating it needs <code>β &lt; 0</code> where <code>Z</code> is no longer order-preserving; and the Katz–Sarnak symmetry type, because <code>Σ a_c = 0</code> identically and that first moment is exactly the separating statistic.</p>
+    <h3>The objection, stated plainly</h3>
+    <p><code>C(L→f)</code> is a strictly monotone function of <code>max_c N_c</code>, and <code>1 − C(f→L)</code> is to leading order affine in <code>m₂</code>. The rate is a function of the signature and the signature is the list <code>{N_c}</code>, so nothing it reports could fail to be computable from <code>{N_c}</code> directly. Information flows into the matrix, not out of it. What survives is a statement about the <em>comparison</em>: of all ways to compress <code>{N_c}</code>, resource-theoretic comparison against a linear map returns exactly the extreme value and the second moment, at two specific temperatures.</p>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="snum">3</span><h2>Main result: one dimension plus a bounded defect</h2></div>
+    <p>Write <code>F_a = log Z_a</code>, <code>u_a = log F_a</code>, <code>R = log r</code>, <code>Λ = log(max fiber)</code>, <code>σ = log(R/Λ)</code>, <code>s = log β</code>.</p>
+    <div class="claim">
+      <p class="label tag-proved"><span class="dot"></span><b>Theorem A · proved, verified to 3.6·10⁻¹⁵</b></p>
+      <div class="eq">u_a(e^s) = log Λ_a + max(σ_a, s) + w_a(s),   0 ≤ w_a ≤ log(1 + e^−|s−σ_a|)</div>
+      <p>with <code>w_a</code> unimodal, peaked exactly at <code>s = σ_a</code>, and 1-Lipschitz, of height ≤ <code>log 2</code> with equality iff <code>a</code> is flat. Every profile is a kink plus one bump.</p>
+    </div>
+    <p>Splitting <code>−log C</code> into symmetric and antisymmetric parts — <code>S = d/2</code> the metric, <code>A</code> the comparison — Theorem A gives</p>
+    <div class="eq">d(a,b) = |σ_a − σ_b| + ε,    0 ≤ ε ≤ log(1+e^−|Δσ|) ≤ log 2<span class="tag">(4)</span>
+A(a,b) = ψ(b) − ψ(a) + D,   |D| ≤ ½ log(1+e^−|Δσ|) ≤ (log 2)/2<span class="tag">(5)</span></div>
+    <p>Both constants are <strong>sharp</strong> and both bounds are <strong>independent of the number of points</strong>.</p>
+    <div class="claim">
+      <p class="label tag-proved"><span class="dot"></span><b>Theorem B · proved</b></p>
+      <p><code>d(a,b)</code> is exactly the <strong>Hilbert projective metric</strong> between <code>F_a</code> and <code>F_b</code> — of the ambient cone of positive functions under the pointwise order, restricted to the achievable set, which is its projective closure. Cartesian powers are the projective rescaling the metric quotients out.</p>
+    </div>
+    <div class="claim">
+      <p class="label tag-proved"><span class="dot"></span><b>Theorem B′ · proved</b></p>
+      <p><code>log 2</code> is a <strong>projective diameter</strong>. With <code>C₀</code> the <code>σ = 0</code> fibre, <code>diam C₀ = log 2</code> exactly, attained between <code>max(1,β)</code> and <code>1+β</code>. The <code>β</code>-dilation group acts by isometries with geodesic orbits and every fibre is isometric to <code>C₀</code>.</p>
+    </div>
+    <p class="pull">The exchange geometry is the real line thickened by exactly one bit.</p>
+    <p>That is the geometric source of both sharp constants, and the attached Birkhoff ratio is <code>tanh((log 2)/4) = 3 − 2√2</code> exactly. <span class="src">[realizability · birkhoff]</span></p>
+
+    <h3>What Theorem B does not buy</h3>
+    <p>No processor is a Birkhoff contraction. Tensoring is a <strong>translation</strong> <code>Φ ↦ Φ + F_c</code>, neither linear nor degree-1 homogeneous; every operation that <em>is</em> linear shifts <code>σ</code> by a constant, so its projective diameter is infinite and its ratio exactly 1, attained. Worse, tensoring <strong>expands</strong> <code>d</code> without bound — <code>d(a, a^⊗k) = 0</code> while <code>d(a⊗c, a^⊗k⊗c) → log k</code> — so <code>d</code> is a pseudometric on resources and <code>⊗</code> does not descend to its quotient. The correct positive statement is that all four resource operations are <strong>nonexpansive in Thompson’s part metric</strong>.</p>
+
+    <h3>Everything previously observed is a corollary</h3>
+    <p>The <code>ℓ₂</code>-distortion ≈ 1.1 with <code>c₂/log n</code> <em>falling</em> — Bourgain’s <code>O(log n)</code> is unreachable because the non-line budget does not grow with <code>n</code>. Every negative-type violation confined to a window of diameter <code>2 log 2</code>. The measured 4–9 % curl and its flatness in <code>n</code> from 8 to 698 points — the bounds in (5) are per-edge.</p>
+    <div class="claim">
+      <p class="label tag-proved"><span class="dot"></span><b>Corollary C · proved</b></p>
+      <p>The geometric mean of the rate asymmetry <code>C(b→a)/C(a→b)</code> around <strong>any</strong> preference cycle is at most <strong>2</strong>.</p>
+    </div>
+    <p>Writing <code>curl A = ½ log Ω</code> with <code>Ω</code> the ratio of forward to backward arbitrage, the sharpness question is exactly “<strong>is <code>Ω ≤ 2</code></strong> — does forward arbitrage exceed backward by at most one bit?” The lower bound is proved in closed form and the supremum is <em>not attained</em>; the upper bound remains open between <code>(log 2)/2</code> and <code>3(log 2)/2</code>.</p>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="snum">4</span><h2>Are the cycles important?</h2></div>
+    <p>The comparison is not transitive: 132 strict 3-cycles among genus-two pencils over <code>F₁₁</code> in a complete enumeration, 1475 over <code>F₁₃</code>, with certified witnesses over <code>F₁₁</code> and <code>F₁₀₁</code>. Three results weaken the obvious reading, one strengthens it, one bounds what can be claimed.</p>
+    <h3>Against: cycles are not arithmetic</h3>
+    <p>A random pool matched to a curve pool in the only things that matter has the <em>same</em> curl, and the tightest control has slightly more. Over 108 pools the curl fraction is a function of the trace spread to <code>R² = 0.93</code>. Cycles are a property of near-flat signature <em>shape</em>. <span class="src">[flux_arithmetic]</span></p>
+    <h3>Against: cycles mostly do not descend to the maps</h3>
+    <p>Since <code>C_aff</code> is not a signature invariant, the question is only well posed after choosing affine orbits. The seven signature cycles lift to twelve orbit triples, and <strong>eight of the twelve are refuted under <code>C_aff</code></strong>. <span class="src">[affine_rate]</span></p>
+    <h3>For — and this replaces an argument we had wrong</h3>
+    <div class="claim withdrawn">
+      <p class="label tag-withdrawn"><span class="dot"></span><b>Withdrawn</b></p>
+      <p>An earlier draft claimed cycles are a zero-temperature artefact — that averaging over temperature destroys them. <strong>That is false.</strong> There are certified 3-cycles of <em>flat</em> signatures, which Theorem A proves cannot cycle at <code>λ = ∞</code>, living in bounded bands including one at <code>λ = 1</code> exactly.</p>
+    </div>
+    <p>With <code>c_β(a→b) = F_a(β)/F_b(β)</code> the fixed-<code>β</code> rate and <code>M_λ</code> the power mean over a temperature prior, the whole comparison is</p>
+    <div class="eq">A_λ(a,b) = ½ log [ C_λ(a→b) / C_λ(b→a) ],  C_λ = M_−λ( c_·(a→b) )<span class="tag">(6)</span></div>
+    <p><code>λ = ∞</code> is the framework’s infimum, <code>λ = 1</code> the plain arithmetic average of transition rates, <code>λ = 0</code> the geometric mean. At a <em>single</em> temperature the comparison is a total order, since <code>c_β(a→b)·c_β(b→a) = 1</code> — no pool cycles at any one temperature. The comparison is a potential <em>iff</em> <code>λ = 0</code>, the unique power mean commuting with reciprocals; but the same identity sends every distance to zero, so that scalar complexity is the potential of an empty theory. <span class="src">[maslov]</span></p>
+    <p class="pull">Non-scalarity is not an artefact of the infimum. It is a consequence of irreversibility — the infimum is the extreme case, not the source.</p>
+    <h3>Where the cycles come from</h3>
+    <p>Brandão–Horodecki–Ng–Oppenheim–Wehner govern conversion by a continuum of Rényi α-free energies — the same β-indexed family. Their scalar is an infimum of a <strong>difference</strong>, hence a partial order, acyclic by construction; ours is an infimum of a <strong>ratio</strong>, hence a tournament, which can cycle. And the ratio is <em>forced</em>: these resources are unnormalised, so the difference diverges like <code>β(Λ_a − Λ_b)</code>. <strong>Cycles are the price of comparing resources with no common normalisation</strong> — the situation for maps. <span class="src">[quantum]</span></p>
+    <h3>The hedge, and it is the number to quote</h3>
+    <p>A single <em>unfitted</em> temperature prior reproduces <strong>99.39 %</strong> of the tropical order on <code>F₁₁</code> and 99.51 % on <code>F₁₃</code>; a fitted prior reaches 99.62 % and transfers across <code>q</code> without loss, against a ceiling of 99.90 %. Both beat the HodgeRank potential at 98.31 %. The irreducibly non-scalar part is about <strong>four parts in a thousand</strong>.</p>
+    <div class="claim">
+      <p class="label tag-computed"><span class="dot"></span><b>The defensible claim</b></p>
+      <p>Asymptotic convertibility is governed by no scalar complexity, because the comparison is a non-reversible aggregation over temperature. The failure is real but small: a single prior recovers 99.4 % of the order, and rates around any preference cycle differ by a geometric-mean factor of at most two. What this does <em>not</em> support is that cycles reveal something arithmetic. They do not.</p>
+    </div>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="snum">5</span><h2>Status</h2></div>
+    <p>Proved and independently re-verified: Propositions 1–2, Theorems A–B′, Corollary C, the power-mean identity (6) and its <code>λ = 0</code> reversibility, the flatness theorem, the two invisibility results, superadditivity of <code>C</code> and <code>C_aff</code> — and for <code>C_aff</code>, <strong>strict</strong> superadditivity, witnessed by <code>x² ⊗ x → x²+y</code> over <code>F₃</code> with a gap of at least <code>1/2</code>. One affine processor draws a degree-2 part from <code>x²</code> and a linear part from <code>x</code>, which neither factor supplies alone.</p>
+    <div class="grid">
+      <div class="card"><h4>Exact affine rates</h4><p><code>1/2</code> for <code>x²→x</code>, <code>x²→xy</code>, <code>x²→x²+y²</code>; <code>2/3</code> for <code>x²+y²→x</code>. In the last, the Fekete supremum is attained at no <code>r ≤ 2</code>.</p></div>
+      <div class="card"><h4>Open and load-bearing</h4><p>Prove <code>Ω ≤ 2</code>; whether <code>C_aff</code> cycles on affine orbits; whether any <code>λ &lt; ∞</code> is operational.</p></div>
+    </div>
+    <div class="claim withdrawn">
+      <p class="label tag-withdrawn"><span class="dot"></span><b>Three claims withdrawn</b></p>
+      <p>That the exchange metrics do not fill <code>MET</code> — <code>C₄</code> is realisable exactly, and the obstruction rested on a stalled search. That <code>C_aff ≤ C</code> — false, with the singular-processor counterexample in (3). And that cycles are a zero-temperature artefact — false, with certified cycles at <code>λ = 1</code>. <strong>Each was refuted by the session sent to verify it.</strong></p>
+    </div>
+  </section>
+
+  <footer class="col">
+    <p>Working draft. Sources are the accompanying findings files under <code>research/</code>; the typeset version is <code>paper_exchange_geometry/exchange_geometry.tex</code>.</p>
+  </footer>
+</div>
